@@ -1,1 +1,1 @@
-# mateu
+# Plataforma visa conectar voluntários capacitados a ensinar com indivíduos que buscam aprender, oferecendo cursos gratuitos e acessíveis para promover inclusão e reduzir desigualdades.
