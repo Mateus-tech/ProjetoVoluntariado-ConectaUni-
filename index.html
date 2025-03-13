@@ -7,18 +7,29 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="favcon.png" type="image/x-icon">
-
+<!-- Adicione isso antes do </head> -->
+<script type="module">
+  // Importe os módulos necessários do Firebase
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+  import { 
+    getAuth, 
+    createUserWithEmailAndPassword, 
+    signInWithEmailAndPassword,
+    signOut,
+    onAuthStateChanged
+  } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+</script>
 </head>
 <body>
   <!-- Navbar -->
   <nav class="navbar">
-    <div class="logo">
-      <img src="favcon.png" alt="ConectaUni">
-      <h1>ConectaUni</h1>
+   <div class="logo"  >
+    <a href="index.html"><img src="favcon.png" alt="ConectaUni" ></a>
+      <a href="index.html"><h1  >ConectaUni</h1></a>
     </div>
     <div class="nav-links">
       <a href="#sobre"><i class="fas fa-info-circle"></i>Sobre</a>
-      <a href="#cursos"><i class="fas fa-graduation-cap"></i>Cursos</a>
+      <a href="lista_curso.html"><i class="fas fa-graduation-cap"></i>Cursos</a>
       <a href="#voluntarios"><i class="fas fa-hands-helping"></i>Seja Voluntário</a>
       <a href="#contato"><i class="fas fa-envelope"></i>Contato</a>
       <button class="btn-gradiente" onclick="showModal('login')">
@@ -49,14 +60,16 @@
   
   <!-- Carousel de Cursos -->
   <section class="slider-container reveal" id="cursos">
-    <h2>Cursos de Nivelamento</h2>
+    <h2>Nossos Cursos</h2>
     <div class="carousel">
       <div class="carousel-track" id="carouselTrackCourses">
         <!-- Cards inseridos via JS -->
       </div>
     </div>
     <div class="more-btn-container">
-      <button class="btn-gradiente" onclick="seeMore('courses')">Ver Mais Cursos</button>
+      <button class="btn-gradiente" href="lista_curso.html">
+        <a href="lista_cursos.html" class="btn">Ver Mais Cursos</a>
+    </button>
     </div>
   </section>
   

@@ -51,6 +51,10 @@ body.dark-mode .navbar {
   gap: 1rem;
   color: white;
 }
+.navbar h1, a{
+  color: white;
+  text-decoration: none;
+}
 .logo img {
   height: 5vw;
   margin-top: 0%;
@@ -82,6 +86,12 @@ body.dark-mode .navbar {
   transition: all 0.3s;
   position: relative;
   overflow: hidden;
+}
+.btn-gradiente a{
+  color: white;
+  text-decoration: none;
+
+
 }
 .btn-gradiente::before {
   content: '';
@@ -982,3 +992,352 @@ body.dark-mode .card {
     transform: translateY(0);
   }
 }
+/* Adicione ao seu style.css */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px 25px;
+  border-radius: 8px;
+  color: white;
+  font-weight: 500;
+  z-index: 1000;
+  animation: slideIn 0.3s ease-out;
+}
+
+.toast.success {
+  background: #28a745;
+}
+
+.toast.error {
+  background: #dc3545;
+}
+
+.admin-btn {
+  background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+}
+
+@keyframes slideIn {
+  from { bottom: -50px; opacity: 0; }
+  to { bottom: 20px; opacity: 1; }
+}
+
+/* =========================
+   FOOTER - ORGANIZAÇÃO E ALINHAMENTO
+============================ */
+.footer {
+  background: var(--secondary);
+  color: white;
+  padding: 4rem 5%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.footer-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 200px;
+  text-align: left;
+  padding: 1.5rem;
+}
+
+.footer-section h4 {
+  color: var(--accent);
+  margin-bottom: 1.5rem;
+  font-size: 1.3rem;
+}
+
+/* Remove marcadores das listas */
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 1rem;
+}
+
+.footer-section ul li a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.footer-section ul li a:hover {
+  color: var(--accent);
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  
+}
+
+.footer-bottom {
+  width: 100%;
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}
+
+.legal-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+/* Ajustes mobile para o footer */
+@media (max-width: 768px) {
+  .footer-grid {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-section {
+    text-align: center;
+  }
+}
+
+/* =========================
+   MENU LATERAL MOBILE
+============================ */
+/* Já implementado anteriormente, garantindo alinhamento centralizado dos links */
+@media (max-width: 768px) {
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    right: -100%;
+    height: calc(100vh - 70px);
+    width: 250px;
+    background: var(--secondary);
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem 1rem;
+    transition: right 0.3s ease;
+  }
+  .nav-links.active {
+    right: 0;
+    margin-top: 1%;
+  }
+  .nav-links a {
+    margin: 1rem 0;
+    width: 100%;
+    text-align: center;
+  }
+  .menu-toggle {
+    display: block;
+  }
+}
+
+/* =========================
+   CHAT MODAL - BOTÃO DE FECHAR
+============================ */
+.chat-modal {
+  width: 90%;
+  max-width: 350px;
+  bottom: 90px;
+  right: 20px;
+  position: fixed;
+  z-index: 1300;
+  background: var(--card-bg);
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  display: none;
+  flex-direction: column;
+}
+
+.chat-modal.active {
+  display: flex;
+}
+
+.chat-modal .chat-header {
+  background: var(--primary);
+  color: white;
+  padding: 1rem;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+/* Botão de fechar no chat */
+.chat-modal .chat-header .close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+  z-index: 2;
+}
+
+.chat-modal .chat-header .close:hover {
+  color: var(--accent);
+}
+
+.chat-modal .chat-content {
+  padding: 1rem;
+  height: 300px;
+  overflow-y: auto;
+  font-size: 0.9rem;
+}
+
+.chat-modal .chat-input {
+  display: flex;
+  border-top: 1px solid #ddd;
+}
+
+.chat-modal .chat-input input {
+  flex: 1;
+  border: none;
+  padding: 0.8rem;
+  border-bottom-left-radius: 10px;
+}
+
+.chat-modal .chat-input button {
+  border: none;
+  background: var(--accent);
+  padding: 0.8rem 1rem;
+  border-bottom-right-radius: 10px;
+  cursor: pointer;
+}
+
+/* Ajustes responsivos para o chat */
+@media (max-width: 768px) {
+  .chat-modal {
+    width: calc(100% - 40px);
+    bottom: 70px;
+    right: 20px;
+    left: 20px;
+    max-width: none;
+  }
+  .chat-modal .chat-content {
+    height: 250px;
+  }
+}
+.footer-logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  /* Para desktop, se desejar alinhamento à esquerda, remova o justify-content */
+  justify-content: flex-start; 
+
+}
+@media (max-width: 768px) {
+  .footer-logo {
+    justify-content: center;
+  }
+  .carousel-track {
+    display: flex;
+    animation: scrollCarousel 5s linear infinite;
+  }
+  .carousel {
+    overflow: hidden;
+    position: relative;
+  }
+ 
+  .card {
+    min-width: 300px;
+    margin-right: 1rem;
+    background: white;
+    border-radius: 15px;
+    padding: 1rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s, opacity 0.6s;
+    flex-shrink: 0;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  .card.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  body.dark-mode .card {
+    background: #2a2a2a;
+    color: var(--text-dark);
+  }
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  .card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+  }
+  @keyframes scrollCarousel {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  #contato > div.footer-grid > div:nth-child(1) > div.logo{
+    margin-left: 20%;
+
+  }
+  .logo img {
+    height: 10vw;
+  
+  }
+  .social-#contato > div.footer-grid > div:nth-child(1) > div.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+    size: 100px
+    
+  }
+ 
+      }
+  #contato > div.footer-grid > div:nth-child(1) > div.social-icons{
+    justify-content: flex-start; 
+    align-items: center;
+    display: flex;
+    justify-content: center;
+      
+      }
+
+      @media (min-width: 768px){
+      #contato > div.footer-grid > div:nth-child(1) > div.social-icons{
+        margin-right: 35%; 
+      }}
+
+      body > section.filters-section.reveal > div > div.filter-buttons{
+        justify-content: flex-start; 
+    align-items: center;
+    display: flex ;
+    justify-content: center;
+      }
+      body > section.filters-section.reveal > div > div.category-select{
+        padding-top: 1rem;
+        justify-content: flex-start; 
+        align-items: center;
+        display: grid ;
+        justify-content: center;
+      }

@@ -95,7 +95,7 @@
         e.preventDefault();
         const email = document.getElementById('loginEmail').value.trim();
         const password = document.getElementById('loginPassword').value.trim();
-        if(email === 'adm@adm.com' && password === 'adm') {
+        if(email === 'adm@gmail.com' && password === 'adm') {
           alert('Login como ADM realizado com sucesso!');
           hideModals();
           return;
@@ -327,3 +327,4 @@ document.querySelector('.chat-input button').addEventListener('click', (e) => {
     e.preventDefault();
     sendChatMessage();
 });
+

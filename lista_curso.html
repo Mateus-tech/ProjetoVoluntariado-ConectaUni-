@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ConectaUni - Lista de Cursos</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="lista_curso.css">
+  <link rel="icon" href="favcon.png" type="image/x-icon">
+</head>
+<body>
+  <!-- Navbar (mesma estrutura do código base) -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html"><img src="favcon.png" alt="ConectaUni" ></a>
+      <a href="index.html"><h1  >ConectaUni</h1></a>
+    </div>
+    <div class="nav-links">
+      <a href="#sobre"><i class="fas fa-info-circle"></i>Sobre</a>
+      <a href="#cursos"><i class="fas fa-graduation-cap"></i>Cursos</a>
+      <a href="#voluntarios"><i class="fas fa-hands-helping"></i>Seja Voluntário</a>
+      <a href="#contato"><i class="fas fa-envelope"></i>Contato</a>
+      <button class="btn-gradiente" onclick="showModal('login')">
+        <i class="fas fa-sign-in-alt"></i>Entrar
+      </button>
+      <button class="btn-gradiente" onclick="showModal('signup')">
+        <i class="fas fa-user-plus"></i>Cadastrar
+      </button>
+    </div>
+    <!-- Dark Mode Toggle e Menu Mobile -->
+    <button id="darkModeToggle" onclick="toggleDarkMode()"><i class="fas fa-moon"></i></button>
+    <button class="menu-toggle" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </button>
+  </nav>
+
+  <section class="hero" id="home">
+    <div class="hero-content reveal">
+      <h1>Conectando Saberes, Transformando Vidas</h1>
+      <p>Plataforma colaborativa para voluntariado educacional</p>
+      <div class="search-bar">
+        <input type="text" placeholder="Buscar cursos, matérias ou voluntários...">
+        <button class="btn-gradiente"><i class="fas fa-search"></i> Buscar</button>
+      </div>
+    </div>
+  </section>
+
+  
+  <!-- Filtros e Barra de Pesquisa -->
+  <section class="filters-section reveal">
+    <div class="container">
+      <div class="search-bar">
+        <input type="text" id="courseSearch" placeholder="Buscar cursos, conteúdos, criadores...">
+        <button class="btn-gradiente" onclick="filterCourses()">
+          <i class="fas fa-search"></i> Buscar
+        </button>
+      </div>
+      <div class="filter-buttons">
+        <button class="filter-btn btn-gradiente active" data-filter="all" onclick="setFilter('all')">Todos</button>
+        <button class="filter-btn btn-gradiente" data-filter="gratuito" onclick="setFilter('gratuito')">Gratuitos</button>
+        <button class="filter-btn btn-gradiente" data-filter="pago" onclick="setFilter('pago')">Pagos</button>
+      </div>
+      <div class="category-select">
+        <select id="categoryFilter" onchange="filterCourses()">
+          <option value="all">Todas as Áreas</option>
+          <option value="programacao">Programação</option>
+          <option value="design">Design</option>
+          <option value="Nivelamento">Nivelamento</option>
+          <option value="idiomas">Idiomas</option>
+          <option value="negocios">Negócios</option>
+        </select>
+      </div>
+    </div>
+  </section>
+<!-- Seção de Listagem de Cursos -->
+<section class="courses-section reveal" id="cursos">
+  <div class="container">
+    <h2>Cursos de Nivelamento</h2>
+    <div class="courses-grid">
+      <!-- Curso 1: Português Básico -->
+      <div class="course-card" data-type="gratuito" data-category="Nivelamento">
+        <a href="curso-detalhes.html">
+          <img src="https://www.unovacursos.com.br/blog/wp-content/uploads/2023/07/Lingua-Portuguesa-para-ENEM-768x432.jpg" alt="Curso de Português Básico">
+          <div class="course-info">
+            <h3>Português Nivelamento</h3>
+            <p>Desenvolva habilidades de leitura e escrita para aprimorar seu desempenho acadêmico.</p>
+            <p><strong>Autor:</strong> ConectaUni</p>
+            <p><strong>Tipo:</strong> Gratuito</p>
+          </div>
+        </a>
+      </div>
+      <!-- Curso 2: Matemática Essencial -->
+      <div class="course-card" data-type="gratuito" data-category="Nivelamento">
+        <a href="curso-detalhes.html">
+          <img src="https://estatisticaparaconcurso.com/wp-content/uploads/2024/10/Matematica_essencial.png" alt="Curso de Matemática Essencial">
+          <div class="course-info">
+            <h3>Matemática Nivelamento</h3>
+            <p>Fortaleça seus fundamentos matemáticos para resolver problemas do dia a dia.</p>
+            <p><strong>Autor:</strong> ConectaUni</p>
+            <p><strong>Tipo:</strong> Gratuito</p>
+          </div>
+        </a>
+      </div>
+      <!-- Curso 3: Inglês Basico -->
+      <div class="course-card" data-type="gratuito" data-category="Nivelamento">
+        <a href="curso-detalhes.html">
+          <img src="https://aprendeencasa.mx/wp-content/uploads/2022/09/escuelas-de-ingles-en-nueva-york-1024x534.png" alt="Curso de Inglês para Todos">
+          <div class="course-info">
+            <h3>Inglês Nivelamento</h3>
+            <p>Aprenda a se comunicar em inglês com lições práticas e dinâmicas.</p>
+            <p><strong>Autor:</strong> ConectaUni</p>
+            <p><strong>Tipo:</strong> Gratuito</p>
+          </div>
+        </a>
+      </div>
+      <!-- Curso 4: HTML e CSS -->
+      <div class="course-card" data-type="gratuito" data-category="programacao">
+        <a href="curso-detalhes.html">
+          <img src="https://alzari.ru/wp-content/uploads/2022/04/podklyuchaem-css-k-html-face.jpg" alt="Curso de HTML e CSS">
+          <div class="course-info">
+            <h3>HTML e CSS</h3>
+            <p>Aprenda a criar e estilizar páginas web utilizando HTML5 e CSS3.</p>
+            <p><strong>Autor:</strong> ConectaUni</p>
+            <p><strong>Tipo:</strong> Gratuito</p>
+          </div>
+        </a>
+      </div>
+      <!-- Curso 5: PHP Básico -->
+      <div class="course-card" data-type="pago" data-category="programacao">
+        <a href="curso-detalhes.html">
+          <img src="https://static.imasters.com.br/wp-content/uploads/2018/06/22153245/php-post-1.png" alt="Curso de PHP Básico">
+          <div class="course-info">
+            <h3>PHP Básico</h3>
+            <p>Aprenda os fundamentos do PHP e comece a desenvolver sites dinâmicos.</p>
+            <p><strong>Autor:</strong> ConectaUni</p>
+            <p><strong>Tipo:</strong> Pago</p>
+          </div>
+        </a>
+      </div>
+      <!-- Curso 6: Inglês Instrumental -->
+      <div class="course-card" data-type="pago" data-category="idiomas">
+        <a href="curso-detalhes.html">
+          <img src="https://www.ecursoslivres.com.br/imagem-curso/ingles-instrumental.WebP" alt="Curso de Inglês Instrumental">
+          <div class="course-info">
+            <h3>Inglês Instrumental</h3>
+            <p>Desenvolva o vocabulário e habilidades para ambientes profissionais.</p>
+            <p><strong>Autor:</strong> ConectaUni</p>
+            <p><strong>Tipo:</strong> Pago</p>
+          </div>
+        </a>
+      </div>
+      <!-- Curso 7: Algoritmos para Iniciantes -->
+      <div class="course-card" data-type="pago" data-category="programacao">
+        <a href="curso-detalhes.html">
+          <img src="https://blog.looplex.com/wp-content/uploads/2020/05/algoritmos.png" alt="Curso de Algoritmos para Iniciantes">
+          <div class="course-info">
+            <h3>Algoritmos para Iniciantes</h3>
+            <p>Aprenda a lógica de programação e a resolver problemas com algoritmos.</p>
+            <p><strong>Autor:</strong> ConectaUni</p>
+            <p><strong>Tipo:</strong> Pago</p>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+  </section>
+
+  <!-- Footer (mesma estrutura do código base) -->
+  <footer class="footer" id="contato">
+    <div class="footer-grid">
+      <div class="footer-section">
+        <div class="logo">
+          <img src="favcon.png" alt="ConectaUni">
+          <h3>ConectaUni</h3>
+        </div>
+        <p>Plataforma educacional colaborativa</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>Links Úteis</h4>
+        <ul>
+          <li><a href="#sobre"><i class="fas fa-chevron-right"></i> Sobre Nós</a></li>
+          <li><a href="#cursos"><i class="fas fa-chevron-right"></i> Cursos</a></li>
+          <li><a href="#voluntarios"><i class="fas fa-chevron-right"></i> Voluntários</a></li>
+          <li><a href="#contato"><i class="fas fa-chevron-right"></i> Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Contato</h4>
+        <ul class="contact-info">
+          <li><i class="fas fa-map-marker-alt"></i> São Paulo - SP</li>
+          <li><i class="fas fa-phone"></i> (11) 9999-9999</li>
+          <li><i class="fas fa-envelope"></i> contato@conectauni.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 ConectaUni. Todos os direitos reservados.</p>
+      <div class="legal-links">
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Termos de Uso</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top -->
+  <div id="backToTop" class="back-to-top" onclick="scrollToTop()">
+    <i class="fas fa-chevron-up"></i>
+  </div>
+
+  <!-- Modais (Login/Cadastro) -->
+  <div class="modal-overlay" id="modalOverlay"></div>
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="hideModals()">&times;</span>
+      <h2><i class="fas fa-sign-in-alt"></i> Login</h2>
+      <form id="loginForm">
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" placeholder="E-mail" required id="loginEmail">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Senha" required id="loginPassword">
+        </div>
+        <button type="submit" class="btn-gradiente">Entrar</button>
+      </form>
+    </div>
+  </div>
+  <div id="signupModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="hideModals()">&times;</span>
+      <h2><i class="fas fa-user-plus"></i> Cadastro</h2>
+      <form id="signupForm">
+        <div class="input-group">
+          <i class="fas fa-user"></i>
+          <input type="text" placeholder="Nome completo" required id="signupName">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" placeholder="E-mail" required id="signupEmail">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Senha" required id="signupPassword">
+        </div>
+        <button type="submit" class="btn-gradiente">Cadastrar</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Widget de Chat -->
+  <div id="chatWidget" class="chat-widget" onclick="toggleChatModal()">
+    <i class="fas fa-comments"></i>
+  </div>
+  <div id="chatModal" class="chat-modal">
+    <div class="chat-header">
+      <span>ChatBot</span>
+      <span class="close" onclick="toggleChatModal()">&times;</span>
+    </div>
+    <div class="chat-content" id="chatContent">
+      <p><strong>ChatBot:</strong> Olá! Como posso ajudar?</p>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="chatInput" placeholder="Digite sua mensagem...">
+      <button onclick="sendChatMessage()">Enviar</button>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
+  <script>
+    // Variável para controle do filtro por tipo (gratuito/pago/todos)
+    let currentFilter = 'all';
+
+    // Função para atualizar os botões de filtro e aplicar a filtragem
+    function setFilter(filter) {
+      currentFilter = filter;
+      const buttons = document.querySelectorAll('.filter-btn');
+      buttons.forEach(btn => {
+        btn.classList.remove('active');
+        if(btn.getAttribute('data-filter') === filter) {
+          btn.classList.add('active');
+        }
+      });
+      filterCourses();
+    }
+
+    // Função para filtrar os cursos conforme o tipo, categoria e texto da pesquisa
+    function filterCourses() {
+      const searchValue = document.getElementById('courseSearch').value.toLowerCase();
+      const categoryValue = document.getElementById('categoryFilter').value;
+      const courses = document.querySelectorAll('.course-card');
+
+      courses.forEach(course => {
+        const title = course.querySelector('.course-info h3').textContent.toLowerCase();
+        const description = course.querySelector('.course-info p').textContent.toLowerCase();
+        // Tentativa de capturar o autor (após o <strong>Autor:</strong>)
+        const authorNode = course.querySelector('.course-info p');
+        let author = "";
+        if(authorNode) {
+          author = authorNode.innerText.replace("Autor:", "").toLowerCase();
+        }
+        const type = course.getAttribute('data-type');
+        const category = course.getAttribute('data-category');
+
+        let matchesFilter = (currentFilter === 'all' || type === currentFilter);
+        let matchesCategory = (categoryValue === 'all' || category === categoryValue);
+        let matchesSearch = (title.includes(searchValue) || description.includes(searchValue) || author.includes(searchValue));
+
+        course.style.display = (matchesFilter && matchesCategory && matchesSearch) ? 'block' : 'none';
+      });
+    }
+
+    // Evento para pesquisa em tempo real
+    document.getElementById('courseSearch').addEventListener('keyup', filterCourses);
+  </script>
+</body>
+</html>
+<STYle>
+</STYle>
