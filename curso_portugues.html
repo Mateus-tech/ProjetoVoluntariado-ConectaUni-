@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curso: Português Nivelamento - ConectaUni</title>
+  <!-- Ícones e CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css"> <!-- CSS global -->
+  <link rel="stylesheet" href="curso.css"> <!-- CSS específico -->
+  <link rel="icon" href="favcon.png" type="image/x-icon">
+  <!-- Estilos específicos para o modal de texto -->
+  <style>
+    .text-modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      padding: 2rem;
+      z-index: 1001;
+      border-radius: 8px;
+      max-width: 800px;
+      width: 90%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .text-modal .modal-content {
+      position: relative;
+    }
+    .text-modal .close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+    .text-modal .text-content {
+      max-height: 400px;
+      overflow-y: auto;
+      margin-bottom: 1rem;
+    }
+    .text-modal .pagination-buttons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar (estrutura padrão) -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html"><img src="favcon.png" alt="ConectaUni"></a>
+      <a href="index.html"><h1>ConectaUni</h1></a>
+    </div>
+    <div class="nav-links">
+      <a href="#sobre"><i class="fas fa-info-circle"></i>Sobre</a>
+      <a href="lista_curso.html"><i class="fas fa-graduation-cap"></i>Cursos</a>
+      <a href="#voluntarios"><i class="fas fa-hands-helping"></i>Seja Voluntário</a>
+      <a href="#contato"><i class="fas fa-envelope"></i>Contato</a>
+      <button class="btn-gradiente" onclick="showModal('login')"><i class="fas fa-sign-in-alt"></i>Entrar</button>
+      <button class="btn-gradiente" onclick="showModal('signup')"><i class="fas fa-user-plus"></i>Cadastrar</button>
+    </div>
+    <button id="darkModeToggle" onclick="toggleDarkMode()"><i class="fas fa-moon"></i></button>
+    <button class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+  </nav>
+  
+  <!-- Cabeçalho do Curso: Imagem e Título -->
+  <header class="course-header">
+    <div class="course-thumbnail">
+      <img src="https://storage.mlcdn.com/account_image/710252/pcN7Z3wpYuOblQWw3mlQSF4AfrzuYtt7k5XxQCWh.png" alt="Português Nivelamento">
+      <div class="course-tags">
+        <span class="tag">Linguagens</span>
+        <span class="tag">Nivelamento</span>
+      </div>
+    </div>
+    <h1 id="courseTitle">Português Nivelamento</h1>
+    <p id="courseSubtitle">Reforce seus conhecimentos com aulas interativas, materiais atualizados e práticas.</p>
+  </header>
+  
+  <!-- Container Principal: Menu Lateral e Conteúdo Dinâmico -->
+  <main class="course-detail-container">
+    <div class="course-wrapper">
+      <!-- Sidebar -->
+      <aside class="course-sidebar">
+        <div class="sidebar-header">
+          <h2>Conteúdo do Curso</h2>
+        </div>
+        <nav class="sidebar-nav">
+          <ul class="sidebar-menu">
+            <li><a href="#" data-section="sobre" class="active"><i class="fas fa-book-open"></i>Sobre o Curso</a></li>
+            <li><a href="#" data-section="modulos"><i class="fas fa-layer-group"></i>Módulos</a></li>
+            <li><a href="#" data-section="materiais"><i class="fas fa-file-download"></i>Materiais</a></li>
+            <li><a href="#" data-section="atividades"><i class="fas fa-tasks"></i>Atividades</a></li>
+            <li><a href="#" data-section="progresso"><i class="fas fa-chart-line"></i>Progresso</a></li>
+            <li><a href="#" data-section="forum"><i class="fas fa-comments"></i>Fórum</a></li>
+          </ul>
+        </nav>
+      </aside>
+      
+      <!-- Área Principal: Conteúdo Dinâmico -->
+      <section class="course-main-content" id="courseContent">
+        <!-- O conteúdo de cada seção será carregado aqui -->
+      </section>
+    </div>
+  </main>
+  
+  <!-- Modal para Exibir Conteúdo de Texto do Módulo -->
+  <div id="textModal" class="modal text-modal" style="display:none;">
+    <div class="modal-content">
+      <span class="close" onclick="closeTextModal()">&times;</span>
+      <div id="textContent"></div>
+      <div class="pagination-buttons">
+        <button class="btn-gradiente" onclick="changeModalTextPage(-1)">Anterior</button>
+        <span id="currentPage">1/1</span>
+        <button class="btn-gradiente" onclick="changeModalTextPage(1)">Próxima</button>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Footer (estrutura padrão) -->
+  <footer class="footer" id="contato">
+    <div class="footer-grid">
+      <div class="footer-section">
+        <div class="logo">
+          <a href="index.html"><img src="favcon.png" alt="ConectaUni"></a>
+          <a href="index.html"><h3>ConectaUni</h3></a>
+        </div>
+        <p>Plataforma educacional colaborativa</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>Links Úteis</h4>
+        <ul>
+          <li><a href="#sobre"><i class="fas fa-chevron-right"></i> Sobre Nós</a></li>
+          <li><a href="lista_curso.html"><i class="fas fa-chevron-right"></i> Cursos</a></li>
+          <li><a href="#voluntarios"><i class="fas fa-chevron-right"></i> Voluntários</a></li>
+          <li><a href="#contato"><i class="fas fa-chevron-right"></i> Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Contato</h4>
+        <ul class="contact-info">
+          <li><i class="fas fa-map-marker-alt"></i> Feira de Santana - BA</li>
+          <li><i class="fas fa-phone"></i> (75) 98144-0696</li>
+          <li><i class="fas fa-envelope"></i> mateus.queiroz.ti.mq@gmail.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 ConectaUni. Todos os direitos reservados.</p>
+      <div class="legal-links">
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Termos de Uso</a>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Back to Top -->
+  <div id="backToTop" class="back-to-top" onclick="scrollToTop()">
+    <i class="fas fa-chevron-up"></i>
+  </div>
+  
+  <!-- Modais e Widget de Chat (já existentes) -->
+  <div class="modal-overlay" id="modalOverlay"></div>
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="hideModals()">&times;</span>
+      <h2><i class="fas fa-sign-in-alt"></i> Login</h2>
+      <form id="loginForm">
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" placeholder="E-mail" required id="loginEmail">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Senha" required id="loginPassword">
+        </div>
+        <button type="submit" class="btn-gradiente">Entrar</button>
+      </form>
+    </div>
+  </div>
+  <div id="signupModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="hideModals()">&times;</span>
+      <h2><i class="fas fa-user-plus"></i> Cadastro</h2>
+      <form id="signupForm">
+        <div class="input-group">
+          <i class="fas fa-user"></i>
+          <input type="text" placeholder="Nome completo" required id="signupName">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" placeholder="E-mail" required id="signupEmail">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Senha" required id="signupPassword">
+        </div>
+        <button type="submit" class="btn-gradiente">Cadastrar</button>
+      </form>
+    </div>
+  </div>
+  <div id="chatWidget" class="chat-widget" onclick="toggleChatModal()">
+    <i class="fas fa-comments"></i>
+  </div>
+  <div id="chatModal" class="chat-modal">
+    <div class="chat-header">
+      <span>ChatBot</span>
+      <span class="close" onclick="toggleChatModal()">&times;</span>
+    </div>
+    <div class="chat-content" id="chatContent">
+      <p><strong>ChatBot:</strong> Olá! Como posso ajudar?</p>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="chatInput" placeholder="Digite sua mensagem...">
+      <button onclick="sendChatMessage()">Enviar</button>
+    </div>
+  </div>
+  
+  <!-- Scripts -->
+  <script src="script.js"></script>
+  <script>
+    // DECLARE modulosContent em nível global para que todas as funções possam acessá-la.
+    const modulosContent = {
+      1: { // Módulo 1: Fundamentos Gramaticais
+        video: `
+          <p><strong>Módulo 1 - Fundamentos Gramaticais</strong></p>
+          <p>Assista à aula introdutória que apresenta os principais conceitos da gramática da língua portuguesa.</p>
+          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen style="width:100%; height:315px;"></iframe>
+        `,
+        texto: [
+          // Página 1
+          `<div class="text-content-box" style="height:300px; overflow-y:auto;">
+              <div class="text-page">
+                <p><strong>Módulo 1 - Fundamentos Gramaticais (Página 1)</strong></p>
+                <p>Neste módulo, você aprenderá os princípios fundamentais da gramática: classificação das palavras, estrutura das orações e regras de concordância.</p>
+                <p>Exemplo: "A rápida raposa marrom saltou sobre o cão preguiçoso." Analise essa frase identificando sujeito, predicado e complementos.</p>
+              </div>
+            </div>
+            <div class="pagination-buttons">
+              <button class="btn-gradiente prev-btn" onclick="changeModalTextPage(-1)" style="display:none;">Anterior</button>
+              <button class="btn-gradiente next-btn" onclick="changeModalTextPage(1)">Próxima</button>
+            </div>`,
+          // Página 2
+          `<div class="text-content-box" style="height:300px; overflow-y:auto;">
+              <div class="text-page">
+                <p><strong>Módulo 1 - Fundamentos Gramaticais (Página 2)</strong></p>
+                <p>Aprofunde o estudo com exemplos práticos e exercícios para fixação. Veja como a concordância verbal e nominal é aplicada em contextos reais.</p>
+                <p>Exemplo: Identifique erros comuns em frases do cotidiano e proponha correções.</p>
+              </div>
+            </div>
+            <div class="pagination-buttons">
+              <button class="btn-gradiente prev-btn" onclick="changeModalTextPage(-1)">Anterior</button>
+              <button class="btn-gradiente next-btn" onclick="changeModalTextPage(1)">Próxima</button>
+            </div>`,
+          // Página 3
+          `<div class="text-content-box" style="height:300px; overflow-y:auto;">
+              <div class="text-page">
+                <p><strong>Módulo 1 - Fundamentos Gramaticais (Página 3)</strong></p>
+                <p>Revise os conceitos e exercícios apresentados e consolide seu aprendizado com um resumo dos principais pontos abordados.</p>
+              </div>
+            </div>
+            <div class="pagination-buttons">
+              <button class="btn-gradiente prev-btn" onclick="changeModalTextPage(-1)">Anterior</button>
+              <button class="btn-gradiente next-btn" onclick="changeModalTextPage(1)" style="display:none;">Próxima</button>
+            </div>`
+        ],
+        podcast: `
+          <p><strong>Módulo 1 - Fundamentos Gramaticais</strong></p>
+          <p>Conteúdo de Podcast bloqueado. Faça sua assinatura para acessar.</p>
+        `
+      },
+      2: {
+        video: `
+          <p><strong>Módulo 2 - Interpretação de Textos</strong></p>
+          <p>Assista à aula que ensina técnicas de leitura crítica e interpretação de textos.</p>
+          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen style="width:100%; height:315px;"></iframe>
+        `,
+        texto: `<p><strong>Módulo 2 - Interpretação de Textos</strong></p>
+          <p>Este módulo desenvolve a habilidade de interpretar textos de diversos gêneros, identificando ideias principais, inferindo significados e analisando a estrutura textual.</p>
+          <p>Exemplo: Leia o artigo e responda às questões de interpretação.</p>`,
+        podcast: `
+          <p><strong>Módulo 2 - Interpretação de Textos</strong></p>
+          <p>Conteúdo de Podcast bloqueado. Faça sua assinatura para acessar.</p>
+        `
+      },
+      3: {
+        video: `
+          <p><strong>Módulo 3 - Redação e Produção de Textos</strong></p>
+          <p>Assista à aula que apresenta técnicas de redação e produção textual.</p>
+          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen style="width:100%; height:315px;"></iframe>
+        `,
+        texto: `<p><strong>Módulo 3 - Redação e Produção de Textos</strong></p>
+          <p>Neste módulo, você aprenderá técnicas para organizar suas ideias, estruturar um texto e revisar seu conteúdo para torná-lo coeso.</p>`,
+        podcast: `
+          <p><strong>Módulo 3 - Redação e Produção de Textos</strong></p>
+          <p>Conteúdo de Podcast bloqueado. Faça sua assinatura para acessar.</p>
+        `
+      }
+    };
+
+    // Listener DOMContentLoaded
+    document.addEventListener("DOMContentLoaded", () => {
+      // Dados do curso
+      const coursesData = {
+        portugues: {
+          title: "Português Nivelamento",
+          subtitle: "Reforce seus conhecimentos com aulas interativas, materiais atualizados e práticas.",
+          sections: {
+            sobre: `
+              <article class="course-section" id="sobre">
+                <div class="section-header">
+                  <i class="fas fa-info-circle"></i>
+                  <h2>Sobre o Curso</h2>
+                </div>
+                <div class="section-content">
+                  <p>Este curso foi desenvolvido para oferecer uma base sólida em língua portuguesa, abrangendo gramática, interpretação e produção textual. Você terá acesso a métodos inovadores e recursos interativos que facilitarão o aprendizado.</p>
+                  <p><strong>Duração:</strong> 12 semanas | <strong>Aulas:</strong> 30 | <strong>Certificado:</strong> Sim</p>
+                  <div class="instructor-info">
+                    <h3>Sobre a Instrutora</h3>
+                    <div class="instructor" style="display: flex; align-items: center; gap: 1rem;">
+                      <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Instrutora" style="width: 70px; height: 70px; border-radius: 50%; animation: fadeIn 1s;">
+                      <div>
+                        <p>Instrutora</p>
+                        <h4>Dra. Ana Clara Mendes</h4>
+                        <p>Especialista em Linguística, com 15 anos de experiência no ensino e pesquisa, dedicada a ajudar alunos a aprimorar sua comunicação.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>`,
+            modulos: `
+              <article class="course-section" id="modulos">
+                <div class="section-header">
+                  <i class="fas fa-layer-group"></i>
+                  <h2>Módulos do Curso</h2>
+                </div>
+                <div class="modules-accordion">
+                  <!-- Módulo 1 -->
+                  <div class="module-dropdown" data-module="1">
+                    <div class="module-header">
+                      <h3>Módulo 1: Fundamentos Gramaticais</h3>
+                      <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="module-content">
+                      <div class="module-options">
+                        <button class="btn-option" data-type="video">Vídeo</button>
+                        <button class="btn-option" data-type="texto">Texto</button>
+                        <button class="btn-option locked" data-type="podcast"><i class="fas fa-lock"></i> Podcast</button>
+                      </div>
+                      <div class="module-detail" id="moduleDetail1">
+                        <p>Clique em uma opção para visualizar o conteúdo deste módulo.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Módulo 2 -->
+                  <div class="module-dropdown" data-module="2">
+                    <div class="module-header">
+                      <h3>Módulo 2: Interpretação de Textos</h3>
+                      <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="module-content">
+                      <div class="module-options">
+                        <button class="btn-option" data-type="video">Vídeo</button>
+                        <button class="btn-option" data-type="texto">Texto</button>
+                        <button class="btn-option locked" data-type="podcast"><i class="fas fa-lock"></i> Podcast</button>
+                      </div>
+                      <div class="module-detail" id="moduleDetail2">
+                        <p>Clique em uma opção para visualizar o conteúdo deste módulo.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- Módulo 3 -->
+                  <div class="module-dropdown" data-module="3">
+                    <div class="module-header">
+                      <h3>Módulo 3: Redação e Produção de Textos</h3>
+                      <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="module-content">
+                      <div class="module-options">
+                        <button class="btn-option" data-type="video">Vídeo</button>
+                        <button class="btn-option" data-type="texto">Texto</button>
+                        <button class="btn-option locked" data-type="podcast"><i class="fas fa-lock"></i> Podcast</button>
+                      </div>
+                      <div class="module-detail" id="moduleDetail3">
+                        <p>Clique em uma opção para visualizar o conteúdo deste módulo.</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>`,
+            modulosVideo: `
+              <article class="course-section" id="modulos-conteudo">
+                <h2>Conteúdo em Vídeo</h2>
+                <p>Assista à aula explicativa:</p>
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen style="width: 100%; height: 315px;"></iframe>
+              </article>`,
+            modulosTexto: `
+              <article class="course-section" id="modulos-conteudo">
+                <h2>Conteúdo em Texto</h2>
+                <p><strong>Módulo 1: Fundamentos Gramaticais</strong></p>
+                <p>Neste módulo, você aprenderá os princípios fundamentais da gramática, incluindo a classificação das palavras, a estrutura das orações, e as regras de concordância. O material aborda exemplos práticos e exercícios para fixar os conceitos.</p>
+                <hr>
+                <p><strong>Módulo 2: Interpretação de Textos</strong></p>
+                <p>Este módulo desenvolve a capacidade de compreender textos de diversos gêneros, identificando ideias principais e inferindo significados.</p>
+                <hr>
+                <p><strong>Módulo 3: Redação e Produção de Textos</strong></p>
+                <p>Aqui, você aprenderá técnicas para organizar suas ideias e produzir textos coesos.</p>
+                <button class="btn-gradiente" onclick="toggleExpandText()">Expandir Detalhes <i class="fas fa-chevron-down"></i></button>
+                <div id="fullText" style="display:none;">
+                  <p>Detalhamento: Cada tópico é explicado com exemplos reais, atividades de revisão e sugestões de leitura para aprofundar o estudo.</p>
+                  <button class="btn-gradiente" onclick="toggleExpandText()">Reduzir <i class="fas fa-chevron-up"></i></button>
+                </div>
+              </article>`,
+            modulosPodcast: `
+              <article class="course-section" id="modulos-conteudo">
+                <h2>Conteúdo de Podcast</h2>
+                <p>Este conteúdo está bloqueado. Faça sua assinatura para acessar nossos podcasts exclusivos.</p>
+              </article>`,
+            materiais: `
+              <article class="course-section" id="materiais">
+                <div class="section-header">
+                  <i class="fas fa-file-download"></i>
+                  <h2>Materiais Didáticos</h2>
+                </div>
+                <div class="materials-grid">
+                  <div class="material-card">
+                    <div class="material-icon pdf">
+                      <i class="fas fa-file-pdf"></i>
+                    </div>
+                    <div class="material-info">
+                      <h3>Guia de Redação Acadêmica</h3>
+                      <p>Template editável com normas ABNT.</p>
+                      <div class="material-meta">
+                        <span>PDF • 2.1MB</span>
+                        <button class="btn-gradiente" onclick="window.open('https://www.educamaisbrasil.com.br/artigo','_blank')"><i class="fas fa-download"></i> Baixar</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="material-card">
+                    <div class="material-icon video">
+                      <i class="fas fa-video"></i>
+                    </div>
+                    <div class="material-info">
+                      <h3>Apostila em Vídeo</h3>
+                      <p>Conteúdo complementar com explicações em vídeo.</p>
+                      <div class="material-meta">
+                        <span>MP4 • 15MB</span>
+                        <button class="btn-gradiente" onclick="window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ','_blank')"><i class="fas fa-play"></i> Assistir</button>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="material-card">
+                    <div class="material-icon link">
+                      <i class="fas fa-link"></i>
+                    </div>
+                    <div class="material-info">
+                      <h3>Artigo Especial</h3>
+                      <p>Leitura complementar sobre técnicas avançadas de redação.</p>
+                      <div class="material-meta">
+                        <span>Link</span>
+                        <button class="btn-gradiente" onclick="window.open('https://www.educamaisbrasil.com.br/quizzes','_blank')"><i class="fas fa-external-link-alt"></i> Acessar</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </article>`,
+            atividades: `
+              <article class="course-section" id="atividades">
+                <div class="section-header">
+                  <i class="fas fa-tasks"></i>
+                  <h2>Atividades Práticas</h2>
+                </div>
+                <div class="section-content">
+                  <ul>
+                    <li>
+                      <strong>Módulo 1: Fundamentos Gramaticais</strong>
+                      <p>Exercícios de gramática e análise sintática para fixar os conceitos.</p>
+                      <button class="btn-gradiente" onclick="location.href='atividade-modulo1.html'">Ir para Atividade</button>
+                    </li>
+                    <li>
+                      <strong>Módulo 2: Interpretação de Textos</strong>
+                      <p>Quiz e exercícios para aprimorar a interpretação de textos complexos.</p>
+                      <button class="btn-gradiente" onclick="location.href='atividade-modulo2.html'">Ir para Atividade</button>
+                    </li>
+                    <li>
+                      <strong>Módulo 3: Redação</strong>
+                      <p>Desafio de produção textual com feedback personalizado.</p>
+                      <button class="btn-gradiente" onclick="location.href='atividade-modulo3.html'">Ir para Atividade</button>
+                    </li>
+                  </ul>
+                </div>
+              </article>`,
+            progresso: `
+              <article class="course-section" id="progresso">
+                <div class="section-header">
+                  <i class="fas fa-chart-line"></i>
+                  <h2>Progresso do Curso</h2>
+                </div>
+                <div class="progress-container">
+                  <div class="progress-bar" id="progressBar"></div>
+                </div>
+                <p id="progressText">0% concluído</p>
+                <button id="examButton" class="btn-gradiente" style="display: none;" onclick="location.href='exame.html'">Ir para Prova e Certificado</button>
+              </article>`,
+            forum: `
+              <article class="course-section" id="forum">
+                <div class="section-header">
+                  <i class="fas fa-comments"></i>
+                  <h2>Fórum do Curso</h2>
+                </div>
+                <div class="section-content">
+                  <p>Participe das discussões, tire dúvidas e compartilhe suas experiências com outros alunos e professores.</p>
+                  <p><a href="https://forum.conectauni.com" target="_blank" class="btn-gradiente">Acessar Fórum</a></p>
+                </div>
+              </article>`
+          }
+        }
+      };
+
+      // Função para obter parâmetro da URL
+      function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+      }
+      const courseId = getQueryParam("course") || "portugues"; // Valor padrão
+
+      // Atualiza título e subtítulo
+      document.getElementById("courseTitle").innerText = coursesData[courseId].title;
+      document.getElementById("courseSubtitle").innerText = coursesData[courseId].subtitle;
+
+      const courseContent = document.getElementById("courseContent");
+
+      // Função para carregar uma seção do curso
+      function loadSection(sectionId) {
+        const content = coursesData[courseId].sections[sectionId];
+        if (content) {
+          courseContent.innerHTML = content;
+          if (sectionId === "modulos") {
+            initModuleAccordion();
+          } else if (sectionId === "progresso") {
+            initProgress();
+          }
+        } else {
+          courseContent.innerHTML = "<p>Conteúdo indisponível.</p>";
+        }
+      }
+
+      // Carrega a seção padrão ("sobre")
+      loadSection("sobre");
+
+      // Atualiza a classe ativa do menu lateral
+      document.querySelectorAll(".sidebar-menu a").forEach(link => {
+        link.addEventListener("click", function(e) {
+          e.preventDefault();
+          const section = this.getAttribute("data-section");
+          loadSection(section);
+          document.querySelectorAll(".sidebar-menu a").forEach(l => l.classList.remove("active"));
+          this.classList.add("active");
+        });
+      });
+
+      // Função para configurar o Accordion dos Módulos
+      function initModuleAccordion() {
+        document.querySelectorAll(".module-dropdown").forEach(dropdown => {
+          const header = dropdown.querySelector(".module-header");
+          header.addEventListener("click", () => {
+            dropdown.classList.toggle("active");
+          });
+          const options = dropdown.querySelectorAll(".btn-option");
+          options.forEach(btn => {
+            btn.addEventListener("click", function(e) {
+              e.stopPropagation();
+              const type = this.getAttribute("data-type");
+              options.forEach(b => b.classList.remove("active"));
+              this.classList.add("active");
+              const moduleId = dropdown.getAttribute("data-module");
+              if (type === "texto") {
+                // Ao clicar em "Texto", redireciona para a página específica do módulo de texto
+                window.location.href = "curso_modulo_portugues" + moduleId + ".html?course=" + courseId;
+              } else {
+                let detailContent = modulosContent[moduleId][type] || "<p>Conteúdo indisponível.</p>";
+                dropdown.querySelector(".module-detail").innerHTML = detailContent;
+              }
+            });
+          });
+        });
+      }
+
+      // Função para inicializar a barra de progresso
+      function initProgress() {
+        const progressBar = document.getElementById("progressBar");
+        const progressText = document.getElementById("progressText");
+        const examButton = document.getElementById("examButton");
+        let progress = 0;
+        const interval = setInterval(() => {
+          progress += 1;
+          progressBar.style.width = progress + "%";
+          progressText.textContent = progress + "% concluído";
+          if (progress >= 100) {
+            clearInterval(interval);
+            examButton.style.display = "block";
+          }
+        }, 50);
+      }
+    });
+  </script>
+</body>
+</html>

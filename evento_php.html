@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PHP do Zero - Produtora LATEC | Integra SI - Faculdade UNEX</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favcon.png" type="image/x-icon">
+  <!-- Importação dos módulos do Firebase -->
+ 
+  <!-- Estilos inline para garantir que a navbar e outras partes sejam aplicados -->
+  <style>
+    /* Hero Section para o Evento */
+    .hero#hero-event {
+      background: url('hero_eventos.jpg') center/cover no-repeat;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+    }
+    .hero#hero-event .hero-content h1 {
+      font-size: 2.5em;
+      margin: 0;
+    }
+    /* Detalhes do Evento */
+    .event-details {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 40px 20px;
+      gap: 20px;
+      align-items: center;
+      justify-content: center;
+    }
+    .event-details .event-image {
+      flex: 1;
+      min-width: 300px;
+    }
+    .event-details .event-image img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    .event-details .event-info {
+      flex: 1;
+      min-width: 300px;
+    }
+    .event-details .event-info h2 {
+      margin-bottom: 10px;
+    }
+    .event-details .event-info p {
+      margin: 5px 0;
+      line-height: 1.5;
+    }
+    /* Container para agrupar botões - alinhado à esquerda */
+    .btn-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: 20px;
+    }
+    .btn-container a {
+      display: inline-block;
+      margin: 5px 0;
+    }
+    /* Botão de Inscrição já existente (btn-gradiente) permanece inalterado */
+    /* Botão de Material de Apoio - maior com efeito de borda animada */
+    .btn-material {
+      background: linear-gradient(135deg, #2A9D8F, #264653);
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      animation: pulse 2s infinite;
+      margin-top: 10px;
+    }
+    .btn-material:hover {
+      transform: scale(1.05);
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    /* Borda animada em gradiente ao redor do botão */
+    .btn-material::before {
+      content: "";
+      position: absolute;
+      top: -3px;
+      left: -3px;
+      right: -3px;
+      bottom: -3px;
+      background: linear-gradient(45deg, #2A9D8F, #264653, #2A9D8F);
+      z-index: -1;
+      filter: blur(2px);
+      opacity: 0.9;
+      animation: borderDance 2s linear infinite;
+    }
+    @keyframes borderDance {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    /* Seção de Mapa */
+    .map-section {
+      padding: 20px;
+      text-align: center;
+    }
+    .map-section h2 {
+      margin-bottom: 10px;
+    }
+    .map-section iframe {
+      width: 100%;
+      max-width: 800px;
+      height: 400px;
+      border: 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html"><img src="favcon.png" alt="ConectaUni"></a>
+      <a href="index.html"><h1>ConectaUni</h1></a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html#sobre"><i class="fas fa-info-circle"></i>Sobre</a>
+      <a href="lista_curso.html"><i class="fas fa-graduation-cap"></i>Cursos</a>
+      <a href="index.html#voluntarios"><i class="fas fa-hands-helping"></i>Seja Voluntário</a>
+      <a href="index.html#contato"><i class="fas fa-envelope"></i>Contato</a>
+      <button class="btn-gradiente" onclick="showModal('login')">
+        <i class="fas fa-sign-in-alt"></i>Entrar
+      </button>
+      <button class="btn-gradiente" onclick="showModal('signup')">
+        <i class="fas fa-user-plus"></i>Cadastrar
+      </button>
+    </div>
+    <button id="darkModeToggle" onclick="toggleDarkMode()"><i class="fas fa-moon"></i></button>
+    <button class="menu-toggle" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </button>
+  </nav>
+  
+  <!-- Hero Section para o Evento -->
+  <section class="hero" id="hero-event">
+    <div class="hero-content reveal">
+      <h1>PHP do Zero</h1>
+      <p>Workshop de Introdução ao PHP</p>
+    </div>
+  </section>
+  
+  <!-- Seção de Detalhes do Evento -->
+  <section class="event-details reveal">
+    <div class="event-image">
+      <img src="https://th.bing.com/th/id/R.885ed774dc91d9447a2cf78f8dbabfe9?rik=iJk%2fax5xrXdfDg&pid=ImgRaw&r=0&sres=1&sresct=1" alt="PHP do Zero">
+    </div>
+    <div class="event-info">
+      <h2>Detalhes do Evento</h2>
+      <p><strong>Produtora:</strong> LATEC</p>
+      <p><strong>Faculdade:</strong> UNEX</p>
+      <p><strong>Evento:</strong> Integra SI - Integração do Curso de Sistemas de Informação</p>
+      <p><strong>Data:</strong> 18/03/2025</p>
+      <p><strong>Horário:</strong> 19:00 às 22:00</p>
+      <p><strong>Local:</strong> UNEX</p>
+      <p><strong>Descrição:</strong> Participe do nosso workshop <em>PHP do Zero</em> e aprenda os fundamentos da programação com PHP. Este evento é ideal para quem deseja iniciar no desenvolvimento web, entendendo os conceitos básicos dessa linguagem e se preparando para futuras oportunidades na área de tecnologia.</p>
+      <div class="btn-container">
+        <a href="https://www.sympla.com.br/evento/php-do-zero/2864119" class="btn-gradiente">Inscreva-se Agora</a>
+        <a href="curso_php.html" class="btn-material"><i class="fas fa-book-open"></i> Material de Apoio</a>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Seção de Mapa com a Localização da UNEX -->
+  <section class="map-section reveal">
+    <h2>Localização - UNEX</h2>
+    <!-- Embed do Google Maps: ajuste o src conforme a localização exata da UNEX -->
+    <iframe src="https://www.google.com/maps/embed?pb=!1m23!1m12!1m3!1d15595.88445808766!2d-38.94716437518024!3d-12.250233989729326!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m8!3e6!4m0!4m5!1s0x714379ad05d23f9%3A0xdd45d4243737b427!2sAv.%20Art%C3%AAmia%20Pires%20Freitas%2C%20s%2Fn%20-%20Sim%2C%20Feira%20de%20Santana%20-%20BA%2C%2044085-370!3m2!1d-12.246930899999999!2d-38.924694099999996!5e0!3m2!1spt-BR!2sbr!4v1742190646842!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="footer" id="contato">
+    <div class="footer-grid">
+      <div class="footer-section">
+        <div class="logo">
+          <img src="favcon.png" alt="ConectaUni">
+          <h3>ConectaUni</h3>
+        </div>
+        <p>Plataforma educacional colaborativa</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>Links Úteis</h4>
+        <ul>
+          <li><a href="index.html#sobre"><i class="fas fa-chevron-right"></i> Sobre Nós</a></li>
+          <li><a href="lista_curso.html"><i class="fas fa-chevron-right"></i> Cursos</a></li>
+          <li><a href="index.html#voluntarios"><i class="fas fa-chevron-right"></i> Voluntários</a></li>
+          <li><a href="index.html#contato"><i class="fas fa-chevron-right"></i> Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Contato</h4>
+        <ul class="contact-info">
+          <li><i class="fas fa-map-marker-alt"></i> Feira de Santana - BA</li>
+          <li><i class="fas fa-phone"></i> (75) 98144-0696</li>
+          <li><i class="fas fa-envelope"></i> mateus.queiroz.ti.mq@gmail.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 ConectaUni. Todos os direitos reservados.</p>
+      <div class="legal-links">
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Termos de Uso</a>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Back to Top -->
+  <div id="backToTop" class="back-to-top" onclick="scrollToTop()">
+    <i class="fas fa-chevron-up"></i>
+  </div>
+  
+  <!-- Modais (Login/Cadastro) -->
+  <div class="modal-overlay" id="modalOverlay"></div>
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="hideModals()">&times;</span>
+      <h2><i class="fas fa-sign-in-alt"></i> Login</h2>
+      <form id="loginForm">
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" placeholder="E-mail" required id="loginEmail">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Senha" required id="loginPassword">
+        </div>
+        <button type="submit" class="btn-gradiente">Entrar</button>
+      </form>
+    </div>
+  </div>
+  <div id="signupModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="hideModals()">&times;</span>
+      <h2><i class="fas fa-user-plus"></i> Cadastro</h2>
+      <form id="signupForm">
+        <div class="input-group">
+          <i class="fas fa-user"></i>
+          <input type="text" placeholder="Nome completo" required id="signupName">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" placeholder="E-mail" required id="signupEmail">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Senha" required id="signupPassword">
+        </div>
+        <button type="submit" class="btn-gradiente">Cadastrar</button>
+      </form>
+    </div>
+  </div>
+  
+  <!-- Widget de Chat -->
+  <div id="chatWidget" class="chat-widget" onclick="toggleChatModal()">
+    <i class="fas fa-comments"></i>
+  </div>
+  <div id="chatModal" class="chat-modal">
+    <div class="chat-header">
+      <span>ChatBot</span>
+      <span class="close" onclick="toggleChatModal()">&times;</span>
+    </div>
+    <div class="chat-content" id="chatContent">
+      <p><strong>ChatBot:</strong> Olá! Como posso ajudar?</p>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="chatInput" placeholder="Digite sua mensagem...">
+      <button onclick="sendChatMessage()">Enviar</button>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>

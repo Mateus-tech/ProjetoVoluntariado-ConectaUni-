@@ -7,25 +7,25 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="favcon.png" type="image/x-icon">
-<!-- Adicione isso antes do </head> -->
-<script type="module">
-  // Importe os módulos necessários do Firebase
-  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
-  import { 
-    getAuth, 
-    createUserWithEmailAndPassword, 
-    signInWithEmailAndPassword,
-    signOut,
-    onAuthStateChanged
-  } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
-</script>
+  <!-- Importação dos módulos do Firebase -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+    import { 
+      getAuth, 
+      createUserWithEmailAndPassword, 
+      signInWithEmailAndPassword,
+      signOut,
+      onAuthStateChanged
+    } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+  </script>
+  
 </head>
 <body>
   <!-- Navbar -->
   <nav class="navbar">
-   <div class="logo"  >
-    <a href="index.html"><img src="favcon.png" alt="ConectaUni" ></a>
-      <a href="index.html"><h1  >ConectaUni</h1></a>
+    <div class="logo">
+      <a href="index.html"><img src="favcon.png" alt="ConectaUni"></a>
+      <a href="index.html"><h1>ConectaUni</h1></a>
     </div>
     <div class="nav-links">
       <a href="#sobre"><i class="fas fa-info-circle"></i>Sobre</a>
@@ -57,6 +57,37 @@
       </div>
     </div>
   </section>
+    
+  <!-- Seção de Eventos Integra SI com Cards Redondos e Animação de Bordas Gradiente -->
+ <!-- Seção de Eventos Integra SI com Cards Redondos e Animação de Bordas Gradiente -->
+<section class="events-section reveal" id="eventos">
+    <h2>Eventos do Momento</h2>
+    <p>Participe das nossas oficinas interativas e aprimore seus conhecimentos!</p>
+    <h2>Integra SI</h2>
+    <div class="events-grid">
+      <a href="evento_php.html" style="text-decoration: none;">
+        <div class="event-card" id="php-zero">
+          <div class="event-card-inner">
+            <h3>PHP do Zero</h3>
+          </div>
+        </div>
+      </a>
+      <a href="evento_pensamento.html" style="text-decoration: none;">
+        <div class="event-card" id="pensamento">
+          <div class="event-card-inner">
+            <h3>Pensamento Computacional</h3>
+          </div>
+        </div>
+      </a>
+      <a href="evento_ingles.html" style="text-decoration: none;">
+        <div class="event-card" id="ingles">
+          <div class="event-card-inner">
+            <h3>Inglês pra Dev</h3>
+          </div>
+        </div>
+      </a>
+    </div>
+  </section>
   
   <!-- Carousel de Cursos -->
   <section class="slider-container reveal" id="cursos">
@@ -69,7 +100,7 @@
     <div class="more-btn-container">
       <button class="btn-gradiente" href="lista_curso.html">
         <a href="lista_cursos.html" class="btn">Ver Mais Cursos</a>
-    </button>
+      </button>
     </div>
   </section>
   
@@ -85,42 +116,44 @@
       <button class="btn-gradiente" onclick="seeMore('voluntarios')">Ver Mais Voluntários</button>
     </div>
   </section>
-  <!-- Seção de Contadores Atualizada -->
-<section class="counters-section reveal" id="counters">
-  <div class="counter-grid">
-    <div class="counter-card">
-      <div class="counter" data-target="1500">0</div>
-      <div class="counter-label">Alunos Beneficiados</div>
+  
+  <!-- Seção de Contadores -->
+  <section class="counters-section reveal" id="counters">
+    <div class="counter-grid">
+      <div class="counter-card">
+        <div class="counter" data-target="1500">0</div>
+        <div class="counter-label">Alunos Beneficiados</div>
+      </div>
+      <div class="counter-card">
+        <div class="counter" data-target="80">0</div>
+        <div class="counter-label">Cursos Disponíveis</div>
+      </div>
+      <div class="counter-card">
+        <div class="counter" data-target="250">0</div>
+        <div class="counter-label">Voluntários Ativos</div>
+      </div>
     </div>
-    <div class="counter-card">
-      <div class="counter" data-target="80">0</div>
-      <div class="counter-label">Cursos Disponíveis</div>
+  </section>
+  
+  <!-- Seção de Testemunhos -->
+  <section class="testimonials-section reveal" id="testimonials">
+    <h2>O que dizem sobre nós</h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <p>"A plataforma ConectaUni transformou minha vida acadêmica!"</p>
+        <h4>Maria, Estudante de Engenharia</h4>
+      </div>
+      <div class="testimonial-card">
+        <p>"Experiência incrível de compartilhar conhecimento com tantos alunos."</p>
+        <h4>Carlos, Professor Voluntário</h4>
+      </div>
+      <div class="testimonial-card">
+        <p>"Conteúdo de qualidade que mudou minha perspectiva de estudos."</p>
+        <h4>Ana, Aluna de Medicina</h4>
+      </div>
     </div>
-    <div class="counter-card">
-      <div class="counter" data-target="250">0</div>
-      <div class="counter-label">Voluntários Ativos</div>
-    </div>
-  </div>
-</section>
+  </section>
 
-<!-- Seção de Testemunhos Atualizada -->
-<section class="testimonials-section reveal" id="testimonials">
-  <h2>O que dizem sobre nós</h2>
-  <div class="testimonials-grid">
-    <div class="testimonial-card">
-      <p>"A plataforma ConectaUni transformou minha vida acadêmica!"</p>
-      <h4>Maria, Estudante de Engenharia</h4>
-    </div>
-    <div class="testimonial-card">
-      <p>"Experiência incrível de compartilhar conhecimento com tantos alunos."</p>
-      <h4>Carlos, Professor Voluntário</h4>
-    </div>
-    <div class="testimonial-card">
-      <p>"Conteúdo de qualidade que mudou minha perspectiva de estudos."</p>
-      <h4>Ana, Aluna de Medicina</h4>
-    </div>
-  </div>
-</section>
   
   <!-- Seção de Call To Action -->
   <section class="cta-section reveal" id="cta">
@@ -142,54 +175,51 @@
       <button type="submit" class="btn-gradiente">Inscrever</button>
     </form>
   </section>
-  <!-- Substituir a seção footer existente -->
-<footer class="footer" id="contato">
-  <div class="footer-grid">
+  
+  <!-- Footer -->
+  <footer class="footer" id="contato">
+    <div class="footer-grid">
       <div class="footer-section">
-          <div class="logo">
-              <img src="favcon.png" alt="ConectaUni">
-              <h3>ConectaUni</h3>
-          </div>
-          <p>Plataforma educacional colaborativa</p>
-          <div class="social-icons">
-              <a href="#"><i class="fab fa-facebook"></i></a>
-              <a href="#"><i class="fab fa-instagram"></i></a>
-              <a href="#"><i class="fab fa-linkedin"></i></a>
-              <a href="#"><i class="fab fa-youtube"></i></a>
-          </div>
+        <div class="logo">
+          <img src="favcon.png" alt="ConectaUni">
+          <h3>ConectaUni</h3>
+        </div>
+        <p>Plataforma educacional colaborativa</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
       </div>
-
       <div class="footer-section">
-          <h4>Links Úteis</h4>
-          <ul>
-              <li><a href="#sobre"><i class="fas fa-chevron-right"></i> Sobre Nós</a></li>
-              <li><a href="#cursos"><i class="fas fa-chevron-right"></i> Cursos</a></li>
-              <li><a href="#voluntarios"><i class="fas fa-chevron-right"></i> Voluntários</a></li>
-              <li><a href="#contato"><i class="fas fa-chevron-right"></i> Contato</a></li>
-          </ul>
+        <h4>Links Úteis</h4>
+        <ul>
+          <li><a href="#sobre"><i class="fas fa-chevron-right"></i> Sobre Nós</a></li>
+          <li><a href="#cursos"><i class="fas fa-chevron-right"></i> Cursos</a></li>
+          <li><a href="#voluntarios"><i class="fas fa-chevron-right"></i> Voluntários</a></li>
+          <li><a href="#contato"><i class="fas fa-chevron-right"></i> Contato</a></li>
+        </ul>
       </div>
-
       <div class="footer-section">
-          <h4>Contato</h4>
-          <ul class="contact-info">
-              <li><i class="fas fa-map-marker-alt"></i> São Paulo - SP</li>
-              <li><i class="fas fa-phone"></i> (11) 9999-9999</li>
-              <li><i class="fas fa-envelope"></i> contato@conectauni.com</li>
-          </ul>
+        <h4>Contato</h4>
+        <ul class="contact-info">
+          <li><i class="fas fa-map-marker-alt"></i> Feira de Santana - BA</li>
+          <li><i class="fas fa-phone"></i> (75) 98144-0696</li>
+          <li><i class="fas fa-envelope"></i>mateus.queiroz.ti.mq@gmail.com
+          </li>
+        </ul>
       </div>
-
-    
-  </div>
-
-  <div class="footer-bottom">
+    </div>
+    <div class="footer-bottom">
       <p>&copy; 2024 ConectaUni. Todos os direitos reservados.</p>
       <div class="legal-links">
-          <a href="#">Política de Privacidade</a>
-          <a href="#">Termos de Uso</a>
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Termos de Uso</a>
       </div>
-  </div>
-</footer>
-
+    </div>
+  </footer>
+  
   <!-- Back to Top -->
   <div id="backToTop" class="back-to-top" onclick="scrollToTop()">
     <i class="fas fa-chevron-up"></i>
@@ -254,8 +284,6 @@
     </div>
   </div>
   
-  
-
+  <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
 </html>

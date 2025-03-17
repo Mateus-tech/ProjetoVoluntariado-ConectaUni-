@@ -1341,3 +1341,257 @@ body.dark-mode .card {
         display: grid ;
         justify-content: center;
       }
+
+      
+ 
+    /* Seção de Eventos Integra SI */
+    .events-section {
+      text-align: center;
+      padding: 50px 20px;
+      background-color: #f9f9f9;
+    }
+    .events-section h2 {
+      font-size: 2.5em;
+      margin-bottom: 20px;
+      color: #333;
+    }
+    .events-section p {
+      font-size: 1.2em;
+      margin-bottom: 40px;
+      color: #555;
+    }
+    .events-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+    }
+    /* Card Externo com borda animada em gradiente */
+    .event-card {
+      position: relative;
+      width: 18VW;
+      height: 18VW;
+      border-radius: 50%;
+      padding: 5px; /* Espaço para o efeito da borda */
+      background: linear-gradient(45deg, #FFC107, #FF5722, #4CAF50, #2196F3, #9C27B0, #E91E63);
+      background-size: 400% 400%;
+
+      animation: gradientAnimation 8s ease infinite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    /* Card Interno (conteúdo) */
+    .event-card-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: url('evento.jpg') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      overflow: hidden;
+      animation: bounce 2s infinite;
+    }
+    .event-card-inner img {
+      width: 60%;
+      height: auto;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+    .event-card-inner h3 {
+      margin: 0px 10px;
+      font-size: 1.3em;
+      color: #fffcfc;
+      margin-top: 7vw;
+    }
+   
+  
+    @keyframes gradientAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+    /* Seção de Eventos Integra SI - Estilo Original */
+.events-section {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+}
+.events-section h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #333;
+}
+.events-section p {
+  font-size: 1.2em;
+  margin-bottom: 40px;
+  color: #555;
+}
+.events-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+/* Card Externo com borda animada em gradiente */
+.event-card {
+  position: relative;
+  width: 18vw;
+  height: 18vw;
+  border-radius: 50%;
+  padding: 5px;
+  background: linear-gradient(45deg, #FFC107, #FF5722, #4CAF50, #2196F3, #9C27B0, #E91E63);
+  background-size: 400% 400%;
+  animation: gradientAnimation 8s ease infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Card Interno (conteúdo) */
+.event-card-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: url('evento.jpg') center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  overflow: hidden;
+  animation: bounce 2s infinite;
+}
+.event-card-inner img {
+  width: 60%;
+  height: auto;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+.event-card-inner h3 {
+  margin: 0px 10px;
+  font-size: 1.3em;
+  color: #fffcfc;
+  margin-top: 7vw;
+}
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Media Query para Responsividade da Seção de Eventos */
+@media (max-width: 768px) {
+  .event-card {
+    width: 40vw;  /* Aumenta a proporção em telas menores */
+    height: 40vw;
+  }
+  .event-card-inner h3 {
+    margin-top: 5vw; /* Ajusta o espaçamento superior */
+    font-size: 1em;  /* Reduz o tamanho da fonte */
+  }
+  .events-grid {
+    gap: 20px; /* Reduz o espaçamento entre os cards */
+  }
+}
+/* Seção de Eventos Integra SI - Estilo Original */
+.events-section {
+  text-align: center;
+  padding: 50px 20px;
+  background-color: #f9f9f9;
+}
+.events-section h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #333;
+}
+.events-section p {
+  font-size: 1.2em;
+  margin-bottom: 40px;
+  color: #555;
+}
+.events-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px;
+}
+/* Card Externo com borda animada em gradiente */
+.event-card {
+  position: relative;
+  width: 18vw;
+  height: 18vw;
+  border-radius: 50%;
+  padding: 5px;
+  background: linear-gradient(45deg, #FFC107, #FF5722, #4CAF50, #2196F3, #9C27B0, #E91E63);
+  background-size: 400% 400%;
+  animation: gradientAnimation 8s ease infinite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Card Interno (conteúdo) */
+.event-card-inner {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: url('evento.jpg') center/cover no-repeat;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  overflow: hidden;
+  animation: bounce 2s infinite;
+}
+.event-card-inner img {
+  width: 60%;
+  height: auto;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+.event-card-inner h3 {
+  margin: 0px 10px;
+  font-size: 1.3em;
+  color: #fffcfc;
+  margin-top: 7vw;
+}
+@keyframes gradientAnimation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* Media Query para Responsividade da Seção de Eventos */
+@media (max-width: 768px) {
+  .event-card {
+    width: 40vw;  /* Aumenta a proporção em telas menores */
+    height: 40vw;
+  }
+  .event-card-inner h3 {
+    margin-top: 5vw; /* Ajusta o espaçamento superior */
+    font-size: 1em;  /* Reduz o tamanho da fonte */
+  }
+  .events-grid {
+    gap: 20px; /* Reduz o espaçamento entre os cards */
+  }
+}
+
+  
