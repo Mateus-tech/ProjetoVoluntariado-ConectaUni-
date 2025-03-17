@@ -302,20 +302,10 @@
     }
     document.getElementById('modalOverlay').addEventListener('click', hideModals);
     
-    function toggleChatModal() {
-      const chatModal = document.getElementById('chatModal');
-      chatModal.style.display = chatModal.style.display === 'block' ? 'none' : 'block';
-    }
-    
-    function sendChatMessage() {
-      const input = document.getElementById('chatInput');
-      const chatContent = document.getElementById('chatContent');
-      if (input.value.trim() !== '') {
-        chatContent.innerHTML += `<p><strong>Você:</strong> ${input.value}</p>`;
-        input.value = '';
-        chatContent.scrollTop = chatContent.scrollHeight;
-      }
-    }
+   
+
   </script>
+    <script src="script.js"></script>
+
 </body>
 </html>

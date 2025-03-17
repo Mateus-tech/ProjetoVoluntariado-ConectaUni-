@@ -392,23 +392,9 @@
     }
     document.getElementById('modalOverlay').addEventListener('click', hideModals);
     
-    // Exemplo de função para o Chat Widget (pode ser expandida conforme necessidade)
-    function toggleChatModal() {
-      const chatModal = document.getElementById('chatModal');
-      chatModal.style.display = chatModal.style.display === 'block' ? 'none' : 'block';
-    }
-    
-    // Exemplo simples para enviar mensagem do Chat (pode ser aprimorado)
-    function sendChatMessage() {
-      const input = document.getElementById('chatInput');
-      const chatContent = document.getElementById('chatContent');
-      if (input.value.trim() !== '') {
-        chatContent.innerHTML += `<p><strong>Você:</strong> ${input.value}</p>`;
-        input.value = '';
-        // Role o chat para a última mensagem
-        chatContent.scrollTop = chatContent.scrollHeight;
-      }
-    }
+  
   </script>
+    <script src="script.js"></script>
+
 </body>
 </html>
