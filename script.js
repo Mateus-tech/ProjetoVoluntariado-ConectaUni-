@@ -42,13 +42,13 @@
         { title: "Nivelamento - Inglês", image: "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=800&q=60", description: "Aprenda ou reforce o inglês básico." },
         { title: "Nivelamento - História", image: "https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=800&q=60", description: "Conheça os principais eventos históricos." },
         { title: "Nivelamento - Geografia", image: "https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=800&q=60", description: "Explore os conceitos básicos de geografia." },
-        { title: "Nivelamento - Química", image: "https://images.unsplash.com/photo-1553649085-71f8a9eb6b88?auto=format&fit=crop&w=800&q=60", description: "Introdução aos fundamentos da química." }
+        { title: "Nivelamento - Química", image: "https://static.vecteezy.com/system/resources/previews/031/691/349/large_2x/chemistry-experiment-with-laboratory-flasks-ai-generative-free-photo.jpg", description: "Introdução aos fundamentos da química." }
       ];
       const volunteers = [
-        { name: "Prof. Carlos Silva", photo: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=60", expertise: "Engenharia Civil" },
-        { name: "Dra. Ana Costa", photo: "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?auto=format&fit=crop&w=800&q=60", expertise: "Medicina" },
-        { name: "Dr. Marcos Rocha", photo: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=800&q=60", expertise: "Direito" },
-        { name: "Profª. Luciana Mendes", photo: "https://images.unsplash.com/photo-1520813792240-56fc4a3765a7?auto=format&fit=crop&w=800&q=60", expertise: "Literatura" }
+        { name: "Joalisson Pinto Maia", photo: "joka.jpg", expertise: "Sistema da Informação" },
+        { name: "Carlos Henrique de Souza<br> Santana Santiago", photo: "carlos.jpg", expertise: "Sistema da Informação" },
+        { name: "Levi Ferreira de <br>Oliveira Baptista", photo: "levi.jpg", expertise: "Sistema de Informação" },
+        { name: "Mateus Queiroz<br>Matos Ferreira", photo: "mateus.jpg", expertise: "Sistema de Informação" }
       ];
       
       function populateCarouselCourses() {

@@ -11,6 +11,9 @@
   <link rel="icon" href="favcon.png" type="image/x-icon">
   <!-- Estilos específicos para o modal de texto -->
   <style>
+    #sobre > div.section-header,#modulos,#materiais,#atividades,#progresso,#forum,#playlist{
+margin-top: 2rem;
+    }
     .text-modal {
       position: fixed;
       top: 50%;
@@ -44,6 +47,192 @@
       justify-content: space-between;
       align-items: center;
     }
+    /* Add to curso.css */
+
+/* Responsive Base Styles */
+@media (max-width: 768px) {
+  .course-header h1 {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .course-header p {
+    font-size: 1rem;
+    text-align: center;
+  }
+}
+
+/* Video Responsiveness */
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  margin: 1rem 0;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Playlist Grid Responsiveness */
+.playlist-grid {
+  display: absolute;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.playlist-grid iframe {
+  width: 100%;
+  height: 315px;
+}
+
+@media (max-width: 480px) {
+  .playlist-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .playlist-grid iframe {
+    height: 250px;
+  }
+}
+
+/* Course Content Layout */
+.course-wrapper {
+  flex-direction: column;
+}
+
+.course-sidebar {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.course-main-content {
+  width: 100%;
+  padding: 0 1rem;
+}
+
+/* Module Accordion Responsiveness */
+.module-header h3 {
+  font-size: 1rem;
+}
+
+/* Text Modal Responsiveness */
+@media (max-width: 768px) {
+  .text-modal {
+    width: 95%;
+    padding: 1rem;
+  }
+  
+  .text-modal .text-content {
+    max-height: 60vh;
+  }
+}
+
+/* Navigation Responsiveness */
+@media (max-width: 1024px) {
+  .nav-links {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .navbar.active .nav-links {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: var(--bg-color);
+    padding: 1rem;
+  }
+}
+
+/* Footer Responsiveness */
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-section {
+    text-align: center;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+}
+
+/* General Mobile Adjustments */
+@media (max-width: 480px) {
+  .logo h1 {
+    font-size: 1.5rem;
+  }
+
+  .btn-gradiente {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .course-section {
+    padding: 1rem;
+  }
+
+  .material-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .material-info .btn-gradiente {
+    width: 100%;
+  }
+}
+/* Adicione ao seu curso.css */
+
+/* Container responsivo para todos os vídeos */
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* Proporção 16:9 */
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  margin: 1rem 0;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Ajuste específico para vídeos nos módulos */
+.module-detail .video-container {
+  margin: 0;
+}
+
+.module-detail .video-container iframe {
+  height: 100%;
+}
+
+/* Ajuste para telas pequenas */
+@media (max-width: 768px) {
+  .module-detail .video-container {
+    padding-bottom: 75%; /* 4:3 para telas menores */
+  }
+}
    
   </style>
 </head>
@@ -270,7 +459,7 @@
         video: `
           <p><strong>Módulo 2 - Sintaxe Básica e Variáveis</strong></p>
           <p>Conheça a sintaxe básica do PHP e como trabalhar com variáveis e tipos de dados.</p>
-          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen style="width:100%; height:315px;"></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/eC42d9Rsz3g?si=N2ihGm5zsOr8Wltz" allowfullscreen style="width:100%; height:315px;"></iframe>
         `,
         texto: `
           <p><strong>Módulo 2 - Sintaxe Básica e Variáveis</strong></p>
@@ -286,7 +475,7 @@
         video: `
           <p><strong>Módulo 3 - Estruturas de Controle</strong></p>
           <p>Entenda como usar condições e loops para controlar o fluxo do seu código PHP.</p>
-          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen style="width:100%; height:315px;"></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/52UI240qdWY?si=_pDVt_6Ua28Mgv4R" allowfullscreen style="width:100%; height:315px;"></iframe>
         `,
         texto: `
           <p><strong>Módulo 3 - Estruturas de Controle</strong></p>
@@ -354,15 +543,27 @@
                 <div class="instructor-info">
                   <h3>Sobre o Instrutor</h3>
                   <div class="instructor" style="display: flex; align-items: center; gap: 1rem;">
-                    <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Instrutor" style="width: 70px; height: 70px; border-radius: 50%;">
+                    <img src="joka.jpg" alt="Instrutor" style="width: 70px; height: 70px; border-radius: 50%;">
                     <div>
-                      <p>Instrutor</p>
-                      <h4>Prof. Carlos Eduardo Silva</h4>
-                      <p>Especialista em desenvolvimento web, com ampla experiência em PHP e diversas tecnologias de back-end.</p>
+                      <strong><p>Joalisson Pinto Maia</p></strong>
+                      <h4></h4>
+                      <p>Mini bio (Joalisson): Meu nome é Joalisson, mas pode me chamar de Joca, tenho 21 anos, sou formado em Análise e Desenvolvimento de Sistemas pela Pitágoras, e atualmente estou cursando o 3º semestre de Sistemas de Informação na Unex, possuo conhecimentos nas áreas de front-end, back-end, banco de dados e mobile.</p>
+                      
+                    </div>
+                   </div>
+                </div>
+                  <div class="instructor" style="display: flex; align-items: center; gap: 1rem;">
+                    <img src="carlos.jpg" alt="Instrutor" style="width: 70px; height: 70px; border-radius: 50%;">
+                    <div>
+                      <strong><p>Carlos Henrique de Souza Santana Santiago</p></strong>
+                      <h4></h4>
+                      <p>Mini bio (Carlos): Eu me chamo Carlos, mais conhecido por aqui como Caos (não que eu seja um caos) continuamente estou estudando pra aprimorar minhas habilidades e me tornar um dev full-stack, almejo trabalhar para alguma big tech (possivelmente gringa). </p>
                     </div>
                   </div>
-                </div>
+                
+               
               </div>
+              
             </article>`,
           modulos: /* ... seções já existentes para módulos, materiais, etc. (mantidas inalteradas) */ `
             <article class="course-section" id="modulos">
