@@ -372,3 +372,233 @@ header.course-header {
         margin-top: 10VH;
     
     }
+/* Responsividade */
+@media (max-width: 768px) {
+  .nav-links {
+    position: fixed;
+    top: 70px;
+    right: -100%;
+    height: calc(100vh - 70px);
+    width: 250px;
+    background: var(--secondary);
+    flex-direction: column;
+    padding: 2rem;
+    transition: right 0.3s;
+  }
+  .nav-links.active {
+    right: 0;
+  }
+  .menu-toggle {
+    display: block;
+  }
+  .search-bar {
+    flex-direction: column;
+  }
+  .search-bar input,
+  .search-bar button {
+    width: 100%;
+  }
+}
+
+
+    #sobre > div.section-header,#modulos,#materiais,#atividades,#progresso,#forum,#playlist{
+margin-top: 2rem;
+    }
+    .text-modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #fff;
+      padding: 2rem;
+      z-index: 1001;
+      border-radius: 8px;
+      max-width: 800px;
+      width: 90%;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+    .text-modal .modal-content {
+      position: relative;
+    }
+    .text-modal .close {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 1.8rem;
+      cursor: pointer;
+    }
+    .text-modal .text-content {
+      max-height: 400px;
+      overflow-y: auto;
+      margin-bottom: 1rem;
+    }
+    .text-modal .pagination-buttons {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    /* Add to curso.css */
+
+/* Responsive Base Styles */
+@media (max-width: 768px) {
+  .course-header h1 {
+    font-size: 1.8rem;
+    text-align: center;
+  }
+
+  .course-header p {
+    font-size: 1rem;
+    text-align: center;
+  }
+}
+
+/* Video Responsiveness */
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  margin: 1rem 0;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Playlist Grid Responsiveness */
+.playlist-grid {
+  display: absolute;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.playlist-grid iframe {
+  width: 100%;
+  height: 315px;
+}
+
+@media (max-width: 480px) {
+  .playlist-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .playlist-grid iframe {
+    height: 250px;
+  }
+}
+
+/* Course Content Layout */
+.course-wrapper {
+  flex-direction: column;
+}
+
+.course-sidebar {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.course-main-content {
+  width: 100%;
+  padding: 0 1rem;
+}
+
+/* Module Accordion Responsiveness */
+.module-header h3 {
+  font-size: 1rem;
+}
+
+/* Text Modal Responsiveness */
+@media (max-width: 768px) {
+  .text-modal {
+    width: 95%;
+    padding: 1rem;
+  }
+  
+  .text-modal .text-content {
+    max-height: 60vh;
+  }
+}
+
+/* Footer Responsiveness */
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .footer-section {
+    text-align: center;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+}
+
+/* General Mobile Adjustments */
+@media (max-width: 480px) {
+  .logo h1 {
+    font-size: 1.5rem;
+  }
+
+  .btn-gradiente {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .course-section {
+    padding: 1rem;
+  }
+
+  .material-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .material-info .btn-gradiente {
+    width: 100%;
+  }
+}
+/* Adicione ao seu curso.css */
+
+/* Container responsivo para todos os vídeos */
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* Proporção 16:9 */
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  margin: 1rem 0;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Ajuste específico para vídeos nos módulos */
+.module-detail .video-container {
+  margin: 0;
+}
+
+.module-detail .video-container iframe {
+  height: 100%;
+}
+
+/* Ajuste para telas pequenas */
+@media (max-width: 768px) {
+  .module-detail .video-container {
+    padding-bottom: 75%; /* 4:3 para telas menores */
+  }
+}
+   

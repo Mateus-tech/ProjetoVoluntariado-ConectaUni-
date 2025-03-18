@@ -9,250 +9,33 @@
   <link rel="stylesheet" href="style.css"> <!-- CSS global -->
   <link rel="stylesheet" href="curso.css"> <!-- CSS específico -->
   <link rel="icon" href="favcon.png" type="image/x-icon">
+  
   <!-- Estilos específicos para o modal de texto -->
-  <style>
-    #sobre > div.section-header,#modulos,#materiais,#atividades,#progresso,#forum,#playlist{
-margin-top: 2rem;
-    }
-    .text-modal {
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background: #fff;
-      padding: 2rem;
-      z-index: 1001;
-      border-radius: 8px;
-      max-width: 800px;
-      width: 90%;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-    }
-    .text-modal .modal-content {
-      position: relative;
-    }
-    .text-modal .close {
-      position: absolute;
-      top: 10px;
-      right: 15px;
-      font-size: 1.8rem;
-      cursor: pointer;
-    }
-    .text-modal .text-content {
-      max-height: 400px;
-      overflow-y: auto;
-      margin-bottom: 1rem;
-    }
-    .text-modal .pagination-buttons {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    /* Add to curso.css */
-
-/* Responsive Base Styles */
-@media (max-width: 768px) {
-  .course-header h1 {
-    font-size: 1.8rem;
-    text-align: center;
-  }
-
-  .course-header p {
-    font-size: 1rem;
-    text-align: center;
-  }
-}
-
-/* Video Responsiveness */
-.video-container {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
-  height: 0;
-  overflow: hidden;
-  margin: 1rem 0;
-}
-
-.video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-
-/* Playlist Grid Responsiveness */
-.playlist-grid {
-  display: absolute;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1rem;
-  padding: 1rem;
-}
-
-.playlist-grid iframe {
-  width: 100%;
-  height: 315px;
-}
-
-@media (max-width: 480px) {
-  .playlist-grid {
-    grid-template-columns: 1fr;
-  }
-  
-  .playlist-grid iframe {
-    height: 250px;
-  }
-}
-
-/* Course Content Layout */
-.course-wrapper {
-  flex-direction: column;
-}
-
-.course-sidebar {
-  width: 100%;
-  margin-bottom: 2rem;
-}
-
-.course-main-content {
-  width: 100%;
-  padding: 0 1rem;
-}
-
-/* Module Accordion Responsiveness */
-.module-header h3 {
-  font-size: 1rem;
-}
-
-/* Text Modal Responsiveness */
-@media (max-width: 768px) {
-  .text-modal {
-    width: 95%;
-    padding: 1rem;
-  }
-  
-  .text-modal .text-content {
-    max-height: 60vh;
-  }
-}
-
-/* Navigation Responsiveness */
-@media (max-width: 1024px) {
-  .nav-links {
-    display: none;
-  }
-
-  .menu-toggle {
-    display: block;
-  }
-
-  .navbar.active .nav-links {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: var(--bg-color);
-    padding: 1rem;
-  }
-}
-
-/* Footer Responsiveness */
-@media (max-width: 768px) {
-  .footer-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .footer-section {
-    text-align: center;
-  }
-
-  .social-icons {
-    justify-content: center;
-  }
-}
-
-/* General Mobile Adjustments */
-@media (max-width: 480px) {
-  .logo h1 {
-    font-size: 1.5rem;
-  }
-
-  .btn-gradiente {
-    padding: 0.5rem 1rem;
-    font-size: 0.9rem;
-  }
-
-  .course-section {
-    padding: 1rem;
-  }
-
-  .material-card {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .material-info .btn-gradiente {
-    width: 100%;
-  }
-}
-/* Adicione ao seu curso.css */
-
-/* Container responsivo para todos os vídeos */
-.video-container {
-  position: relative;
-  padding-bottom: 56.25%; /* Proporção 16:9 */
-  height: 0;
-  overflow: hidden;
-  max-width: 100%;
-  margin: 1rem 0;
-}
-
-.video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-
-/* Ajuste específico para vídeos nos módulos */
-.module-detail .video-container {
-  margin: 0;
-}
-
-.module-detail .video-container iframe {
-  height: 100%;
-}
-
-/* Ajuste para telas pequenas */
-@media (max-width: 768px) {
-  .module-detail .video-container {
-    padding-bottom: 75%; /* 4:3 para telas menores */
-  }
-}
-   
-  </style>
+ 
 </head>
 <body>
-  <!-- Navbar (estrutura padrão) -->
-  <nav class="navbar">
+   <!-- Navbar -->
+   <nav class="navbar">
     <div class="logo">
       <a href="index.html"><img src="favcon.png" alt="ConectaUni"></a>
       <a href="index.html"><h1>ConectaUni</h1></a>
     </div>
     <div class="nav-links">
-      <a href="#sobre"><i class="fas fa-info-circle"></i>Sobre</a>
+      <a href="index.html#sobre"><i class="fas fa-info-circle"></i>Sobre</a>
       <a href="lista_curso.html"><i class="fas fa-graduation-cap"></i>Cursos</a>
-      <a href="#voluntarios"><i class="fas fa-hands-helping"></i>Seja Voluntário</a>
-      <a href="#contato"><i class="fas fa-envelope"></i>Contato</a>
-      <button class="btn-gradiente" onclick="showModal('login')"><i class="fas fa-sign-in-alt"></i>Entrar</button>
-      <button class="btn-gradiente" onclick="showModal('signup')"><i class="fas fa-user-plus"></i>Cadastrar</button>
+      <a href="index.html#voluntarios"><i class="fas fa-hands-helping"></i>Seja Voluntário</a>
+      <a href="index.html#contato"><i class="fas fa-envelope"></i>Contato</a>
+      <button class="btn-gradiente" onclick="showModal('login')">
+        <i class="fas fa-sign-in-alt"></i>Entrar
+      </button>
+      <button class="btn-gradiente" onclick="showModal('signup')">
+        <i class="fas fa-user-plus"></i>Cadastrar
+      </button>
     </div>
     <button id="darkModeToggle" onclick="toggleDarkMode()"><i class="fas fa-moon"></i></button>
-    <button class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+    <button class="menu-toggle" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </button>
   </nav>
   
   <!-- Cabeçalho do Curso: Imagem e Título -->
@@ -958,6 +741,28 @@ margin-top: 2rem;
         }
       }, 50);
     }
+       /* Menu Mobile */
+       function toggleMenu() {
+        document.querySelector('.nav-links').classList.toggle('active');
+      }
+      
+      /* Smooth scroll */
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function(e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+          document.querySelector('.nav-links').classList.remove('active');
+        });
+      });
+      function toggleMenu() {
+  const nav = document.querySelector('.nav-links');
+  const navbar = document.querySelector('.navbar');
+  nav.classList.toggle('active');
+  navbar.classList.toggle('active'); // Garante que o navbar se expanda corretamente
+}
+
   </script>
+  <script src="script.js"></script>
+
 </body>
 </html>
