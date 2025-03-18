@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curso Módulo 4: Paradigmas, Funções, Arrays, Manipulação de Dados e POO em PHP - ConectaUni</title>
+  <!-- Ícones e CSS (global e específico) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css"> <!-- CSS global -->
+  <link rel="stylesheet" href="curso_modulo.css">
+  <link rel="icon" href="favcon.png" type="image/x-icon">
+  <!-- CSS adicional específico para esta página -->
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+    .atividade-content { 
+      padding: 40px 20px; 
+      max-width: 900px; 
+      margin: 0 auto; 
+    }
+    .atividade-content h2 { margin-top: 30px; color: #264653; }
+    .atividade-content h3 { margin-top: 20px; color: #2A9D8F; }
+    .atividade-content p { margin: 10px 0; }
+    .atividade-content ul, .atividade-content ol { margin: 10px 0 20px 20px; }
+    .atividade-content pre {
+      background: #f4f4f4; 
+      padding: 10px; 
+      border-radius: 4px; 
+      overflow-x: auto;
+      font-size: 0.95em;
+    }
+    .explicacao {
+      background: #e7f4ea; 
+      padding: 10px; 
+      border-left: 5px solid #2A9D8F; 
+      margin: 20px 0;
+    }
+    .dica {
+      background: #fff3cd; 
+      padding: 10px; 
+      border-left: 5px solid #ffc107; 
+      margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar (global) -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html"><img src="favcon.png" alt="ConectaUni"></a>
+      <a href="index.html"><h1>ConectaUni</h1></a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html#sobre"><i class="fas fa-info-circle"></i>Sobre</a>
+      <a href="lista_curso.html"><i class="fas fa-graduation-cap"></i>Cursos</a>
+      <a href="index.html#voluntarios"><i class="fas fa-hands-helping"></i>Seja Voluntário</a>
+      <a href="index.html#contato"><i class="fas fa-envelope"></i>Contato</a>
+      <button class="btn-gradiente" onclick="showModal('login')">
+        <i class="fas fa-sign-in-alt"></i>Entrar
+      </button>
+      <button class="btn-gradiente" onclick="showModal('signup')">
+        <i class="fas fa-user-plus"></i>Cadastrar
+      </button>
+    </div>
+    <button id="darkModeToggle" onclick="toggleDarkMode()"><i class="fas fa-moon"></i></button>
+    <button class="menu-toggle" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </button>
+  </nav>
+  
+  <!-- Cabeçalho do Curso -->
+  <header class="course-header">
+    <div class="course-thumbnail">
+      <img src="https://upserver.net/uploads/images/2021/10/1635239357cccc.jpg" alt="PHP do Zero" style="background:#fff; padding: 1rem;">
+      <div class="course-tags">
+        <span class="tag">Programação</span>
+        <span class="tag">PHP</span>
+      </div>
+    </div>
+    <h1>Curso Módulo 4: Paradigmas, Funções, Arrays, Manipulação de Dados e POO em PHP</h1>
+    <p>Aprenda conceitos fundamentais como os paradigmas de programação, declaração e uso de funções, manipulação de arrays e a Programação Orientada a Objetos (POO).</p>
+  </header>
+  
+  <!-- Conteúdo da Atividade -->
+  <section class="atividade-content reveal">
+    
+    <!-- Seção 1: Paradigmas de Programação -->
+    <h2>1. Paradigmas de Programação em PHP</h2>
+    
+    <h3>1.1. Paradigma Procedural</h3>
+    <p>
+      No paradigma procedural, o código é organizado em funções que realizam tarefas específicas. Essa abordagem é simples e ideal para scripts pequenos.
+    </p>
+    <pre>
+&lt;?php
+  function exibirMensagem($mensagem) {
+      echo $mensagem;
+  }
+  // Chama a função passando uma mensagem
+  exibirMensagem("Olá, mundo!");
+?&gt;
+    </pre>
+    <div class="explicacao">
+      <p>
+        Aqui, definimos uma função <code>exibirMensagem()</code> que recebe um parâmetro e utiliza <code>echo</code> para imprimir a mensagem. Em seguida, chamamos a função com o argumento "Olá, mundo!". Esse é o básico do estilo procedural, onde o foco é em funções que manipulam dados.
+      </p>
+    </div>
+    
+    <h3>1.2. Paradigma Funcional</h3>
+    <p>
+      PHP também suporta funções anônimas e closures, aproximando-o do paradigma funcional. Essa abordagem enfatiza funções puras – sem efeitos colaterais – e o uso de funções como parâmetros.
+    </p>
+    <pre>
+&lt;?php
+  $saudacao = function($nome) {
+      return "Olá, $nome!";
+  };
+  // Chamada da função anônima armazenada em $saudacao
+  echo $saudacao("Carlos");
+?&gt;
+    </pre>
+    <div class="explicacao">
+      <p>
+        Neste exemplo, uma função anônima é atribuída à variável <code>$saudacao</code>. Ao chamar <code>$saudacao("Carlos")</code>, a função retorna a saudação para "Carlos". Esse estilo permite passar funções como argumentos e utilizar técnicas funcionais como map, filter e reduce.
+      </p>
+    </div>
+    
+    <h3>1.3. Programação Orientada a Objetos (POO)</h3>
+    <p>
+      A POO organiza o código em objetos, que combinam dados e comportamentos. Essa abordagem facilita a modularidade e a manutenção de sistemas complexos.
+    </p>
+    
+    <!-- Seção 2: Funções em PHP -->
+    <h2>2. Funções em PHP</h2>
+    
+    <h3>2.1. Declaração e Uso de Funções</h3>
+    <p>
+      Funções são blocos de código reutilizáveis que podem receber parâmetros e retornar valores. Elas ajudam a evitar a repetição de código.
+    </p>
+    <pre>
+&lt;?php
+  function soma($a, $b) {
+      return $a + $b;
+  }
+  $resultado = soma(10, 20);
+  echo "A soma é: $resultado";
+?&gt;
+    </pre>
+    <div class="explicacao">
+      <p>
+        A função <code>soma()</code> recebe dois números, soma-os e retorna o resultado. Depois, armazenamos o resultado em <code>$resultado</code> e o exibimos.
+      </p>
+    </div>
+    
+    <h3>2.2. Parâmetros com Valor Padrão e Variádicos</h3>
+    <p>
+      É possível definir valores padrão para parâmetros, que serão usados caso nenhum argumento seja passado. Funções variádicas aceitam um número indefinido de argumentos.
+    </p>
+    <p><strong>Exemplo com Valor Padrão:</strong></p>
+    <pre>
+&lt;?php
+  function saudacao($nome = "Visitante") {
+      return "Bem-vindo, $nome!";
+  }
+  echo saudacao();         // Usa o valor padrão "Visitante"
+  echo saudacao("Mariana"); // Sobrescreve o valor padrão
+?&gt;
+    </pre>
+    <p><strong>Exemplo com Variádicos:</strong></p>
+    <pre>
+&lt;?php
+  function somaTodos(...$numeros) {
+      return array_sum($numeros);
+  }
+  echo somaTodos(1, 2, 3, 4);  // Resultado: 10
+?&gt;
+    </pre>
+    <div class="explicacao">
+      <p>
+        No primeiro exemplo, se nenhum nome for passado para <code>saudacao()</code>, o padrão "Visitante" é usado. No segundo, o operador <code>...</code> permite passar vários números, que são somados com a função <code>array_sum()</code>.
+      </p>
+    </div>
+    
+    <h3>2.3. Funções Anônimas e Recursividade</h3>
+    <p><strong>Função Anônima:</strong></p>
+    <pre>
+&lt;?php
+  $quadrado = function($numero) {
+      return $numero * $numero;
+  };
+  echo "O quadrado de 5 é " . $quadrado(5);
+?&gt;
+    </pre>
+    <p><strong>Função Recursiva:</strong></p>
+    <pre>
+&lt;?php
+  function fatorial($n) {
+      if ($n <= 1) {
+          return 1;
+      } else {
+          return $n * fatorial($n - 1);
+      }
+  }
+  echo "Fatorial de 5 é: " . fatorial(5);
+?&gt;
+    </pre>
+    <div class="explicacao">
+      <p>
+        A função anônima <code>$quadrado</code> calcula o quadrado de um número. Já a função <code>fatorial()</code> chama a si mesma para calcular o fatorial, demonstrando recursividade – onde uma função resolve um problema chamando a si mesma até atingir uma condição de parada.
+      </p>
+    </div>
+    
+    <!-- Seção 3: Arrays e Manipulação de Dados -->
+    <h2>3. Arrays e Manipulação de Dados</h2>
+    
+    <h3>3.1. Tipos de Arrays</h3>
+    <p><strong>Arrays Indexados:</strong> Armazenam valores usando índices numéricos.</p>
+    <pre>
+&lt;?php
+  $frutas = ["Maçã", "Banana", "Laranja"];
+  echo $frutas[1]; // Exibe "Banana"
+?&gt;
+    </pre>
+    <p><strong>Arrays Associativos:</strong> Utilizam chaves descritivas para acessar valores.</p>
+    <pre>
+&lt;?php
+  $pessoa = [
+      "nome"  => "João",
+      "idade" => 30,
+      "cidade" => "Rio de Janeiro"
+  ];
+  echo $pessoa["nome"]; // Exibe "João"
+?&gt;
+    </pre>
+    <p><strong>Arrays Multidimensionais:</strong> Arrays dentro de arrays, úteis para organizar dados complexos.</p>
+    <pre>
+&lt;?php
+  $turmas = [
+      "Turma A" => ["Ana", "Bruno", "Carlos"],
+      "Turma B" => ["Diana", "Eduardo", "Fernanda"]
+  ];
+  echo $turmas["Turma A"][1]; // Exibe "Bruno"
+?&gt;
+    </pre>
+    
+    <h3>3.2. Funções para Manipulação de Arrays</h3>
+    <p>
+      PHP oferece várias funções para inserir, remover, mesclar e ordenar arrays, além de aplicar funções como <code>map</code>, <code>filter</code> e <code>reduce</code>.
+    </p>
+    <p><strong>Exemplo - Inserir e Remover:</strong></p>
+    <pre>
+&lt;?php
+  $numeros = [1, 2, 3];
+  array_push($numeros, 4); // Adiciona 4 no final
+  $removido = array_pop($numeros); // Remove o último elemento (4)
+?&gt;
+    </pre>
+    <p><strong>Exemplo - Mesclar e Ordenar:</strong></p>
+    <pre>
+&lt;?php
+  $a = [3, 1, 4];
+  sort($a); // Ordena o array
+  print_r($a); // Exibe [1, 3, 4]
+?&gt;
+    </pre>
+    <p><strong>Exemplo - Map, Filter e Reduce:</strong></p>
+    <pre>
+&lt;?php
+  $numeros = [1, 2, 3, 4, 5];
+  $quadrados = array_map(function($n) {
+      return $n * $n;
+  }, $numeros);
+  print_r($quadrados);
+?&gt;
+    </pre>
+    <div class="explicacao">
+      <p>
+        Estes exemplos demonstram como adicionar e remover elementos de um array, ordenar e aplicar transformações (como calcular o quadrado de cada número). Funções como <code>array_map()</code> facilitam o processamento de listas.
+      </p>
+    </div>
+    
+    <h3>3.3. Manipulação de Strings e Datas</h3>
+    <p><strong>Strings:</strong> Funções como <code>strlen()</code>, <code>strtoupper()</code> e <code>substr()</code> ajudam a trabalhar com textos.</p>
+    <pre>
+&lt;?php
+  $texto = "PHP é incrível!";
+  echo "Tamanho: " . strlen($texto);
+  echo "Em maiúsculas: " . strtoupper($texto);
+  echo "Subtexto: " . substr($texto, 0, 3); // Exibe "PHP"
+?&gt;
+    </pre>
+    <p><strong>Datas:</strong> As funções <code>date()</code> e <code>strtotime()</code> são usadas para formatar e converter datas.</p>
+    <pre>
+&lt;?php
+  echo "Data atual: " . date("d/m/Y H:i:s");
+  $timestamp = strtotime("2025-12-25");
+  echo "Timestamp para 25/12/2025: " . $timestamp;
+?&gt;
+    </pre>
+    
+    <h3>3.4. Exemplo Integrado: Processamento de Alunos</h3>
+    <pre>
+&lt;?php
+  // Função para calcular a média de notas
+  function calcularMedia(array $notas) {
+      return array_sum($notas) / count($notas);
+  }
+  
+  // Array de alunos com suas notas
+  $alunos = [
+      ["nome" => "Mariana", "notas" => [8.5, 7.0, 9.0]],
+      ["nome" => "Rafael", "notas" => [6.5, 7.5, 8.0]],
+      ["nome" => "Carla", "notas" => [9.0, 8.5, 9.5]]
+  ];
+  
+  // Filtrar alunos aprovados (média >= 7.0) e incluir a média calculada
+  $aprovados = array_filter($alunos, function($aluno) {
+      $media = calcularMedia($aluno["notas"]);
+      $aluno["media"] = $media;
+      return $media >= 7.0;
+  });
+  
+  // Exibir os alunos aprovados com a média formatada
+  foreach ($aprovados as $aluno) {
+      echo "Aluno: {$aluno['nome']} - Média: " . number_format($aluno['media'], 2) . "&lt;br&gt;";
+  }
+?&gt;
+    </pre>
+    <div class="explicacao">
+      <p>
+        Este exemplo mostra como calcular a média das notas de cada aluno, filtrar aqueles com média maior ou igual a 7.0 e exibir os resultados formatados. É uma aplicação prática que integra funções, arrays e manipulação de dados.
+      </p>
+    </div>
+    
+    <!-- Seção 4: Programação Orientada a Objetos (POO) em PHP -->
+    <h2>4. Programação Orientada a Objetos (POO) em PHP – Detalhamento</h2>
+    
+    <h3>4.1. Classes e Objetos</h3>
+    <p>
+      Em POO, classes são modelos para criar objetos. Um objeto é uma instância de uma classe, contendo propriedades (dados) e métodos (comportamentos).
+    </p>
+    <pre>
+&lt;?php
+  class Pessoa {
+      public $nome;
+      public $idade;
+  
+      // Construtor: executado quando o objeto é criado
+      public function __construct($nome, $idade) {
+          $this->nome  = $nome;
+          $this->idade = $idade;
+      }
+  
+      // Método para apresentar a pessoa
+      public function apresentar() {
+          return "Olá, meu nome é {$this->nome} e tenho {$this->idade} anos.";
+      }
+  }
+  
+  $pessoa1 = new Pessoa("Mariana", 28);
+  echo $pessoa1->apresentar();
+?&gt;
+    </pre>
+    <div class="explicacao">
+      <p>
+        A classe <code>Pessoa</code> define propriedades e métodos. O construtor inicializa as propriedades quando um objeto é criado. O método <code>apresentar()</code> retorna uma string com os dados da pessoa.
+      </p>
+    </div>
+    
+    <h3>4.2. Encapsulamento e Modificadores de Acesso</h3>
+    <p>
+      O encapsulamento restringe o acesso direto às propriedades de uma classe. Os modificadores de acesso (public, private, protected) definem essa visibilidade.
+    </p>
+    <pre>
+&lt;?php
+  class ContaBancaria {
+      private $saldo = 0; // Propriedade privada, só acessível dentro da classe
+  
+      public function depositar($valor) {
+          if ($valor > 0) {
+              $this->saldo += $valor;
+          }
+      }
+  
+      public function getSaldo() {
+          return $this->saldo;
+      }
+  }
+  
+  $conta = new ContaBancaria();
+  $conta->depositar(100);
+  echo "Saldo: " . $conta->getSaldo();
+?&gt;
+    </pre>
+    <div class="explicacao">
+      <p>
+        Aqui, o atributo <code>$saldo</code> é privado e só pode ser modificado pelos métodos públicos <code>depositar()</code> e <code>getSaldo()</code>. Essa técnica protege os dados contra alterações indesejadas.
+      </p>
+    </div>
+    
+    <h3>4.3. Herança e Polimorfismo</h3>
+    <p>
+      A herança permite que uma classe herde propriedades e métodos de outra. O polimorfismo possibilita que métodos sejam redefinidos em classes filhas para comportamentos específicos.
+    </p>
+    <pre>
+&lt;?php
+  class Animal {
+      public $nome;
+  
+      public function __construct($nome) {
+          $this->nome = $nome;
+      }
+  
+      public function emitirSom() {
+          return "Som genérico";
+      }
+  }
+  
+  class Cachorro extends Animal {
+      public function emitirSom() {
+          return "Au Au";
+      }
+  }
+  
+  $cachorro = new Cachorro("Buddy");
+  echo "{$cachorro->nome} diz: " . $cachorro->emitirSom();
+?&gt;
+    </pre>
+    <div class="explicacao">
+      <p>
+        A classe <code>Animal</code> define um método genérico. A classe <code>Cachorro</code> estende <code>Animal</code> e redefine o método <code>emitirSom()</code> para retornar "Au Au". Assim, o mesmo método se comporta de forma diferente conforme a classe.
+      </p>
+    </div>
+    
+    <h3>4.4. Abstração, Interfaces e Traits</h3>
+    <p><strong>Classe Abstrata:</strong></p>
+    <pre>
+&lt;?php
+  abstract class Forma {
+      // Método abstrato que deve ser implementado pelas classes filhas
+      abstract public function area();
+  }
+  
+  class Retangulo extends Forma {
+      private $largura;
+      private $altura;
+  
+      public function __construct($largura, $altura) {
+          $this->largura = $largura;
+          $this->altura  = $altura;
+      }
+  
+      public function area() {
+          return $this->largura * $this->altura;
+      }
+  }
+  
+  $retangulo = new Retangulo(10, 5);
+  echo "Área do retângulo: " . $retangulo->area();
+?&gt;
+    </pre>
+    <p><strong>Interface:</strong></p>
+    <pre>
+&lt;?php
+  interface Logavel {
+      public function log($mensagem);
+  }
+  
+  class Sistema implements Logavel {
+      public function log($mensagem) {
+          echo "Log: " . $mensagem;
+      }
+  }
+  
+  $sistema = new Sistema();
+  $sistema->log("Sistema iniciado.");
+?&gt;
+    </pre>
+    <p><strong>Trait:</strong></p>
+    <pre>
+&lt;?php
+  trait Logger {
+      public function log($mensagem) {
+          echo "Log: " . $mensagem . "&lt;br&gt;";
+      }
+  }
+  
+  class Usuario {
+      use Logger;
+      private $nome;
+  
+      public function __construct($nome) {
+          $this->nome = $nome;
+      }
+  }
+  
+  class Produto {
+      use Logger;
+      private $descricao;
+  
+      public function __construct($descricao) {
+          $this->descricao = $descricao;
+      }
+  }
+  
+  $usuario = new Usuario("Ana");
+  $produto = new Produto("Camiseta");
+  
+  $usuario->log("Usuário logado.");
+  $produto->log("Produto adicionado ao carrinho.");
+?&gt;
+    </pre>
+    <div class="explicacao">
+      <p>
+        As classes abstratas servem de modelo para as filhas. Interfaces definem contratos que as classes devem cumprir. Traits permitem reutilizar métodos entre classes sem herança. Essas técnicas aumentam a modularidade e a reutilização do código.
+      </p>
+    </div>
+    
+    <h3>4.5. Exemplo Prático Integrado de POO</h3>
+    <pre>
+&lt;?php
+  // Classe abstrata Animal
+  abstract class Animal {
+      protected $nome;
+  
+      public function __construct($nome) {
+          $this->nome = $nome;
+      }
+  
+      abstract public function emitirSom();
+  }
+  
+  // Classe Cachorro que estende Animal
+  class Cachorro extends Animal {
+      public function emitirSom() {
+          return "Au Au";
+      }
+  }
+  
+  // Classe Gato que estende Animal
+  class Gato extends Animal {
+      public function emitirSom() {
+          return "Miau";
+      }
+  }
+  
+  // Criação de um array com diferentes animais
+  $animais = [
+      new Cachorro("Rex"),
+      new Gato("Mimi")
+  ];
+  
+  foreach ($animais as $animal) {
+      echo "{$animal->nome} diz: " . $animal->emitirSom() . "&lt;br&gt;";
+  }
+?&gt;
+    </pre>
+    <div class="explicacao">
+      <p>
+        Este exemplo integra herança, polimorfismo e abstração. Criamos uma classe abstrata <code>Animal</code> com um método abstrato <code>emitirSom()</code> que é implementado de maneira diferente pelas classes <code>Cachorro</code> e <code>Gato</code>. Assim, ao percorrer o array de animais, o método correto é chamado para cada objeto.
+      </p>
+    </div>
+    
+    <!-- Seção 5: Conclusão e Recursos -->
+    <h2>5. Conclusão</h2>
+    <p>
+      Neste módulo, você aprendeu sobre paradigmas de programação (procedural, funcional e orientado a objetos), funções (incluindo parâmetros padrão, variádicos, anônimos e recursividade), arrays e manipulação de dados, além dos fundamentos da Programação Orientada a Objetos. Esses conceitos são essenciais para o desenvolvimento de aplicações robustas em PHP.
+    </p>
+    
+    <h2>6. Recursos Adicionais</h2>
+    <ul>
+      <li><strong>Documentação Oficial:</strong> <a href="https://www.php.net/manual" target="_blank">php.net/manual</a></li>
+      <li><strong>Tutoriais e Cursos:</strong> W3Schools PHP, DevMedia</li>
+    </ul>
+    
+    <h2>Dicas Extras para uma Boa Prática de Desenvolvimento</h2>
+    <ul>
+      <li><strong>Organize seus Projetos:</strong> Mantenha seus arquivos e pastas bem estruturados.</li>
+      <li><strong>Explore as Extensões:</strong> Utilize ferramentas para autocompletar e identificar erros.</li>
+      <li><strong>Pratique a Depuração:</strong> Use breakpoints e consoles para acompanhar o fluxo do código.</li>
+    </ul>
+    
+  </section>
+  
+  <!-- Footer (global) -->
+  <footer class="footer" id="contato">
+    <div class="footer-grid">
+      <div class="footer-section">
+        <div class="logo">
+          <img src="favcon.png" alt="ConectaUni">
+          <h3>ConectaUni</h3>
+        </div>
+        <p>Plataforma educacional colaborativa</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>Links Úteis</h4>
+        <ul>
+          <li><a href="index.html#sobre"><i class="fas fa-chevron-right"></i> Sobre Nós</a></li>
+          <li><a href="lista_curso.html"><i class="fas fa-chevron-right"></i> Cursos</a></li>
+          <li><a href="index.html#voluntarios"><i class="fas fa-chevron-right"></i> Voluntários</a></li>
+          <li><a href="index.html#contato"><i class="fas fa-chevron-right"></i> Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Contato</h4>
+        <ul class="contact-info">
+          <li><i class="fas fa-map-marker-alt"></i> Feira de Santana - BA</li>
+          <li><i class="fas fa-phone"></i> (75) 98144-0696</li>
+          <li><i class="fas fa-envelope"></i> mateus.queiroz.ti.mq@gmail.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 ConectaUni. Todos os direitos reservados.</p>
+      <div class="legal-links">
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Termos de Uso</a>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Back to Top -->
+  <div id="backToTop" class="back-to-top" onclick="scrollToTop()">
+    <i class="fas fa-chevron-up"></i>
+  </div>
+  
+  <!-- Modais (Login/Cadastro) -->
+  <div class="modal-overlay" id="modalOverlay"></div>
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="hideModals()">&times;</span>
+      <h2><i class="fas fa-sign-in-alt"></i> Login</h2>
+      <form id="loginForm">
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" placeholder="E-mail" required id="loginEmail">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Senha" required id="loginPassword">
+        </div>
+        <button type="submit" class="btn-gradiente">Entrar</button>
+      </form>
+    </div>
+  </div>
+  <div id="signupModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="hideModals()">&times;</span>
+      <h2><i class="fas fa-user-plus"></i> Cadastro</h2>
+      <form id="signupForm">
+        <div class="input-group">
+          <i class="fas fa-user"></i>
+          <input type="text" placeholder="Nome completo" required id="signupName">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" placeholder="E-mail" required id="signupEmail">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Senha" required id="signupPassword">
+        </div>
+        <button type="submit" class="btn-gradiente">Cadastrar</button>
+      </form>
+    </div>
+  </div>
+  
+  <!-- Widget de Chat -->
+  <div id="chatWidget" class="chat-widget" onclick="toggleChatModal()">
+    <i class="fas fa-comments"></i>
+  </div>
+  <div id="chatModal" class="chat-modal">
+    <div class="chat-header">
+      <span>ChatBot</span>
+      <span class="close" onclick="toggleChatModal()">&times;</span>
+    </div>
+    <div class="chat-content" id="chatContent">
+      <p><strong>ChatBot:</strong> Olá! Como posso ajudar?</p>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="chatInput" placeholder="Digite sua mensagem...">
+      <button onclick="sendChatMessage()">Enviar</button>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>

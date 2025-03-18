@@ -1,0 +1,179 @@
+
+    /* Hero Section para a Atividade */
+    .hero#hero-event {
+      background: url('https://delgrande.com.br/wp-content/uploads/2022/02/o-que-e-php.png') center/cover no-repeat;
+      height: 250px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      text-align: center;
+    }
+    .hero#hero-event .hero-content h1 {
+      font-size: 2.5em;
+      margin: 0;
+    }
+    /* Conteúdo da Atividade */
+    .atividade-content {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+      line-height: 1.6;
+      font-family: Arial, sans-serif;
+      color: #333;
+    }
+    .atividade-content h2 {
+      margin-top: 30px;
+      color: #264653;
+    }
+    .atividade-content h3 {
+      margin-top: 20px;
+      color: #2A9D8F;
+    }
+    .atividade-content p {
+      margin: 10px 0;
+    }
+    .atividade-content ul {
+      margin: 10px 0 20px 20px;
+    }
+    .atividade-content pre {
+      background: #f4f4f4;
+      padding: 10px;
+      border-radius: 4px;
+      overflow-x: auto;
+    }
+    /* Container para agrupar botões (mantendo alinhamento à esquerda, conforme padrão dos detalhes do evento) */
+    .btn-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-top: 20px;
+    }
+    .btn-container a {
+      display: inline-block;
+      margin: 5px 0;
+    }
+    /* Botão de Material de Apoio - maior com efeito de borda animada */
+    .btn-material {
+      background: linear-gradient(135deg, #2A9D8F, #264653);
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: 4px;
+      text-decoration: none;
+      font-weight: bold;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      animation: pulse 2s infinite;
+      margin-top: 10px;
+    }
+    .btn-material:hover {
+      transform: scale(1.05);
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+    /* Borda animada em gradiente ao redor do botão */
+    .btn-material::before {
+      content: "";
+      position: absolute;
+      top: -3px;
+      left: -3px;
+      right: -3px;
+      bottom: -3px;
+      background: linear-gradient(45deg, #2A9D8F, #264653, #2A9D8F);
+      z-index: -1;
+      filter: blur(2px);
+      opacity: 0.9;
+      animation: borderDance 2s linear infinite;
+    }
+    @keyframes borderDance {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    /* Container do módulo */
+    .module-content-container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .back-button {
+      margin-bottom: 1rem;
+    }
+    
+    /* Cabeçalho do Curso */
+    .course-header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin-top: 100px; /* Compensa o navbar fixo */
+      padding: 20px;
+    }
+    .course-thumbnail {
+      position: relative;
+      width: 100%;
+      max-width: 800px;
+      overflow: hidden;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+    .course-thumbnail img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    .course-tags {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 5px 10px;
+      border-radius: 5px;
+      display: flex;
+      gap: 10px;
+    }
+    .course-tags .tag {
+      color: #fff;
+      font-size: 0.9em;
+      background: rgba(255, 255, 255, 0.3);
+      padding: 2px 5px;
+      border-radius: 3px;
+    }
+    .course-header h1 {
+      font-size: 2.5rem;
+      margin: 10px 0;
+      color: #333;
+    }
+    .course-header p {
+      font-size: 1.2rem;
+      color: #666;
+      max-width: 800px;
+    }
+    
+    /* Back to Top */
+    .back-to-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--primary, #2A9D8F);
+      color: #fff;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      transition: opacity 0.3s;
+    }
+    .back-to-top:hover {
+      opacity: 0.8;
+    }

@@ -1,0 +1,21 @@
+ <!-- Container Principal: Menu Lateral e Conteúdo Dinâmico -->
+  <main class="course-detail-container">
+    <div class="course-wrapper">
+      <!-- Sidebar -->
+      <aside class="course-sidebar">
+        <div class="sidebar-header">
+          <h2>Conteúdo do Curso</h2>
+        </div>
+        <nav class="sidebar-nav">
+          <ul class="sidebar-menu">
+            <li><a href="#" data-section="sobre" class="active"><i class="fas fa-book-open"></i>Sobre o Curso</a></li>
+            <li><a href="#" data-section="modulos"><i class="fas fa-layer-group"></i>Módulos</a></li>
+            <li><a href="#" data-section="materiais"><i class="fas fa-file-download"></i>Materiais</a></li>
+            <li><a href="#" data-section="atividades"><i class="fas fa-tasks"></i>Atividades</a></li>
+            <li><a href="#" data-section="progresso"><i class="fas fa-chart-line"></i>Prova e Certificado</a></li>
+            <li><a href="#" data-section="forum"><i class="fas fa-comments"></i>Fórum</a></li>
+            <!-- Nova opção para Playlist -->
+            <li><a href="#" data-section="playlist"><i class="fas fa-play-circle"></i>Playlist</a></li>
+          </ul>
+        </nav>
+      </aside>

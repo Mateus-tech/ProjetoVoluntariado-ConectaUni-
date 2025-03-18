@@ -1047,4 +1047,12 @@
   body > section.filters-section.reveal > div > div.filter-buttons{
     gap: 1rem ;
   }
-  
+  body > section.filters-section.reveal{
+    margin-top: 10VW;
+  }
+  @media (max-width: 768px) {
+    body > section.filters-section.reveal{
+      margin-top: 30VW;
+    }
+    
+  }

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curso Módulo 5: Trabalhando com Formulários e Banco de Dados – Tutorial Passo a Passo - ConectaUni</title>
+  <!-- Ícones e CSS (global e específico) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css"> <!-- CSS global -->
+  <link rel="stylesheet" href="curso_modulo.css">
+  <link rel="icon" href="favcon.png" type="image/x-icon">
+  <!-- CSS adicional específico para esta página -->
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+    .atividade-content { padding: 40px 20px; max-width: 900px; margin: 0 auto; }
+    .atividade-content h2 { margin-top: 30px; color: #264653; }
+    .atividade-content h3 { margin-top: 20px; color: #2A9D8F; }
+    .atividade-content p { margin: 10px 0; }
+    .atividade-content pre {
+      background: #f4f4f4; padding: 10px; border-radius: 4px; overflow-x: auto; font-size: 0.95em;
+    }
+    .explicacao {
+      background: #e7f4ea; padding: 10px; border-left: 5px solid #2A9D8F; margin: 20px 0;
+    }
+    .dica {
+      background: #fff3cd; padding: 10px; border-left: 5px solid #ffc107; margin: 20px 0;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar (global) -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html"><img src="favcon.png" alt="ConectaUni"></a>
+      <a href="index.html"><h1>ConectaUni</h1></a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html#sobre"><i class="fas fa-info-circle"></i>Sobre</a>
+      <a href="lista_curso.html"><i class="fas fa-graduation-cap"></i>Cursos</a>
+      <a href="index.html#voluntarios"><i class="fas fa-hands-helping"></i>Seja Voluntário</a>
+      <a href="index.html#contato"><i class="fas fa-envelope"></i>Contato</a>
+      <button class="btn-gradiente" onclick="showModal('login')"><i class="fas fa-sign-in-alt"></i>Entrar</button>
+      <button class="btn-gradiente" onclick="showModal('signup')"><i class="fas fa-user-plus"></i>Cadastrar</button>
+    </div>
+    <button id="darkModeToggle" onclick="toggleDarkMode()"><i class="fas fa-moon"></i></button>
+    <button class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+  </nav>
+  
+  <!-- Cabeçalho do Curso -->
+  <header class="course-header">
+    <div class="course-thumbnail">
+      <img src="https://upserver.net/uploads/images/2021/10/1635239357cccc.jpg" alt="PHP do Zero" style="background:#fff; padding: 1rem;">
+      <div class="course-tags">
+        <span class="tag">Programação</span>
+        <span class="tag">PHP</span>
+      </div>
+    </div>
+    <h1>Curso Módulo 5: Trabalhando com Formulários e Banco de Dados – Tutorial Passo a Passo</h1>
+    <p>Aprenda a criar formulários, processar dados e integrá-los com um banco de dados MySQL utilizando PDO.</p>
+  </header>
+  
+  <!-- Conteúdo da Atividade -->
+  <section class="atividade-content reveal">
+    <!-- 1. Preparando o Ambiente -->
+    <h2>1. Preparando o Ambiente</h2>
+    <h3>1.1. Requisitos</h3>
+    <p><strong>Servidor Web:</strong> Utilize XAMPP, WAMP ou MAMP para simular um ambiente local com Apache, MySQL e PHP.</p>
+    <p><strong>Editor de Código:</strong> Recomenda-se usar o VS Code para facilitar a edição.</p>
+    <p><strong>Banco de Dados:</strong> MySQL, que geralmente já vem incluso no XAMPP.</p>
+    <div class="explicacao">
+      <p>
+        Estes requisitos garantem que você terá um ambiente controlado para testar seus scripts PHP e interagir com um banco de dados local.
+      </p>
+    </div>
+    <h3>1.2. Iniciando o Servidor</h3>
+    <p>Abra o painel de controle do XAMPP e inicie os módulos Apache e MySQL.</p>
+    <p>Crie uma pasta para o seu projeto, por exemplo: <code>C:\xampp\htdocs\meu_projeto</code>.</p>
+    <div class="dica">
+      <p>
+        Dica: Verifique se os serviços estão rodando corretamente antes de prosseguir para evitar problemas de conexão.
+      </p>
+    </div>
+    
+    <!-- 2. Criando o Formulário em HTML -->
+    <h2>2. Criando o Formulário em HTML</h2>
+    <p><strong>Passo 1:</strong> Crie um arquivo <code>formulario.html</code> com o código abaixo:</p>
+    <pre>
+&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-BR"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Cadastro de Usuário&lt;/title&gt;
+  &lt;style&gt;
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    form { max-width: 400px; margin: auto; }
+    label { display: block; margin-top: 10px; }
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] { width: 100%; padding: 8px; }
+    input[type="submit"] { margin-top: 20px; padding: 10px 15px; }
+  &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Cadastro de Usuário&lt;/h1&gt;
+  &lt;form action="processa.php" method="post"&gt;
+    &lt;label for="nome"&gt;Nome:&lt;/label&gt;
+    &lt;input type="text" id="nome" name="nome" required&gt;
+    
+    &lt;label for="email"&gt;E-mail:&lt;/label&gt;
+    &lt;input type="email" id="email" name="email" required&gt;
+    
+    &lt;label for="senha"&gt;Senha:&lt;/label&gt;
+    &lt;input type="password" id="senha" name="senha" required&gt;
+    
+    &lt;input type="submit" value="Cadastrar"&gt;
+  &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+    </pre>
+    <div class="explicacao">
+      <p>
+        Este formulário HTML coleta os dados de nome, e-mail e senha do usuário e envia-os para o arquivo <code>processa.php</code> usando o método POST.
+      </p>
+    </div>
+    
+    <!-- 3. Processando os Dados do Formulário com PHP -->
+    <h2>3. Processando os Dados do Formulário com PHP</h2>
+    <p><strong>Passo 2:</strong> Crie um arquivo <code>processa.php</code> com o seguinte código:</p>
+    <pre>
+&lt;?php
+  // Captura os dados enviados pelo formulário usando o método POST
+  $nome  = trim($_POST['nome'] ?? '');
+  $email = trim($_POST['email'] ?? '');
+  $senha = trim($_POST['senha'] ?? '');
+  
+  // Sanitização básica para remover possíveis tags HTML e espaços extras
+  $nome  = filter_var($nome, FILTER_SANITIZE_STRING);
+  $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+  
+  // Validação do e-mail para garantir que o formato está correto
+  if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      die("E-mail inválido!");
+  }
+  
+  // Exibe uma mensagem de confirmação (útil para testes iniciais)
+  echo "Bem-vindo, $nome! Seu e-mail é $email.";
+?&gt;
+    </pre>
+    <div class="explicacao">
+      <p>
+        Esse script captura os dados enviados, remove espaços e tags indesejadas, valida o e-mail e, em seguida, exibe uma mensagem de boas-vindas. As funções <code>trim()</code> e <code>filter_var()</code> ajudam a manter os dados limpos e seguros.
+      </p>
+    </div>
+    
+    <!-- 4. Criando e Configurando o Banco de Dados -->
+    <h2>4. Criando e Configurando o Banco de Dados</h2>
+    <p><strong>Passo 3:</strong> No phpMyAdmin, crie um banco de dados chamado <code>meu_banco</code>.</p>
+    <p>Depois, execute o seguinte comando SQL para criar uma tabela chamada <code>usuarios</code>:</p>
+    <pre>
+CREATE TABLE usuarios (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    senha VARCHAR(255) NOT NULL,
+    data_cadastro TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+    </pre>
+    <div class="explicacao">
+      <p>
+        Este comando SQL cria a tabela <code>usuarios</code> com colunas para ID, nome, e-mail, senha e data de cadastro. A coluna <code>id</code> é auto-incrementada e única, enquanto <code>email</code> deve ser único para evitar duplicatas.
+      </p>
+    </div>
+    
+    <!-- 5. Integrando o PHP com o Banco de Dados Usando PDO -->
+    <h2>5. Integrando o PHP com o Banco de Dados Usando PDO</h2>
+    <p><strong>Passo 4:</strong> Crie um arquivo <code>conexao.php</code> com o código abaixo:</p>
+    <pre>
+&lt;?php
+  $host    = 'localhost';
+  $db      = 'meu_banco';
+  $user    = 'root';      // Geralmente 'root' no XAMPP
+  $pass    = '';          // Normalmente sem senha no XAMPP
+  $charset = 'utf8mb4';
+  
+  $dsn = "mysql:host=$host;dbname=$db;charset=$charset";
+  $options = [
+      PDO::ATTR_ERRMODE            => PDO::ERRMODE_EXCEPTION,
+      PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+      PDO::ATTR_EMULATE_PREPARES   => false,
+  ];
+  
+  try {
+      $pdo = new PDO($dsn, $user, $pass, $options);
+  } catch (PDOException $e) {
+      die("Erro na conexão: " . $e->getMessage());
+  }
+?&gt;
+    </pre>
+    <div class="explicacao">
+      <p>
+        Este script utiliza a extensão PDO para conectar ao banco de dados MySQL. O Data Source Name (<code>dsn</code>) define os parâmetros da conexão, e as opções configuram o tratamento de erros e o modo de busca dos dados.
+      </p>
+    </div>
+    
+    <!-- 6. Inserindo os Dados no Banco de Dados -->
+    <h2>6. Inserindo os Dados no Banco de Dados</h2>
+    <p><strong>Passo 5:</strong> Atualize o arquivo <code>processa.php</code> para inserir os dados na tabela <code>usuarios</code>:</p>
+    <pre>
+&lt;?php
+  require 'conexao.php'; // Inclui o arquivo de conexão
+  
+  $nome  = trim($_POST['nome'] ?? '');
+  $email = trim($_POST['email'] ?? '');
+  $senha = trim($_POST['senha'] ?? '');
+  
+  $nome  = filter_var($nome, FILTER_SANITIZE_STRING);
+  $email = filter_var($email, FILTER_SANITIZE_EMAIL);
+  
+  if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+      die("E-mail inválido!");
+  }
+  
+  // Criptografa a senha para segurança
+  $senhaCriptografada = password_hash($senha, PASSWORD_DEFAULT);
+  
+  // Prepara a inserção dos dados usando prepared statements
+  $stmt = $pdo->prepare("INSERT INTO usuarios (nome, email, senha) VALUES (:nome, :email, :senha)");
+  
+  try {
+      $stmt->execute([
+          ':nome'  => $nome,
+          ':email' => $email,
+          ':senha' => $senhaCriptografada
+      ]);
+      echo "Usuário cadastrado com sucesso!";
+  } catch (PDOException $e) {
+      die("Erro ao cadastrar usuário: " . $e->getMessage());
+  }
+?&gt;
+    </pre>
+    <div class="explicacao">
+      <p>
+        Aqui, os dados capturados são novamente sanitizados e validados. A senha é criptografada com <code>password_hash()</code> para segurança. Em seguida, um prepared statement insere os dados na tabela <code>usuarios</code>. O uso de prepared statements evita ataques de SQL Injection.
+      </p>
+    </div>
+    
+    <!-- 7. Dicas, Materiais e Recursos de Estudo -->
+    <h2>7. Dicas, Materiais e Recursos de Estudo</h2>
+    <ul>
+      <li><strong>Boas Práticas:</strong> Sempre valide e sanitize os dados recebidos do usuário.</li>
+      <li><strong>Prepared Statements:</strong> Use-os para evitar SQL Injection.</li>
+      <li><strong>Organização:</strong> Separe a lógica de conexão, processamento e apresentação em arquivos distintos.</li>
+      <li><strong>Recursos:</strong> Consulte a <a href="https://www.php.net/manual" target="_blank">Documentação Oficial do PHP</a> e tutoriais sobre PDO.</li>
+    </ul>
+    
+    <!-- 8. Conclusão e Próximos Passos -->
+    <h2>8. Conclusão e Próximos Passos</h2>
+    <p>
+      Este tutorial prático o guiou desde a criação de um formulário HTML até a inserção dos dados em um banco de dados MySQL usando PDO. Com esses conhecimentos, você está preparado para desenvolver sistemas web mais complexos, como a implementação de um CRUD completo, autenticação de usuários e muito mais.
+    </p>
+    <p>
+      Experimente ampliar este exemplo, integrando novas funcionalidades e testando cada etapa para consolidar seu aprendizado.
+    </p>
+    
+  </section>
+  
+  <!-- Footer (global) -->
+  <footer class="footer" id="contato">
+    <div class="footer-grid">
+      <div class="footer-section">
+        <div class="logo">
+          <img src="favcon.png" alt="ConectaUni">
+          <h3>ConectaUni</h3>
+        </div>
+        <p>Plataforma educacional colaborativa</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>Links Úteis</h4>
+        <ul>
+          <li><a href="index.html#sobre"><i class="fas fa-chevron-right"></i> Sobre Nós</a></li>
+          <li><a href="lista_curso.html"><i class="fas fa-chevron-right"></i> Cursos</a></li>
+          <li><a href="index.html#voluntarios"><i class="fas fa-chevron-right"></i> Voluntários</a></li>
+          <li><a href="index.html#contato"><i class="fas fa-chevron-right"></i> Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Contato</h4>
+        <ul class="contact-info">
+          <li><i class="fas fa-map-marker-alt"></i> Feira de Santana - BA</li>
+          <li><i class="fas fa-phone"></i> (75) 98144-0696</li>
+          <li><i class="fas fa-envelope"></i> mateus.queiroz.ti.mq@gmail.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 ConectaUni. Todos os direitos reservados.</p>
+      <div class="legal-links">
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Termos de Uso</a>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Back to Top -->
+  <div id="backToTop" class="back-to-top" onclick="scrollToTop()">
+    <i class="fas fa-chevron-up"></i>
+  </div>
+  
+  <!-- Modais (Login/Cadastro) -->
+  <div class="modal-overlay" id="modalOverlay"></div>
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="hideModals()">&times;</span>
+      <h2><i class="fas fa-sign-in-alt"></i> Login</h2>
+      <form id="loginForm">
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" placeholder="E-mail" required id="loginEmail">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Senha" required id="loginPassword">
+        </div>
+        <button type="submit" class="btn-gradiente">Entrar</button>
+      </form>
+    </div>
+  </div>
+  <div id="signupModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="hideModals()">&times;</span>
+      <h2><i class="fas fa-user-plus"></i> Cadastro</h2>
+      <form id="signupForm">
+        <div class="input-group">
+          <i class="fas fa-user"></i>
+          <input type="text" placeholder="Nome completo" required id="signupName">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" placeholder="E-mail" required id="signupEmail">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Senha" required id="signupPassword">
+        </div>
+        <button type="submit" class="btn-gradiente">Cadastrar</button>
+      </form>
+    </div>
+  </div>
+  
+  <!-- Widget de Chat -->
+  <div id="chatWidget" class="chat-widget" onclick="toggleChatModal()">
+    <i class="fas fa-comments"></i>
+  </div>
+  <div id="chatModal" class="chat-modal">
+    <div class="chat-header">
+      <span>ChatBot</span>
+      <span class="close" onclick="toggleChatModal()">&times;</span>
+    </div>
+    <div class="chat-content" id="chatContent">
+      <p><strong>ChatBot:</strong> Olá! Como posso ajudar?</p>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="chatInput" placeholder="Digite sua mensagem...">
+      <button onclick="sendChatMessage()">Enviar</button>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>

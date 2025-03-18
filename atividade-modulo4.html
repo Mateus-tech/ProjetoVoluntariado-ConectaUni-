@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 4: Paradigmas, Funções, Arrays e Manipulação de Dados - ConectaUni</title>
+  <!-- Ícones e CSS Global -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="curso_modulo.css">
+  <link rel="icon" href="favcon.png" type="image/x-icon">
+  <!-- CSS adicional específico para esta página -->
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; }
+    .atividade-content { padding: 40px 20px; max-width: 900px; margin: 0 auto; }
+    .atividade-content h2 { color: #264653; margin-top: 30px; }
+    .atividade-content h3 { color: #2A9D8F; margin-top: 20px; }
+    .atividade-content p { margin: 10px 0; }
+    .atividade-content pre {
+      background: #f4f4f4; padding: 10px; border-radius: 4px; overflow-x: auto; font-size: 0.95em;
+    }
+    .explicacao {
+      background: #e7f4ea; padding: 10px; border-left: 5px solid #2A9D8F; margin: 20px 0;
+    }
+    .atividade {
+      background: #fff3cd; padding: 10px; border-left: 5px solid #ffc107; margin: 20px 0;
+    }
+    .answer {
+      background: #f9f9f9; padding: 10px; border: 1px solid #ddd; margin-top: 10px; display: none;
+    }
+    .toggle-btn {
+      background: #2A9D8F; color: #fff; border: none; padding: 8px 12px; cursor: pointer; border-radius: 4px;
+    }
+    /* Cabeçalho do Curso */
+    .course-header {
+      display: flex; flex-direction: column; align-items: center; text-align: center; margin-top: 100px; padding: 20px;
+    }
+    .course-thumbnail {
+      position: relative; width: 100%; max-width: 800px; overflow: hidden; border-radius: 8px; margin-bottom: 20px;
+    }
+    .course-thumbnail img { width: 100%; height: auto; display: block; }
+    .course-tags {
+      position: absolute; bottom: 10px; left: 10px; background: rgba(0,0,0,0.5); padding: 5px 10px; border-radius: 5px; display: flex; gap: 10px;
+    }
+    .course-tags .tag { color: #fff; font-size: 0.9em; background: rgba(255,255,255,0.3); padding: 2px 5px; border-radius: 3px; }
+    .course-header h1 { font-size: 2.5rem; margin: 10px 0; color: #333; }
+    .course-header p { font-size: 1.2rem; color: #666; max-width: 800px; }
+    /* Back to Top */
+    .back-to-top {
+      position: fixed; bottom: 20px; right: 20px; background: #2A9D8F; color: #fff; width: 40px; height: 40px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 8px rgba(0,0,0,0.2); transition: opacity 0.3s;
+    }
+    .back-to-top:hover { opacity: 0.8; }
+  </style>
+  <script>
+    // Função para alternar a exibição das respostas das atividades
+    function toggleAnswer(id) {
+      var answerDiv = document.getElementById(id);
+      if (answerDiv.style.display === "none" || answerDiv.style.display === "") {
+        answerDiv.style.display = "block";
+      } else {
+        answerDiv.style.display = "none";
+      }
+    }
+  </script>
+</head>
+<body>
+  <!-- Navbar Global -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html"><img src="favcon.png" alt="ConectaUni"></a>
+      <a href="index.html"><h1>ConectaUni</h1></a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html#sobre"><i class="fas fa-info-circle"></i> Sobre</a>
+      <a href="lista_curso.html"><i class="fas fa-graduation-cap"></i> Cursos</a>
+      <a href="index.html#voluntarios"><i class="fas fa-hands-helping"></i> Seja Voluntário</a>
+      <a href="index.html#contato"><i class="fas fa-envelope"></i> Contato</a>
+      <button class="btn-gradiente" onclick="showModal('login')"><i class="fas fa-sign-in-alt"></i> Entrar</button>
+      <button class="btn-gradiente" onclick="showModal('signup')"><i class="fas fa-user-plus"></i> Cadastrar</button>
+    </div>
+    <button id="darkModeToggle" onclick="toggleDarkMode()"><i class="fas fa-moon"></i></button>
+    <button class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+  </nav>
+  
+  <!-- Cabeçalho do Curso -->
+  <header class="course-header">
+    <div class="course-thumbnail">
+      <img src="https://upserver.net/uploads/images/2021/10/1635239357cccc.jpg" alt="PHP do Zero" style="background:#fff; padding: 1rem;">
+      <div class="course-tags">
+        <span class="tag">Programação</span>
+        <span class="tag">PHP</span>
+      </div>
+    </div>
+    <h1>Atividade 4: Paradigmas, Funções, Arrays e Manipulação de Dados</h1>
+    <p>Aprenda diferentes paradigmas de programação, como criar e utilizar funções, trabalhar com arrays e manipular dados em PHP.</p>
+  </header>
+  
+  <!-- Conteúdo Principal -->
+  <section class="atividade-content reveal">
+    <h2>1. Paradigmas de Programação</h2>
+    <p>
+      PHP suporta diversos paradigmas, permitindo que você escolha o mais adequado para cada situação:
+    </p>
+    <h3>1.1. Paradigma Procedural</h3>
+    <p>
+      No paradigma procedural, o código é organizado em funções que realizam tarefas específicas. Este estilo é simples e direto.
+    </p>
+    <pre>
+&lt;?php
+  function exibirMensagem($mensagem) {
+      echo $mensagem;
+  }
+  exibirMensagem("Olá, mundo!");
+?&gt;
+    </pre>
+    <div class="explicacao">
+      <p>
+        Neste exemplo, a função <code>exibirMensagem()</code> é definida para receber um texto e exibi-lo usando <code>echo</code>.
+      </p>
+    </div>
+    <h3>1.2. Paradigma Funcional</h3>
+    <p>
+      PHP permite o uso de funções anônimas (closures) para trabalhar com o paradigma funcional, que enfatiza funções puras.
+    </p>
+    <pre>
+&lt;?php
+  $saudacao = function($nome) {
+      return "Olá, $nome!";
+  };
+  echo $saudacao("Carlos");
+?&gt;
+    </pre>
+    <div class="explicacao">
+      <p>
+        Aqui, uma função anônima é atribuída à variável <code>$saudacao</code>, que retorna uma saudação personalizada.
+      </p>
+    </div>
+    <h3>1.3. Programação Orientada a Objetos (POO)</h3>
+    <p>
+      A POO organiza o código em objetos, que combinam dados e comportamentos, promovendo modularidade e reutilização.
+    </p>
+    <pre>
+&lt;?php
+  class Pessoa {
+      public $nome;
+      public function __construct($nome) {
+          $this->nome = $nome;
+      }
+      public function apresentar() {
+          return "Olá, meu nome é " . $this->nome;
+      }
+  }
+  $pessoa = new Pessoa("Mariana");
+  echo $pessoa->apresentar();
+?&gt;
+    </pre>
+    <div class="explicacao">
+      <p>
+        A classe <code>Pessoa</code> possui uma propriedade e um método para apresentar o objeto. Essa abordagem facilita a manutenção de sistemas complexos.
+      </p>
+    </div>
+    
+    <h2>2. Funções em PHP</h2>
+    <h3>2.1. Declaração e Uso de Funções</h3>
+    <p>
+      Funções são blocos de código reutilizáveis que podem receber parâmetros e retornar valores.
+    </p>
+    <pre>
+&lt;?php
+  function soma($a, $b) {
+      return $a + $b;
+  }
+  echo "Soma: " . soma(10, 20);
+?&gt;
+    </pre>
+    <div class="explicacao">
+      <p>
+        A função <code>soma()</code> recebe dois valores, realiza a soma e retorna o resultado.
+      </p>
+    </div>
+    <h3>2.2. Parâmetros com Valor Padrão e Funções Variádicas</h3>
+    <p>
+      Funções podem definir valores padrão para parâmetros e aceitar um número variável de argumentos.
+    </p>
+    <pre>
+&lt;?php
+  function saudacao($nome = "Visitante") {
+      return "Bem-vindo, $nome!";
+  }
+  echo saudacao();         // Usa valor padrão
+  echo saudacao("Mariana");  // Sobrescreve o padrão
+
+  // Função variádica
+  function somaTodos(...$numeros) {
+      return array_sum($numeros);
+  }
+  echo somaTodos(1, 2, 3, 4);  // Resultado: 10
+?&gt;
+    </pre>
+    <div class="explicacao">
+      <p>
+        O primeiro exemplo usa um valor padrão para o parâmetro. No segundo, o operador <code>...</code> permite que a função receba vários argumentos.
+      </p>
+    </div>
+    
+    <h2>3. Arrays e Manipulação de Dados</h2>
+    <h3>3.1. Tipos de Arrays</h3>
+    <p>
+      Arrays armazenam múltiplos valores. Eles podem ser indexados numericamente ou associativos.
+    </p>
+    <p><strong>Array Indexado:</strong></p>
+    <pre>
+&lt;?php
+  $frutas = ["Maçã", "Banana", "Laranja"];
+  echo $frutas[1]; // Exibe "Banana"
+?&gt;
+    </pre>
+    <p><strong>Array Associativo:</strong></p>
+    <pre>
+&lt;?php
+  $pessoa = [
+      "nome"  => "João",
+      "idade" => 30,
+      "cidade" => "São Paulo"
+  ];
+  echo $pessoa["nome"]; // Exibe "João"
+?&gt;
+    </pre>
+    <p><strong>Array Multidimensional:</strong></p>
+    <pre>
+&lt;?php
+  $turmas = [
+      "Turma A" => ["Ana", "Bruno", "Carlos"],
+      "Turma B" => ["Diana", "Eduardo", "Fernanda"]
+  ];
+  echo $turmas["Turma A"][1]; // Exibe "Bruno"
+?&gt;
+    </pre>
+    <div class="explicacao">
+      <p>
+        Arrays permitem organizar dados de forma estruturada, facilitando a iteração e manipulação com funções como <code>array_sum()</code> e <code>sort()</code>.
+      </p>
+    </div>
+    <h3>3.2. Manipulação de Strings e Datas</h3>
+    <p><strong>Strings:</strong> Utilize funções como <code>strlen()</code>, <code>strtoupper()</code> e <code>substr()</code> para manipular textos.</p>
+    <pre>
+&lt;?php
+  $texto = "PHP é incrível!";
+  echo "Tamanho: " . strlen($texto);
+  echo "Em maiúsculas: " . strtoupper($texto);
+  echo "Subtexto: " . substr($texto, 0, 3); // Exibe "PHP"
+?&gt;
+    </pre>
+    <p><strong>Datas:</strong> Funções como <code>date()</code> e <code>strtotime()</code> ajudam a formatar e converter datas.</p>
+    <pre>
+&lt;?php
+  echo "Data atual: " . date("d/m/Y H:i:s");
+  $timestamp = strtotime("2025-12-25");
+  echo "Timestamp para 25/12/2025: " . $timestamp;
+?&gt;
+    </pre>
+    <div class="explicacao">
+      <p>
+        Esses exemplos demonstram a manipulação básica de strings e datas, essenciais para processar informações em aplicações web.
+      </p>
+    </div>
+    
+    <h2>4. Atividades Práticas</h2>
+    <!-- Atividade 1: Condicionais -->
+    <div class="atividade">
+      <h3>Atividade 1: Condicionais Básicas</h3>
+      <p>
+        Crie um script que, com base em uma variável <code>$idade</code>, exiba:
+      </p>
+      <ul>
+        <li>"Menor de idade" se <code>$idade</code> for menor que 18;</li>
+        <li>"Adulto" se <code>$idade</code> estiver entre 18 e 64;</li>
+        <li>"Idoso" se <code>$idade</code> for 65 ou maior.</li>
+      </ul>
+      <button class="toggle-btn" onclick="toggleAnswer('atividadeCondicional')">Mostrar Resposta</button>
+      <div id="atividadeCondicional" class="answer">
+        <pre>
+&lt;?php
+  $idade = 45;
+  
+  if ($idade < 18) {
+      echo "Menor de idade";
+  } elseif ($idade < 65) {
+      echo "Adulto";
+  } else {
+      echo "Idoso";
+  }
+?&gt;
+        </pre>
+        <p>
+          Explicação: O script utiliza <code>if/elseif/else</code> para definir a faixa etária com base na variável <code>$idade</code>.
+        </p>
+      </div>
+    </div>
+    
+    <!-- Atividade 2: Operador Ternário -->
+    <div class="atividade">
+      <h3>Atividade 2: Par ou Ímpar com Ternário</h3>
+      <p>
+        Crie um script que verifique se um número é par ou ímpar utilizando o operador ternário.
+      </p>
+      <button class="toggle-btn" onclick="toggleAnswer('atividadeTernario')">Mostrar Resposta</button>
+      <div id="atividadeTernario" class="answer">
+        <pre>
+&lt;?php
+  $numero = 7;
+  $resultado = ($numero % 2 == 0) ? "Par" : "Ímpar";
+  echo "O número $numero é $resultado";
+?&gt;
+        </pre>
+        <p>
+          Explicação: Se <code>$numero % 2</code> for igual a zero, o número é par; caso contrário, é ímpar.
+        </p>
+      </div>
+    </div>
+    
+    <!-- Atividade 3: Switch -->
+    <div class="atividade">
+      <h3>Atividade 3: Dia da Semana com Switch</h3>
+      <p>
+        Crie um script que, com base em uma variável <code>$dia</code> (valor de 1 a 7), exiba o dia da semana correspondente utilizando a estrutura <code>switch</code>.
+      </p>
+      <button class="toggle-btn" onclick="toggleAnswer('atividadeSwitch')">Mostrar Resposta</button>
+      <div id="atividadeSwitch" class="answer">
+        <pre>
+&lt;?php
+  $dia = 4;
+  
+  switch ($dia) {
+      case 1:
+          echo "Domingo";
+          break;
+      case 2:
+          echo "Segunda-feira";
+          break;
+      case 3:
+          echo "Terça-feira";
+          break;
+      case 4:
+          echo "Quarta-feira";
+          break;
+      case 5:
+          echo "Quinta-feira";
+          break;
+      case 6:
+          echo "Sexta-feira";
+          break;
+      case 7:
+          echo "Sábado";
+          break;
+      default:
+          echo "Dia inválido";
+          break;
+  }
+?&gt;
+        </pre>
+        <p>
+          Explicação: O <code>switch</code> compara o valor de <code>$dia</code> e exibe o dia correspondente.
+        </p>
+      </div>
+    </div>
+    
+    <!-- Atividade 4: Loop While -->
+    <div class="atividade">
+      <h3>Atividade 4: Exibindo Números com While</h3>
+      <p>
+        Crie um script que use um loop <code>while</code> para exibir os números de 1 a 5.
+      </p>
+      <button class="toggle-btn" onclick="toggleAnswer('atividadeWhile')">Mostrar Resposta</button>
+      <div id="atividadeWhile" class="answer">
+        <pre>
+&lt;?php
+  $contador = 1;
+  while ($contador <= 5) {
+      echo "Número: $contador&lt;br&gt;";
+      $contador++;
+  }
+?&gt;
+        </pre>
+        <p>
+          Explicação: O loop repete enquanto <code>$contador</code> for menor ou igual a 5, incrementando-o a cada iteração.
+        </p>
+      </div>
+    </div>
+    
+    <!-- Atividade 5: Loop For -->
+    <div class="atividade">
+      <h3>Atividade 5: Exibindo Números com For</h3>
+      <p>
+        Crie um script que utilize o loop <code>for</code> para exibir os números de 1 a 5.
+      </p>
+      <button class="toggle-btn" onclick="toggleAnswer('atividadeFor')">Mostrar Resposta</button>
+      <div id="atividadeFor" class="answer">
+        <pre>
+&lt;?php
+  for ($i = 1; $i <= 5; $i++) {
+      echo "Valor de i: $i&lt;br&gt;";
+  }
+?&gt;
+        </pre>
+        <p>
+          Explicação: O loop <code>for</code> inicia com <code>$i=1</code> e repete até que <code>$i</code> ultrapasse 5.
+        </p>
+      </div>
+    </div>
+    
+    <!-- Atividade 6: Loop Foreach -->
+    <div class="atividade">
+      <h3>Atividade 6: Iterando com Foreach</h3>
+      <p>
+        Crie um script que utilize o loop <code>foreach</code> para percorrer um array de frutas e exibir cada elemento.
+      </p>
+      <button class="toggle-btn" onclick="toggleAnswer('atividadeForeach')">Mostrar Resposta</button>
+      <div id="atividadeForeach" class="answer">
+        <pre>
+&lt;?php
+  $frutas = ["Maçã", "Banana", "Laranja"];
+  foreach ($frutas as $fruta) {
+      echo "Fruta: $fruta&lt;br&gt;";
+  }
+?&gt;
+        </pre>
+        <p>
+          Explicação: O loop <code>foreach</code> itera sobre cada elemento do array e exibe o nome de cada fruta.
+        </p>
+      </div>
+    </div>
+    
+    <h2>5. Dicas e Recursos Adicionais</h2>
+    <ul>
+      <li><strong>Documentação Oficial:</strong> Consulte <a href="https://www.php.net/manual/pt_BR/" target="_blank">php.net/manual</a> para mais informações.</li>
+      <li><strong>Tutoriais:</strong> Busque por vídeos e artigos que exemplifiquem o uso de condicionais e loops em PHP.</li>
+      <li><strong>Prática:</strong> Experimente alterar os exemplos e testar variações para consolidar seu aprendizado.</li>
+    </ul>
+    
+    <h2>6. Conclusão</h2>
+    <p>
+      Neste módulo, você aprendeu como usar estruturas condicionais para tomar decisões e estruturas de repetição para iterar sobre dados. Esses conceitos são fundamentais para controlar o fluxo dos seus scripts PHP.
+    </p>
+  </section>
+  
+  <!-- Footer Global -->
+  <footer class="footer" id="contato">
+    <div class="footer-grid">
+      <div class="footer-section">
+        <div class="logo">
+          <img src="favcon.png" alt="ConectaUni">
+          <h3>ConectaUni</h3>
+        </div>
+        <p>Plataforma educacional colaborativa</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>Links Úteis</h4>
+        <ul>
+          <li><a href="index.html#sobre"><i class="fas fa-chevron-right"></i> Sobre Nós</a></li>
+          <li><a href="lista_curso.html"><i class="fas fa-chevron-right"></i> Cursos</a></li>
+          <li><a href="index.html#voluntarios"><i class="fas fa-chevron-right"></i> Voluntários</a></li>
+          <li><a href="index.html#contato"><i class="fas fa-chevron-right"></i> Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Contato</h4>
+        <ul class="contact-info">
+          <li><i class="fas fa-map-marker-alt"></i> Feira de Santana - BA</li>
+          <li><i class="fas fa-phone"></i> (75) 98144-0696</li>
+          <li><i class="fas fa-envelope"></i> mateus.queiroz.ti.mq@gmail.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 ConectaUni. Todos os direitos reservados.</p>
+      <div class="legal-links">
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Termos de Uso</a>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Botão Back to Top -->
+  <div id="backToTop" class="back-to-top" onclick="scrollToTop()">
+    <i class="fas fa-chevron-up"></i>
+  </div>
+  
+  <!-- Modais (Login/Cadastro) -->
+  <div class="modal-overlay" id="modalOverlay"></div>
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="hideModals()">&times;</span>
+      <h2><i class="fas fa-sign-in-alt"></i> Login</h2>
+      <form id="loginForm">
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" placeholder="E-mail" required id="loginEmail">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Senha" required id="loginPassword">
+        </div>
+        <button type="submit" class="btn-gradiente">Entrar</button>
+      </form>
+    </div>
+  </div>
+  <div id="signupModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="hideModals()">&times;</span>
+      <h2><i class="fas fa-user-plus"></i> Cadastro</h2>
+      <form id="signupForm">
+        <div class="input-group">
+          <i class="fas fa-user"></i>
+          <input type="text" placeholder="Nome completo" required id="signupName">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" placeholder="E-mail" required id="signupEmail">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Senha" required id="signupPassword">
+        </div>
+        <button type="submit" class="btn-gradiente">Cadastrar</button>
+      </form>
+    </div>
+  </div>
+  
+  <!-- Widget de Chat -->
+  <div id="chatWidget" class="chat-widget" onclick="toggleChatModal()">
+    <i class="fas fa-comments"></i>
+  </div>
+  <div id="chatModal" class="chat-modal">
+    <div class="chat-header">
+      <span>ChatBot</span>
+      <span class="close" onclick="toggleChatModal()">&times;</span>
+    </div>
+    <div class="chat-content" id="chatContent">
+      <p><strong>ChatBot:</strong> Olá! Como posso ajudar?</p>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="chatInput" placeholder="Digite sua mensagem...">
+      <button onclick="sendChatMessage()">Enviar</button>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
