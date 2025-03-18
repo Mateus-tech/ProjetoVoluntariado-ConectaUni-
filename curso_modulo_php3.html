@@ -95,6 +95,52 @@
     .back-to-top:hover {
       opacity: 0.8;
     }
+    /* Ajustes de Responsividade para o Iframe */
+.module-content-container {
+  padding: 1rem; /* Reduz padding em dispositivos menores */
+}
+
+#moduleTextContent {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+#moduleTextContent iframe {
+  width: 100%;
+  height: 70vh; /* Altura relativa à janela de visualização */
+  min-height: 500px; /* Altura mínima para desktop */
+  border: none;
+  margin: 1rem 0;
+}
+
+/* Media Queries para Dispositivos Menores */
+@media (max-width: 768px) {
+  .course-header {
+    margin-top: 60px; /* Ajuste para header menor em mobile */
+    padding: 10px;
+  }
+
+  .course-header h1 {
+    font-size: 1.8rem; /* Título menor */
+  }
+
+  #moduleTextContent iframe {
+    height: 60vh; /* Altura menor para mobile */
+    min-height: 300px; /* Altura mínima reduzida */
+  }
+
+  .module-content-container {
+    margin: 1rem auto;
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  #moduleTextContent iframe {
+    height: 50vh; /* Altura ainda menor para telas pequenas */
+  }
+}
   </style>
 </head>
 <body>
