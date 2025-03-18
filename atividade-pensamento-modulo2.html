@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 2: Identificando Padrões - ConectaUni</title>
+  <!-- Ícones e CSS Global -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favcon.png" type="image/x-icon">
+  <!-- CSS adicional para esta página -->
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; }
+    .atividade-content { padding: 40px 20px; max-width: 900px; margin: 0 auto; }
+    .atividade-content h2 { color: #264653; margin-top: 30px; }
+    .atividade-content h3 { color: #2A9D8F; margin-top: 20px; }
+    .atividade-content p { margin: 10px 0; }
+    .atividade-content pre {
+      background: #f4f4f4; padding: 10px; border-radius: 4px; overflow-x: auto; font-size: 0.95em;
+    }
+    .explicacao { background: #e7f4ea; padding: 10px; border-left: 5px solid #2A9D8F; margin: 20px 0; }
+    .atividade { background: #fff3cd; padding: 10px; border-left: 5px solid #ffc107; margin: 20px 0; }
+    .answer { background: #f9f9f9; padding: 10px; border: 1px solid #ddd; margin-top: 10px; display: none; }
+    .toggle-btn { background: #2A9D8F; color: #fff; border: none; padding: 8px 12px; cursor: pointer; border-radius: 4px; }
+    
+    /* Cabeçalho do Curso */
+    .course-header {
+      display: flex; 
+      flex-direction: column; 
+      align-items: center; 
+      text-align: center; 
+      margin-top: 100px; 
+      padding: 20px;
+    }
+    .course-thumbnail {
+      position: relative; 
+      width: 100%; 
+      max-width: 800px; 
+      overflow: hidden; 
+      border-radius: 8px; 
+      margin-bottom: 20px;
+    }
+    .course-thumbnail img { 
+      width: 100%; 
+      height: auto; 
+      display: block; 
+    }
+    .course-tags {
+      position: absolute; 
+      bottom: 10px; 
+      left: 10px; 
+      background: rgba(0,0,0,0.5); 
+      padding: 5px 10px;
+      border-radius: 5px; 
+      display: flex; 
+      gap: 10px;
+    }
+    .course-tags .tag { 
+      color: #fff; 
+      font-size: 0.9em; 
+      background: rgba(255,255,255,0.3); 
+      padding: 2px 5px; 
+      border-radius: 3px; 
+    }
+    .course-header h1 { font-size: 2.5rem; margin: 10px 0; color: #333; }
+    .course-header p { font-size: 1.2rem; color: #666; max-width: 800px; }
+    
+    /* Back to Top */
+    .back-to-top {
+      position: fixed; 
+      bottom: 20px; 
+      right: 20px; 
+      background: #2A9D8F; 
+      color: #fff; 
+      width: 40px; 
+      height: 40px;
+      border-radius: 50%; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
+      transition: opacity 0.3s;
+    }
+    .back-to-top:hover { opacity: 0.8; }
+  </style>
+  <script>
+    // Função para alternar a visibilidade da resposta
+    function toggleAnswer(id) {
+      var answerDiv = document.getElementById(id);
+      if (answerDiv.style.display === "none" || answerDiv.style.display === "") {
+        answerDiv.style.display = "block";
+      } else {
+        answerDiv.style.display = "none";
+      }
+    }
+  </script>
+</head>
+<body>
+  <!-- Navbar Global -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html"><img src="favcon.png" alt="ConectaUni"></a>
+      <a href="index.html"><h1>ConectaUni</h1></a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html#sobre"><i class="fas fa-info-circle"></i> Sobre</a>
+      <a href="lista_curso.html"><i class="fas fa-graduation-cap"></i> Cursos</a>
+      <a href="index.html#voluntarios"><i class="fas fa-hands-helping"></i> Seja Voluntário</a>
+      <a href="index.html#contato"><i class="fas fa-envelope"></i> Contato</a>
+      <button class="btn-gradiente" onclick="showModal('login')"><i class="fas fa-sign-in-alt"></i> Entrar</button>
+      <button class="btn-gradiente" onclick="showModal('signup')"><i class="fas fa-user-plus"></i> Cadastrar</button>
+    </div>
+    <button id="darkModeToggle" onclick="toggleDarkMode()"><i class="fas fa-moon"></i></button>
+    <button class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+  </nav>
+  
+  <!-- Cabeçalho do Módulo -->
+  <header class="course-header">
+    <div class="course-thumbnail">
+      <!-- Imagem ilustrativa para Identificando Padrões -->
+      <img src="https://www.titonet.com/wp-content/uploads/2021/10/Imagen-destacada-blog.2-30.png"   alt="Identificando Padrões" style="background:#fff; padding: 1rem;">
+      <div class="course-tags">
+        <span class="tag">Padrões</span>
+        <span class="tag">Algoritmos</span>
+      </div>
+    </div>
+    <h1>Módulo 2: Identificando Padrões</h1>
+    <p>Analise situações do dia a dia e transforme-as em algoritmos simples.</p>
+  </header>
+  
+  <!-- Conteúdo Principal -->
+  <section class="atividade-content reveal">
+    <h2>Introdução</h2>
+    <p>
+      Neste módulo, você vai aprender a identificar padrões em situações cotidianas e traduzi-los em algoritmos. Reconhecer padrões é fundamental para desenvolver soluções eficientes e para a criação de códigos que automatizam tarefas.
+    </p>
+    
+    <!-- Exercício 1: Sequência Fibonacci -->
+    <h2>Exercício 1: Sequência Fibonacci</h2>
+    <p>
+      Dada a sequência: 1, 1, 2, 3, 5, 8, ... Qual é o próximo número? Explique sua lógica.
+    </p>
+    <button class="toggle-btn" onclick="toggleAnswer('answer1')">Mostrar Resposta</button>
+    <div id="answer1" class="answer">
+      <p><strong>Resposta:</strong> 13</p>
+      <p><strong>Explicação:</strong> Cada número da sequência é a soma dos dois anteriores: 5 + 8 = 13.</p>
+    </div>
+    
+    <!-- Exercício 2: Padrão de Cores do Semáforo -->
+    <h2>Exercício 2: Padrão de Cores do Semáforo</h2>
+    <p>
+      Considere a sequência de cores de um semáforo: Vermelho, Amarelo, Verde, Vermelho, Amarelo, ... Qual é a próxima cor? Explique a lógica.
+    </p>
+    <button class="toggle-btn" onclick="toggleAnswer('answer2')">Mostrar Resposta</button>
+    <div id="answer2" class="answer">
+      <p><strong>Resposta:</strong> Verde</p>
+      <p><strong>Explicação:</strong> O padrão se repete em ciclos de três cores: Vermelho, Amarelo, Verde. Após Amarelo, a próxima cor é Verde.</p>
+    </div>
+    
+    <!-- Exercício 3: Padrão de Períodos do Dia -->
+    <h2>Exercício 3: Padrão de Períodos do Dia</h2>
+    <p>
+      Dada a sequência: Manhã, Tarde, Noite, Manhã, Tarde, ... Qual é o próximo período do dia? Explique.
+    </p>
+    <button class="toggle-btn" onclick="toggleAnswer('answer3')">Mostrar Resposta</button>
+    <div id="answer3" class="answer">
+      <p><strong>Resposta:</strong> Noite</p>
+      <p><strong>Explicação:</strong> A sequência repete o ciclo dos períodos do dia: Manhã, Tarde, Noite. Assim, após Tarde, vem Noite.</p>
+    </div>
+    
+    <!-- Exercício 4: Sequência Alternada -->
+    <h2>Exercício 4: Sequência Alternada</h2>
+    <p>
+      Considere a sequência: 5, 10, 5, 10, ... Qual é o próximo número? Explique sua lógica.
+    </p>
+    <button class="toggle-btn" onclick="toggleAnswer('answer4')">Mostrar Resposta</button>
+    <div id="answer4" class="answer">
+      <p><strong>Resposta:</strong> 5</p>
+      <p><strong>Explicação:</strong> O padrão alterna entre 5 e 10. Assim, após 10, o próximo valor é 5.</p>
+    </div>
+    
+    <!-- Exercício 5: Identificação de Padrão em Palavras -->
+    <h2>Exercício 5: Identificação de Padrão em Palavras</h2>
+    <p>
+      Considere a sequência de palavras: "casa, carro, casa, carro, ...". Qual é a próxima palavra? Explique.
+    </p>
+    <button class="toggle-btn" onclick="toggleAnswer('answer5')">Mostrar Resposta</button>
+    <div id="answer5" class="answer">
+      <p><strong>Resposta:</strong> casa</p>
+      <p><strong>Explicação:</strong> O padrão alterna entre "casa" e "carro". Após "carro", o próximo valor é "casa".</p>
+    </div>
+    
+    <h2>Dicas Gerais para Identificar Padrões</h2>
+    <ul>
+      <li>Observe as repetições e a variação dos elementos.</li>
+      <li>Descreva a sequência em palavras e tente identificar uma regra (ex.: soma, multiplicação, alternância).</li>
+      <li>Utilize pseudocódigo para descrever a lógica do padrão.</li>
+      <li>Pratique com diferentes tipos de dados (números, cores, palavras) para aprimorar sua percepção.</li>
+    </ul>
+    
+    <h2>Conclusão</h2>
+    <p>
+      Identificar padrões é essencial para a criação de algoritmos e para a resolução de problemas. Ao praticar esses exercícios, você fortalece sua capacidade de reconhecer e estruturar lógicas que podem ser aplicadas em situações reais, tornando-se um programador mais eficiente e criativo.
+    </p>
+  </section>
+  
+  <!-- Footer Global -->
+  <footer class="footer" id="contato">
+    <div class="footer-grid">
+      <div class="footer-section">
+        <div class="logo">
+          <img src="favcon.png" alt="ConectaUni">
+          <h3>ConectaUni</h3>
+        </div>
+        <p>Plataforma educacional colaborativa</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>Links Úteis</h4>
+        <ul>
+          <li><a href="index.html#sobre"><i class="fas fa-chevron-right"></i> Sobre Nós</a></li>
+          <li><a href="lista_curso.html"><i class="fas fa-chevron-right"></i> Cursos</a></li>
+          <li><a href="index.html#voluntarios"><i class="fas fa-chevron-right"></i> Voluntários</a></li>
+          <li><a href="index.html#contato"><i class="fas fa-chevron-right"></i> Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Contato</h4>
+        <ul class="contact-info">
+          <li><i class="fas fa-map-marker-alt"></i> Feira de Santana - BA</li>
+          <li><i class="fas fa-phone"></i> (75) 98144-0696</li>
+          <li><i class="fas fa-envelope"></i> mateus.queiroz.ti.mq@gmail.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 ConectaUni. Todos os direitos reservados.</p>
+      <div class="legal-links">
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Termos de Uso</a>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Botão Back to Top -->
+  <div id="backToTop" class="back-to-top" onclick="scrollToTop()">
+    <i class="fas fa-chevron-up"></i>
+  </div>
+  
+  <!-- Modais (Login/Cadastro) -->
+  <div class="modal-overlay" id="modalOverlay"></div>
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="hideModals()">&times;</span>
+      <h2><i class="fas fa-sign-in-alt"></i> Login</h2>
+      <form id="loginForm">
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" placeholder="E-mail" required id="loginEmail">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Senha" required id="loginPassword">
+        </div>
+        <button type="submit" class="btn-gradiente">Entrar</button>
+      </form>
+    </div>
+  </div>
+  <div id="signupModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="hideModals()">&times;</span>
+      <h2><i class="fas fa-user-plus"></i> Cadastro</h2>
+      <form id="signupForm">
+        <div class="input-group">
+          <i class="fas fa-user"></i>
+          <input type="text" placeholder="Nome completo" required id="signupName">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" placeholder="E-mail" required id="signupEmail">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Senha" required id="signupPassword">
+        </div>
+        <button type="submit" class="btn-gradiente">Cadastrar</button>
+      </form>
+    </div>
+  </div>
+  
+  <!-- Widget de Chat -->
+  <div id="chatWidget" class="chat-widget" onclick="toggleChatModal()">
+    <i class="fas fa-comments"></i>
+  </div>
+  <div id="chatModal" class="chat-modal">
+    <div class="chat-header">
+      <span>ChatBot</span>
+      <span class="close" onclick="toggleChatModal()">&times;</span>
+    </div>
+    <div class="chat-content" id="chatContent">
+      <p><strong>ChatBot:</strong> Olá! Como posso ajudar?</p>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="chatInput" placeholder="Digite sua mensagem...">
+      <button onclick="sendChatMessage()">Enviar</button>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
