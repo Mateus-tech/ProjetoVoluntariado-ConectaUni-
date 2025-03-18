@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ConectaUni - Sobre</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favcon.png" type="image/x-icon">
+  <style>
+    /* Estilos Globais */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f9f9f9;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+    /* Espaço para o conteúdo abaixo da navbar */
+    .content-section {
+      max-width: 900px;
+      margin: 100px auto 60px auto;
+      padding: 20px;
+      line-height: 1.8;
+      background: transparent;
+      text-align: center;
+    }
+    .content-section h2 {
+      font-size: 2.8rem;
+      margin-bottom: 30px;
+      color: #2d2d2d;
+    }
+    .content-section h3 {
+      font-size: 2rem;
+      margin-top: 40px;
+      color: #444;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      justify-content: center;
+    }
+    .content-section h3 i {
+      color: #ff7e5f;
+    }
+    .content-section p {
+      font-size: 1.1rem;
+      margin: 20px 0;
+      text-align: justify;
+    }
+    /* Seção da Equipe */
+    .team-container {
+      max-width: 900px;
+      margin: 60px auto;
+      padding: 20px;
+    }
+    .team-container h3 {
+      font-size: 2rem;
+      margin-bottom: 4rem;
+      color: #444;
+      
+      display: flex;
+      justify-content: center;
+    }
+    .team-profiles {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 30px;
+    }
+    .team-member {
+      text-align: center;
+    }
+    .team-member img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 3px solid #ff7e5f;
+      object-fit: cover;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+    .team-member p {
+      margin-top: 10px;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #333;
+    }
+    /* Citação Impactante */
+    .quote {
+       
+      margin: 30px auto;
+      max-width: 800px;
+      padding: 10px;
+      border-left: 5px solid #ff7e5f;
+      font-size: 1.5rem;
+      font-style: italic;
+      text-align: center;
+      color: #555;
+    }
+    /* Animação FadeIn para o conteúdo */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .content-section, .team-container, .quote {
+      animation: fadeIn 1.2s ease-out;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar (Componentes Globais do ConectaUni) -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html"><img src="favcon.png" alt="ConectaUni"></a>
+      <a href="index.html"><h1>ConectaUni</h1></a>
+    </div>
+    <div class="nav-links">
+      <a href="sobre.html"><i class="fas fa-info-circle"></i>Sobre</a>
+      <a href="lista_curso.html"><i class="fas fa-graduation-cap"></i>Cursos</a>
+      <a href="voluntarios.html"><i class="fas fa-hands-helping"></i>Seja Voluntário</a>
+      <a href="#contato"><i class="fas fa-envelope"></i>Contato</a>
+      <button class="btn-gradiente" onclick="showModal('login')">
+        <i class="fas fa-sign-in-alt"></i> Entrar
+      </button>
+      <button class="btn-gradiente" onclick="showModal('signup')">
+        <i class="fas fa-user-plus"></i> Cadastrar
+      </button>
+    </div>
+    <button id="darkModeToggle" onclick="toggleDarkMode()">
+      <i class="fas fa-moon"></i>
+    </button>
+    <button class="menu-toggle" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </button>
+  </nav>
+
+  <!-- Conteúdo da Página Sobre -->
+  <section class="content-section">
+    <h2><i class="fas fa-university"></i> Bem-vindo à ConectaUni</h2>
+    <p>
+      A ConectaUni é uma plataforma que transforma a experiência acadêmica dos universitários ingressantes, unindo reforço educacional e formação ética em um ambiente colaborativo e dinâmico. Nosso objetivo é facilitar a adaptação e o desenvolvimento integral dos alunos, democratizando o acesso ao conhecimento e promovendo a inclusão e a cidadania.
+    </p>
+    
+    <h3><i class="fas fa-bullseye"></i> Nossa Missão</h3>
+    <p>
+      Acreditamos que a educação é a chave para a transformação social. Conectar alunos com mentores, oferecer conteúdos estratégicos e promover a troca de experiências são pilares fundamentais para criar um ambiente de aprendizado inovador e participativo.
+    </p>
+    
+    <h3><i class="fas fa-lightbulb"></i> Nossa Abordagem</h3>
+    <p>
+      Com uma solução híbrida que integra componentes online e encontros presenciais, a ConectaUni oferece um suporte abrangente. Utilizamos recursos digitais aliados a parcerias com instituições de ensino para criar uma rede de apoio que ultrapassa as barreiras tradicionais do ensino.
+    </p>
+  </section>
+
+  <!-- Seção da Equipe: Perfis Redondos em Linha -->
+  <section class="team-container">
+    <h3><i class="fas fa-users"></i> Nossa Equipe</h3>
+    <div class="team-profiles">
+      <div class="team-member">
+        <img src="suzana.jpg" alt="Alana Vitória Oliveira da Silva">
+        <p>Alana Vitória Oliveira da Silva</p>
+      </div>
+      <div class="team-member">
+        <img src="suzana.jpg" alt="Jainny de Oliveira Sodré">
+        <p>Jainny de Oliveira Sodré</p>
+      </div>
+      <div class="team-member">
+        <img src="levi.jpg" alt="Levi Ferreira de Oliveira Baptista">
+        <p>Levi Ferreira de Oliveira Baptista</p>
+      </div>
+      <div class="team-member">
+        <img src="mateus.jpg" alt="Mateus Queiroz Matos Ferreira">
+        <p>Mateus Queiroz Matos Ferreira</p>
+      </div>
+      <div class="team-member">
+        <img src="suzana.jpg" alt="Suzana Márcia Batista Santos">
+        <p>Suzana Márcia Batista Santos</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Citação Impactante -->
+  <section class="content-section">
+    <div class="quote">
+      “A educação é a arma mais poderosa para transformar o mundo.”<br>
+      <small>- Nelson Mandela</small>
+    </div>
+  </section>
+
+  <!-- Footer (Componentes Globais do ConectaUni) -->
+  <footer class="footer" id="contato">
+    <div class="footer-grid">
+      <div class="footer-section">
+        <div class="logo">
+          <img src="favcon.png" alt="ConectaUni">
+          <h3>ConectaUni</h3>
+        </div>
+        <p>Plataforma educacional colaborativa</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>Links Úteis</h4>
+        <ul>
+          <li><a href="index.html"><i class="fas fa-chevron-right"></i> Início</a></li>
+          <li><a href="sobre.html"><i class="fas fa-chevron-right"></i> Sobre</a></li>
+          <li><a href="cursos.html"><i class="fas fa-chevron-right"></i> Cursos</a></li>
+          <li><a href="voluntarios.html"><i class="fas fa-chevron-right"></i> Voluntários</a></li>
+          <li><a href="#contato"><i class="fas fa-chevron-right"></i> Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Contato</h4>
+        <ul class="contact-info">
+          <li><i class="fas fa-map-marker-alt"></i> Feira de Santana - BA</li>
+          <li><i class="fas fa-phone"></i> (75) 98144-0696</li>
+          <li><i class="fas fa-envelope"></i> mateus.queiroz.ti.mq@gmail.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 ConectaUni. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Widget de Chat (Componentes Globais) -->
+  <div id="chatWidget" class="chat-widget" onclick="toggleChatModal()">
+    <i class="fas fa-comments"></i>
+  </div>
+  <div id="chatModal" class="chat-modal">
+    <div class="chat-header">
+      <span>ChatBot</span>
+      <span class="close" onclick="toggleChatModal()">&times;</span>
+    </div>
+    <div class="chat-content" id="chatContent">
+      <p><strong>ChatBot:</strong> Olá! Como posso ajudar?</p>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="chatInput" placeholder="Digite sua mensagem...">
+      <button onclick="sendChatMessage()">Enviar</button>
+    </div>
+  </div>
+
+  <!-- Modais Globais (Login/Cadastro) -->
+  <div class="modal-overlay" id="modalOverlay"></div>
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="hideModals()">&times;</span>
+      <h2><i class="fas fa-sign-in-alt"></i> Login</h2>
+      <form id="loginForm">
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" placeholder="E-mail" required id="loginEmail">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Senha" required id="loginPassword">
+        </div>
+        <button type="submit" class="btn-gradiente">Entrar</button>
+      </form>
+    </div>
+  </div>
+  <div id="signupModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="hideModals()">&times;</span>
+      <h2><i class="fas fa-user-plus"></i> Cadastro</h2>
+      <form id="signupForm">
+        <div class="input-group">
+          <i class="fas fa-user"></i>
+          <input type="text" placeholder="Nome completo" required id="signupName">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" placeholder="E-mail" required id="signupEmail">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Senha" required id="signupPassword">
+        </div>
+        <button type="submit" class="btn-gradiente">Cadastrar</button>
+      </form>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+  <script>
+    function toggleChatModal() {
+      const chatModal = document.getElementById('chatModal');
+      chatModal.style.display = (chatModal.style.display === 'block') ? 'none' : 'block';
+    }
+    function hideModals() {
+      document.querySelectorAll('.modal').forEach(modal => modal.style.display = 'none');
+    }
+  </script>
+</body>
+</html>

@@ -603,8 +603,8 @@ margin-top: 2rem;
 }
    
 body.dark-mode > main > div > aside{
-  background-color: #eee;
-}
-body.dark-mode >#courseSubtitle{
+  background-color: #ddd;}
+body.dark-mode #courseSubtitle {
   color: #fff;
+
 }
