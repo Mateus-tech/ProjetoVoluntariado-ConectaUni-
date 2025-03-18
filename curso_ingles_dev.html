@@ -3,19 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Curso: PHP do Zero - ConectaUni</title>
+  <title>Curso: Inglês para Devs - ConectaUni</title>
   <!-- Ícones e CSS -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="style.css"> <!-- CSS global -->
   <link rel="stylesheet" href="curso.css"> <!-- CSS específico -->
   <link rel="icon" href="favcon.png" type="image/x-icon">
-  
-  <!-- Estilos específicos para o modal de texto -->
- 
 </head>
 <body>
-   <!-- Navbar -->
-   <nav class="navbar">
+  <!-- Navbar -->
+  <nav class="navbar">
     <div class="logo">
       <a href="index.html"><img src="favcon.png" alt="ConectaUni"></a>
       <a href="index.html"><h1>ConectaUni</h1></a>
@@ -41,14 +38,14 @@
   <!-- Cabeçalho do Curso: Imagem e Título -->
   <header class="course-header">
     <div class="course-thumbnail">
-      <img src="https://images.ctfassets.net/s600jj41gsex/3EihLXXBO1fnatkO9ozUld/884edeb3c23d2335cc3c4e56e9c36a38/img-Howto-work-with-PHP-escape-quotes.png?w=1925&h=1080&q=50&fit=scale" alt="PHP do Zero" style="background:#fff; padding: 1rem;">
+      <img src="https://aartedeprogramar.tech/wp-content/uploads/2023/11/aprendizado-ingles-chatgpt-ia.jpg.webp" alt="Inglês para Devs" style="background:#fff; padding: 1rem;">
       <div class="course-tags">
-        <span class="tag">Programação</span>
-        <span class="tag">PHP</span>
+        <span class="tag">Língua</span>
+        <span class="tag">Inglês</span>
       </div>
     </div>
-    <h1 id="courseTitle">PHP do Zero</h1>
-    <p id="courseSubtitle">Aprenda PHP desde o básico até desenvolver aplicações web dinâmicas.</p>
+    <h1 id="courseTitle">Inglês para Devs</h1>
+    <p id="courseSubtitle">Aprimore seu inglês voltado para o ambiente de desenvolvimento.</p>
   </header>
   
   <!-- Container Principal: Menu Lateral e Conteúdo Dinâmico -->
@@ -65,9 +62,7 @@
             <li><a href="#" data-section="modulos"><i class="fas fa-layer-group"></i>Módulos</a></li>
             <li><a href="#" data-section="materiais"><i class="fas fa-file-download"></i>Materiais</a></li>
             <li><a href="#" data-section="atividades"><i class="fas fa-tasks"></i>Atividades</a></li>
-           
-            <!-- Nova opção para Playlist -->
-            <li><a href="#" data-section="playlist"><i class="fas fa-play-circle"></i>Aulas</a></li>
+            <li><a href="#" data-section="playlist"><i class="fas fa-play-circle"></i>Playlist</a></li>
           </ul>
         </nav>
       </aside>
@@ -92,7 +87,7 @@
     </div>
   </div>
   
-  <!-- Footer (estrutura padrão) -->
+  <!-- Footer -->
   <footer class="footer" id="contato">
     <div class="footer-grid">
       <div class="footer-section">
@@ -120,9 +115,9 @@
       <div class="footer-section">
         <h4>Contato</h4>
         <ul class="contact-info">
-          <li><i class="fas fa-map-marker-alt"></i> Feira de Santana - BA</li>
-          <li><i class="fas fa-phone"></i> (75) 98144-0696</li>
-          <li><i class="fas fa-envelope"></i> mateus.queiroz.ti.mq@gmail.com</li>
+          <li><i class="fas fa-map-marker-alt"></i> São Paulo - SP</li>
+          <li><i class="fas fa-phone"></i> (11) 91234-5678</li>
+          <li><i class="fas fa-envelope"></i> contato@conectauni.com</li>
         </ul>
       </div>
     </div>
@@ -140,12 +135,12 @@
     <i class="fas fa-chevron-up"></i>
   </div>
   
-  <!-- Modais e Widget de Chat (já existentes) -->
+  <!-- Modais e Widget de Chat -->
   <div class="modal-overlay" id="modalOverlay"></div>
   <div id="loginModal" class="modal">
     <div class="modal-content">
       <span class="close" onclick="hideModals()">&times;</span>
-      <h2><i class="fas fa-sign-in-alt"></i> Login</h2>
+      <h2><i class="fas fa-sign-in-alt"></i> Entrar</h2>
       <form id="loginForm">
         <div class="input-group">
           <i class="fas fa-envelope"></i>
@@ -198,23 +193,21 @@
   </div>
   
   <!-- Scripts -->
-  <script src="script.js"></script>
   <script>
-    // Conteúdo dos módulos para o curso de PHP
+    // Conteúdo dos módulos para o curso de Inglês para Devs
     const modulosContent = {
-      1: { // Módulo 1: Instalação e Configuração do PHP
+      1: { // Módulo 1: Gramática Básica e Vocabulário Técnico
         video: `
-          <p><strong>Módulo 1 - Instalação e Configuração do PHP</strong></p>
-          <p>Aprenda como instalar o PHP e configurar seu ambiente usando ferramentas como XAMPP ou WAMP.</p>
-             <iframe width="560" height="315" src="https://www.youtube.com/embed/0Y9OZ0vc1SU?si=0tCoddB3lZf6e-2Q" allowfullscreen style="width:100%; height:315px;"></iframe>
+          <p><strong>Módulo 1 - Gramática Básica e Vocabulário Técnico</strong></p>
+          <p>Aprenda as regras gramaticais essenciais e o vocabulário usado no ambiente de desenvolvimento.</p>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen style="width:100%; height:315px;"></iframe>
         `,
-        
         texto: [
           `<div class="text-content-box" style="height:300px; overflow-y:auto;">
               <div class="text-page">
-                <p><strong>Módulo 1 - Instalação (Página 1)</strong></p>
-                <p>Descubra os requisitos para instalar o PHP e configure seu ambiente de desenvolvimento.</p>
-                <p>Exemplo: Instalando o XAMPP e configurando o PHP.ini.</p>
+                <p><strong>Módulo 1 - Gramática Básica (Página 1)</strong></p>
+                <p>Entenda os fundamentos da gramática inglesa com exemplos aplicados ao contexto da tecnologia.</p>
+                <p>Exemplo: Estrutura de sentenças simples e tempos verbais básicos.</p>
               </div>
             </div>
             <div class="pagination-buttons">
@@ -223,9 +216,9 @@
             </div>`,
           `<div class="text-content-box" style="height:300px; overflow-y:auto;">
               <div class="text-page">
-                <p><strong>Módulo 1 - Configuração (Página 2)</strong></p>
-                <p>Aprenda a configurar seu servidor local e testar seu ambiente PHP.</p>
-                <p>Exemplo: Executando um script PHP simples para verificar a instalação.</p>
+                <p><strong>Módulo 1 - Vocabulário Técnico (Página 2)</strong></p>
+                <p>Amplie seu vocabulário com termos e expressões usados na área de desenvolvimento.</p>
+                <p>Exemplo: Termos como "debug", "compile" e "framework".</p>
               </div>
             </div>
             <div class="pagination-buttons">
@@ -234,81 +227,81 @@
             </div>`
         ],
         podcast: `
-          <p><strong>Módulo 1 - Instalação e Configuração do PHP</strong></p>
+          <p><strong>Módulo 1 - Gramática Básica e Vocabulário Técnico</strong></p>
           <p>Conteúdo de Podcast bloqueado. Faça sua assinatura para acessar.</p>
         `
       },
-      2: { // Módulo 2: Sintaxe Básica e Variáveis
+      2: { // Módulo 2: Comunicação Técnica
         video: `
-          <p><strong>Módulo 2 - Sintaxe Básica e Variáveis</strong></p>
-          <p>Conheça a sintaxe básica do PHP e como trabalhar com variáveis e tipos de dados.</p>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/eC42d9Rsz3g?si=N2ihGm5zsOr8Wltz" allowfullscreen style="width:100%; height:315px;"></iframe>
+          <p><strong>Módulo 2 - Comunicação Técnica</strong></p>
+          <p>Desenvolva habilidades para se comunicar efetivamente em ambientes de tecnologia.</p>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/9bZkp7q19f0" allowfullscreen style="width:100%; height:315px;"></iframe>
         `,
         texto: `
-          <p><strong>Módulo 2 - Sintaxe Básica e Variáveis</strong></p>
-          <p>Aprenda a estrutura básica de um script PHP, declaração de variáveis e manipulação de dados simples.</p>
-          <p>Exemplo: Criação de variáveis e exibição de mensagens na tela.</p>
+          <p><strong>Módulo 2 - Comunicação Técnica</strong></p>
+          <p>Aprenda a elaborar e-mails profissionais, relatórios e documentações técnicas em inglês.</p>
+          <p>Exemplo: Estruturação de mensagens claras e objetivas.</p>
         `,
         podcast: `
-          <p><strong>Módulo 2 - Sintaxe Básica e Variáveis</strong></p>
+          <p><strong>Módulo 2 - Comunicação Técnica</strong></p>
           <p>Conteúdo de Podcast bloqueado. Faça sua assinatura para acessar.</p>
         `
       },
-      3: { // Módulo 3: Estruturas de Controle
+      3: { // Módulo 3: Leitura e Escrita de Documentação Técnica
         video: `
-          <p><strong>Módulo 3 - Estruturas de Controle</strong></p>
-          <p>Entenda como usar condições e loops para controlar o fluxo do seu código PHP.</p>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/52UI240qdWY?si=_pDVt_6Ua28Mgv4R" allowfullscreen style="width:100%; height:315px;"></iframe>
+          <p><strong>Módulo 3 - Leitura e Escrita de Documentação Técnica</strong></p>
+          <p>Descubra estratégias para compreender e produzir documentos técnicos de forma eficiente.</p>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/V-_O7nl0Ii0" allowfullscreen style="width:100%; height:315px;"></iframe>
         `,
         texto: `
-          <p><strong>Módulo 3 - Estruturas de Controle</strong></p>
-          <p>Aprenda a utilizar if, else, switch, for, while e foreach para criar scripts dinâmicos.</p>
-          <p>Exemplo: Criação de estruturas de decisão e repetição.</p>
+          <p><strong>Módulo 3 - Leitura e Escrita de Documentação Técnica</strong></p>
+          <p>Melhore suas habilidades de leitura e escrita para elaborar documentações claras e precisas.</p>
+          <p>Exemplo: Análise de documentos técnicos e produção de resumos.</p>
         `,
         podcast: `
-          <p><strong>Módulo 3 - Estruturas de Controle</strong></p>
+          <p><strong>Módulo 3 - Leitura e Escrita de Documentação Técnica</strong></p>
           <p>Conteúdo de Podcast bloqueado. Faça sua assinatura para acessar.</p>
         `
       },
-      4: { // Módulo 4:Paradigmas,Funções, Arrays e Manipulação de Dados
+      4: { // Módulo 4: Preparação para Entrevistas
         video: `
-          <p><strong>Módulo 4 - Paradigmas,Funções, Arrays e Manipulação de Dados</strong></p>
-          <p>Descubra como criar funções, trabalhar com arrays e manipular dados em PHP.</p>
-          <iframe src="https://www.youtube.com/embed/0ODab_KrjCg?si=VetNvID2g6sqizPp" allowfullscreen style="width:100%; height:315px;"></iframe>
+          <p><strong>Módulo 4 - Preparação para Entrevistas</strong></p>
+          <p>Prepare-se para entrevistas de emprego em inglês com confiança.</p>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/3JZ_D3ELwOQ" allowfullscreen style="width:100%; height:315px;"></iframe>
         `,
         texto: `
-          <p><strong>Módulo 4 -Paradigmas,Funções, Arrays e Manipulação de Dados</strong></p>
-          <p>Aprenda a criar funções reutilizáveis, manipular arrays e processar informações de forma eficiente.</p>
-          <p>Exemplo: Funções para cálculos e manipulação de listas de dados.</p>
+          <p><strong>Módulo 4 - Preparação para Entrevistas</strong></p>
+          <p>Aprenda técnicas para responder a perguntas comuns e apresentar suas qualificações de forma profissional.</p>
+          <p>Exemplo: Simulações de entrevistas e dicas de feedback.</p>
         `,
         podcast: `
-          <p><strong>Módulo 4 -Paradigmas,Funções, Arrays e Manipulação de Dados</strong></p>
+          <p><strong>Módulo 4 - Preparação para Entrevistas</strong></p>
           <p>Conteúdo de Podcast bloqueado. Faça sua assinatura para acessar.</p>
         `
       },
-      5: { // Módulo 5: Trabalhando com Formulários e Banco de Dados
+      5: { // Módulo 5: Inglês Avançado: Apresentações e Negociações
         video: `
-          <p><strong>Módulo 5 - Trabalhando com Formulários e Banco de Dados</strong></p>
-          <p>Aprenda a coletar dados de formulários e conectar seu PHP a um banco de dados.</p>
-          <iframe src="https://www.youtube.com/embed/QOeDE7nPDq0?si=QnmQ5MzWkjBo7lt3" allowfullscreen style="width:100%; height:315px;"></iframe>
+          <p><strong>Módulo 5 - Inglês Avançado: Apresentações e Negociações</strong></p>
+          <p>Aprenda técnicas avançadas para apresentações e negociações em inglês.</p>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/tVj0ZTS4WF4" allowfullscreen style="width:100%; height:315px;"></iframe>
         `,
         texto: `
-          <p><strong>Módulo 5 - Trabalhando com Formulários e Banco de Dados</strong></p>
-          <p>Descubra como processar dados enviados por formulários e realizar operações de CRUD em bancos de dados.</p>
-          <p>Exemplo: Criação de um formulário de contato e conexão com MySQL.</p>
+          <p><strong>Módulo 5 - Inglês Avançado: Apresentações e Negociações</strong></p>
+          <p>Aprimore suas habilidades de oratória e negociação com dicas práticas.</p>
+          <p>Exemplo: Estratégias para engajar a audiência e comunicação persuasiva.</p>
         `,
         podcast: `
-          <p><strong>Módulo 5 - Trabalhando com Formulários e Banco de Dados</strong></p>
+          <p><strong>Módulo 5 - Inglês Avançado: Apresentações e Negociações</strong></p>
           <p>Conteúdo de Podcast bloqueado. Faça sua assinatura para acessar.</p>
         `
       }
     };
 
-    // Atualiza a estrutura de dados do curso, adicionando a seção "playlist"
+    // Dados atualizados do curso Inglês para Devs
     const coursesData = {
-      php: {
-        title: "PHP do Zero",
-        subtitle: "Aprenda PHP desde o básico até desenvolver aplicações web dinâmicas.",
+      ingles_devs: {
+        title: "Inglês para Devs",
+        subtitle: "Aprimore seu inglês voltado para o ambiente de desenvolvimento.",
         sections: {
           sobre: `
             <article class="course-section" id="sobre">
@@ -317,38 +310,26 @@
                 <h2>Sobre o Curso</h2>
               </div>
               <div class="section-content">
-                <p>Este curso foi desenvolvido para oferecer uma formação completa em PHP. Você aprenderá desde a instalação do ambiente e os fundamentos da linguagem até a criação de aplicações web dinâmicas.</p>
+                <p>Este curso foi desenvolvido para oferecer uma formação completa em inglês, com foco nas necessidades dos profissionais de tecnologia. Você aprenderá desde os fundamentos da gramática até técnicas avançadas de comunicação e documentação técnica.</p>
                 <p>
-                  <strong><i class="fas fa-clock"></i> Duração:</strong> 1 semana | 
-                  <strong><i class="fas fa-chalkboard-teacher"></i> Aulas:</strong> 44 | 
-                  <strong><i class="fas fa-certificate"></i> Certificado:</strong> Não
+                  <strong><i class="fas fa-clock"></i> Duração:</strong> 4 semanas | 
+                  <strong><i class="fas fa-chalkboard-teacher"></i> Aulas:</strong> 20 | 
+                  <strong><i class="fas fa-certificate"></i> Certificado:</strong> Sim
                 </p>
                 <div class="instructor-info">
-                  <h3>Sobre o Instrutor</h3>
+                  <h3>Sobre os Instrutores</h3>
                   <div class="instructor" style="display: flex; align-items: center; gap: 1rem;">
-                    <img src="joka.jpg" alt="Instrutor" style="width: 70px; height: 70px; border-radius: 50%;">
+                    <img src="gustavo.jpg" alt="Instrutora" style="width: 70px; height: 70px; border-radius: 50%;">
                     <div>
-                      <strong><p>Joalisson Pinto Maia</p></strong>
-                      <h4></h4>
-                      <p>Mini bio (Joalisson): Meu nome é Joalisson, mas pode me chamar de Joca, tenho 21 anos, sou formado em Análise e Desenvolvimento de Sistemas pela Pitágoras, e atualmente estou cursando o 3º semestre de Sistemas de Informação na Unex, possuo conhecimentos nas áreas de front-end, back-end, banco de dados e mobile.</p>
-                      
-                    </div>
-                   </div>
-                </div>
-                  <div class="instructor" style="display: flex; align-items: center; gap: 1rem;">
-                    <img src="carlos.jpg" alt="Instrutor" style="width: 70px; height: 70px; border-radius: 50%;">
-                    <div>
-                      <strong><p>Carlos Henrique de Souza Santana Santiago</p></strong>
-                      <h4></h4>
-                      <p>Mini bio (Carlos): Eu me chamo Carlos, mais conhecido por aqui como Caos (não que eu seja um caos) continuamente estou estudando pra aprimorar minhas habilidades e me tornar um dev full-stack, almejo trabalhar para alguma big tech (possivelmente gringa). </p>
+                      <strong><p>Gustavo Bezerra Nonato</p></strong>
+                      <p>Mini bio: Meu nome é Gustavo, tenho 18 anos, estudo desenvolvimento desde 2023 e falo inglês fluentemente. Sou formado em Inglês pelo CNA e tenho um certificado B2/C1 de proeficiência pela University of Cambridge. </p>
                     </div>
                   </div>
-                
-               
+                  
+                </div>
               </div>
-              
             </article>`,
-          modulos: /* ... seções já existentes para módulos, materiais, etc. (mantidas inalteradas) */ `
+          modulos: `
             <article class="course-section" id="modulos">
               <div class="section-header">
                 <i class="fas fa-layer-group"></i>
@@ -358,7 +339,7 @@
                 <!-- Módulo 1 -->
                 <div class="module-dropdown" data-module="1">
                   <div class="module-header">
-                    <h3>Módulo 1: Instalação e Configuração do PHP</h3>
+                    <h3>Módulo 1: Gramática Básica e Vocabulário Técnico</h3>
                     <i class="fas fa-chevron-down"></i>
                   </div>
                   <div class="module-content">
@@ -375,7 +356,7 @@
                 <!-- Módulo 2 -->
                 <div class="module-dropdown" data-module="2">
                   <div class="module-header">
-                    <h3>Módulo 2: Sintaxe Básica e Variáveis</h3>
+                    <h3>Módulo 2: Comunicação Técnica</h3>
                     <i class="fas fa-chevron-down"></i>
                   </div>
                   <div class="module-content">
@@ -392,7 +373,7 @@
                 <!-- Módulo 3 -->
                 <div class="module-dropdown" data-module="3">
                   <div class="module-header">
-                    <h3>Módulo 3: Estruturas de Controle</h3>
+                    <h3>Módulo 3: Leitura e Escrita de Documentação Técnica</h3>
                     <i class="fas fa-chevron-down"></i>
                   </div>
                   <div class="module-content">
@@ -409,7 +390,7 @@
                 <!-- Módulo 4 -->
                 <div class="module-dropdown" data-module="4">
                   <div class="module-header">
-                    <h3>Módulo 4: Paradigmas,Funções, Arrays e Manipulação de Dados</h3>
+                    <h3>Módulo 4: Preparação para Entrevistas</h3>
                     <i class="fas fa-chevron-down"></i>
                   </div>
                   <div class="module-content">
@@ -426,7 +407,7 @@
                 <!-- Módulo 5 -->
                 <div class="module-dropdown" data-module="5">
                   <div class="module-header">
-                    <h3>Módulo 5: Trabalhando com Formulários e Banco de Dados</h3>
+                    <h3>Módulo 5: Inglês Avançado: Apresentações e Negociações</h3>
                     <i class="fas fa-chevron-down"></i>
                   </div>
                   <div class="module-content">
@@ -442,109 +423,27 @@
                 </div>
               </div>
             </article>`,
-            playlist: `
-  <article class="course-section" id="playlist">
-    <div class="section-header">
-      <i class="fas fa-play-circle"></i>
-      <h2>Playlist do Curso</h2>
-    </div>
-    <div class="playlist-grid">
-      ${Array.from({ length: 44 }, (_, i) => {
-        const urls = [
-          "https://www.youtube.com/embed/TfsO0BGvGn0?si=TxtcCYcDfc1g-W9F",
-          "https://www.youtube.com/embed/dLHlHTsFqvk?si=MFPa6EHIvKZQs2os",
-          "https://www.youtube.com/embed/fvbOFIduMoI?si=0EPzruYgV6bk5ECO",
-          "https://www.youtube.com/embed/TwNmvk-F7E8?si=Pa4twhfV0PNk2fC6",
-          "https://www.youtube.com/embed/4kSJOJEi0aQ?si=X05tfT0sSOw9Mhg-",
-          "https://www.youtube.com/embed/cGiB7D9mCAM?si=S1ApiLrd0yq6kBeh",
-          "https://www.youtube.com/embed/xaaTLxyJrLA?si=2xL2qYHT6VFyGJ7p",
-          "https://www.youtube.com/embed/qFLWokqyYb4?si=46PwzSIEcsNwvwrZ",
-          "https://www.youtube.com/embed/TF8OSlQ9HAk?si=I4FtUhSLwtEpk5oJ",
-          "https://www.youtube.com/embed/9jWACl9_k54?si=d5etFVxPF_2JNDhT",
-          "https://www.youtube.com/embed/TFQhW3Iddlk?si=3_lLChfcxlrcOWke",
-          "https://www.youtube.com/embed/0Y9OZ0vc1SU?si=w7p8WWdl8Oj1i0jv",
-          "https://www.youtube.com/embed/aUN0j5Q9quQ?si=kTMnyOvAcFdo0X8C",
-          "https://www.youtube.com/embed/bUqOgDrcsm4?si=QEUeQdUVKCZda06L",
-          "https://www.youtube.com/embed/kKDbH6aKg48?si=1GCl42BVer0CJJIi",
-          "https://www.youtube.com/embed/fsD5NF03MPc?si=n3E6o-XuqAAkshrf",
-          "https://www.youtube.com/embed/yK7bXIqLk9Q?si=cVdfxOBvqQA2WmRf",
-          "https://www.youtube.com/embed/p9DVWhe5Euw?si=kEBW7x-yePBpCxga",
-          "https://www.youtube.com/embed/xFdiSh8KQ94?si=vB6_6vHD7Ak0d0hS",
-          "https://www.youtube.com/embed/eC42d9Rsz3g?si=byWg3E-9D01CjJnX",
-          "https://www.youtube.com/embed/JFEelabfc1o?si=bgN9eL0AmhFOhOfA",
-          "https://www.youtube.com/embed/Vn1PGAfnG_s?si=lQJ4qBHJXlVjmFqq",
-          "https://www.youtube.com/embed/tZf2mIAXTLw?si=BaIh7_fxtCUIXWjz",
-          "https://www.youtube.com/embed/1prWS9IpZLU?si=dHo9gC1JnYwi3laU",
-          "https://www.youtube.com/embed/3cEqVqriass?si=CW4Yen5YbwFnWZFQ",
-          "https://www.youtube.com/embed/wwwDeZwEIr0?si=pKX7w5Cbyo36F-fp",
-          "https://www.youtube.com/embed/99ITnUFCzRU?si=rSyOzyQD241y9Tp2",
-          "https://www.youtube.com/embed/kgVRAoDgiHY?si=4XNLw1LNbI2im5Nu",
-          "https://www.youtube.com/embed/0oztg9RSpOo?si=nmT5qZSg6SR-qkL7",
-          "https://www.youtube.com/embed/AvcUHrpGh8w?si=plZQrJlqRp0I2sBx",
-          "https://www.youtube.com/embed/483Koc7TLu8?si=mu7FBP9Az6_P5x_i",
-          "https://www.youtube.com/embed/01fQmB7aR5s?si=9rWI-7Y0i-iBjX4c",
-          "https://www.youtube.com/embed/xPDsdZl42Rw?si=y1eRo8htavX40dPp",
-          "https://www.youtube.com/embed/Sa0geI71RgA?si=JLUW6t-URHDWTQbo",
-          "https://www.youtube.com/embed/TuNj2zXQuOw?si=U5QECUFXId2zSwju" ,
-          "https://www.youtube.com/embed/Hej55j-NbHQ?si=6GQi0lq0WYxZpWzO" ,
-          "https://www.youtube.com/embed/UMA9uQpzq1c?si=B8B0tfe7hJasYrJU" ,
-          "https://www.youtube.com/embed/OBKv_wGIbM4?si=iWRHWirAPCho9zWV" ,
-          "https://www.youtube.com/embed/lyr7wObMVuU?si=zqETNsc5wBgpZiub" ,
-          "https://www.youtube.com/embed/vRWCYYLqb2E?si=o47TtRuPH0-Pw7_Y" ,
-          "https://www.youtube.com/embed/GhmV3JJkJSQ?si=bQVV1qJ6Wh7m3vkO",
-          "https://www.youtube.com/embed/I2htLQc7wkU?si=zVJJYrWFG4OpLdZZ" ,
-          "https://www.youtube.com/embed/I2htLQc7wkU?si=tqbzR6vnrp0kfYFH" ,
-          "https://www.youtube.com/embed/qEsWGf_Es3A?si=ji39GY98VIxjiGIS" ,
-          "https://www.youtube.com/embed/zi5a-FGzdZI?si=nPp84PzC4hYW5gMW",
-          "https://www.youtube.com/embed/zi5a-FGzdZI?si=jWNyff3fF0XTDf2s",
-          "https://www.youtube.com/embed/SUV7epfghaE?si=y1dgPLc_As3uK4kt" ,
-          "https://www.youtube.com/embed/_juxEH73bG4?si=Bfn758H1l7tJPhAT" ,
-          "https://www.youtube.com/embed/7c5yfAdmIEQ?si=TO3TjptfpU9uaz0_",
-          "https://www.youtube.com/embed/KwFrvsnxPW0?si=s9xxqyeUg2CM_ZlE" ,
-
-        ];
-        // Seleciona a URL de acordo com o índice (usando o operador módulo)
-        const url = urls[i % urls.length];
-        return `<iframe loading="lazy" width="560" height="315" src="${url}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
-      }).join('')}
-    </div>
-  </article>
-`
-,
-          modulosVideo: `
-            <article class="course-section" id="modulos-conteudo">
-              <h2>Conteúdo em Vídeo</h2>
-              <p>Assista à aula explicativa:</p>
-              <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen style="width: 100%; height: 315px;"></iframe>
-            </article>`,
-          modulosTexto: `
-            <article class="course-section" id="modulos-conteudo">
-              <h2>Conteúdo em Texto</h2>
-              <p><strong>Módulo 1: Instalação e Configuração do PHP</strong></p>
-              <p>Aprenda a instalar o PHP e configurar seu ambiente.</p>
-              <hr>
-              <p><strong>Módulo 2: Sintaxe Básica e Variáveis</strong></p>
-              <p>Entenda a estrutura de um script PHP e como declarar variáveis.</p>
-              <hr>
-              <p><strong>Módulo 3: Estruturas de Controle</strong></p>
-              <p>Utilize condições e loops para criar scripts dinâmicos.</p>
-              <hr>
-              <p><strong>Módulo 4: Funções, Arrays e Manipulação de Dados</strong></p>
-              <p>Crie funções reutilizáveis e manipule arrays com facilidade.</p>
-              <hr>
-              <p><strong>Módulo 5: Trabalhando com Formulários e Banco de Dados</strong></p>
-              <p>Saiba como coletar dados e interagir com bancos de dados.</p>
-              <button class="btn-gradiente" onclick="toggleExpandText()">Expandir Detalhes <i class="fas fa-chevron-down"></i></button>
-              <div id="fullText" style="display:none;">
-                <p>Detalhamento: Cada módulo inclui exemplos práticos e exercícios para reforçar seu aprendizado.</p>
-                <button class="btn-gradiente" onclick="toggleExpandText()">Reduzir <i class="fas fa-chevron-up"></i></button>
+          playlist: `
+            <article class="course-section" id="playlist">
+              <div class="section-header">
+                <i class="fas fa-play-circle"></i>
+                <h2>Playlist do Curso</h2>
               </div>
-            </article>`,
-          modulosPodcast: `
-            <article class="course-section" id="modulos-conteudo">
-              <h2>Conteúdo de Podcast</h2>
-              <p>Este conteúdo está bloqueado. Faça sua assinatura para acessar nossos podcasts exclusivos.</p>
-            </article>`,
+              <div class="playlist-grid">
+                ${Array.from({ length: 44 }, (_, i) => {
+                  const urls = [
+                    "https://www.youtube.com/embed/dQw4w9WgXcQ",
+                    "https://www.youtube.com/embed/9bZkp7q19f0",
+                    "https://www.youtube.com/embed/V-_O7nl0Ii0",
+                    "https://www.youtube.com/embed/3JZ_D3ELwOQ",
+                    "https://www.youtube.com/embed/tVj0ZTS4WF4"
+                  ];
+                  const url = urls[i % urls.length];
+                  return `<iframe loading="lazy" width="560" height="315" src="${url}" title="Reprodutor de vídeo do YouTube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
+                }).join('')}
+              </div>
+            </article>
+          `,
           materiais: `
             <article class="course-section" id="materiais">
               <div class="section-header">
@@ -557,11 +456,11 @@
                     <i class="fas fa-file-pdf"></i>
                   </div>
                   <div class="material-info">
-                    <h3>Guia de PHP</h3>
-                    <p>Aprenda os conceitos básicos e avançados do PHP.</p>
+                    <h3>Guia de Gramática em Inglês</h3>
+                    <p>Aprenda os fundamentos da gramática inglesa com foco em vocabulário técnico.</p>
                     <div class="material-meta">
-                      <span>PDF • 504 KB</span>
-                      <button class="btn-gradiente" onclick="window.open('http://www.etelg.com.br/paginaete/downloads/informatica/apostila_php.pdf')"><i class="fas fa-external-link-alt"></i> Acessar</button>
+                      <span>PDF • 1,2 MB</span>
+                      <button class="btn-gradiente" onclick="window.open('https://example.com/guia-gramatica.pdf')"><i class="fas fa-external-link-alt"></i> Acessar</button>
                     </div>
                   </div>
                 </div>
@@ -570,11 +469,11 @@
                     <i class="fas fa-video"></i>
                   </div>
                   <div class="material-info">
-                    <h3>Tutorial em Vídeo de PHP</h3>
-                    <p>Vídeo complementar com exemplos práticos.</p>
+                    <h3>Tutorial de Comunicação Técnica</h3>
+                    <p>Vídeo complementar com dicas para uma comunicação eficaz no ambiente de TI.</p>
                     <div class="material-meta">
-                      <span>MP4 • 20MB</span>
-                      <button class="btn-gradiente" onclick="window.open('https://www.youtube.com/live/C2A_LvTNyBE?si=Pk7XEroPWycoY05M')"><i class="fas fa-play"></i> Assistir</button>
+                      <span>MP4 • 30MB</span>
+                      <button class="btn-gradiente" onclick="window.open('https://www.youtube.com/watch?v=example')"><i class="fas fa-play"></i> Assistir</button>
                     </div>
                   </div>
                 </div>
@@ -583,16 +482,17 @@
                     <i class="fas fa-link"></i>
                   </div>
                   <div class="material-info">
-                    <h3>Artigo Especial: Boas Práticas em PHP</h3>
-                    <p>Dicas essenciais para escrever códigos limpos e eficientes.</p>
+                    <h3>Artigo: Melhores Práticas na Comunicação Técnica</h3>
+                    <p>Dicas essenciais para redigir documentações e relatórios claros e objetivos.</p>
                     <div class="material-meta">
                       <span>Link</span>
-                      <button class="btn-gradiente" onclick="window.open('https://blog.geekhunter.com.br/boas-praticas-de-programacao-em-php/')"><i class="fas fa-external-link-alt"></i> Acessar</button>
+                      <button class="btn-gradiente" onclick="window.open('https://example.com/comunicacao-tecnica')"><i class="fas fa-external-link-alt"></i> Acessar</button>
                     </div>
                   </div>
                 </div>
               </div>
-            </article>`,
+            </article>
+          `,
           atividades: `
             <article class="course-section" id="atividades">
               <div class="section-header">
@@ -602,33 +502,34 @@
               <div class="section-content">
                 <ul>
                   <li>
-                    <strong>Módulo 1: Instalação e Configuração do PHP</strong>
-                    <p>Configuração do ambiente e primeiros scripts.</p>
+                    <strong>Módulo 1: Atividade de Gramática e Vocabulário</strong>
+                    <p>Pratique a identificação e o uso de termos técnicos.</p>
                     <button class="btn-gradiente" onclick="location.href='atividade-modulo1.html'">Ir para Atividade</button>
                   </li>
                   <li>
-                    <strong>Módulo 2: Sintaxe Básica e Variáveis</strong>
-                    <p>Exercícios de declaração de variáveis e exibição de dados.</p>
+                    <strong>Módulo 2: Atividade de Comunicação Técnica</strong>
+                    <p>Elabore um e-mail profissional em inglês.</p>
                     <button class="btn-gradiente" onclick="location.href='atividade-modulo2.html'">Ir para Atividade</button>
                   </li>
                   <li>
-                    <strong>Módulo 3: Estruturas de Controle</strong>
-                    <p>Prática com condições e loops.</p>
+                    <strong>Módulo 3: Atividade de Documentação</strong>
+                    <p>Resuma um documento técnico e destaque os pontos principais.</p>
                     <button class="btn-gradiente" onclick="location.href='atividade-modulo3.html'">Ir para Atividade</button>
                   </li>
                   <li>
-                    <strong>Módulo 4: Paradigmas,Funções, Arrays e Manipulação de Dados</strong>
-                    <p>Exercícios para criação de funções e manipulação de arrays.</p>
+                    <strong>Módulo 4: Simulação de Entrevista</strong>
+                    <p>Participe de uma entrevista simulada para praticar suas respostas.</p>
                     <button class="btn-gradiente" onclick="location.href='atividade-modulo4.html'">Ir para Atividade</button>
                   </li>
                   <li>
-                    <strong>Módulo 5: Formulários e Banco de Dados</strong>
-                    <p>Desenvolva um formulário de contato e conecte com um banco de dados.</p>
+                    <strong>Módulo 5: Atividade de Apresentação</strong>
+                    <p>Prepare e grave uma breve apresentação sobre um tema técnico.</p>
                     <button class="btn-gradiente" onclick="location.href='atividade-modulo5.html'">Ir para Atividade</button>
                   </li>
                 </ul>
               </div>
-            </article>`,
+            </article>
+          `,
           progresso: `
             <article class="course-section" id="progresso">
               <div class="section-header">
@@ -640,7 +541,8 @@
               </div>
               <p id="progressText">0% concluído</p>
               <button id="examButton" class="btn-gradiente" style="display: none;" onclick="location.href='exame.html'">Ir para Prova e Certificado</button>
-            </article>`,
+            </article>
+          `,
           forum: `
             <article class="course-section" id="forum">
               <div class="section-header">
@@ -651,7 +553,8 @@
                 <p>Participe das discussões, tire dúvidas e compartilhe experiências com outros alunos e instrutores.</p>
                 <p><a href="https://forum.conectauni.com" target="_blank" class="btn-gradiente">Acessar Fórum</a></p>
               </div>
-            </article>`
+            </article>
+          `
         }
       }
     };
@@ -661,7 +564,7 @@
       const urlParams = new URLSearchParams(window.location.search);
       return urlParams.get(param);
     }
-    const courseId = getQueryParam("course") || "php"; // Valor padrão
+    const courseId = getQueryParam("course") || "ingles_devs"; // Valor padrão
 
     // Atualiza título e subtítulo
     document.getElementById("courseTitle").innerText = coursesData[courseId].title;
@@ -715,7 +618,7 @@
             const moduleId = dropdown.getAttribute("data-module");
             if (type === "texto") {
               // Ao clicar em "Texto", redireciona para a página específica do módulo de texto
-              window.location.href = "curso_modulo_php" + moduleId + ".html?course=" + courseId;
+              window.location.href = "curso_modulo_ingles" + moduleId + ".html?course=" + courseId;
             } else {
               let detailContent = modulosContent[moduleId][type] || "<p>Conteúdo indisponível.</p>";
               dropdown.querySelector(".module-detail").innerHTML = detailContent;
@@ -741,26 +644,23 @@
         }
       }, 50);
     }
-       /* Menu Mobile */
-       function toggleMenu() {
-        document.querySelector('.nav-links').classList.toggle('active');
-      }
-      
-      /* Smooth scroll */
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function(e) {
-          e.preventDefault();
-          document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
-          document.querySelector('.nav-links').classList.remove('active');
-        });
-      });
-      function toggleMenu() {
-  const nav = document.querySelector('.nav-links');
-  const navbar = document.querySelector('.navbar');
-  nav.classList.toggle('active');
-  navbar.classList.toggle('active'); // Garante que o navbar se expanda corretamente
-}
 
+    /* Menu Mobile */
+    function toggleMenu() {
+      const nav = document.querySelector('.nav-links');
+      const navbar = document.querySelector('.navbar');
+      nav.classList.toggle('active');
+      navbar.classList.toggle('active');
+    }
+      
+    /* Smooth Scroll */
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({ behavior: 'smooth' });
+        document.querySelector('.nav-links').classList.remove('active');
+      });
+    });
   </script>
   <script src="script.js"></script>
 

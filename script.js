@@ -48,7 +48,9 @@
         { name: "Joalisson Pinto Maia", photo: "joka.jpg", expertise: "Sistema da Informação" },
         { name: "Carlos Henrique de Souza<br> Santana Santiago", photo: "carlos.jpg", expertise: "Sistema da Informação" },
         { name: "Levi Ferreira de <br>Oliveira Baptista", photo: "levi.jpg", expertise: "Sistema de Informação" },
-        { name: "Mateus Queiroz<br>Matos Ferreira", photo: "mateus.jpg", expertise: "Sistema de Informação" }
+        { name: "Mateus Queiroz<br>Matos Ferreira", photo: "mateus.jpg", expertise: "Sistema de Informação" },
+        { name: "Gustavo Bezerra Nonato", photo: "gustavo.jpg", expertise: "Inglês" },
+        { name: "Jadson da Silva Sobrinho", photo: "jadson.jpg", expertise: "Sistema de Informação" }
       ];
       
       function populateCarouselCourses() {
