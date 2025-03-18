@@ -62,7 +62,7 @@
             <li><a href="#" data-section="modulos"><i class="fas fa-layer-group"></i>Módulos</a></li>
             <li><a href="#" data-section="materiais"><i class="fas fa-file-download"></i>Materiais</a></li>
             <li><a href="#" data-section="atividades"><i class="fas fa-tasks"></i>Atividades</a></li>
-            <li><a href="#" data-section="playlist"><i class="fas fa-play-circle"></i>Playlist</a></li>
+            <li><a href="#" data-section="playlist"><i class="fas fa-play-circle"></i>Aulas</a></li>
           </ul>
         </nav>
       </aside>
@@ -422,13 +422,23 @@
                 <h2>Playlist do Curso</h2>
               </div>
               <div class="playlist-grid">
-                ${Array.from({ length: 44 }, (_, i) => {
+                ${Array.from({ length: 15 }, (_, i) => {
                   const urls = [
-                    "https://www.youtube.com/embed/dQw4w9WgXcQ",
-                    "https://www.youtube.com/embed/9bZkp7q19f0",
-                    "https://www.youtube.com/embed/V-_O7nl0Ii0",
-                    "https://www.youtube.com/embed/3JZ_D3ELwOQ",
-                    "https://www.youtube.com/embed/tVj0ZTS4WF4"
+                    "https://www.youtube.com/embed/8mei6uVttho?si=pojPgdZlCDdzzExf",
+                    "https://www.youtube.com/embed/M2Af7gkbbro?si=2k641LBTos0zVD_9" ,
+                    "https://www.youtube.com/embed/RDrfZ-7WE8c?si=UrEBpHSz3i4n4mgI" ,
+                    "https://www.youtube.com/embed/Ig4QZNpVZYs?si=YY_cg29obQzHs1hN",
+                    "https://www.youtube.com/embed/GrPkuk1ezyo?si=MEl3LbEvGokKJSlg",
+                    "https://www.youtube.com/embed/v2nCgGSVCeE?si=2VtHHwoVfsb49x3U",
+                    "https://www.youtube.com/embed/_g05aHdBAEY?si=zPfBd0TWZlRU3SUi",
+                    "https://www.youtube.com/embed/7gGFHzqh4d8?si=d7EFqII7GaFjKraJ",
+                    "https://www.youtube.com/embed/U5PnCt58Q68?si=XTQAL3_7i4S-mWWX" ,
+                    "https://www.youtube.com/embed/fP49L1i_-HU?si=dIIBNbLRZ-hxmpxg",
+                    "https://www.youtube.com/embed/WJQz20i7CyI?si=3FO18Lh8ptX5KTaA",
+                    "https://www.youtube.com/embed/KoNehy7rn8U?si=RYPQUeTlZMf3vStd",
+                    "https://www.youtube.com/embed/-nNx7e8GzHQ?si=6fqquPaHs4NOuRQj",
+                    "https://www.youtube.com/embed/j9473xQ39vY?si=lbzUPxMidT_ubhNf" , 
+                    "https://www.youtube.com/embed/hkE9WrjpAAk?si=KkH95vYLaoCTy5FU" ,
                   ];
                   const url = urls[i % urls.length];
                   return `<iframe loading="lazy" width="560" height="315" src="${url}" title="Reprodutor de vídeo do YouTube" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
