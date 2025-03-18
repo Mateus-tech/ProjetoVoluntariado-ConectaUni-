@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curso Módulo 3: Conceitos Básicos de Programação - ConectaUni</title>
+  <!-- Ícones e CSS (global e específico) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css"> <!-- CSS global -->
+  <link rel="stylesheet" href="curso_modulo.css"> <!-- CSS específico para módulos -->
+  <link rel="icon" href="favcon.png" type="image/x-icon">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html"><img src="favcon.png" alt="ConectaUni"></a>
+      <a href="index.html"><h1>ConectaUni</h1></a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html#sobre"><i class="fas fa-info-circle"></i>Sobre</a>
+      <a href="lista_curso.html"><i class="fas fa-graduation-cap"></i>Cursos</a>
+      <a href="index.html#voluntarios"><i class="fas fa-hands-helping"></i>Seja Voluntário</a>
+      <a href="index.html#contato"><i class="fas fa-envelope"></i>Contato</a>
+      <button class="btn-gradiente" onclick="showModal('login')"><i class="fas fa-sign-in-alt"></i>Entrar</button>
+      <button class="btn-gradiente" onclick="showModal('signup')"><i class="fas fa-user-plus"></i>Cadastrar</button>
+    </div>
+    <button id="darkModeToggle" onclick="toggleDarkMode()"><i class="fas fa-moon"></i></button>
+    <button class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+  </nav>
+  
+  <!-- Cabeçalho do Módulo -->
+  <header class="course-header">
+    <div class="course-thumbnail">
+      <!-- Imagem ilustrativa – substitua o placeholder pela imagem real se disponível -->
+      <img src="https://www.titonet.com/wp-content/uploads/2021/10/Imagen-destacada-blog.2-30.png"alt="Conceitos Básicos de Programação" style="background:#fff; padding: 1rem;">
+      <div class="course-tags">
+        <span class="tag">Programação</span>
+        <span class="tag">Fundamentos</span>
+      </div>
+    </div>
+    <h1>Curso Módulo 3: Conceitos Básicos de Programação</h1>
+    <p>Aprenda os fundamentos essenciais da programação e construa uma base sólida para desenvolver suas aplicações.</p>
+  </header>
+  
+  <!-- Seção de Conceitos Fundamentais do Programador -->
+  <section class="atividade-content reveal">
+    <h2>Conceitos Fundamentais do Programador</h2>
+    <p>
+      Antes de mergulhar nos detalhes do código, é importante conhecer alguns conceitos essenciais que formam a base do desenvolvimento de software:
+    </p>
+    <ul>
+      <li>
+        <strong>Backend:</strong> Refere-se à parte do sistema que roda no servidor. É responsável pelo processamento dos dados, lógica de negócios e comunicação com bancos de dados. O backend funciona "por trás dos panos" e é fundamental para que a aplicação funcione corretamente.
+      </li>
+      <li>
+        <strong>Front-end:</strong> É a parte do sistema com a qual o usuário interage, como a interface gráfica de um site ou aplicativo. Tudo o que você vê – botões, formulários, menus – faz parte do front-end.
+      </li>
+      <li>
+        <strong>Fullstack:</strong> Um desenvolvedor fullstack possui conhecimentos tanto de front-end quanto de backend, conseguindo criar aplicações completas e integradas.
+      </li>
+      <li>
+        <strong>Endpoints e APIs:</strong> Uma API (Interface de Programação de Aplicações) define regras para que diferentes softwares se comuniquem. Um endpoint é o ponto final de uma API – uma URL onde um serviço pode ser acessado. Por exemplo, ao acessar um site de clima, seu aplicativo faz uma requisição a um endpoint que retorna os dados meteorológicos.
+      </li>
+    </ul>
+  </section>
+  
+  <!-- Conteúdo Didático: Conceitos Básicos de Programação -->
+  <section class="atividade-content reveal">
+    <!-- 1. O que é Programação? -->
+    <h2>1. O que é Programação?</h2>
+    <p>
+      Programação é o processo de criar um conjunto de instruções que dizem a um computador como executar uma tarefa. É como escrever uma receita detalhada, onde cada passo é fundamental para o resultado final.
+    </p>
+    <p>
+      Para criar códigos, você precisa entender o problema, planejar a solução (usando fluxogramas ou pseudocódigo) e transcrever essa lógica para uma linguagem de programação.
+    </p>
+    
+    <!-- 9. Como se Cria Códigos -->
+    <h2>2. Como se Cria Códigos?</h2>
+    <p>
+      Criar um código envolve as seguintes etapas:
+    </p>
+    <ol>
+      <li><strong>Entender o problema:</strong> Analise e divida a tarefa em etapas menores.</li>
+      <li><strong>Planejar o algoritmo:</strong> Descreva a solução utilizando linguagem natural, fluxogramas e pseudocódigo.</li>
+      <li><strong>Escolher uma linguagem:</strong> Selecione a linguagem que melhor se adequa ao projeto.</li>
+      <li><strong>Escrever o código:</strong> Transcreva o algoritmo para a sintaxe da linguagem escolhida, definindo variáveis, funções e estruturas de controle.</li>
+      <li><strong>Testar e depurar:</strong> Execute o código, identifique e corrija erros usando ferramentas de debugging.</li>
+      <li><strong>Documentar:</strong> Comente o código para facilitar a manutenção e a colaboração futura.</li>
+    </ol>
+    
+    <!-- 10. O que é uma IDE? -->
+    <h2>3. O que é uma IDE?</h2>
+    <p>
+      Uma <strong>IDE</strong> (Ambiente de Desenvolvimento Integrado) é um software que reúne diversas ferramentas essenciais para o desenvolvimento, como editor de código, compilador/interpreter, depurador e gerenciador de projetos. Ela torna o processo de programar mais eficiente e organizado.
+    </p>
+    <p>
+      Exemplos de IDEs incluem o Visual Studio Code, Eclipse, IntelliJ IDEA e PyCharm.
+    </p>
+    
+    <!-- 11. Como Funciona um Programa? -->
+    <h2>4. Como Funciona um Programa?</h2>
+    <p>
+      Um programa funciona através da execução sequencial de instruções, divididas basicamente em três partes:
+    </p>
+    <ul>
+      <li><strong>Entrada:</strong> Dados recebidos do usuário ou de sistemas externos.</li>
+      <li><strong>Processamento:</strong> Aplicação da lógica para transformar os dados.</li>
+      <li><strong>Saída:</strong> Exibição ou armazenamento do resultado.</li>
+    </ul>
+    <p>
+      Por exemplo, um programa de calculadora recebe números, processa uma operação e retorna o resultado.
+    </p>
+    
+    <!-- 12. Vertentes no Mundo da Programação -->
+    <h2>5. Vertentes no Mundo da Programação</h2>
+    <p>
+      A programação é uma área vasta, com diversas especializações:
+    </p>
+    <ul>
+      <li><strong>Desenvolvimento Web:</strong> Criação de sites e aplicações web, tanto no front-end quanto no back-end.</li>
+      <li><strong>Desenvolvimento Mobile:</strong> Criação de aplicativos para smartphones e tablets.</li>
+      <li><strong>Desenvolvimento de Jogos:</strong> Criação de jogos digitais.</li>
+      <li><strong>Data Science e Machine Learning:</strong> Análise de dados e criação de modelos preditivos.</li>
+      <li><strong>Desenvolvimento de Sistemas:</strong> Criação de softwares corporativos e robustos.</li>
+      <li><strong>Programação de Baixo Nível:</strong> Trabalho próximo ao hardware, como em linguagens de montagem e C.</li>
+    </ul>
+    
+    <!-- 13. Endpoints e APIs – Uma Analogia Simples -->
+    <h2>6. Endpoints e APIs – Uma Analogia Simples</h2>
+    <p>
+      <strong>APIs</strong> (Interfaces de Programação de Aplicações) são conjuntos de regras que permitem a comunicação entre diferentes softwares. Um <strong>endpoint</strong> é o endereço (URL) onde um serviço está disponível.
+    </p>
+    <p>
+      Uma analogia simples: imagine um restaurante. O <em>cardápio</em> (endpoint) lista os pratos disponíveis. O <em>garçom</em> (API) recebe seu pedido e leva-o à cozinha (backend), retornando com o prato pronto para ser servido no <em>balcão</em> (front-end). Desenvolvedores que trabalham com <strong>fullstack</strong> cuidam tanto da parte que o usuário vê quanto da lógica interna do sistema.
+    </p>
+    <!-- 2. Estrutura de um Programa -->
+    <h2>7. Estrutura de um Programa</h2>
+    <p>
+      Um programa geralmente é dividido em três partes:
+    </p>
+    <ul>
+      <li><strong>Entrada:</strong> Dados que o programa recebe.</li>
+      <li><strong>Processamento:</strong> A lógica que transforma os dados.</li>
+      <li><strong>Saída:</strong> O resultado final, seja exibido na tela, salvo ou enviado a outro sistema.</li>
+    </ul>
+    <p>
+      Exemplo: Um programa de calculadora que recebe dois números, soma-os e exibe o resultado.
+    </p>
+    
+    <!-- 3. Sintaxe e Semântica -->
+    <h2>8. Sintaxe e Semântica</h2>
+    <p>
+      <strong>Sintaxe</strong> é o conjunto de regras para escrever o código corretamente – semelhante à gramática em uma língua natural. Se a sintaxe estiver errada, o programa não será executado.
+    </p>
+    <p>
+      <strong>Semântica</strong> refere-se ao significado dos comandos. Mesmo que o código esteja sintaticamente correto, se a lógica (semântica) estiver equivocada, o resultado não será o esperado.
+    </p>
+    
+    <!-- 4. Variáveis e Tipos de Dados -->
+    <h2>9. Variáveis e Tipos de Dados</h2>
+    <p>
+      Variáveis são espaços na memória que armazenam valores, enquanto os tipos de dados definem a natureza desses valores (números, textos, booleanos, etc.).
+    </p>
+    <ul>
+      <li>
+        <strong>Exemplo em JavaScript:</strong>
+        <pre>
+let nome = "Maria";
+const idade = 30;
+        </pre>
+      </li>
+      <li>
+        <strong>Exemplo em Python:</strong>
+        <pre>
+nome = "Maria"
+idade = 30
+        </pre>
+      </li>
+      <li>
+        <strong>Exemplo em Java:</strong>
+        <pre>
+String nome = "Maria";
+int idade = 30;
+boolean ativo = true;
+        </pre>
+      </li>
+    </ul>
+    
+    <!-- 5. Estruturas de Controle -->
+    <h2>10. Estruturas de Controle</h2>
+    <p>
+      Estruturas de controle são usadas para direcionar o fluxo de execução do programa, permitindo decisões e repetições.
+    </p>
+    <p>
+      <strong>Exemplo de condicional (if-else) em JavaScript:</strong>
+    </p>
+    <pre>
+if (idade >= 18) {
+  console.log("Maior de idade");
+} else {
+  console.log("Menor de idade");
+}
+    </pre>
+    <p>
+      <strong>Exemplo de laço (for) em Python:</strong>
+    </p>
+    <pre>
+for i in range(1, 6):
+    print("Número:", i)
+    </pre>
+    
+    <!-- 6. Funções e Procedimentos -->
+    <h2>11. Funções e Procedimentos</h2>
+    <p>
+      Funções são blocos de código reutilizáveis que executam tarefas específicas. Elas ajudam a modularizar o programa e tornar o código mais organizado e fácil de manter.
+    </p>
+    <p>
+      <strong>Exemplo de função em JavaScript:</strong>
+    </p>
+    <pre>
+function saudacao(nome) {
+  return "Olá, " + nome + "!";
+}
+console.log(saudacao("Carlos"));
+    </pre>
+    <p>
+      <strong>Exemplo de função em Python:</strong>
+    </p>
+    <pre>
+def saudacao(nome):
+    return "Olá, " + nome + "!"
+print(saudacao("Carlos"))
+    </pre>
+    
+    <!-- 7. Paradigmas de Programação -->
+    <h2>12. Paradigmas de Programação</h2>
+    <p>
+      Paradigmas de programação são estilos e abordagens para organizar e estruturar o código. Os principais paradigmas incluem:
+    </p>
+    <ul>
+      <li><strong>Imperativo:</strong> Baseado na execução sequencial de comandos que modificam o estado do sistema.</li>
+      <li><strong>Estruturado:</strong> Organiza o código em blocos e funções para melhorar a clareza e manutenção.</li>
+      <li><strong>Orientado a Objetos (POO):</strong> Estrutura o código em objetos que representam entidades do mundo real, promovendo reutilização e modularidade.</li>
+      <li><strong>Funcional:</strong> Foca em funções puras, imutabilidade e evita efeitos colaterais, facilitando a previsão do comportamento do código.</li>
+    </ul>
+    
+    <!-- 8. Exemplo Prático Integrado -->
+    <h2>13. Exemplo Prático Integrado</h2>
+    <p>
+      Este exemplo combina vários conceitos básicos: o programa solicita o nome e a idade do usuário, verifica se ele é maior de idade e exibe uma mensagem personalizada.
+    </p>
+    <p><strong>Exemplo em JavaScript:</strong></p>
+    <pre>
+// Função para verificar a idade e retornar uma mensagem
+function verificarIdade(nome, idade) {
+  if (idade >= 18) {
+    return "Olá, " + nome + "! Você é maior de idade.";
+  } else {
+    return "Olá, " + nome + "! Você é menor de idade.";
+  }
+}
+let usuarioNome = prompt("Digite seu nome:");
+let usuarioIdade = parseInt(prompt("Digite sua idade:"));
+alert(verificarIdade(usuarioNome, usuarioIdade));
+    </pre>
+    <p>
+      <strong>Explicação:</strong> A função <code>verificarIdade</code> utiliza uma estrutura condicional <code>if-else</code> para determinar se o usuário é maior de idade. As funções <code>prompt</code> e <code>alert</code> interagem com o usuário, capturando dados e exibindo o resultado.
+    </p>
+    <p><strong>Exemplo em Python:</strong></p>
+    <pre>
+def verificar_idade(nome, idade):
+    if idade >= 18:
+        return "Olá, " + nome + "! Você é maior de idade."
+    else:
+        return "Olá, " + nome + "! Você é menor de idade."
+
+usuario_nome = input("Digite seu nome: ")
+usuario_idade = int(input("Digite sua idade: "))
+print(verificar_idade(usuario_nome, usuario_idade))
+    </pre>
+    
+    
+    <!-- 14. Outros Conceitos Básicos -->
+    <h2>14. Outros Conceitos Básicos</h2>
+    <ul>
+      <li><strong>Controle de Versão:</strong> Ferramentas como Git ajudam a acompanhar e gerenciar alterações no código.</li>
+      <li><strong>Compilação vs. Interpretação:</strong> Alguns programas são compilados em código de máquina antes da execução, enquanto outros são interpretados linha a linha.</li>
+      <li><strong>Debugging:</strong> Processo de encontrar e corrigir erros no código, utilizando depuradores e logs.</li>
+      <li><strong>Documentação:</strong> A prática de comentar o código e criar manuais para facilitar a manutenção.</li>
+    </ul>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="footer" id="contato">
+    <div class="footer-grid">
+      <div class="footer-section">
+        <div class="logo">
+          <img src="favcon.png" alt="ConectaUni">
+          <h3>ConectaUni</h3>
+        </div>
+        <p>Plataforma educacional colaborativa</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>Links Úteis</h4>
+        <ul>
+          <li><a href="index.html#sobre"><i class="fas fa-chevron-right"></i> Sobre Nós</a></li>
+          <li><a href="lista_curso.html"><i class="fas fa-chevron-right"></i> Cursos</a></li>
+          <li><a href="index.html#voluntarios"><i class="fas fa-chevron-right"></i> Voluntários</a></li>
+          <li><a href="index.html#contato"><i class="fas fa-chevron-right"></i> Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Contato</h4>
+        <ul class="contact-info">
+          <li><i class="fas fa-map-marker-alt"></i> Feira de Santana - BA</li>
+          <li><i class="fas fa-phone"></i> (75) 98144-0696</li>
+          <li><i class="fas fa-envelope"></i> mateus.queiroz.ti.mq@gmail.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 ConectaUni. Todos os direitos reservados.</p>
+      <div class="legal-links">
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Termos de Uso</a>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Back to Top -->
+  <div id="backToTop" class="back-to-top" onclick="scrollToTop()">
+    <i class="fas fa-chevron-up"></i>
+  </div>
+  
+  <!-- Modais (Login/Cadastro) -->
+  <div class="modal-overlay" id="modalOverlay"></div>
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="hideModals()">&times;</span>
+      <h2><i class="fas fa-sign-in-alt"></i> Login</h2>
+      <form id="loginForm">
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" placeholder="E-mail" required id="loginEmail">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Senha" required id="loginPassword">
+        </div>
+        <button type="submit" class="btn-gradiente">Entrar</button>
+      </form>
+    </div>
+  </div>
+  <div id="signupModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="hideModals()">&times;</span>
+      <h2><i class="fas fa-user-plus"></i> Cadastro</h2>
+      <form id="signupForm">
+        <div class="input-group">
+          <i class="fas fa-user"></i>
+          <input type="text" placeholder="Nome completo" required id="signupName">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" placeholder="E-mail" required id="signupEmail">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Senha" required id="signupPassword">
+        </div>
+        <button type="submit" class="btn-gradiente">Cadastrar</button>
+      </form>
+    </div>
+  </div>
+  
+  <!-- Widget de Chat -->
+  <div id="chatWidget" class="chat-widget" onclick="toggleChatModal()">
+    <i class="fas fa-comments"></i>
+  </div>
+  <div id="chatModal" class="chat-modal">
+    <div class="chat-header">
+      <span>ChatBot</span>
+      <span class="close" onclick="toggleChatModal()">&times;</span>
+    </div>
+    <div class="chat-content" id="chatContent">
+      <p><strong>ChatBot:</strong> Olá! Como posso ajudar?</p>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="chatInput" placeholder="Digite sua mensagem...">
+      <button onclick="sendChatMessage()">Enviar</button>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>

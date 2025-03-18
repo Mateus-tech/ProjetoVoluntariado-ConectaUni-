@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curso Módulo 5: Ferramentas e Recursos para o Desenvolvimento Lógico - ConectaUni</title>
+  <!-- Ícones e CSS (global e específico) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="curso_modulo.css">
+  <link rel="icon" href="favcon.png" type="image/x-icon">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html"><img src="favcon.png" alt="ConectaUni"></a>
+      <a href="index.html"><h1>ConectaUni</h1></a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html#sobre"><i class="fas fa-info-circle"></i>Sobre</a>
+      <a href="lista_curso.html"><i class="fas fa-graduation-cap"></i>Cursos</a>
+      <a href="index.html#voluntarios"><i class="fas fa-hands-helping"></i>Seja Voluntário</a>
+      <a href="index.html#contato"><i class="fas fa-envelope"></i>Contato</a>
+      <button class="btn-gradiente" onclick="showModal('login')">
+        <i class="fas fa-sign-in-alt"></i>Entrar
+      </button>
+      <button class="btn-gradiente" onclick="showModal('signup')">
+        <i class="fas fa-user-plus"></i>Cadastrar
+      </button>
+    </div>
+    <button id="darkModeToggle" onclick="toggleDarkMode()">
+      <i class="fas fa-moon"></i>
+    </button>
+    <button class="menu-toggle" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </button>
+  </nav>
+  
+  <!-- Cabeçalho do Módulo -->
+  <header class="course-header">
+    <div class="course-thumbnail">
+      <!-- Imagem ilustrativa – substitua o placeholder se houver uma imagem real -->
+      <img src="https://www.titonet.com/wp-content/uploads/2021/10/Imagen-destacada-blog.2-30.png" 
+           alt="Ferramentas e Recursos para o Desenvolvimento Lógico" 
+           style="background:#fff; padding: 1rem;">
+      <div class="course-tags">
+        <span class="tag">Ferramentas</span>
+        <span class="tag">Recursos</span>
+      </div>
+    </div>
+    <h1>Curso Módulo 5: Ferramentas e Recursos para o Desenvolvimento Lógico</h1>
+    <p>Explore as ferramentas e os recursos essenciais que ajudam a aprimorar seu raciocínio lógico e facilitam o desenvolvimento de software.</p>
+  </header>
+  
+  <!-- Conteúdo Didático do Módulo -->
+  <section class="atividade-content reveal">
+    <!-- Introdução Geral -->
+    <h2>1. Introdução e Objetivos</h2>
+    <p>
+      Este módulo apresenta diversas ferramentas e recursos que todo programador deve conhecer para melhorar a produtividade e o desenvolvimento lógico. Você aprenderá desde como usar o GitHub para controle de versão até o uso de IDEs, depuradores e plataformas de desafios de programação.
+    </p>
+    
+    <!-- Seção: Como Usar o GitHub -->
+    <h2>2. Como Usar o GitHub: Passo a Passo</h2>
+    <ol>
+      <li>
+        <strong>Criar uma Conta:</strong> Acesse <a href="https://github.com" target="_blank">github.com</a> e clique em "Sign up". Preencha seus dados, confirme seu e-mail e personalize seu perfil.
+      </li>
+      <li>
+        <strong>Instalar o Git:</strong> Baixe o Git em <a href="https://git-scm.com" target="_blank">git-scm.com</a> e siga as instruções de instalação para o seu sistema operacional. Verifique a instalação com <code>git --version</code> no terminal.
+      </li>
+      <li>
+        <strong>Configurar o Git:</strong> Defina seu nome e e-mail, que serão usados em seus commits:
+        <pre>
+git config --global user.name "Seu Nome"
+git config --global user.email "seuemail@exemplo.com"
+        </pre>
+      </li>
+      <li>
+        <strong>Criar e Clonar um Repositório:</strong> No GitHub, crie um novo repositório, inicialize-o com um README e copie a URL. Em seguida, no terminal, clone o repositório:
+        <pre>
+git clone https://github.com/seu-usuario/nome-do-repositorio.git
+        </pre>
+      </li>
+      <li>
+        <strong>Fazer Alterações e Comitar:</strong> Edite seus arquivos, use <code>git add .</code> para preparar as alterações, e <code>git commit -m "Mensagem do commit"</code> para registrar as alterações.
+      </li>
+      <li>
+        <strong>Enviar (Push) as Alterações:</strong> Envie seus commits para o GitHub:
+        <pre>
+git push origin main
+        </pre>
+      </li>
+      <li>
+        <strong>Branches e Pull Requests:</strong> Crie branches para desenvolver novas funcionalidades e utilize pull requests para integrar e revisar o código.
+      </li>
+    </ol>
+    
+    <!-- Seção: Outras Ferramentas Essenciais -->
+    <h2>3. Outras Ferramentas Essenciais para Programadores</h2>
+    <ul>
+      <li>
+        <strong>IDEs e Editores de Código:</strong> Ferramentas como Visual Studio Code, IntelliJ IDEA e PyCharm oferecem editores avançados, suporte a plugins e integração com sistemas de versionamento.
+      </li>
+      <li>
+        <strong>Depuradores (Debuggers):</strong> Permitem pausar a execução do código, inspecionar variáveis e identificar erros. Exemplos: depurador integrado do VS Code e PDB para Python.
+      </li>
+      <li>
+        <strong>Controle de Versão:</strong> Git é a ferramenta padrão para versionar código, e o GitHub facilita a colaboração e o gerenciamento de projetos.
+      </li>
+      <li>
+        <strong>Frameworks de Teste:</strong> Jest e Mocha para JavaScript, PyTest para Python e JUnit para Java ajudam a automatizar testes e garantir a qualidade do código.
+      </li>
+      <li>
+        <strong>Plataformas de Desafios:</strong> Sites como HackerRank, LeetCode e CodeSignal oferecem problemas que estimulam o raciocínio lógico e aprimoram a capacidade de resolução de problemas.
+      </li>
+      <li>
+        <strong>Ferramentas de Mind Mapping e Fluxogramas:</strong> XMind e Lucidchart ajudam a organizar ideias e estruturar algoritmos visualmente.
+      </li>
+    </ul>
+    
+    <!-- Seção: Demonstrações Práticas com Ferramentas -->
+    <h2>4. Demonstrações Práticas com Ferramentas</h2>
+    <h3>Exemplo: Depurando um Código em Visual Studio Code</h3>
+    <p>
+      Utilize o VS Code para definir breakpoints e inspecionar a execução do código. Por exemplo, em uma função simples:
+    </p>
+    <pre>
+// Função que soma dois números
+function somar(a, b) {
+  let resultado = a + b; // Defina um breakpoint nesta linha
+  return resultado;
+}
+console.log("Soma:", somar(10, 20));
+    </pre>
+    <p>
+      <strong>Explicação:</strong> Ao colocar um breakpoint na linha de cálculo, você pode pausar a execução e verificar os valores de <code>a</code> e <code>b</code>, ajudando a entender como a função opera.
+    </p>
+    
+    <h3>Exemplo: Criando Testes Automatizados com Jest</h3>
+    <p>
+      Crie um arquivo de teste para verificar se sua função funciona corretamente:
+    </p>
+    <pre>
+// Função de soma
+function somar(a, b) {
+  return a + b;
+}
+module.exports = somar;
+
+// Arquivo de teste (somar.test.js)
+const somar = require('./somar');
+test('soma de 5 + 3 deve retornar 8', () => {
+  expect(somar(5, 3)).toBe(8);
+});
+    </pre>
+    <p>
+      <strong>Explicação:</strong> Esse exemplo demonstra como o Jest pode automatizar testes. Ao rodar o teste, o Jest verifica se a função <code>somar</code> retorna o valor esperado, garantindo a integridade do código.
+    </p>
+    
+    <h3>Exemplo: Uso de Mind Mapping para Planejar um Algoritmo</h3>
+    <p>
+      Antes de codificar, utilize uma ferramenta de mind mapping (como o XMind) para criar um diagrama que organize as etapas de um algoritmo – por exemplo, para gerenciar o estoque de uma loja. Essa abordagem visual ajuda a identificar os passos necessários e a organizar suas ideias de forma lógica.
+    </p>
+    
+    <!-- Seção: Conclusão e Boas Práticas -->
+    <h2>5. Conclusão e Boas Práticas</h2>
+    <p>
+      Ferramentas e recursos são fundamentais para aprimorar o desenvolvimento lógico e a eficiência na programação. Usar uma IDE completa, integrar o Git para controle de versão, escrever testes automatizados e organizar suas ideias com fluxogramas e mind maps são práticas que ajudarão você a criar códigos robustos e a evoluir como programador.
+    </p>
+    <p>
+      Dedique tempo para explorar cada ferramenta e incorpore essas boas práticas no seu fluxo de trabalho. Assim, você estará preparado para enfrentar desafios cada vez maiores e construir soluções de software de alta qualidade.
+    </p>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="footer" id="contato">
+    <div class="footer-grid">
+      <div class="footer-section">
+        <div class="logo">
+          <img src="favcon.png" alt="ConectaUni">
+          <h3>ConectaUni</h3>
+        </div>
+        <p>Plataforma educacional colaborativa</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>Links Úteis</h4>
+        <ul>
+          <li><a href="index.html#sobre"><i class="fas fa-chevron-right"></i> Sobre Nós</a></li>
+          <li><a href="lista_curso.html"><i class="fas fa-chevron-right"></i> Cursos</a></li>
+          <li><a href="index.html#voluntarios"><i class="fas fa-chevron-right"></i> Voluntários</a></li>
+          <li><a href="index.html#contato"><i class="fas fa-chevron-right"></i> Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Contato</h4>
+        <ul class="contact-info">
+          <li><i class="fas fa-map-marker-alt"></i> Feira de Santana - BA</li>
+          <li><i class="fas fa-phone"></i> (75) 98144-0696</li>
+          <li><i class="fas fa-envelope"></i> mateus.queiroz.ti.mq@gmail.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 ConectaUni. Todos os direitos reservados.</p>
+      <div class="legal-links">
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Termos de Uso</a>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Back to Top -->
+  <div id="backToTop" class="back-to-top" onclick="scrollToTop()">
+    <i class="fas fa-chevron-up"></i>
+  </div>
+  
+  <!-- Modais (Login/Cadastro) -->
+  <div class="modal-overlay" id="modalOverlay"></div>
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="hideModals()">&times;</span>
+      <h2><i class="fas fa-sign-in-alt"></i> Login</h2>
+      <form id="loginForm">
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" placeholder="E-mail" required id="loginEmail">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Senha" required id="loginPassword">
+        </div>
+        <button type="submit" class="btn-gradiente">Entrar</button>
+      </form>
+    </div>
+  </div>
+  <div id="signupModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="hideModals()">&times;</span>
+      <h2><i class="fas fa-user-plus"></i> Cadastro</h2>
+      <form id="signupForm">
+        <div class="input-group">
+          <i class="fas fa-user"></i>
+          <input type="text" placeholder="Nome completo" required id="signupName">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" placeholder="E-mail" required id="signupEmail">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Senha" required id="signupPassword">
+        </div>
+        <button type="submit" class="btn-gradiente">Cadastrar</button>
+      </form>
+    </div>
+  </div>
+  
+  <!-- Widget de Chat -->
+  <div id="chatWidget" class="chat-widget" onclick="toggleChatModal()">
+    <i class="fas fa-comments"></i>
+  </div>
+  <div id="chatModal" class="chat-modal">
+    <div class="chat-header">
+      <span>ChatBot</span>
+      <span class="close" onclick="toggleChatModal()">&times;</span>
+    </div>
+    <div class="chat-content" id="chatContent">
+      <p><strong>ChatBot:</strong> Olá! Como posso ajudar?</p>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="chatInput" placeholder="Digite sua mensagem...">
+      <button onclick="sendChatMessage()">Enviar</button>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>

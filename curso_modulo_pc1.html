@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curso Módulo 1: Introdução aos Algoritmos e Lógica - ConectaUni</title>
+  <!-- Ícones e CSS (global e específico) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css"> <!-- CSS global -->
+  <link rel="stylesheet" href="curso_modulo.css"> <!-- CSS específico para módulos -->
+  <link rel="icon" href="favcon.png" type="image/x-icon">
+  <!-- Você pode incluir links para fontes ou CSS extra, se necessário -->
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html"><img src="favcon.png" alt="ConectaUni"></a>
+      <a href="index.html"><h1>ConectaUni</h1></a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html#sobre"><i class="fas fa-info-circle"></i>Sobre</a>
+      <a href="lista_curso.html"><i class="fas fa-graduation-cap"></i>Cursos</a>
+      <a href="index.html#voluntarios"><i class="fas fa-hands-helping"></i>Seja Voluntário</a>
+      <a href="index.html#contato"><i class="fas fa-envelope"></i>Contato</a>
+      <button class="btn-gradiente" onclick="showModal('login')"><i class="fas fa-sign-in-alt"></i>Entrar</button>
+      <button class="btn-gradiente" onclick="showModal('signup')"><i class="fas fa-user-plus"></i>Cadastrar</button>
+    </div>
+    <button id="darkModeToggle" onclick="toggleDarkMode()"><i class="fas fa-moon"></i></button>
+    <button class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+  </nav>
+  
+  <!-- Cabeçalho do Módulo -->
+  <header class="course-header">
+    <div class="course-thumbnail">
+      <!-- Imagem ilustrativa baseada na identidade visual – substitua o placeholder pela imagem real, se disponível -->
+      <img src="https://www.titonet.com/wp-content/uploads/2021/10/Imagen-destacada-blog.2-30.png" alt="Introdução aos Algoritmos e Lógica" style="background:#fff; padding: 1rem;">
+      <div class="course-tags">
+        <span class="tag">Lógica</span>
+        <span class="tag">Algoritmos</span>
+      </div>
+    </div>
+    <h1>Curso Módulo 1: Introdução aos Algoritmos e Lógica</h1>
+    <p>Construa uma base sólida para o pensamento computacional com conceitos, exemplos e representações detalhadas.</p>
+  </header>
+  
+  <!-- Conteúdo Didático do Módulo -->
+  <section class="atividade-content reveal">
+    <!-- 1. O que é um Algoritmo? -->
+    <h2>1. O que é um Algoritmo?</h2>
+    <p>
+      Um algoritmo é um conjunto finito, ordenado e preciso de instruções que, quando executadas, solucionam um problema ou realizam uma tarefa. Ele pode ser comparado a uma receita, onde cada passo deve ser seguido na ordem correta para se obter o resultado esperado.
+    </p>
+    <p>
+      <strong>Exemplo prático – Trocar uma lâmpada:</strong>
+    </p>
+    <ol>
+      <li>Verificar se a lâmpada está queimada;</li>
+      <li>Desligar o interruptor;</li>
+      <li>Retirar a lâmpada antiga;</li>
+      <li>Instalar a nova lâmpada;</li>
+      <li>Ligar o interruptor para testar o funcionamento.</li>
+    </ol>
+    <p>
+      Este exemplo simples mostra como um algoritmo pode ser aplicado até mesmo em tarefas cotidianas.
+    </p>
+    
+    <!-- 2. Representações Algorítmicas -->
+    <h2>2. Representações Algorítmicas</h2>
+    <p>
+      Para facilitar o entendimento e a implementação, os algoritmos podem ser representados de várias formas:
+    </p>
+    <ul>
+      <li>
+        <strong>Linguagem Natural:</strong> Utiliza a descrição em palavras comuns para explicar os passos.  
+        <em>Exemplo:</em> "Verifique se a lâmpada está queimada. Se estiver, desligue o interruptor e troque a lâmpada."
+      </li>
+      <li>
+        <strong>Fluxograma:</strong> Um diagrama que representa o fluxo de execução do algoritmo com símbolos gráficos para processos, decisões e conexões.
+        <br>
+        <img src="fluxo.jpg" alt="Exemplo de Fluxograma">
+      </li>
+      <li>
+        <strong>Pseudocódigo:</strong> Uma maneira intermediária que utiliza estruturas similares às linguagens de programação, mas sem a necessidade de seguir uma sintaxe rígida.
+        <br>
+        <pre>
+Início
+   Escreva "Verifique se a lâmpada está queimada."
+   Se lâmpada queimada então
+       Escreva "Desligue o interruptor."
+       Escreva "Retire a lâmpada antiga."
+       Escreva "Instale a nova lâmpada."
+       Escreva "Ligue o interruptor para testar."
+   Senão
+       Escreva "A lâmpada não precisa ser trocada."
+   FimSe
+Fim
+        </pre>
+      </li>
+      <li>
+        <strong>Linguagem de Programação:</strong> A implementação real do algoritmo em código, utilizando linguagens como Python, JavaScript, entre outras.
+      </li>
+    </ul>
+    
+    <!-- 3. Linguagem de Programação -->
+    <h2>3. Linguagem de Programação</h2>
+    <p>
+      As linguagens de programação permitem que os algoritmos sejam traduzidos em comandos que o computador executa. Cada linguagem tem sua sintaxe e particularidades, mas todas cumprem o papel de transformar a lógica do algoritmo em instruções práticas.
+    </p>
+    <p>
+      <strong>Exemplos:</strong> Python, Java, C, JavaScript, C++.
+    </p>
+    
+    <!-- 4. Paradigmas de Programação -->
+    <h2>4. Paradigmas de Programação</h2>
+    <p>
+      Paradigmas de programação são abordagens que definem como o código é estruturado e como os problemas são resolvidos. Eles influenciam a maneira de pensar e de organizar o desenvolvimento do software. Entre os principais paradigmas, podemos destacar:
+    </p>
+    <ul>
+      <li>
+        <strong>Paradigma Imperativo:</strong> Consiste em uma sequência de comandos que modificam o estado do sistema.
+      </li>
+      <li>
+        <strong>Paradigma Estruturado:</strong> Organiza o código em blocos bem definidos (como funções, loops e condicionais) para facilitar a manutenção e a leitura.
+      </li>
+      <li>
+        <strong>Paradigma Orientado a Objetos (POO):</strong> Estrutura o código em objetos, que são instâncias de classes que representam entidades do mundo real. Isso favorece a modularidade e a reutilização.
+      </li>
+      <li>
+        <strong>Paradigma Declarativo:</strong> Foca no “o que” deve ser feito, deixando de lado os detalhes de como executar a tarefa, comum em linguagens funcionais e em consultas de bancos de dados.
+      </li>
+    </ul>
+    
+    <!-- 5. Exemplos de Linguagens de Programação e Paradigmas -->
+    <h2>5. Exemplos de Linguagens de Programação</h2>
+    <p>
+      Cada linguagem pode ser melhor utilizada em um ou mais paradigmas. Veja alguns exemplos:
+    </p>
+    <ul>
+      <li><strong>Python:</strong> Versátil – suporta programação imperativa, estruturada e orientada a objetos.</li>
+      <li><strong>Java:</strong> Forte na orientação a objetos.</li>
+      <li><strong>C:</strong> Enfatiza a programação imperativa e estruturada.</li>
+      <li><strong>JavaScript:</strong> Amplamente usado tanto para programação imperativa quanto para orientada a objetos.</li>
+      <li><strong>C++:</strong> Combina recursos da programação orientada a objetos com a procedural.</li>
+    </ul>
+    
+    <!-- 6. Tipos de Dados -->
+    <h2>6. Tipos de Dados</h2>
+    <p>
+      Os tipos de dados determinam o tipo de valor que uma variável pode armazenar e como esses valores podem ser manipulados. Entre os tipos primitivos, destacam-se:
+    </p>
+    <ul>
+      <li><strong>Números:</strong> Podem ser inteiros (ex.: 10, -5) ou reais (ex.: 3.14, -0.001).</li>
+      <li><strong>Letras (Strings):</strong> Conjunto de caracteres formando palavras ou frases (ex.: "Olá, mundo!").</li>
+      <li><strong>Binários:</strong> Valores em base 2 (0 e 1), fundamentais para operações a nível de hardware e para a representação digital de informações.</li>
+    </ul>
+    
+    <!-- 7. O que é uma Variável? -->
+    <h2>7. O que é uma Variável?</h2>
+    <p>
+      Uma variável é um espaço na memória do computador que guarda um valor que pode ser alterado durante a execução do programa. Ela permite que os dados sejam armazenados, recuperados e manipulados conforme necessário.
+    </p>
+    
+    <!-- 8. Como Declarar uma Variável? -->
+    <h2>8. Como Declarar uma Variável?</h2>
+    <p>
+      A forma de declarar uma variável varia conforme a linguagem utilizada. Em linguagens dinâmicas, a declaração é simples e não requer especificação de tipo; em linguagens tipadas, é necessário indicar o tipo do dado.
+    </p>
+    <p><strong>Exemplo em JavaScript (não tipada):</strong></p>
+    <pre>
+let nome = "João";
+const idade = 25;
+    </pre>
+    <p><strong>Exemplo em Python (não tipada):</strong></p>
+    <pre>
+nome = "João"
+idade = 25
+    </pre>
+    <p><strong>Exemplo em Java (tipada):</strong></p>
+    <pre>
+String nome = "João";
+int idade = 25;
+    </pre>
+    
+    <!-- 9. Linguagem Tipada x Não Tipada -->
+    <h2>9. Linguagem Tipada x Não Tipada</h2>
+    <p>
+      Em linguagens tipadas, como Java ou C, o tipo de cada variável deve ser declarado explicitamente. Já em linguagens não tipadas ou de tipagem dinâmica, como Python ou JavaScript, o tipo é inferido automaticamente.
+    </p>
+    
+    <!-- 10. Termos Frequentemente Utilizados -->
+    <h2>10. Termos Frequentemente Utilizados</h2>
+    <p>
+      Durante o estudo de algoritmos e programação, alguns termos são recorrentes:
+    </p>
+    <ul>
+      <li><strong>Programa:</strong> Conjunto de instruções que executa uma tarefa específica.</li>
+      <li><strong>Código:</strong> O texto escrito em uma linguagem de programação que implementa o algoritmo.</li>
+      <li><strong>Back-end:</strong> Parte do sistema que processa dados e lógica, geralmente oculta do usuário.</li>
+      <li><strong>Front-end:</strong> Parte do sistema que interage diretamente com o usuário, como a interface gráfica.</li>
+      <li><strong>QRTR:</strong> Termo específico mencionado no slide – verifique o contexto de aplicação no curso.</li>
+    </ul>
+    
+    <!-- 11. Tópicos Adicionais e Boas Práticas -->
+    <h2>11. Tópicos Adicionais e Boas Práticas</h2>
+    <p>
+      Para formar uma base robusta no pensamento computacional, é importante também abordar:
+    </p>
+    <ul>
+      <li><strong>Estruturas de Controle:</strong> Compreensão dos comandos de decisão (if, else) e repetição (loops) que direcionam o fluxo do algoritmo.</li>
+      <li><strong>Comentários e Documentação:</strong> A prática de comentar o código para explicar a lógica e facilitar a manutenção.</li>
+      <li><strong>Depuração (Debugging):</strong> Técnicas e ferramentas para identificar e corrigir erros no algoritmo e no código.</li>
+      <li><strong>Refatoração:</strong> Melhorar a clareza e eficiência do algoritmo após a sua implementação inicial.</li>
+      <li><strong>Testes:</strong> A importância de validar algoritmos com exemplos reais e casos de teste para garantir seu funcionamento correto.</li>
+    </ul>
+    
+    <!-- Dicas Extras para Consolidar o Conhecimento -->
+    <h2>Dicas para um Bom Entendimento</h2>
+    <ul>
+      <li><strong>Pratique a criação de algoritmos:</strong> Tente transformar tarefas diárias em sequências de passos lógicos usando diferentes representações (linguagem natural, fluxogramas e pseudocódigo).</li>
+      <li><strong>Experimente implementar algoritmos:</strong> Use linguagens de programação variadas para perceber as diferenças de sintaxe e estrutura.</li>
+      <li><strong>Revise e documente:</strong> Sempre comente seu código e reescreva algoritmos para aprimorar a clareza e a eficiência.</li>
+      <li><strong>Utilize recursos visuais:</strong> Diagramas, fluxogramas e pseudocódigo ajudam a visualizar a lógica e o fluxo de execução.</li>
+    </ul>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="footer" id="contato">
+    <div class="footer-grid">
+      <div class="footer-section">
+        <div class="logo">
+          <img src="favcon.png" alt="ConectaUni">
+          <h3>ConectaUni</h3>
+        </div>
+        <p>Plataforma educacional colaborativa</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>Links Úteis</h4>
+        <ul>
+          <li><a href="index.html#sobre"><i class="fas fa-chevron-right"></i> Sobre Nós</a></li>
+          <li><a href="lista_curso.html"><i class="fas fa-chevron-right"></i> Cursos</a></li>
+          <li><a href="index.html#voluntarios"><i class="fas fa-chevron-right"></i> Voluntários</a></li>
+          <li><a href="index.html#contato"><i class="fas fa-chevron-right"></i> Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Contato</h4>
+        <ul class="contact-info">
+          <li><i class="fas fa-map-marker-alt"></i> Feira de Santana - BA</li>
+          <li><i class="fas fa-phone"></i> (75) 98144-0696</li>
+          <li><i class="fas fa-envelope"></i> mateus.queiroz.ti.mq@gmail.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 ConectaUni. Todos os direitos reservados.</p>
+      <div class="legal-links">
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Termos de Uso</a>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Back to Top -->
+  <div id="backToTop" class="back-to-top" onclick="scrollToTop()">
+    <i class="fas fa-chevron-up"></i>
+  </div>
+  
+  <!-- Modais (Login/Cadastro) -->
+  <div class="modal-overlay" id="modalOverlay"></div>
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="hideModals()">&times;</span>
+      <h2><i class="fas fa-sign-in-alt"></i> Login</h2>
+      <form id="loginForm">
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" placeholder="E-mail" required id="loginEmail">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Senha" required id="loginPassword">
+        </div>
+        <button type="submit" class="btn-gradiente">Entrar</button>
+      </form>
+    </div>
+  </div>
+  <div id="signupModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="hideModals()">&times;</span>
+      <h2><i class="fas fa-user-plus"></i> Cadastro</h2>
+      <form id="signupForm">
+        <div class="input-group">
+          <i class="fas fa-user"></i>
+          <input type="text" placeholder="Nome completo" required id="signupName">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" placeholder="E-mail" required id="signupEmail">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Senha" required id="signupPassword">
+        </div>
+        <button type="submit" class="btn-gradiente">Cadastrar</button>
+      </form>
+    </div>
+  </div>
+  
+  <!-- Widget de Chat -->
+  <div id="chatWidget" class="chat-widget" onclick="toggleChatModal()">
+    <i class="fas fa-comments"></i>
+  </div>
+  <div id="chatModal" class="chat-modal">
+    <div class="chat-header">
+      <span>ChatBot</span>
+      <span class="close" onclick="toggleChatModal()">&times;</span>
+    </div>
+    <div class="chat-content" id="chatContent">
+      <p><strong>ChatBot:</strong> Olá! Como posso ajudar?</p>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="chatInput" placeholder="Digite sua mensagem...">
+      <button onclick="sendChatMessage()">Enviar</button>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>

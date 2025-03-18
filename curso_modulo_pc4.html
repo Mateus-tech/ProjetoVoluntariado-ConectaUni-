@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curso Módulo 4: Aplicação em Problemas Reais - ConectaUni</title>
+  <!-- Ícones e CSS (global e específico) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="curso_modulo.css">
+  <link rel="icon" href="favcon.png" type="image/x-icon">
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html"><img src="favcon.png" alt="ConectaUni"></a>
+      <a href="index.html"><h1>ConectaUni</h1></a>
+    </div>
+    <div class="nav-links">
+      <a href="index.html#sobre"><i class="fas fa-info-circle"></i>Sobre</a>
+      <a href="lista_curso.html"><i class="fas fa-graduation-cap"></i>Cursos</a>
+      <a href="index.html#voluntarios"><i class="fas fa-hands-helping"></i>Seja Voluntário</a>
+      <a href="index.html#contato"><i class="fas fa-envelope"></i>Contato</a>
+      <button class="btn-gradiente" onclick="showModal('login')"><i class="fas fa-sign-in-alt"></i>Entrar</button>
+      <button class="btn-gradiente" onclick="showModal('signup')"><i class="fas fa-user-plus"></i>Cadastrar</button>
+    </div>
+    <button id="darkModeToggle" onclick="toggleDarkMode()"><i class="fas fa-moon"></i></button>
+    <button class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+  </nav>
+  
+  <!-- Cabeçalho do Módulo -->
+  <header class="course-header">
+    <div class="course-thumbnail">
+      <!-- Imagem ilustrativa – substitua o placeholder por uma imagem real se disponível -->
+      <img src="https://www.titonet.com/wp-content/uploads/2021/10/Imagen-destacada-blog.2-30.png"alt="Aplicação em Problemas Reais" style="background:#fff; padding: 1rem;">
+      <div class="course-tags">
+        <span class="tag">Aplicação</span>
+        <span class="tag">Problemas Reais</span>
+      </div>
+    </div>
+    <h1>Curso Módulo 4: Aplicação em Problemas Reais</h1>
+    <p>Transforme a teoria em prática: aprenda a solucionar desafios do dia a dia com programação.</p>
+  </header>
+  
+  <!-- Conteúdo Didático do Módulo -->
+  <section class="atividade-content reveal">
+    <!-- Introdução Geral -->
+    <h2>Introdução</h2>
+    <p>
+      Neste módulo, você aplicará os conceitos de algoritmos e programação para resolver problemas reais. Serão apresentados diversos exemplos, desde sistemas simples de gerenciamento até simulações de consultas a APIs, mostrando como transformar ideias em soluções práticas. Cada exemplo inclui pseudocódigo, trechos de código reais e uma explicação detalhada de como o código funciona.
+    </p>
+
+    <!-- Exemplo 1: Sistema de Gerenciamento de Tarefas -->
+    <h2>Exemplo 1: Sistema de Gerenciamento de Tarefas</h2>
+    <p><strong>Objetivo:</strong> Organizar e priorizar suas tarefas diárias para aumentar a produtividade.</p>
+    <p><strong>Pseudocódigo:</strong></p>
+    <pre>
+Início
+   Crie uma lista de tarefas
+   Para cada tarefa, defina prioridade e prazo
+   Ordene as tarefas por prioridade e prazo
+   Exiba a lista de tarefas organizada
+Fim
+    </pre>
+    <p><strong>Código em JavaScript:</strong></p>
+    <pre>
+// Array de tarefas com nome e prioridade (1 = alta, 3 = baixa)
+let tarefas = [
+  { nome: "Estudar programação", prioridade: 1 },
+  { nome: "Fazer exercícios", prioridade: 2 },
+  { nome: "Reunião com a equipe", prioridade: 1 },
+  { nome: "Ler um livro", prioridade: 3 }
+];
+
+// Ordena as tarefas pela propriedade 'prioridade'
+tarefas.sort((a, b) => a.prioridade - b.prioridade);
+
+// Exibe a lista organizada no console
+console.log("Lista de Tarefas Organizada:");
+tarefas.forEach(tarefa => console.log("Tarefa:", tarefa.nome, "- Prioridade:", tarefa.prioridade));
+    </pre>
+    <p><strong>Explicação:</strong> O código define um array de objetos (tarefas). Utilizamos o método <code>sort()</code> para ordenar as tarefas com base na prioridade e <code>forEach()</code> para exibi-las. Isso mostra como organizar dados de forma lógica.</p>
+    
+    <!-- Exemplo 2: Calculadora de Despesas -->
+    <h2>Exemplo 2: Calculadora de Despesas</h2>
+    <p><strong>Objetivo:</strong> Somar várias despesas e obter o total gasto em um período.</p>
+    <p><strong>Pseudocódigo:</strong></p>
+    <pre>
+Início
+   Crie uma lista com os valores das despesas
+   Some todos os valores da lista
+   Exiba o total gasto
+Fim
+    </pre>
+    <p><strong>Código em Python:</strong></p>
+    <pre>
+despesas = [120.50, 89.99, 45.00, 300.00]
+total = sum(despesas)
+print("Total gasto: R$", total)
+    </pre>
+    <p><strong>Explicação:</strong> Em Python, a lista <code>despesas</code> armazena valores. A função <code>sum()</code> agrega os valores e o <code>print()</code> exibe o resultado. Esse exemplo ilustra o uso de funções integradas para simplificar operações comuns.</p>
+    
+    <!-- Exemplo 3: Monitoramento de Estoque -->
+    <h2>Exemplo 3: Monitoramento de Estoque</h2>
+    <p><strong>Objetivo:</strong> Controlar os níveis de produtos em estoque e alertar quando for necessário reabastecer.</p>
+    <p><strong>Pseudocódigo:</strong></p>
+    <pre>
+Início
+   Para cada produto no estoque:
+       Se quantidade < limite mínimo então
+           Exiba alerta para reabastecimento
+       FimSe
+   FimPara
+Fim
+    </pre>
+    <p><strong>Código em JavaScript:</strong></p>
+    <pre>
+let estoque = [
+  { produto: "Caneta", quantidade: 50, limite: 20 },
+  { produto: "Caderno", quantidade: 15, limite: 10 },
+  { produto: "Borracha", quantidade: 5, limite: 8 }
+];
+
+estoque.forEach(item => {
+  if (item.quantidade < item.limite) {
+    console.log("Alerta: Reabasteça o produto", item.produto);
+  }
+});
+    </pre>
+    <p><strong>Explicação:</strong> O código percorre cada item do array <code>estoque</code> e, usando uma condição <code>if</code>, verifica se a quantidade está abaixo do limite. Se estiver, exibe um alerta. Esse exemplo mostra a aplicação de laços e condições para monitorar dados em tempo real.</p>
+    
+    <!-- Exemplo 4: Consulta de Clima Simulada -->
+    <h2>Exemplo 4: Consulta de Clima Simulada</h2>
+    <p><strong>Objetivo:</strong> Simular a consulta a uma API de clima para retornar informações meteorológicas.</p>
+    <p><strong>Pseudocódigo:</strong></p>
+    <pre>
+Início
+   Faça uma requisição à API de clima (endpoint)
+   Receba dados como temperatura e condição do clima
+   Exiba os dados para o usuário
+Fim
+    </pre>
+    <p><strong>Código em JavaScript (Simulação):</strong></p>
+    <pre>
+// Função que simula a consulta a uma API de clima
+function consultarClima(cidade) {
+  // Simulação de resposta da API
+  let resposta = { temperatura: 28, condicao: "Ensolarado" };
+  return "Em " + cidade + ", a temperatura é de " + resposta.temperatura + "°C e o clima está " + resposta.condicao + ".";
+}
+let cidade = "São Paulo";
+console.log(consultarClima(cidade));
+    </pre>
+    <p><strong>Explicação:</strong> A função <code>consultarClima</code> simula uma resposta de API, retornando uma string com os dados meteorológicos. Em um cenário real, utilizaríamos <code>fetch()</code> para obter os dados. Este exemplo reforça o conceito de endpoints e APIs.</p>
+    
+    <!-- Exemplo 5: Carrinho de Compras Simples -->
+    <h2>Exemplo 5: Carrinho de Compras Simples</h2>
+    <p><strong>Objetivo:</strong> Simular um carrinho de compras que adiciona produtos e calcula o total da compra.</p>
+    <p><strong>Pseudocódigo:</strong></p>
+    <pre>
+Início
+   Crie uma lista de produtos com nome e preço
+   Para cada produto adicionado, acumule o valor
+   Exiba o total da compra
+Fim
+    </pre>
+    <p><strong>Código em JavaScript:</strong></p>
+    <pre>
+let carrinho = [
+  { produto: "Camiseta", preco: 50.00 },
+  { produto: "Calça", preco: 120.00 },
+  { produto: "Tênis", preco: 200.00 }
+];
+
+let totalCompra = 0;
+carrinho.forEach(item => {
+  totalCompra += item.preco;
+});
+
+console.log("Total da compra: R$", totalCompra);
+    </pre>
+    <p><strong>Explicação:</strong> Neste exemplo, criamos um array <code>carrinho</code> contendo objetos com os produtos e seus preços. O laço <code>forEach()</code> percorre cada item, somando os preços para obter o total da compra. Essa lógica é comum em sistemas de e-commerce.</p>
+    
+    <!-- Exemplo 6: Sistema de Envio de E-mails Automatizado (Simulação) -->
+    <h2>Exemplo 6: Sistema de Envio de E-mails Automatizado (Simulação)</h2>
+    <p><strong>Objetivo:</strong> Simular um sistema que envia e-mails automáticos para notificações ou confirmações.</p>
+    <p><strong>Pseudocódigo:</strong></p>
+    <pre>
+Início
+   Para cada usuário na lista:
+       Gere uma mensagem personalizada
+       Envie o e-mail para o usuário
+   FimPara
+Fim
+    </pre>
+    <p>
+      <strong>Explicação:</strong> Embora não possamos enviar e-mails diretamente no navegador sem uma API real, este pseudocódigo mostra a lógica de iterar sobre uma lista de usuários, gerar uma mensagem e enviá-la. Em um ambiente real, você integraria uma API de envio de e-mails (como SendGrid ou Mailgun) para realizar essa tarefa.
+    </p>
+    
+    <!-- Exemplo 7: Análise de Dados Simples -->
+    <h2>Exemplo 7: Análise de Dados Simples</h2>
+    <p><strong>Objetivo:</strong> Calcular a média de uma lista de números e identificar o valor máximo e mínimo.</p>
+    <p><strong>Pseudocódigo:</strong></p>
+    <pre>
+Início
+   Crie uma lista de números
+   Calcule a soma de todos os números
+   Divida a soma pela quantidade de números para obter a média
+   Identifique o valor máximo e o valor mínimo na lista
+   Exiba a média, o máximo e o mínimo
+Fim
+    </pre>
+    <p><strong>Código em Python:</strong></p>
+    <pre>
+numeros = [10, 20, 30, 40, 50]
+media = sum(numeros) / len(numeros)
+valor_max = max(numeros)
+valor_min = min(numeros)
+print("Média:", media)
+print("Valor Máximo:", valor_max)
+print("Valor Mínimo:", valor_min)
+    </pre>
+    <p><strong>Explicação:</strong>  
+      Este código em Python calcula a média de uma lista usando a função <code>sum()</code> e o tamanho da lista (<code>len()</code>). Em seguida, utiliza <code>max()</code> e <code>min()</code> para identificar os valores extremos. Essa abordagem é fundamental para análise de dados básica.
+    </p>
+    
+    <!-- Dicas Gerais para Aplicação em Problemas Reais -->
+    <h2>Dicas Gerais para Aplicação em Problemas Reais</h2>
+    <ul>
+      <li><strong>Divida o problema:</strong> Sempre separe o problema em partes menores para facilitar a implementação.</li>
+      <li><strong>Utilize pseudocódigo e fluxogramas:</strong> Eles ajudam a organizar suas ideias antes de escrever o código.</li>
+      <li><strong>Teste cada componente:</strong> Implemente e teste pequenos protótipos para garantir que cada parte funciona corretamente.</li>
+      <li><strong>Documente seu código:</strong> Comentários e documentação facilitam a manutenção e futuras atualizações.</li>
+    </ul>
+    
+    <!-- Conclusão -->
+    <h2>Conclusão</h2>
+    <p>
+      Este módulo demonstrou como os conceitos teóricos podem ser aplicados em problemas reais. Com diversos exemplos – desde gerenciamento de tarefas até análise de dados – você aprendeu a decompor um problema em etapas lógicas, implementar a solução em código e compreender como cada parte funciona.
+    </p>
+    <p>
+      Pratique esses exemplos, experimente adaptar os códigos às suas necessidades e, com o tempo, você estará preparado para enfrentar desafios mais complexos utilizando programação.
+    </p>
+  </section>
+  
+  <!-- Footer -->
+  <footer class="footer" id="contato">
+    <div class="footer-grid">
+      <div class="footer-section">
+        <div class="logo">
+          <img src="favcon.png" alt="ConectaUni">
+          <h3>ConectaUni</h3>
+        </div>
+        <p>Plataforma educacional colaborativa</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>Links Úteis</h4>
+        <ul>
+          <li><a href="index.html#sobre"><i class="fas fa-chevron-right"></i> Sobre Nós</a></li>
+          <li><a href="lista_curso.html"><i class="fas fa-chevron-right"></i> Cursos</a></li>
+          <li><a href="index.html#voluntarios"><i class="fas fa-chevron-right"></i> Voluntários</a></li>
+          <li><a href="index.html#contato"><i class="fas fa-chevron-right"></i> Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Contato</h4>
+        <ul class="contact-info">
+          <li><i class="fas fa-map-marker-alt"></i> Feira de Santana - BA</li>
+          <li><i class="fas fa-phone"></i> (75) 98144-0696</li>
+          <li><i class="fas fa-envelope"></i> mateus.queiroz.ti.mq@gmail.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 ConectaUni. Todos os direitos reservados.</p>
+      <div class="legal-links">
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Termos de Uso</a>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Back to Top -->
+  <div id="backToTop" class="back-to-top" onclick="scrollToTop()">
+    <i class="fas fa-chevron-up"></i>
+  </div>
+  
+  <!-- Modais (Login/Cadastro) -->
+  <div class="modal-overlay" id="modalOverlay"></div>
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="hideModals()">&times;</span>
+      <h2><i class="fas fa-sign-in-alt"></i> Login</h2>
+      <form id="loginForm">
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" placeholder="E-mail" required id="loginEmail">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Senha" required id="loginPassword">
+        </div>
+        <button type="submit" class="btn-gradiente">Entrar</button>
+      </form>
+    </div>
+  </div>
+  <div id="signupModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="hideModals()">&times;</span>
+      <h2><i class="fas fa-user-plus"></i> Cadastro</h2>
+      <form id="signupForm">
+        <div class="input-group">
+          <i class="fas fa-user"></i>
+          <input type="text" placeholder="Nome completo" required id="signupName">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" placeholder="E-mail" required id="signupEmail">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Senha" required id="signupPassword">
+        </div>
+        <button type="submit" class="btn-gradiente">Cadastrar</button>
+      </form>
+    </div>
+  </div>
+  
+  <!-- Widget de Chat -->
+  <div id="chatWidget" class="chat-widget" onclick="toggleChatModal()">
+    <i class="fas fa-comments"></i>
+  </div>
+  <div id="chatModal" class="chat-modal">
+    <div class="chat-header">
+      <span>ChatBot</span>
+      <span class="close" onclick="toggleChatModal()">&times;</span>
+    </div>
+    <div class="chat-content" id="chatContent">
+      <p><strong>ChatBot:</strong> Olá! Como posso ajudar?</p>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="chatInput" placeholder="Digite sua mensagem...">
+      <button onclick="sendChatMessage()">Enviar</button>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
