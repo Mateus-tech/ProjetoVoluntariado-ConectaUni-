@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 1: Atividade de Gramática e Vocabulário - Inglês para Dev</title>
+  <!-- Ícones e CSS Global -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favcon.png" type="image/x-icon">
+  <!-- CSS adicional para esta página -->
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; }
+    .atividade-content { padding: 40px 20px; max-width: 900px; margin: 0 auto; }
+    .atividade-content h2 { color: #264653; margin-top: 30px; }
+    .atividade-content h3 { color: #2A9D8F; margin-top: 20px; }
+    .atividade-content p { margin: 10px 0; }
+    .atividade-content pre {
+      background: #f4f4f4; padding: 10px; border-radius: 4px; overflow-x: auto; font-size: 0.95em;
+    }
+    .explicacao { background: #e7f4ea; padding: 10px; border-left: 5px solid #2A9D8F; margin: 20px 0; }
+    .atividade { background: #fff3cd; padding: 10px; border-left: 5px solid #ffc107; margin: 20px 0; }
+    .answer { background: #f9f9f9; padding: 10px; border: 1px solid #ddd; margin-top: 10px; display: none; }
+    .toggle-btn { background: #2A9D8F; color: #fff; border: none; padding: 8px 12px; cursor: pointer; border-radius: 4px; }
+    
+    /* Cabeçalho do Curso */
+    .course-header {
+      display: flex; flex-direction: column; align-items: center; text-align: center; margin-top: 100px; padding: 20px;
+    }
+    .course-thumbnail {
+      position: relative; width: 100%; max-width: 800px; overflow: hidden; border-radius: 8px; margin-bottom: 20px;
+    }
+    .course-thumbnail img { width: 100%; height: auto; display: block; }
+    .course-tags {
+      position: absolute; bottom: 10px; left: 10px; background: rgba(0,0,0,0.5); padding: 5px 10px; border-radius: 5px; display: flex; gap: 10px;
+    }
+    .course-tags .tag { color: #fff; font-size: 0.9em; background: rgba(255,255,255,0.3); padding: 2px 5px; border-radius: 3px; }
+    .course-header h1 { font-size: 2.5rem; margin: 10px 0; color: #333; }
+    .course-header p { font-size: 1.2rem; color: #666; max-width: 800px; }
+    
+    /* Back to Top */
+    .back-to-top {
+      position: fixed; bottom: 20px; right: 20px; background: #2A9D8F; color: #fff; width: 40px; height: 40px;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2); transition: opacity 0.3s;
+    }
+    .back-to-top:hover { opacity: 0.8; }
+  </style>
+  <script>
+    // Função para alternar a visibilidade da resposta
+    function toggleAnswer(id) {
+      var answerDiv = document.getElementById(id);
+      if (answerDiv.style.display === "none" || answerDiv.style.display === "") {
+        answerDiv.style.display = "block";
+      } else {
+        answerDiv.style.display = "none";
+      }
+    }
+  </script>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html"><img src="favcon.png" alt="ConectaUni"></a>
+      <a href="index.html"><h1>ConectaUni</h1></a>
+    </div>
+    <div class="nav-links">
+      <a href="sobre.html"><i class="fas fa-info-circle"></i> Sobre</a>
+      <a href="lista_curso.html"><i class="fas fa-graduation-cap"></i> Cursos</a>
+      <a href="voluntarios.html"><i class="fas fa-hands-helping"></i> Seja Voluntário</a>
+      <a href="#contato"><i class="fas fa-envelope"></i> Contato</a>
+      <button class="btn-gradiente" onclick="showModal('login')"><i class="fas fa-sign-in-alt"></i> Entrar</button>
+      <button class="btn-gradiente" onclick="showModal('signup')"><i class="fas fa-user-plus"></i> Cadastrar</button>
+    </div>
+    <button id="darkModeToggle" onclick="toggleDarkMode()"><i class="fas fa-moon"></i></button>
+    <button class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+  </nav>
+  
+  <!-- Cabeçalho do Curso -->
+  <header class="course-header">
+    <div class="course-thumbnail">
+      <!-- Imagem ilustrativa para Atividade de Gramática e Vocabulário -->
+      <img src="https://www.yazigi.com.br/galeria/seoHS/1100035763/2019040917573485.jpg" alt="Atividade de Gramática e Vocabulário" style="background:#fff; padding: 1rem;">
+      <div class="course-tags">
+        <span class="tag">Gramática</span>
+        <span class="tag">Vocabulário</span>
+        <span class="tag">Técnico</span>
+      </div>
+    </div>
+    <h1>Módulo 1: Atividade de Gramática e Vocabulário - Inglês para Dev</h1>
+    <p>Pratique a identificação e o uso de termos técnicos essenciais para desenvolvedores.</p>
+  </header>
+  
+  <section class="atividade-content reveal">
+    <h2>Atividades Adicionais: 10 Questões de Gramática e Vocabulário Técnico</h2>
+    <p>
+      A seguir, resolva as 10 questões para praticar a identificação e o uso de termos técnicos e estruturas gramaticais comuns no inglês para desenvolvedores.
+    </p>
+    
+    <!-- Exercício 1 -->
+    <div class="atividade">
+      <h3>Exercício 1: Identificação da Estrutura SVO</h3>
+      <p>
+        Analise a frase: "The programmer debugs the application." Identifique o sujeito, o verbo e o objeto.
+      </p>
+      <button class="toggle-btn" onclick="toggleAnswer('ex1')">Mostrar Resposta</button>
+      <div id="ex1" class="answer">
+        <ul>
+          <li><strong>Sujeito:</strong> The programmer</li>
+          <li><strong>Verbo:</strong> debugs</li>
+          <li><strong>Objeto:</strong> the application</li>
+        </ul>
+        <p><strong>Explicação:</strong> A frase segue o padrão SVO, onde o sujeito "The programmer" executa a ação "debugs" sobre o objeto "the application".</p>
+      </div>
+    </div>
+    
+    <!-- Exercício 2 -->
+    <div class="atividade">
+      <h3>Exercício 2: Completar a Frase com o Verbo "to be"</h3>
+      <p>
+        Complete a frase: "The repository ___ updated." Qual é a forma correta do verbo "to be"?
+      </p>
+      <button class="toggle-btn" onclick="toggleAnswer('ex2')">Mostrar Resposta</button>
+      <div id="ex2" class="answer">
+        <p><strong>Resposta:</strong> is</p>
+        <p><strong>Explicação:</strong> "Repository" é singular, portanto, a forma correta é "is".</p>
+      </div>
+    </div>
+    
+    <!-- Exercício 3 -->
+    <div class="atividade">
+      <h3>Exercício 3: Escolha do Termo Técnico Adequado</h3>
+      <p>
+        Complete a frase: "After the changes, the developer made a ____ to the code." 
+        a) merge b) commit c) loop d) API
+      </p>
+      <button class="toggle-btn" onclick="toggleAnswer('ex3')">Mostrar Resposta</button>
+      <div id="ex3" class="answer">
+        <p><strong>Resposta:</strong> commit</p>
+        <p><strong>Explicação:</strong> "Commit" é o termo usado para registrar alterações no sistema de controle de versão, enquanto "merge" refere-se à união de branches.</p>
+      </div>
+    </div>
+    
+    <!-- Exercício 4 -->
+    <div class="atividade">
+      <h3>Exercício 4: Associação de Termos e Definições</h3>
+      <p>
+        Relacione os termos técnicos com suas definições:
+      </p>
+      <ol>
+        <li><strong>API</strong></li>
+        <li><strong>Database</strong></li>
+        <li><strong>Loop</strong></li>
+        <li><strong>Merge</strong></li>
+      </ol>
+      <p><em>Definições:</em></p>
+      <ol>
+        <li>Sistema para armazenar e gerenciar dados.</li>
+        <li>Conjunto de regras para comunicação entre sistemas.</li>
+        <li>Repetição de um bloco de código.</li>
+        <li>Ação de unir alterações de diferentes branches.</li>
+      </ol>
+      <button class="toggle-btn" onclick="toggleAnswer('ex4')">Mostrar Resposta</button>
+      <div id="ex4" class="answer">
+        <ul>
+          <li><strong>API:</strong> 2</li>
+          <li><strong>Database:</strong> 1</li>
+          <li><strong>Loop:</strong> 3</li>
+          <li><strong>Merge:</strong> 4</li>
+        </ul>
+        <p><strong>Explicação:</strong> Cada termo foi associado à definição correta conforme a ordem apresentada.</p>
+      </div>
+    </div>
+    
+    <!-- Exercício 5 -->
+    <div class="atividade">
+      <h3>Exercício 5: Construção de Frase Técnica</h3>
+      <p>
+        Crie uma frase em inglês utilizando pelo menos três dos termos técnicos: <em>API</em>, <em>commit</em> e <em>database</em>. Escreva a frase e explique o significado.
+      </p>
+      <button class="toggle-btn" onclick="toggleAnswer('ex5')">Mostrar Exemplo</button>
+      <div id="ex5" class="answer">
+        <p><strong>Exemplo de Resposta:</strong></p>
+        <p>"The developer committed changes after integrating a new API that connects to the database."</p>
+        <p><strong>Explicação:</strong> A frase indica que o desenvolvedor registrou (commit) as alterações feitas após integrar uma nova API, que é responsável por conectar e gerenciar os dados armazenados no database.</p>
+      </div>
+    </div>
+    
+    <!-- Exercício 6 -->
+    <div class="atividade">
+      <h3>Exercício 6: Correção Gramatical</h3>
+      <p>
+        Corrija a frase em inglês para que fique gramaticalmente correta: "Developers uses best practices in code."
+      </p>
+      <button class="toggle-btn" onclick="toggleAnswer('ex6')">Mostrar Resposta</button>
+      <div id="ex6" class="answer">
+        <p><strong>Resposta:</strong> "Developers use best practices in code."</p>
+        <p><strong>Explicação:</strong> O sujeito "Developers" é plural, portanto o verbo deve estar na forma base "use" em vez de "uses".</p>
+      </div>
+    </div>
+    
+    <!-- Exercício 7 -->
+    <div class="atividade">
+      <h3>Exercício 7: Reescrevendo no Voz Passiva</h3>
+      <p>
+        Reescreva a frase "The team develops a new feature" na voz passiva.
+      </p>
+      <button class="toggle-btn" onclick="toggleAnswer('ex7')">Mostrar Resposta</button>
+      <div id="ex7" class="answer">
+        <p><strong>Resposta:</strong> "A new feature is developed by the team."</p>
+        <p><strong>Explicação:</strong> Na voz passiva, o objeto da frase original ("a new feature") passa a ser o sujeito, e a ação é expressa com o verbo "is developed" seguido da preposição "by".</p>
+      </div>
+    </div>
+    
+    <!-- Exercício 8 -->
+    <div class="atividade">
+      <h3>Exercício 8: Sinônimos de Termos Técnicos</h3>
+      <p>
+        Forneça um sinônimo para o termo "debug". Explique a importância deste termo no desenvolvimento.
+      </p>
+      <button class="toggle-btn" onclick="toggleAnswer('ex8')">Mostrar Resposta</button>
+      <div id="ex8" class="answer">
+        <p><strong>Resposta:</strong> "Troubleshoot" pode ser usado como sinônimo de "debug".</p>
+        <p><strong>Explicação:</strong> Debug significa identificar e corrigir erros no código. "Troubleshoot" é o processo de diagnosticar problemas e encontrar soluções, e ambos os termos são essenciais para manter a qualidade e o funcionamento de um software.</p>
+      </div>
+    </div>
+    
+    <!-- Exercício 9 -->
+    <div class="atividade">
+      <h3>Exercício 9: Identificação de Erros em Comentários</h3>
+      <p>
+        Analise o seguinte comentário de código e identifique o erro gramatical:
+      </p>
+      <pre>
+  // This function calculates the average of numbers and return the result.
+  function calculateAverage(numbers) {
+    // código para calcular a média
+  }
+      </pre>
+      <button class="toggle-btn" onclick="toggleAnswer('ex9')">Mostrar Resposta</button>
+      <div id="ex9" class="answer">
+        <p><strong>Resposta:</strong> O erro está na frase "and return the result". O verbo deve concordar com "function" ou ser modificado para "and returns the result."</p>
+        <p><strong>Explicação:</strong> Para manter a consistência gramatical, a frase pode ser corrigida para: "This function calculates the average of numbers and returns the result."</p>
+      </div>
+    </div>
+    
+    <!-- Exercício 10 -->
+    <div class="atividade">
+      <h3>Exercício 10: Redação Técnica Curta</h3>
+      <p>
+        Escreva um parágrafo em inglês descrevendo os benefícios de utilizar APIs em projetos de software, utilizando pelo menos dois termos técnicos.
+      </p>
+      <button class="toggle-btn" onclick="toggleAnswer('ex10')">Mostrar Exemplo</button>
+      <div id="ex10" class="answer">
+        <p><strong>Exemplo de Resposta:</strong></p>
+        <pre>
+  "Using APIs allows developers to integrate diverse functionalities without reinventing the wheel. It streamlines data management by connecting to a centralized database and ensures efficient communication between different software components."
+        </pre>
+        <p><strong>Explicação:</strong> O parágrafo enfatiza como as APIs facilitam a integração de funcionalidades, conectam-se a databases e melhoram a comunicação entre os componentes de um sistema, demonstrando os benefícios técnicos e operacionais dessa abordagem.</p>
+      </div>
+    </div>
+    
+    <h2>Conclusão</h2>
+    <p>
+      Essas 10 atividades foram elaboradas para ajudar você a praticar e consolidar seus conhecimentos em gramática e vocabulário técnico em inglês, essenciais para a comunicação no ambiente de desenvolvimento. Continue praticando e revisando os conceitos para aprimorar sua proficiência e confiança.
+    </p>
+  </section>
+  
+  
+  <!-- Footer Global -->
+  <footer class="footer" id="contato">
+    <div class="footer-grid">
+      <div class="footer-section">
+        <div class="logo">
+          <img src="favcon.png" alt="ConectaUni">
+          <h3>ConectaUni</h3>
+        </div>
+        <p>Plataforma educacional colaborativa</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>Links Úteis</h4>
+        <ul>
+          <li><a href="index.html#sobre"><i class="fas fa-chevron-right"></i> Sobre Nós</a></li>
+          <li><a href="lista_curso.html"><i class="fas fa-chevron-right"></i> Cursos</a></li>
+          <li><a href="index.html#voluntarios"><i class="fas fa-chevron-right"></i> Voluntários</a></li>
+          <li><a href="index.html#contato"><i class="fas fa-chevron-right"></i> Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Contato</h4>
+        <ul class="contact-info">
+          <li><i class="fas fa-map-marker-alt"></i> Feira de Santana - BA</li>
+          <li><i class="fas fa-phone"></i> (75) 98144-0696</li>
+          <li><i class="fas fa-envelope"></i> mateus.queiroz.ti.mq@gmail.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 ConectaUni. Todos os direitos reservados.</p>
+      <div class="legal-links">
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Termos de Uso</a>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Botão Back to Top -->
+  <div id="backToTop" class="back-to-top" onclick="scrollToTop()">
+    <i class="fas fa-chevron-up"></i>
+  </div>
+  
+  <!-- Modais (Login/Cadastro e Widget de Chat) -->
+  <div class="modal-overlay" id="modalOverlay"></div>
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="hideModals()">&times;</span>
+      <h2><i class="fas fa-sign-in-alt"></i> Login</h2>
+      <form id="loginForm">
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" placeholder="E-mail" required id="loginEmail">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Senha" required id="loginPassword">
+        </div>
+        <button type="submit" class="btn-gradiente">Entrar</button>
+      </form>
+    </div>
+  </div>
+  <div id="signupModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="hideModals()">&times;</span>
+      <h2><i class="fas fa-user-plus"></i> Cadastro</h2>
+      <form id="signupForm">
+        <div class="input-group">
+          <i class="fas fa-user"></i>
+          <input type="text" placeholder="Nome completo" required id="signupName">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" placeholder="E-mail" required id="signupEmail">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Senha" required id="signupPassword">
+        </div>
+        <button type="submit" class="btn-gradiente">Cadastrar</button>
+      </form>
+    </div>
+  </div>
+  
+  <div id="chatWidget" class="chat-widget" onclick="toggleChatModal()">
+    <i class="fas fa-comments"></i>
+  </div>
+  <div id="chatModal" class="chat-modal">
+    <div class="chat-header">
+      <span>ChatBot</span>
+      <span class="close" onclick="toggleChatModal()">&times;</span>
+    </div>
+    <div class="chat-content" id="chatContent">
+      <p><strong>ChatBot:</strong> Olá! Como posso ajudar?</p>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="chatInput" placeholder="Digite sua mensagem...">
+      <button onclick="sendChatMessage()">Enviar</button>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>

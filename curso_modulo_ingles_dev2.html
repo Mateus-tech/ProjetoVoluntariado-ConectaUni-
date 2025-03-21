@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 2: Comunicação Técnica - ConectaUni</title>
+  <!-- Ícones e CSS Global -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="curso_modulo.css">
+  <link rel="icon" href="favcon.png" type="image/x-icon">
+  <!-- CSS adicional para esta página -->
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; }
+    .atividade-content { padding: 40px 20px; max-width: 900px; margin: 0 auto; }
+    .atividade-content h2 { color: #264653; margin-top: 30px; }
+    .atividade-content h3 { color: #2A9D8F; margin-top: 20px; }
+    .atividade-content p { margin: 10px 0; }
+    .atividade-content pre {
+      background: #f4f4f4; padding: 10px; border-radius: 4px; overflow-x: auto; font-size: 0.95em;
+    }
+    .explicacao { background: #e7f4ea; padding: 10px; border-left: 5px solid #2A9D8F; margin: 20px 0; }
+    .answer { background: #f9f9f9; padding: 10px; border: 1px solid #ddd; margin-top: 10px; display: none; }
+    .toggle-btn { background: #2A9D8F; color: #fff; border: none; padding: 8px 12px; cursor: pointer; border-radius: 4px; }
+    
+    /* Cabeçalho do Curso */
+    .course-header {
+      display: flex; 
+      flex-direction: column; 
+      align-items: center; 
+      text-align: center; 
+      margin-top: 100px; 
+      padding: 20px;
+    }
+    .course-thumbnail {
+      position: relative; 
+      width: 100%; 
+      max-width: 800px; 
+      overflow: hidden; 
+      border-radius: 8px; 
+      margin-bottom: 20px;
+    }
+    .course-thumbnail img { width: 100%; height: auto; display: block; }
+    .course-tags {
+      position: absolute; 
+      bottom: 10px; 
+      left: 10px; 
+      background: rgba(0,0,0,0.5); 
+      padding: 5px 10px;
+      border-radius: 5px; 
+      display: flex; 
+      gap: 10px;
+    }
+    .course-tags .tag { color: #fff; font-size: 0.9em; background: rgba(255,255,255,0.3); padding: 2px 5px; border-radius: 3px; }
+    .course-header h1 { font-size: 2.5rem; margin: 10px 0; color: #333; }
+    .course-header p { font-size: 1.2rem; color: #666; max-width: 800px; }
+    
+    /* Back to Top */
+    .back-to-top {
+      position: fixed; 
+      bottom: 20px; 
+      right: 20px; 
+      background: #2A9D8F; 
+      color: #fff; 
+      width: 40px; 
+      height: 40px;
+      border-radius: 50%; 
+      display: flex; 
+      align-items: center; 
+      justify-content: center; 
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
+      transition: opacity 0.3s;
+    }
+    .back-to-top:hover { opacity: 0.8; }
+  </style>
+  <script>
+    // Função para alternar a visibilidade da resposta
+    function toggleAnswer(id) {
+      var answerDiv = document.getElementById(id);
+      if (answerDiv.style.display === "none" || answerDiv.style.display === "") {
+        answerDiv.style.display = "block";
+      } else {
+        answerDiv.style.display = "none";
+      }
+    }
+  </script>
+</head>
+<body>
+  <!-- Navbar Global -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html"><img src="favcon.png" alt="ConectaUni"></a>
+      <a href="index.html"><h1>ConectaUni</h1></a>
+    </div>
+    <div class="nav-links">
+      <a href="sobre.html"><i class="fas fa-info-circle"></i> Sobre</a>
+      <a href="lista_curso.html"><i class="fas fa-graduation-cap"></i> Cursos</a>
+      <a href="voluntarios.html"><i class="fas fa-hands-helping"></i> Seja Voluntário</a>
+      <a href="#contato"><i class="fas fa-envelope"></i> Contato</a>
+      <button class="btn-gradiente" onclick="showModal('login')"><i class="fas fa-sign-in-alt"></i> Entrar</button>
+      <button class="btn-gradiente" onclick="showModal('signup')"><i class="fas fa-user-plus"></i> Cadastrar</button>
+    </div>
+    <button id="darkModeToggle" onclick="toggleDarkMode()"><i class="fas fa-moon"></i></button>
+    <button class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+  </nav>
+  
+  <!-- Cabeçalho do Módulo -->
+  <header class="course-header">
+    <div class="course-thumbnail">
+      <!-- Imagem ilustrativa para Comunicação Técnica -->
+      <img src="https://inglesparadevs.io/wp-content/uploads/2023/07/INGLES-PARA-DEVS_logo.png" alt="Comunicação Técnica" style="background:#fff; padding: 1rem;">
+      <div class="course-tags">
+        <span class="tag">Comunicação</span>
+        <span class="tag">Técnica</span>
+      </div>
+    </div>
+    <h1>Módulo 2: Comunicação Técnica - Inglês para Dev</h1>
+    <p>Aprimore sua capacidade de se comunicar de forma clara e profissional utilizando o inglês técnico.</p>
+  </header>
+  
+  <!-- Conteúdo Didático do Módulo -->
+  <section class="atividade-content reveal">
+    <h2>Introdução</h2>
+    <p>
+      Em ambientes de tecnologia, a clareza na comunicação é essencial para o sucesso dos projetos e para a colaboração em equipes globais. Este módulo ensina técnicas para ler, interpretar e produzir documentos técnicos, e oferece dicas práticas para aprimorar a comunicação oral e escrita em inglês.
+    </p>
+    
+    <!-- Seção 1: Leitura e Interpretação de Documentação Técnica -->
+    <h2>1. Leitura e Interpretação de Documentação Técnica</h2>
+    <p>
+      Aprender a extrair informações importantes de manuais e tutoriais em inglês é crucial. Algumas técnicas para facilitar essa tarefa incluem:
+    </p>
+    <ul>
+      <li><strong>Identificação de Palavras-Chave:</strong> Procure termos como "install", "configure", "execute" e "initialize" para entender as instruções essenciais.</li>
+      <li><strong>Leitura Dinâmica:</strong> Faça uma leitura rápida focando em títulos, subtítulos e trechos destacados para obter uma visão geral.</li>
+      <li><strong>Destaque de Informações:</strong> Use marcadores ou anotações para identificar seções críticas, como requisitos, exemplos de código e passos para execução.</li>
+      <li><strong>Uso de Ferramentas:</strong> Utilize tradutores online e dicionários técnicos para esclarecer termos desconhecidos.</li>
+    </ul>
+    <div class="explicacao">
+      <p>
+        Essas técnicas ajudam a compreender rapidamente a estrutura do documento e a identificar as informações mais relevantes, economizando tempo e aumentando a eficiência.
+      </p>
+    </div>
+    
+    <!-- Seção 2: Redação e Documentação Técnica -->
+    <h2>2. Redação e Documentação Técnica</h2>
+    <p>
+      Uma boa documentação técnica facilita a manutenção do código e a colaboração entre equipes. Ao escrever em inglês, certifique-se de:
+    </p>
+    <ul>
+      <li><strong>Ser Claro e Conciso:</strong> Evite jargões desnecessários e mantenha as explicações diretas.</li>
+      <li><strong>Usar Formatos Padronizados:</strong> Adote estilos de documentação como JSDoc, docstrings ou Markdown para organizar o conteúdo.</li>
+      <li><strong>Incluir Exemplos Práticos:</strong> Utilize exemplos de código para ilustrar o funcionamento das funções e métodos.</li>
+      <li><strong>Revisar e Atualizar:</strong> Mantenha a documentação atualizada conforme o código evolui.</li>
+    </ul>
+    <div class="explicacao">
+      <p>
+        Comentários e documentação bem escritos permitem que outros membros da equipe entendam sua lógica, facilitando a manutenção e a expansão do projeto.
+      </p>
+    </div>
+    
+    <!-- Seção 3: Comunicação Oral e Escrita -->
+    <h2>3. Comunicação Oral e Escrita</h2>
+    <p>
+      Além da documentação escrita, a comunicação oral é vital em reuniões, apresentações e discussões técnicas. Aqui estão algumas dicas:
+    </p>
+    <ul>
+      <li><strong>Prepare-se com Antecedência:</strong> Elabore um roteiro ou pontos principais antes de reuniões ou apresentações.</li>
+      <li><strong>Pratique a Pronúncia:</strong> Utilize ferramentas de áudio para melhorar a pronúncia de termos técnicos.</li>
+      <li><strong>Use Slides Claros:</strong> Crie apresentações com pontos-chave e exemplos visuais para apoiar sua fala.</li>
+      <li><strong>Peça Feedback:</strong> Após reuniões, solicite feedback para aprimorar sua clareza e objetividade.</li>
+    </ul>
+    <div class="explicacao">
+      <p>
+        A comunicação eficaz em inglês técnico permite que você participe ativamente de reuniões e colabore com equipes internacionais.
+      </p>
+    </div>
+    
+    <!-- Seção 4: Exercícios Práticos -->
+    <h2>4. Exercícios Práticos</h2>
+    
+    <!-- Exercício 1: Interpretação de Documentação -->
+    <div class="atividade">
+      <h3>Exercício 1: Interpretação de Trecho Técnico</h3>
+      <p>
+        Leia o seguinte trecho de documentação e identifique as instruções principais:
+      </p>
+      <pre>
+To install the package, run:
+  npm install package-name --save
+Then, import it in your project:
+  const pkg = require('package-name');
+      </pre>
+      <button class="toggle-btn" onclick="toggleAnswer('answerComm1')">Mostrar Resposta</button>
+      <div id="answerComm1" class="answer">
+        <p><strong>Resposta:</strong></p>
+        <ul>
+          <li>Instalar o pacote com npm usando o comando <code>npm install package-name --save</code>.</li>
+          <li>Importar o pacote no projeto com <code>require('package-name')</code>.</li>
+        </ul>
+        <p><strong>Explicação:</strong> O trecho instrui a instalar um pacote Node.js e a importá-lo, destacando comandos básicos para integração de bibliotecas em projetos JavaScript.</p>
+      </div>
+    </div>
+    
+    <!-- Exercício 2: Redação de E-mail Técnico -->
+    <div class="atividade">
+      <h3>Exercício 2: Redação de E-mail Técnico</h3>
+      <p>
+        Escreva um e-mail em inglês para sua equipe explicando que uma nova API foi integrada e que há uma nova documentação disponível.
+      </p>
+      <button class="toggle-btn" onclick="toggleAnswer('answerComm2')">Mostrar Exemplo</button>
+      <div id="answerComm2" class="answer">
+        <p><strong>Exemplo de E-mail:</strong></p>
+        <pre>
+Subject: New API Integration and Updated Documentation
+
+Hi Team,
+
+I am excited to announce that we have successfully integrated a new API to enhance our system's functionality. Please review the updated documentation attached to understand the new features and endpoints.
+
+Let me know if you have any questions.
+
+Best regards,
+[Your Name]
+        </pre>
+        <p><strong>Explicação:</strong> Este e-mail apresenta uma comunicação clara e profissional, informando sobre a integração da API e a disponibilidade de documentação atualizada. Note o uso de uma estrutura de e-mail padrão com assunto, saudação, corpo e despedida.</p>
+      </div>
+    </div>
+    
+    <!-- Exercício 3: Comentários em Código -->
+    <div class="atividade">
+      <h3>Exercício 3: Comentários e Documentação de Código</h3>
+      <p>
+        Veja o exemplo de documentação em código e explique por que os comentários são importantes:
+      </p>
+      <pre>
+/**
+ * Calculates the sum of two numbers.
+ *
+ * @param {number} a - The first number.
+ * @param {number} b - The second number.
+ * @returns {number} The sum of a and b.
+ *
+ * Example:
+ *   const result = add(10, 5);
+ *   console.log(result); // 15
+ */
+function add(a, b) {
+  return a + b;
+}
+      </pre>
+      <button class="toggle-btn" onclick="toggleAnswer('answerComm3')">Mostrar Explicação</button>
+      <div id="answerComm3" class="answer">
+        <p><strong>Explicação:</strong></p>
+        <p>
+          O bloco de documentação (JSDoc) detalha o que a função faz, descreve os parâmetros e o valor de retorno, e fornece um exemplo de uso. Comentários como esses ajudam a esclarecer a intenção do código para outros desenvolvedores, facilitando a manutenção e a colaboração.
+        </p>
+      </div>
+    </div>
+    
+    <h2>Dicas para Melhorar a Comunicação Técnica</h2>
+    <ul>
+      <li>Pratique a leitura de manuais e documentações técnicas para se familiarizar com a linguagem utilizada.</li>
+      <li>Escreva e revise seus e-mails e documentos técnicos, buscando clareza e objetividade.</li>
+      <li>Participe de workshops ou webinars sobre comunicação em ambientes de tecnologia.</li>
+      <li>Peça feedback aos colegas sobre a clareza dos seus comentários e documentação.</li>
+    </ul>
+    
+    <h2>Conclusão</h2>
+    <p>
+      A comunicação técnica eficaz é essencial para o sucesso em ambientes de desenvolvimento colaborativos. Ao dominar a interpretação de documentação, a redação de e-mails profissionais e a elaboração de comentários claros, você estará melhor preparado para interagir em equipes globais e contribuir para projetos de forma eficiente.
+    </p>
+  </section>
+  
+  <!-- Footer Global -->
+  <footer class="footer" id="contato">
+    <div class="footer-grid">
+      <div class="footer-section">
+        <div class="logo">
+          <img src="favcon.png" alt="ConectaUni">
+          <h3>ConectaUni</h3>
+        </div>
+        <p>Plataforma educacional colaborativa</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>Links Úteis</h4>
+        <ul>
+          <li><a href="index.html#sobre"><i class="fas fa-chevron-right"></i> Sobre Nós</a></li>
+          <li><a href="lista_curso.html"><i class="fas fa-chevron-right"></i> Cursos</a></li>
+          <li><a href="index.html#voluntarios"><i class="fas fa-chevron-right"></i> Voluntários</a></li>
+          <li><a href="index.html#contato"><i class="fas fa-chevron-right"></i> Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Contato</h4>
+        <ul class="contact-info">
+          <li><i class="fas fa-map-marker-alt"></i> Feira de Santana - BA</li>
+          <li><i class="fas fa-phone"></i> (75) 98144-0696</li>
+          <li><i class="fas fa-envelope"></i> mateus.queiroz.ti.mq@gmail.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 ConectaUni. Todos os direitos reservados.</p>
+      <div class="legal-links">
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Termos de Uso</a>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Botão Back to Top -->
+  <div id="backToTop" class="back-to-top" onclick="scrollToTop()">
+    <i class="fas fa-chevron-up"></i>
+  </div>
+  
+  <!-- Modais (Login/Cadastro e Widget de Chat) -->
+  <div class="modal-overlay" id="modalOverlay"></div>
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="hideModals()">&times;</span>
+      <h2><i class="fas fa-sign-in-alt"></i> Login</h2>
+      <form id="loginForm">
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" placeholder="E-mail" required id="loginEmail">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Senha" required id="loginPassword">
+        </div>
+        <button type="submit" class="btn-gradiente">Entrar</button>
+      </form>
+    </div>
+  </div>
+  <div id="signupModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="hideModals()">&times;</span>
+      <h2><i class="fas fa-user-plus"></i> Cadastro</h2>
+      <form id="signupForm">
+        <div class="input-group">
+          <i class="fas fa-user"></i>
+          <input type="text" placeholder="Nome completo" required id="signupName">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" placeholder="E-mail" required id="signupEmail">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Senha" required id="signupPassword">
+        </div>
+        <button type="submit" class="btn-gradiente">Cadastrar</button>
+      </form>
+    </div>
+  </div>
+  
+  <div id="chatWidget" class="chat-widget" onclick="toggleChatModal()">
+    <i class="fas fa-comments"></i>
+  </div>
+  <div id="chatModal" class="chat-modal">
+    <div class="chat-header">
+      <span>ChatBot</span>
+      <span class="close" onclick="toggleChatModal()">&times;</span>
+    </div>
+    <div class="chat-content" id="chatContent">
+      <p><strong>ChatBot:</strong> Olá! Como posso ajudar?</p>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="chatInput" placeholder="Digite sua mensagem...">
+      <button onclick="sendChatMessage()">Enviar</button>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>

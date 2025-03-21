@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 2: Atividade de Comunicação Técnica - Elabore um E-mail Profissional (Inglês para Dev)</title>
+  <!-- Ícones e CSS Global -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favcon.png" type="image/x-icon">
+  <!-- CSS específico para módulos -->
+  <link rel="stylesheet" href="curso_modulo.css">
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; }
+    .atividade-content { padding: 40px 20px; max-width: 900px; margin: 0 auto; }
+    .atividade-content h2 { color: #264653; margin-top: 30px; }
+    .atividade-content h3 { color: #2A9D8F; margin-top: 20px; }
+    .atividade-content p { margin: 10px 0; }
+    .atividade-content pre {
+      background: #f4f4f4; padding: 10px; border-radius: 4px; overflow-x: auto; font-size: 0.95em;
+    }
+    .explicacao { background: #e7f4ea; padding: 10px; border-left: 5px solid #2A9D8F; margin: 20px 0; }
+    .answer { background: #f9f9f9; padding: 10px; border: 1px solid #ddd; margin-top: 10px; display: none; }
+    .toggle-btn { background: #2A9D8F; color: #fff; border: none; padding: 8px 12px; cursor: pointer; border-radius: 4px; }
+    
+    /* Cabeçalho do Curso */
+    .course-header {
+      display: flex; flex-direction: column; align-items: center; text-align: center; margin-top: 100px; padding: 20px;
+    }
+    .course-thumbnail {
+      position: relative; width: 100%; max-width: 800px; overflow: hidden; border-radius: 8px; margin-bottom: 20px;
+    }
+    .course-thumbnail img {
+      width: 100%; height: auto; display: block;
+    }
+    .course-tags {
+      position: absolute; bottom: 10px; left: 10px; background: rgba(0,0,0,0.5); padding: 5px 10px;
+      border-radius: 5px; display: flex; gap: 10px;
+    }
+    .course-tags .tag {
+      color: #fff; font-size: 0.9em; background: rgba(255,255,255,0.3); padding: 2px 5px; border-radius: 3px;
+    }
+    .course-header h1 { font-size: 2.5rem; margin: 10px 0; color: #333; }
+    .course-header p { font-size: 1.2rem; color: #666; max-width: 800px; }
+    
+    /* Back to Top */
+    .back-to-top {
+      position: fixed; bottom: 20px; right: 20px; background: #2A9D8F; color: #fff; width: 40px; height: 40px;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2); transition: opacity 0.3s;
+    }
+    .back-to-top:hover { opacity: 0.8; }
+  </style>
+  <script>
+    // Função para alternar a visibilidade da resposta
+    function toggleAnswer(id) {
+      var answerDiv = document.getElementById(id);
+      if (answerDiv.style.display === "none" || answerDiv.style.display === "") {
+        answerDiv.style.display = "block";
+      } else {
+        answerDiv.style.display = "none";
+      }
+    }
+  </script>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html"><img src="favcon.png" alt="ConectaUni"></a>
+      <a href="index.html"><h1>ConectaUni</h1></a>
+    </div>
+    <div class="nav-links">
+      <a href="sobre.html"><i class="fas fa-info-circle"></i> Sobre</a>
+      <a href="lista_curso.html"><i class="fas fa-graduation-cap"></i> Cursos</a>
+      <a href="voluntarios.html"><i class="fas fa-hands-helping"></i> Seja Voluntário</a>
+      <a href="#contato"><i class="fas fa-envelope"></i> Contato</a>
+      <button class="btn-gradiente" onclick="showModal('login')"><i class="fas fa-sign-in-alt"></i> Entrar</button>
+      <button class="btn-gradiente" onclick="showModal('signup')"><i class="fas fa-user-plus"></i> Cadastrar</button>
+    </div>
+    <button id="darkModeToggle" onclick="toggleDarkMode()"><i class="fas fa-moon"></i></button>
+    <button class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+  </nav>
+  
+  <!-- Cabeçalho do Módulo -->
+  <header class="course-header">
+    <div class="course-thumbnail">
+      <!-- Imagem ilustrativa para Atividade de Comunicação Técnica -->
+      <img src="https://honte.org/images/uploads/blog/66/a-minor-but-important-change-on-gmail-sign-in-page.jpg" alt="E-mail Profissional" style="background:#fff; padding: 1rem;">
+      <div class="course-tags">
+        <span class="tag">Comunicação</span>
+        <span class="tag">Profissional</span>
+        <span class="tag">Inglês</span>
+      </div>
+    </div>
+    <h1>Módulo 2: Atividade de Comunicação Técnica</h1>
+    <p>Elabore um e-mail profissional em inglês, aplicando técnicas de comunicação para o ambiente de desenvolvimento.</p>
+  </header>
+  
+  <!-- Conteúdo Principal -->
+  <section class="atividade-content reveal">
+    <h2>Introdução</h2>
+    <p>
+      A comunicação por e-mail é uma ferramenta essencial no ambiente corporativo, especialmente em equipes globais. Nesta atividade, você irá elaborar um e-mail profissional em inglês, simulando uma situação real de comunicação entre desenvolvedores ou entre um candidato e uma empresa.
+    </p>
+    
+    <!-- Exercício: Elaboração de E-mail Profissional -->
+    <h2>Exercício: Redação de E-mail Profissional</h2>
+    <p>
+      Imagine que você está solicitando uma reunião para discutir a integração de uma nova API em seu projeto. Elabore um e-mail em inglês, incluindo os seguintes pontos:
+    </p>
+    <ul>
+      <li>Assunto claro e direto.</li>
+      <li>Uma saudação formal.</li>
+      <li>Uma breve introdução sobre você e seu papel.</li>
+      <li>O motivo do contato: discutir a integração da nova API.</li>
+      <li>Convite para uma reunião com sugestão de data e horário.</li>
+      <li>Fechamento cordial.</li>
+    </ul>
+    <button class="toggle-btn" onclick="toggleAnswer('emailEx')">Mostrar Exemplo</button>
+    <div id="emailEx" class="answer">
+      <pre>
+Subject: Request for Meeting to Discuss New API Integration
+
+Dear [Recipient's Name],
+
+I hope this email finds you well. My name is [Your Name], and I am a [Your Position] at [Your Company]. I am reaching out to discuss the possibility of integrating a new API that could significantly enhance our current system's functionality.
+
+I would like to request a meeting to go over the technical details and explore how this integration can benefit our project. Could we schedule a meeting on [Proposed Date] at [Proposed Time]? Please let me know if this time works for you or if you have an alternative suggestion.
+
+Thank you for your time and consideration. I look forward to your response.
+
+Best regards,
+[Your Name]
+[Your Contact Information]
+      </pre>
+      <p>
+        <strong>Explicação:</strong> O exemplo de e-mail utiliza uma estrutura formal, começando com um assunto claro. A saudação é cortês, seguida de uma introdução breve. O motivo do contato é exposto de forma direta, e uma proposta de reunião é apresentada. O e-mail termina com um fechamento profissional, incluindo uma assinatura com informações de contato.
+      </p>
+    </div>
+    
+    <h2>Dicas para Redação de E-mails Profissionais</h2>
+    <ul>
+      <li>Utilize uma linguagem formal e evite gírias ou abreviações.</li>
+      <li>Seja claro e direto, focando nas informações essenciais.</li>
+      <li>Revise o e-mail para evitar erros gramaticais e de digitação.</li>
+      <li>Adapte o tom do e-mail conforme o público-alvo (ex: cliente, colega, gerente).</li>
+      <li>Inclua um assunto que resuma o propósito do e-mail de forma concisa.</li>
+    </ul>
+    
+    <h2>Conclusão</h2>
+    <p>
+      A habilidade de elaborar e-mails profissionais em inglês é fundamental para a comunicação eficaz no ambiente de desenvolvimento. Pratique a redação de e-mails com diferentes objetivos e públicos para aprimorar sua fluência e clareza na comunicação.
+    </p>
+  </section>
+  
+  <!-- Footer Global -->
+  <footer class="footer" id="contato">
+    <div class="footer-grid">
+      <div class="footer-section">
+        <div class="logo">
+          <img src="favcon.png" alt="ConectaUni">
+          <h3>ConectaUni</h3>
+        </div>
+        <p>Plataforma educacional colaborativa</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>Links Úteis</h4>
+        <ul>
+          <li><a href="index.html#sobre"><i class="fas fa-chevron-right"></i> Sobre Nós</a></li>
+          <li><a href="lista_curso.html"><i class="fas fa-chevron-right"></i> Cursos</a></li>
+          <li><a href="index.html#voluntarios"><i class="fas fa-chevron-right"></i> Voluntários</a></li>
+          <li><a href="index.html#contato"><i class="fas fa-chevron-right"></i> Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Contato</h4>
+        <ul class="contact-info">
+          <li><i class="fas fa-map-marker-alt"></i> Feira de Santana - BA</li>
+          <li><i class="fas fa-phone"></i> (75) 98144-0696</li>
+          <li><i class="fas fa-envelope"></i> mateus.queiroz.ti.mq@gmail.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 ConectaUni. Todos os direitos reservados.</p>
+      <div class="legal-links">
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Termos de Uso</a>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Botão Back to Top -->
+  <div id="backToTop" class="back-to-top" onclick="scrollToTop()">
+    <i class="fas fa-chevron-up"></i>
+  </div>
+  
+  <!-- Modais (Login/Cadastro e Widget de Chat) -->
+  <div class="modal-overlay" id="modalOverlay"></div>
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="hideModals()">&times;</span>
+      <h2><i class="fas fa-sign-in-alt"></i> Login</h2>
+      <form id="loginForm">
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" placeholder="E-mail" required id="loginEmail">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Senha" required id="loginPassword">
+        </div>
+        <button type="submit" class="btn-gradiente">Entrar</button>
+      </form>
+    </div>
+  </div>
+  <div id="signupModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="hideModals()">&times;</span>
+      <h2><i class="fas fa-user-plus"></i> Cadastro</h2>
+      <form id="signupForm">
+        <div class="input-group">
+          <i class="fas fa-user"></i>
+          <input type="text" placeholder="Nome completo" required id="signupName">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" placeholder="E-mail" required id="signupEmail">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Senha" required id="signupPassword">
+        </div>
+        <button type="submit" class="btn-gradiente">Cadastrar</button>
+      </form>
+    </div>
+  </div>
+  
+  <div id="chatWidget" class="chat-widget" onclick="toggleChatModal()">
+    <i class="fas fa-comments"></i>
+  </div>
+  <div id="chatModal" class="chat-modal">
+    <div class="chat-header">
+      <span>ChatBot</span>
+      <span class="close" onclick="toggleChatModal()">&times;</span>
+    </div>
+    <div class="chat-content" id="chatContent">
+      <p><strong>ChatBot:</strong> Olá! Como posso ajudar?</p>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="chatInput" placeholder="Digite sua mensagem...">
+      <button onclick="sendChatMessage()">Enviar</button>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>

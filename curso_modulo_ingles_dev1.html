@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 1: Gramática Básica e Vocabulário Técnico - Inglês para Dev</title>
+  <!-- Ícones e CSS Global -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css"> <!-- CSS global -->
+  <link rel="stylesheet" href="curso_modulo.css"> <!-- CSS específico para módulos -->
+  <link rel="icon" href="favcon.png" type="image/x-icon">
+  <!-- CSS adicional para esta página -->
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; }
+    .atividade-content { padding: 40px 20px; max-width: 900px; margin: 0 auto; }
+    .atividade-content h2 { color: #264653; margin-top: 30px; }
+    .atividade-content h3 { color: #2A9D8F; margin-top: 20px; }
+    .atividade-content p { margin: 10px 0; }
+    .atividade-content pre {
+      background: #f4f4f4; padding: 10px; border-radius: 4px; overflow-x: auto; font-size: 0.95em;
+    }
+    .explicacao { background: #e7f4ea; padding: 10px; border-left: 5px solid #2A9D8F; margin: 20px 0; }
+    .answer { background: #f9f9f9; padding: 10px; border: 1px solid #ddd; margin-top: 10px; display: none; }
+    .toggle-btn { background: #2A9D8F; color: #fff; border: none; padding: 8px 12px; cursor: pointer; border-radius: 4px; }
+    
+    /* Cabeçalho do Curso */
+    .course-header {
+      display: flex; flex-direction: column; align-items: center; text-align: center; margin-top: 100px; padding: 20px;
+    }
+    .course-thumbnail {
+      position: relative; width: 100%; max-width: 800px; overflow: hidden; border-radius: 8px; margin-bottom: 20px;
+    }
+    .course-thumbnail img { width: 100%; height: auto; display: block; }
+    .course-tags {
+      position: absolute; bottom: 10px; left: 10px; background: rgba(0,0,0,0.5); padding: 5px 10px; border-radius: 5px; display: flex; gap: 10px;
+    }
+    .course-tags .tag { color: #fff; font-size: 0.9em; background: rgba(255,255,255,0.3); padding: 2px 5px; border-radius: 3px; }
+    .course-header h1 { font-size: 2.5rem; margin: 10px 0; color: #333; }
+    .course-header p { font-size: 1.2rem; color: #666; max-width: 800px; }
+    
+    /* Back to Top */
+    .back-to-top {
+      position: fixed; bottom: 20px; right: 20px; background: #2A9D8F; color: #fff; width: 40px; height: 40px;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2); transition: opacity 0.3s;
+    }
+    .back-to-top:hover { opacity: 0.8; }
+  </style>
+  <script>
+    // Função para alternar a visibilidade da resposta
+    function toggleAnswer(id) {
+      var answerDiv = document.getElementById(id);
+      if (answerDiv.style.display === "none" || answerDiv.style.display === "") {
+        answerDiv.style.display = "block";
+      } else {
+        answerDiv.style.display = "none";
+      }
+    }
+  </script>
+</head>
+<body>
+  <!-- Navbar Global -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html"><img src="favcon.png" alt="ConectaUni"></a>
+      <a href="index.html"><h1>ConectaUni</h1></a>
+    </div>
+    <div class="nav-links">
+      <a href="sobre.html"><i class="fas fa-info-circle"></i> Sobre</a>
+      <a href="lista_curso.html"><i class="fas fa-graduation-cap"></i> Cursos</a>
+      <a href="voluntarios.html"><i class="fas fa-hands-helping"></i> Seja Voluntário</a>
+      <a href="#contato"><i class="fas fa-envelope"></i> Contato</a>
+      <button class="btn-gradiente" onclick="showModal('login')"><i class="fas fa-sign-in-alt"></i> Entrar</button>
+      <button class="btn-gradiente" onclick="showModal('signup')"><i class="fas fa-user-plus"></i> Cadastrar</button>
+    </div>
+    <button id="darkModeToggle" onclick="toggleDarkMode()"><i class="fas fa-moon"></i></button>
+    <button class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+  </nav>
+  
+  <!-- Cabeçalho do Curso -->
+  <header class="course-header">
+    <div class="course-thumbnail">
+      <!-- Imagem ilustrativa para Gramática e Vocabulário Técnico -->
+      <img src="https://inglesparadevs.io/wp-content/uploads/2023/07/INGLES-PARA-DEVS_logo.png" alt="Gramática e Vocabulário Técnico" style="background:#fff; padding: 1rem;">
+      <div class="course-tags">
+        <span class="tag">Gramática</span>
+        <span class="tag">Vocabulário Técnico</span>
+      </div>
+    </div>
+    <h1>Módulo 1: Gramática Básica e Vocabulário Técnico - Inglês para Dev</h1>
+    <p>Fortaleça sua comunicação técnica em inglês com fundamentos gramaticais e termos essenciais para desenvolvedores.</p>
+  </header>
+  
+  <!-- Conteúdo Didático do Módulo -->
+  <section class="atividade-content reveal">
+    <h2>Introdução</h2>
+    <p>
+      No mundo da tecnologia, a habilidade de se comunicar em inglês técnico é indispensável. Este módulo foi desenvolvido para que você construa uma base sólida na gramática e adquira o vocabulário essencial para compreender e produzir documentos técnicos, códigos e relatórios. Através de explicações detalhadas, exemplos práticos e exercícios interativos, você estará preparado para ler documentação, participar de fóruns e colaborar em projetos internacionais.
+    </p>
+    
+    <!-- Seção 1: Gramática Básica para Desenvolvedores -->
+    <h2>1. Gramática Básica para Desenvolvedores</h2>
+    <p>
+      A gramática define a estrutura da língua. Em inglês, o padrão mais comum é o SVO (Sujeito, Verbo, Objeto). Essa estrutura é essencial para a clareza na comunicação, tanto em contextos acadêmicos quanto profissionais.
+    </p>
+    <ul>
+      <li>
+        <strong>Estrutura SVO:</strong> 
+        <br>Exemplo: <em>"The developer writes code."</em>
+        <br><small>Explicação: "The developer" (o desenvolvedor) é o sujeito, "writes" (escreve) é o verbo, e "code" (código) é o objeto.</small>
+      </li>
+      <li>
+        <strong>Verbo "to be":</strong> 
+        <br>Exemplo: <em>"The code is clean."</em>
+        <br><small>Explicação: "is" é a forma do verbo "to be" para um sujeito singular, usada para descrever estados ou condições.</small>
+      </li>
+      <li>
+        <strong>Tempos Verbais:</strong>
+        <br>
+        <ul>
+          <li><em>Present Simple:</em> Indica fatos gerais e verdades universais. Ex.: "Developers use Git."</li>
+          <li><em>Present Continuous:</em> Descreve ações que estão acontecendo no momento. Ex.: "I am debugging the code."</li>
+        </ul>
+      </li>
+      <li>
+        <strong>Artigos e Preposições:</strong>
+        <br>Exemplo: <em>"a function", "in the code"</em>
+        <br><small>Explicação: Artigos (a, an, the) ajudam a definir substantivos, e preposições conectam ideias, indicando relações de tempo, lugar ou modo.</small>
+      </li>
+    </ul>
+    <div class="explicacao">
+      <p>
+        Esses elementos gramaticais são a base para construir frases claras e precisas, facilitando a leitura e a interpretação de textos técnicos.
+      </p>
+    </div>
+    <section class="atividade-content reveal">
+        <h2> 2. Pronúncia e Entonação em Contextos Técnicos</h2>
+        <p>
+          A comunicação eficaz em inglês técnico vai além do vocabulário e da gramática; envolve também uma boa pronúncia e entonação. Para desenvolvedores, saber pronunciar corretamente termos técnicos e utilizar a entonação adequada é essencial para apresentações, reuniões e colaborações internacionais.
+        </p>
+        
+        <h3>1.1 Importância da Pronúncia</h3>
+        <p>
+          A pronúncia correta de termos como <strong>"algorithm"</strong>, <strong>"debugger"</strong> e <strong>"framework"</strong> ajuda a evitar mal-entendidos. Uma boa pronúncia transmite profissionalismo e confiança, facilitando a comunicação em ambientes globais.
+        </p>
+        
+        <h3>1.2 Dicas para Melhorar a Pronúncia</h3>
+        <ul>
+          <li><strong>Ouça e Repita:</strong> Assista a vídeos e podcasts técnicos. Por exemplo, ouça entrevistas e palestras de desenvolvedores nativos e repita as palavras para aprimorar sua pronúncia.</li>
+          <li><strong>Utilize Ferramentas Online:</strong> Use aplicativos como <a href="https://forvo.com" target="_blank">Forvo</a> e o recurso de áudio do Google Translate para ouvir a pronúncia correta de termos técnicos.</li>
+          <li><strong>Pratique com Nativos:</strong> Participe de comunidades online, fóruns e grupos de discussão onde você possa interagir com falantes nativos de inglês.</li>
+        </ul>
+        
+        <h3>1.3 Entonação em Contextos Técnicos</h3>
+        <p>
+          A entonação é importante para enfatizar pontos-chave durante apresentações ou ao explicar conceitos técnicos. Variar a entonação ajuda a destacar termos críticos e torna a comunicação mais envolvente.
+        </p>
+        <p>
+          <strong>Exemplo:</strong> Ao explicar um <em>commit</em> no Git, enfatize a palavra "commit" para demonstrar que cada atualização no código é crucial para a integridade do projeto.
+        </p>
+        
+            <h3>1.4 Pronúncia de Palavras Técnicas</h3>
+            <p>
+              A seguir, veja a pronúncia (em IPA) e uma sugestão de leitura para alguns dos termos mais comuns no ambiente de desenvolvimento:
+            </p>
+            <ul>
+              <li><strong>Algorithm</strong> – /ˈælɡəˌrɪðəm/ – "AL-guh-rith-um"</li>
+              <li><strong>Debug</strong> – /dɪˈbʌɡ/ – "di-BUG"</li>
+              <li><strong>Commit</strong> – /kəˈmɪt/ – "kuh-MIT"</li>
+              <li><strong>Merge</strong> – /mɜːrdʒ/ – "murj"</li>
+              <li><strong>Interface</strong> – /ˈɪntərˌfeɪs/ – "IN-ter-face"</li>
+              <li><strong>Framework</strong> – /ˈfreɪmwɜːrk/ – "FRAYM-wurk"</li>
+              <li><strong>Function</strong> – /ˈfʌŋkʃən/ – "FUNK-shun"</li>
+              <li><strong>Variable</strong> – /ˈvɛriəbəl/ – "VER-ee-uh-buhl"</li>
+              <li><strong>Loop</strong> – /luːp/ – "LOOP"</li>
+              <li><strong>Database</strong> – /ˈdeɪtəˌbeɪs/ – "DAY-tuh-bays"</li>
+              <li><strong>API</strong> – /ˌeɪpiˈaɪ/ – "AY-pee-EYE"</li>
+              <li><strong>Syntax</strong> – /ˈsɪn.tæks/ – "SIN-taks"</li>
+            </ul>
+            <p>
+              Pratique repetindo essas palavras e utilizando ferramentas como Forvo ou o recurso de áudio do Google Translate para ouvir a pronúncia de nativos. Essa prática ajudará a aprimorar sua comunicação técnica e a compreensão de materiais em inglês.
+            </p>
+          
+        <h3>1.5 Exercício Prático de Pronúncia e Entonação</h3>
+        <div class="explicacao">
+          <p>
+            <strong>Atividade:</strong> Grave um áudio lendo frases técnicas, como "The developer commits the changes" ou "This API integrates the database efficiently." Compare sua gravação com a pronúncia de nativos usando ferramentas online e anote as diferenças para praticar.
+          </p>
+        </div>
+        
+        <h3>1.6 Recursos Adicionais</h3>
+        <ul>
+          <li><strong>Forvo:</strong> Plataforma online para ouvir a pronúncia de palavras em diversos idiomas. <a href="https://forvo.com" target="_blank">Acesse Forvo</a></li>
+          <li><strong>Google Translate:</strong> Utilize o recurso de áudio para ouvir a pronúncia correta de termos técnicos. <a href="https://translate.google.com" target="_blank">Acesse Google Translate</a></li>
+          <li><strong>Podcasts Técnicos:</strong> Ouça podcasts como "Syntax" ou "CodeNewbie" para se acostumar com a entonação e pronúncia dos termos em inglês.</li>
+          <li><strong>Aplicativos de Pronúncia:</strong> Apps como ELSA Speak podem ajudar a treinar sua pronúncia por meio de feedback personalizado.</li>
+        </ul>
+        
+        <p>
+          Ao praticar consistentemente a pronúncia e entonação, você não só aprimora sua comunicação técnica, mas também se torna mais confiante ao interagir com equipes e clientes internacionais.
+        </p>
+      </section>
+      
+      <section class="atividade-content reveal">
+        <h2>Tópico 2: Leitura e Interpretação de Documentação Técnica</h2>
+        <p>
+          Entender manuais, tutoriais e documentações em inglês é essencial para desenvolvedores, já que grande parte dos recursos técnicos estão nessa língua. Aqui estão técnicas e dicas para facilitar essa tarefa:
+        </p>
+        
+        <h3>Técnicas de Leitura</h3>
+        <ul>
+          <li>
+            <strong>Identifique Palavras-Chave:</strong> Procure por termos técnicos, verbos imperativos e instruções diretas, como <em>install</em>, <em>configure</em>, <em>initialize</em> e <em>execute</em>.
+          </li>
+          <li>
+            <strong>Leia Títulos e Subtítulos:</strong> Eles ajudam a entender a estrutura do documento e identificar rapidamente a ideia central de cada seção.
+          </li>
+          <li>
+            <strong>Pratique o Escaneamento:</strong> Em vez de ler cada palavra, faça uma leitura dinâmica focada em comandos, exemplos de código e instruções curtas.
+          </li>
+          <li>
+            <strong>Destaque Elementos Importantes:</strong> Marque ou anote termos e frases repetidos para consultar depois. Use glossários técnicos e pesquisas online para entender termos desconhecidos.
+          </li>
+        </ul>
+        
+        <h3>Estruturas Comuns em Documentação Técnica</h3>
+        <ul>
+          <li>
+            <strong>Introdução:</strong> Apresenta o objetivo e o contexto do documento.
+          </li>
+          <li>
+            <strong>Requisitos:</strong> Lista os pré-requisitos e dependências necessárias para a implementação ou execução.
+          </li>
+          <li>
+            <strong>Passo a Passo:</strong> Instruções organizadas em etapas sequenciais, muitas vezes acompanhadas de exemplos, diagramas ou capturas de tela.
+          </li>
+          <li>
+            <strong>FAQ e Solução de Problemas:</strong> Seção que responde às dúvidas frequentes e fornece dicas para resolver erros comuns.
+          </li>
+          <li>
+            <strong>Referências:</strong> Links e citações de fontes adicionais para aprofundamento no tema.
+          </li>
+        </ul>
+        
+        <h3>Dicas para a Interpretação</h3>
+        <ul>
+          <li>
+            <strong>Leitura Ativa:</strong> Faça anotações, resumos e destaque as informações-chave enquanto lê.
+          </li>
+          <li>
+            <strong>Prática Contínua:</strong> Quanto mais você ler documentação técnica, mais familiarizado ficará com o vocabulário e as estruturas comuns.
+          </li>
+          <li>
+            <strong>Utilize Ferramentas de Tradução:</strong> Use o Google Translate ou dicionários técnicos para esclarecer termos, mas sempre verifique com fontes especializadas.
+          </li>
+          <li>
+            <strong>Analise Exemplos:</strong> Muitos documentos incluem exemplos de código ou casos de uso. Estude-os para entender a aplicação prática dos conceitos.
+          </li>
+        </ul>
+        
+        <p>
+          Aplicando essas técnicas, você será capaz de extrair as informações mais importantes dos manuais e tutoriais, facilitando seu aprendizado e melhorando sua capacidade de implementar soluções técnicas.
+        </p>
+      </section>
+      
+    <!-- Seção 2: Vocabulário Técnico para Desenvolvedores -->
+    <h2>3. Vocabulário Técnico</h2>
+    <p>
+      Desenvolvedores usam um conjunto específico de termos que facilitam a comunicação sobre tecnologia. Conhecer esse vocabulário é fundamental para entender documentações, participar de reuniões e colaborar em projetos.
+    </p>
+    <ul>
+      <li>
+        <strong>API (Application Programming Interface):</strong> 
+        <br>Um conjunto de regras que permite que diferentes softwares se comuniquem entre si.  
+        <br><small>Exemplo: "The API provides access to the database."</small>
+      </li>
+      <li>
+        <strong>Database:</strong> 
+        <br>Um sistema para armazenar, gerenciar e recuperar dados.
+        <br><small>Exemplo: "The application connects to a remote database."</small>
+      </li>
+      <li>
+        <strong>Function:</strong> 
+        <br>Um bloco de código que realiza uma tarefa específica.
+        <br><small>Exemplo: "This function calculates the average."</small>
+      </li>
+      <li>
+        <strong>Variable:</strong> 
+        <br>Um espaço para armazenar dados que podem ser modificados.
+        <br><small>Exemplo: "Declare a variable to hold the user's input."</small>
+      </li>
+      <li>
+        <strong>Loop:</strong> 
+        <br>Uma estrutura de repetição que executa um bloco de código várias vezes.
+        <br><small>Exemplo: "Use a loop to iterate through an array."</small>
+      </li>
+      <li>
+        <strong>Commit:</strong> 
+        <br>Uma atualização registrada em um sistema de controle de versão, como o Git.
+        <br><small>Exemplo: "I made a commit to fix the bug."</small>
+      </li>
+      <li>
+        <strong>Merge:</strong> 
+        <br>A ação de unir alterações de diferentes branches no controle de versão.
+        <br><small>Exemplo: "Merge the new feature branch into the main branch."</small>
+      </li>
+    </ul>
+    <div class="explicacao">
+      <p>
+        Compreender esses termos permitirá que você se integre melhor com equipes globais e acompanhe as tendências e inovações no desenvolvimento de software.
+      </p>
+    </div>
+    <section class="atividade-content reveal">
+        <h2>4. Mais Jargões e Expressões para Desenvolvedores</h2>
+        <p>
+          Além das expressões já apresentadas, aqui estão outros jargões e expressões comuns no ambiente de tecnologia que podem enriquecer sua comunicação no dia a dia do desenvolvimento:
+        </p>
+        
+        <h3>Synergy</h3>
+        <p>
+          <strong>Significado:</strong> A cooperação entre indivíduos ou equipes que resulta em um efeito maior do que a soma de seus esforços individuais.
+          <br>
+          <strong>Exemplo:</strong> "Our team achieved great synergy by combining our diverse skills to develop a robust software solution."
+          <br>
+          <em>Uso:</em> Utilize "synergy" para enfatizar a importância da colaboração e do trabalho em equipe.
+        </p>
+        
+        <h3>Scalability</h3>
+        <p>
+          <strong>Significado:</strong> A capacidade de um sistema ou aplicativo para lidar com o aumento de carga de trabalho ou crescimento sem perder desempenho.
+          <br>
+          <strong>Exemplo:</strong> "We designed the application with scalability in mind so it can support thousands of users."
+          <br>
+          <em>Uso:</em> "Scalability" é frequentemente discutida ao planejar sistemas que precisam crescer ao longo do tempo.
+        </p>
+        
+        <h3>Pivot</h3>
+        <p>
+          <strong>Significado:</strong> Mudar a estratégia ou direção de um projeto ou negócio em resposta a novos insights ou mudanças de mercado.
+          <br>
+          <strong>Exemplo:</strong> "After feedback from users, we decided to pivot our approach to the mobile platform."
+          <br>
+          <em>Uso:</em> Utilize "pivot" para descrever mudanças estratégicas em projetos ou negócios.
+        </p>
+        
+        <h3>Disruptive</h3>
+        <p>
+          <strong>Significado:</strong> Algo que causa uma mudança radical no mercado ou em um setor, muitas vezes introduzindo inovações que quebram paradigmas existentes.
+          <br>
+          <strong>Exemplo:</strong> "The new technology is truly disruptive, challenging the traditional models of the industry."
+          <br>
+          <em>Uso:</em> "Disruptive" é usado para descrever inovações que transformam significativamente os métodos convencionais.
+        </p>
+        
+        <h3>Game Changer</h3>
+        <p>
+          <strong>Significado:</strong> Uma inovação ou evento que muda fundamentalmente a forma como algo é feito.
+          <br>
+          <strong>Exemplo:</strong> "The integration of AI in our platform proved to be a real game changer for user engagement."
+          <br>
+          <em>Uso:</em> Utilize essa expressão para destacar mudanças significativas que alteram o cenário do mercado.
+        </p>
+        
+        <h3>Bleeding Edge</h3>
+        <p>
+          <strong>Significado:</strong> Tecnologia extremamente avançada e inovadora, que pode ainda estar em fase experimental ou instável.
+          <br>
+          <strong>Exemplo:</strong> "Our startup is developing bleeding edge software that leverages quantum computing."
+          <br>
+          <em>Uso:</em> "Bleeding edge" é usado para enfatizar que uma tecnologia está além do que é considerado "cutting edge", mas pode envolver riscos devido à sua novidade.
+        </p>
+        
+        <h3>Leverage</h3>
+        <p>
+          <strong>Significado:</strong> Utilizar algo para obter uma vantagem máxima ou para melhorar um resultado.
+          <br>
+          <strong>Exemplo:</strong> "We can leverage our open-source tools to speed up the development process."
+          <br>
+          <em>Uso:</em> Use "leverage" quando se referir a tirar o máximo proveito de recursos ou ferramentas disponíveis.
+        </p>
+        
+        <h3>Deep Dive</h3>
+        <p>
+          <strong>Significado:</strong> Uma análise aprofundada de um tópico ou problema.
+          <br>
+          <strong>Exemplo:</strong> "Let's do a deep dive into the new framework to understand its core features."
+          <br>
+          <em>Uso:</em> Utilize "deep dive" para indicar uma investigação minuciosa em determinado assunto.
+        </p>
+        
+        <h3>Onboarding</h3>
+        <p>
+          <strong>Significado:</strong> O processo de integração e familiarização de novos membros em uma equipe ou organização.
+          <br>
+          <strong>Exemplo:</strong> "Our onboarding process includes training sessions, mentoring, and access to all the technical documentation."
+          <br>
+          <em>Uso:</em> "Onboarding" é essencial para ajudar novos desenvolvedores a se adaptarem rapidamente ao ambiente de trabalho.
+        </p>
+        
+        <h3>Touch Base</h3>
+        <p>
+          <strong>Significado:</strong> Fazer uma breve comunicação ou reunião para atualizar ou discutir um assunto.
+          <br>
+          <strong>Exemplo:</strong> "Let's touch base later this week to review the project progress."
+          <br>
+          <em>Uso:</em> É comumente usado em ambientes corporativos para manter a equipe informada sem a necessidade de reuniões longas.
+        </p>
+        
+        <h3>Circle Back</h3>
+        <p>
+          <strong>Significado:</strong> Retomar ou revisitar um assunto discutido anteriormente.
+          <br>
+          <strong>Exemplo:</strong> "I'll circle back to you after reviewing the new requirements."
+          <br>
+          <em>Uso:</em> Essa expressão é útil para indicar que você voltará a tratar de um tópico posteriormente.
+        </p>
+        
+        <h3>Best Practices</h3>
+        <p>
+          <strong>Significado:</strong> Métodos ou técnicas consideradas as mais eficazes e eficientes para realizar uma tarefa.
+          <br>
+          <strong>Exemplo:</strong> "Following best practices in coding can help prevent bugs and improve code maintainability."
+          <br>
+          <em>Uso:</em> "Best practices" são recomendadas em praticamente todas as áreas de desenvolvimento para garantir qualidade e eficiência.
+        </p>
+        
+        <h2>Dicas para Utilizar Jargões e Expressões</h2>
+        <ul>
+          <li>Pratique a pronúncia de cada termo utilizando ferramentas como Forvo ou o recurso de áudio do Google Translate.</li>
+          <li>Incorpore essas expressões em conversas e apresentações para se familiarizar com o seu uso em contextos reais.</li>
+          <li>Leia artigos e assista a vídeos onde esses jargões são naturalmente utilizados, para entender melhor o contexto.</li>
+          <li>Crie flashcards com a expressão, sua definição e um exemplo para revisão periódica.</li>
+        </ul>
+        
+        <h2>Conclusão</h2>
+        <p>
+          O domínio de jargões e expressões idiomáticas é crucial para a comunicação eficaz no ambiente de tecnologia. Ao aprender e praticar esses termos, você melhora sua habilidade de se comunicar com colegas, entender documentações técnicas e participar de discussões em equipes globais.
+        </p>
+      </section>
+      
+      <section class="atividade-content reveal">
+        <h2>5. Comentários e Documentação de Código em Inglês</h2>
+        <p>
+          Escrever comentários e documentação em inglês é crucial para a colaboração global. Quando todos os membros de uma equipe—independentemente de sua localização—usam o mesmo idioma, a comunicação se torna mais clara, e a manutenção do código é facilitada. Comentários bem escritos ajudam a explicar a lógica do código, facilitam a depuração e tornam a transição para novos membros da equipe mais suave.
+        </p>
+        
+        <h3>Por que escrever em inglês?</h3>
+        <ul>
+          <li><strong>Comunicação Global:</strong> A maioria das documentações, frameworks e comunidades técnicas usa o inglês como idioma padrão.</li>
+          <li><strong>Consistência:</strong> Manter comentários e documentação em inglês garante que todos os colaboradores entendam as explicações e orientações.</li>
+          <li><strong>Facilidade de Acesso:</strong> Recursos online, como tutoriais e fóruns, geralmente estão em inglês, permitindo uma referência cruzada consistente.</li>
+        </ul>
+        
+        <h3>Boas Práticas para Comentários</h3>
+        <p>
+          Comentários devem ser claros, concisos e informativos. Eles não devem repetir o que o código já mostra, mas sim explicar o “porquê” e o “como” de certas decisões.
+        </p>
+        <pre>
+      // Calculate the sum of two numbers
+      // This function takes two parameters, a and b, and returns their sum.
+      function add(a, b) {
+        return a + b; // Return the result of a plus b
+      }
+        </pre>
+        <p>
+          <strong>Explicação:</strong> O comentário acima explica o propósito da função e o que ela faz, sem redundância.
+        </p>
+        
+        <h3>Exemplo de Documentação de Código</h3>
+        <p>
+          Documentar o código com um formato padronizado (como JSDoc para JavaScript ou docstrings para Python) ajuda a manter a consistência e a clareza. Veja um exemplo em JavaScript:
+        </p>
+        <pre>
+      /**
+       * Adds two numbers together.
+       *
+       * @param {number} a - The first number.
+       * @param {number} b - The second number.
+       * @returns {number} The sum of the two numbers.
+       *
+       * Example:
+       *   const result = add(5, 3);
+       *   console.log(result); // 8
+       */
+      function add(a, b) {
+        return a + b;
+      }
+        </pre>
+        <p>
+          <strong>Explicação:</strong> Esse bloco de documentação detalha o que a função faz, os parâmetros esperados, o valor retornado e até um exemplo de uso. Isso facilita a compreensão do código para qualquer pessoa que o leia.
+        </p>
+        
+        <h3>Dicas Adicionais para Documentação</h3>
+        <ul>
+          <li><strong>Mantenha a Consistência:</strong> Use um estilo padronizado (como JSDoc, reStructuredText, ou Markdown) em todo o projeto.</li>
+          <li><strong>Atualize Sempre:</strong> Garanta que os comentários e a documentação sejam atualizados sempre que o código for modificado.</li>
+          <li><strong>Foque no “Porquê”:</strong> Em vez de descrever o que o código faz (o que pode ser evidente), explique o motivo por trás das escolhas e a lógica aplicada.</li>
+          <li><strong>Utilize Exemplos:</strong> Sempre que possível, inclua exemplos práticos de como usar funções ou classes, para que novos colaboradores possam entender rapidamente a aplicação.</li>
+        </ul>
+        
+        <h2>Conclusão</h2>
+        <p>
+          Escrever comentários e documentação de forma clara e em inglês é uma habilidade essencial para desenvolvedores que trabalham em equipes internacionais. Com boas práticas e exemplos padronizados, você facilitará a manutenção do código e a colaboração com outros profissionais, garantindo que seu trabalho seja compreendido e valorizado em um ambiente global.
+        </p>
+      </section>
+      
+    <!-- Seção 3: Exercícios Práticos -->
+    <h2>6. Exercícios Práticos</h2>
+    <p>
+      Para consolidar o aprendizado, pratique com os exercícios interativos abaixo:
+    </p>
+    
+    <!-- Exercício 1: Estrutura SVO -->
+    <div class="atividade">
+      <h3>Exercício 1: Identificando a Estrutura SVO</h3>
+      <p>
+        Analise a frase: "The programmer fixes bugs." Identifique o sujeito, o verbo e o objeto.
+      </p>
+      <button class="toggle-btn" onclick="toggleAnswer('answerEx1')">Mostrar Resposta</button>
+      <div id="answerEx1" class="answer">
+        <p><strong>Resposta:</strong></p>
+        <ul>
+          <li><strong>Sujeito:</strong> The programmer</li>
+          <li><strong>Verbo:</strong> fixes</li>
+          <li><strong>Objeto:</strong> bugs</li>
+        </ul>
+        <p><strong>Explicação:</strong> A frase segue a estrutura SVO, onde "The programmer" é o agente, "fixes" indica a ação e "bugs" é o elemento que recebe a ação.</p>
+      </div>
+    </div>
+    
+    <!-- Exercício 2: Uso do Verbo "to be" -->
+    <div class="atividade">
+      <h3>Exercício 2: Uso do Verbo "to be"</h3>
+      <p>
+        Complete a frase: "The documentation ___ essential for developers." Qual forma do verbo "to be" deve ser usada?
+      </p>
+      <button class="toggle-btn" onclick="toggleAnswer('answerEx2')">Mostrar Resposta</button>
+      <div id="answerEx2" class="answer">
+        <p><strong>Resposta:</strong> is</p>
+        <p><strong>Explicação:</strong> "Documentation" é um substantivo singular, então a forma correta do verbo "to be" no presente simples é "is".</p>
+      </div>
+    </div>
+    
+    <!-- Exercício 3: Associações de Vocabulário Técnico -->
+    <div class="atividade">
+      <h3>Exercício 3: Associe os Termos Técnicos</h3>
+      <p>
+        Relacione os termos com suas definições:
+      </p>
+      <ul>
+        <li><strong>API</strong></li>
+        <li><strong>Database</strong></li>
+        <li><strong>Loop</strong></li>
+        <li><strong>Commit</strong></li>
+      </ul>
+      <p><em>Definições:</em></p>
+      <ol>
+        <li>Sistema para armazenar e gerenciar dados.</li>
+        <li>Atualização registrada em um sistema de controle de versão.</li>
+        <li>Estrutura que repete um bloco de código.</li>
+        <li>Conjunto de regras para a comunicação entre sistemas.</li>
+      </ol>
+      <button class="toggle-btn" onclick="toggleAnswer('answerEx3')">Mostrar Resposta</button>
+      <div id="answerEx3" class="answer">
+        <p><strong>Resposta:</strong></p>
+        <ul>
+          <li><strong>API:</strong> 4</li>
+          <li><strong>Database:</strong> 1</li>
+          <li><strong>Loop:</strong> 3</li>
+          <li><strong>Commit:</strong> 2</li>
+        </ul>
+        <p><strong>Explicação:</strong> Cada termo foi associado à definição correta. Essa associação é fundamental para compreender e utilizar o jargão técnico do desenvolvimento.</p>
+      </div>
+    </div>
+    
+    <!-- Exercício 4: Construindo uma Frase Técnica -->
+    <div class="atividade">
+      <h3>Exercício 4: Construindo uma Frase Técnica</h3>
+      <p>
+        Utilize pelo menos três termos técnicos (por exemplo, API, variable, merge) para criar uma frase em inglês que descreva uma ação comum em desenvolvimento. Escreva a frase e explique seu significado.
+      </p>
+      <button class="toggle-btn" onclick="toggleAnswer('answerEx4')">Mostrar Exemplo</button>
+      <div id="answerEx4" class="answer">
+        <p><strong>Exemplo de Resposta:</strong></p>
+        <p>"The developer merged a new API integration after updating the variable handling."</p>
+        <p><strong>Explicação:</strong> A frase indica que o desenvolvedor integrou (merged) uma nova funcionalidade de API após melhorar o gerenciamento das variáveis no código. Essa prática é comum em ambientes de desenvolvimento para otimizar funcionalidades e corrigir problemas.</p>
+      </div>
+    </div>
+    
+    <!-- Exercício 5: Redação Técnica -->
+    <div class="atividade">
+      <h3>Exercício 5: Redação Técnica</h3>
+      <p>
+        Escreva um pequeno parágrafo descrevendo como o uso de APIs pode melhorar a eficiência de um sistema. Utilize pelo menos dois termos técnicos aprendidos.
+      </p>
+      <button class="toggle-btn" onclick="toggleAnswer('answerEx5')">Mostrar Exemplo</button>
+      <div id="answerEx5" class="answer">
+        <p><strong>Exemplo de Resposta:</strong></p>
+        <p>"By integrating a robust API, the system efficiently retrieves data from the database, allowing developers to focus on improving user experience rather than managing low-level data operations."</p>
+        <p><strong>Explicação:</strong> Neste parágrafo, o uso de "API" e "database" demonstra como a integração de serviços externos pode simplificar operações complexas, proporcionando maior foco na experiência do usuário.</p>
+      </div>
+    </div>
+    
+    <h2>Dicas para Melhorar seu Inglês Técnico</h2>
+    <ul>
+      <li>Leia a documentação oficial e artigos técnicos em inglês.</li>
+      <li>Assista a vídeos e tutoriais focados em inglês para desenvolvedores.</li>
+      <li>Pratique escrevendo resumos e explicações de conceitos técnicos em inglês.</li>
+      <li>Participe de fóruns e comunidades internacionais para aprimorar seu vocabulário e compreensão.</li>
+    </ul>
+    
+    <h2>Conclusão</h2>
+    <p>
+      Dominar a gramática básica e o vocabulário técnico é essencial para se destacar no mundo da tecnologia. Com os exercícios e exemplos apresentados neste módulo, você constrói uma base sólida para interpretar e produzir documentos técnicos, facilitando a comunicação com colegas de trabalho e o entendimento de manuais e artigos científicos. Continue praticando e revisando esses conceitos para evoluir continuamente sua proficiência em inglês técnico.
+    </p>
+  </section>
+  
+  <!-- Footer Global -->
+  <footer class="footer" id="contato">
+    <div class="footer-grid">
+      <div class="footer-section">
+        <div class="logo">
+          <img src="favcon.png" alt="ConectaUni">
+          <h3>ConectaUni</h3>
+        </div>
+        <p>Plataforma educacional colaborativa</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>Links Úteis</h4>
+        <ul>
+          <li><a href="index.html#sobre"><i class="fas fa-chevron-right"></i> Sobre Nós</a></li>
+          <li><a href="lista_curso.html"><i class="fas fa-chevron-right"></i> Cursos</a></li>
+          <li><a href="index.html#voluntarios"><i class="fas fa-chevron-right"></i> Voluntários</a></li>
+          <li><a href="index.html#contato"><i class="fas fa-chevron-right"></i> Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Contato</h4>
+        <ul class="contact-info">
+          <li><i class="fas fa-map-marker-alt"></i> Feira de Santana - BA</li>
+          <li><i class="fas fa-phone"></i> (75) 98144-0696</li>
+          <li><i class="fas fa-envelope"></i> mateus.queiroz.ti.mq@gmail.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 ConectaUni. Todos os direitos reservados.</p>
+      <div class="legal-links">
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Termos de Uso</a>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Botão Back to Top -->
+  <div id="backToTop" class="back-to-top" onclick="scrollToTop()">
+    <i class="fas fa-chevron-up"></i>
+  </div>
+  
+  <!-- Modais (Login/Cadastro e Widget de Chat) -->
+  <div class="modal-overlay" id="modalOverlay"></div>
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="hideModals()">&times;</span>
+      <h2><i class="fas fa-sign-in-alt"></i> Login</h2>
+      <form id="loginForm">
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" placeholder="E-mail" required id="loginEmail">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Senha" required id="loginPassword">
+        </div>
+        <button type="submit" class="btn-gradiente">Entrar</button>
+      </form>
+    </div>
+  </div>
+  <div id="signupModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="hideModals()">&times;</span>
+      <h2><i class="fas fa-user-plus"></i> Cadastro</h2>
+      <form id="signupForm">
+        <div class="input-group">
+          <i class="fas fa-user"></i>
+          <input type="text" placeholder="Nome completo" required id="signupName">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" placeholder="E-mail" required id="signupEmail">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Senha" required id="signupPassword">
+        </div>
+        <button type="submit" class="btn-gradiente">Cadastrar</button>
+      </form>
+    </div>
+  </div>
+  
+  <div id="chatWidget" class="chat-widget" onclick="toggleChatModal()">
+    <i class="fas fa-comments"></i>
+  </div>
+  <div id="chatModal" class="chat-modal">
+    <div class="chat-header">
+      <span>ChatBot</span>
+      <span class="close" onclick="toggleChatModal()">&times;</span>
+    </div>
+    <div class="chat-content" id="chatContent">
+      <p><strong>ChatBot:</strong> Olá! Como posso ajudar?</p>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="chatInput" placeholder="Digite sua mensagem...">
+      <button onclick="sendChatMessage()">Enviar</button>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>

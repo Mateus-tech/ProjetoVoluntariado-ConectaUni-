@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 5: Atividade de Apresentação - Inglês para Dev</title>
+  <!-- Ícones e CSS Global -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="curso_modulo.css">
+  <link rel="icon" href="favcon.png" type="image/x-icon">
+  <!-- CSS adicional para esta página -->
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; }
+    .atividade-content { padding: 40px 20px; max-width: 900px; margin: 0 auto; }
+    .atividade-content h2 { color: #264653; margin-top: 30px; }
+    .atividade-content h3 { color: #2A9D8F; margin-top: 20px; }
+    .atividade-content p { margin: 10px 0; }
+    .atividade-content pre {
+      background: #f4f4f4; padding: 10px; border-radius: 4px; overflow-x: auto; font-size: 0.95em;
+    }
+    .explicacao { background: #e7f4ea; padding: 10px; border-left: 5px solid #2A9D8F; margin: 20px 0; }
+    .answer { background: #f9f9f9; padding: 10px; border: 1px solid #ddd; margin-top: 10px; display: none; }
+    .toggle-btn { background: #2A9D8F; color: #fff; border: none; padding: 8px 12px; cursor: pointer; border-radius: 4px; }
+    
+    /* Cabeçalho do Curso */
+    .course-header {
+      display: flex; flex-direction: column; align-items: center; text-align: center; margin-top: 100px; padding: 20px;
+    }
+    .course-thumbnail {
+      position: relative; width: 100%; max-width: 800px; overflow: hidden; border-radius: 8px; margin-bottom: 20px;
+    }
+    .course-thumbnail img { width: 100%; height: auto; display: block; }
+    .course-tags {
+      position: absolute; bottom: 10px; left: 10px; background: rgba(0,0,0,0.5); padding: 5px 10px; border-radius: 5px; display: flex; gap: 10px;
+    }
+    .course-tags .tag { color: #fff; font-size: 0.9em; background: rgba(255,255,255,0.3); padding: 2px 5px; border-radius: 3px; }
+    .course-header h1 { font-size: 2.5rem; margin: 10px 0; color: #333; }
+    .course-header p { font-size: 1.2rem; color: #666; max-width: 800px; }
+    
+    /* Back to Top */
+    .back-to-top {
+      position: fixed; bottom: 20px; right: 20px; background: #2A9D8F; color: #fff; width: 40px; height: 40px;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2); transition: opacity 0.3s;
+    }
+    .back-to-top:hover { opacity: 0.8; }
+  </style>
+  <script>
+    // Função para alternar a visibilidade da resposta
+    function toggleAnswer(id) {
+      var answerDiv = document.getElementById(id);
+      if (answerDiv.style.display === "none" || answerDiv.style.display === "") {
+        answerDiv.style.display = "block";
+      } else {
+        answerDiv.style.display = "none";
+      }
+    }
+  </script>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html"><img src="favcon.png" alt="ConectaUni"></a>
+      <a href="index.html"><h1>ConectaUni</h1></a>
+    </div>
+    <div class="nav-links">
+      <a href="sobre.html"><i class="fas fa-info-circle"></i> Sobre</a>
+      <a href="lista_curso.html"><i class="fas fa-graduation-cap"></i> Cursos</a>
+      <a href="voluntarios.html"><i class="fas fa-hands-helping"></i> Seja Voluntário</a>
+      <a href="#contato"><i class="fas fa-envelope"></i> Contato</a>
+      <button class="btn-gradiente" onclick="showModal('login')">
+        <i class="fas fa-sign-in-alt"></i> Entrar
+      </button>
+      <button class="btn-gradiente" onclick="showModal('signup')">
+        <i class="fas fa-user-plus"></i> Cadastrar
+      </button>
+    </div>
+    <button id="darkModeToggle" onclick="toggleDarkMode()">
+      <i class="fas fa-moon"></i>
+    </button>
+    <button class="menu-toggle" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </button>
+  </nav>
+  
+  <!-- Cabeçalho do Módulo -->
+  <header class="course-header">
+    <div class="course-thumbnail">
+      <!-- Imagem ilustrativa para Atividade de Apresentação -->
+      <img src="https://posgraduando.com/wp-content/uploads/2016/01/apresentacao-grafico-06.jpg" alt="Apresentação Técnica" style="background:#fff; padding: 1rem;">
+      <div class="course-tags">
+        <span class="tag">Apresentação</span>
+        <span class="tag">Técnica</span>
+        <span class="tag">Gravação</span>
+      </div>
+    </div>
+    <h1>Módulo 5: Atividade de Apresentação</h1>
+    <p>Prepare e grave uma breve apresentação sobre um tema técnico.</p>
+  </header>
+  
+  <!-- Conteúdo Principal -->
+  <section class="atividade-content reveal">
+    <h2>Introdução</h2>
+    <p>
+      Apresentações técnicas são essenciais para compartilhar conhecimentos, apresentar projetos e comunicar ideias de forma clara e eficaz. Nesta atividade, você deverá preparar uma breve apresentação em inglês sobre um tema técnico à sua escolha. A atividade visa desenvolver suas habilidades de comunicação, organização de ideias e domínio do vocabulário técnico.
+    </p>
+    
+    <h2>Instruções</h2>
+    <ol>
+      <li>
+        <strong>Escolha um Tema:</strong> Selecione um tema técnico relevante, como "API Integration", "Cloud Computing", ou "Machine Learning Basics".
+      </li>
+      <li>
+        <strong>Estruture sua Apresentação:</strong> Organize o conteúdo em uma introdução, desenvolvimento (com pontos principais) e conclusão. Prepare um roteiro com os pontos-chave que você deseja abordar.
+      </li>
+      <li>
+        <strong>Prepare Recursos Visuais:</strong> Caso deseje, crie slides simples para apoiar sua apresentação. Lembre-se de que os slides devem complementar e não sobrecarregar sua fala.
+      </li>
+      <li>
+        <strong>Grave sua Apresentação:</strong> Use uma câmera ou software de gravação para registrar sua apresentação. Preste atenção na clareza, entonação e fluência do inglês técnico.
+      </li>
+      <li>
+        <strong>Revise e Melhore:</strong> Assista à gravação e anote pontos de melhoria, como correções na pronúncia ou ajustes na estrutura do conteúdo.
+      </li>
+    </ol>
+    
+    <h2>Exemplo de Roteiro</h2>
+    <button class="toggle-btn" onclick="toggleAnswer('apresentacaoEx')">Mostrar Exemplo</button>
+    <div id="apresentacaoEx" class="answer">
+      <pre>
+Title: "Introduction to API Integration"
+
+1. Introduction:
+   - Greet the audience.
+   - Introduce yourself briefly.
+   - State the topic: "Today, I will discuss API integration and its benefits."
+
+2. Main Content:
+   - Explain what an API is.
+   - Describe the steps for integrating an API into a web application.
+   - Highlight key benefits such as efficiency, scalability, and ease of maintenance.
+
+3. Conclusion:
+   - Summarize the main points.
+   - Thank the audience and invite questions.
+      </pre>
+      <p>
+        <strong>Explicação:</strong> Este exemplo de roteiro apresenta uma estrutura simples e organizada, facilitando a preparação de uma apresentação técnica clara e objetiva.
+      </p>
+    </div>
+    
+    <h2>Dicas para uma Apresentação Eficaz</h2>
+    <ul>
+      <li>Pratique sua apresentação várias vezes para ganhar fluência e confiança.</li>
+      <li>Foque na clareza e objetividade: evite jargões desnecessários e explique termos técnicos quando necessário.</li>
+      <li>Mantenha contato visual (mesmo que virtual) e use uma entonação adequada para enfatizar pontos importantes.</li>
+      <li>Use pausas estratégicas para dar tempo ao público de absorver as informações.</li>
+    </ul>
+    
+    <h2>Conclusão</h2>
+    <p>
+      Preparar e gravar uma apresentação técnica em inglês é uma excelente maneira de desenvolver suas habilidades de comunicação e se preparar para situações reais no ambiente profissional. Aproveite essa atividade para praticar e aprimorar sua fluência, clareza e domínio do vocabulário técnico.
+    </p>
+  </section>
+  
+  <!-- Footer Global -->
+  <footer class="footer" id="contato">
+    <div class="footer-grid">
+      <div class="footer-section">
+        <div class="logo">
+          <img src="favcon.png" alt="ConectaUni">
+          <h3>ConectaUni</h3>
+        </div>
+        <p>Plataforma educacional colaborativa</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>Links Úteis</h4>
+        <ul>
+          <li><a href="index.html#sobre"><i class="fas fa-chevron-right"></i> Sobre Nós</a></li>
+          <li><a href="lista_curso.html"><i class="fas fa-chevron-right"></i> Cursos</a></li>
+          <li><a href="index.html#voluntarios"><i class="fas fa-chevron-right"></i> Voluntários</a></li>
+          <li><a href="index.html#contato"><i class="fas fa-chevron-right"></i> Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Contato</h4>
+        <ul class="contact-info">
+          <li><i class="fas fa-map-marker-alt"></i> Feira de Santana - BA</li>
+          <li><i class="fas fa-phone"></i> (75) 98144-0696</li>
+          <li><i class="fas fa-envelope"></i> mateus.queiroz.ti.mq@gmail.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 ConectaUni. Todos os direitos reservados.</p>
+      <div class="legal-links">
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Termos de Uso</a>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Botão Back to Top -->
+  <div id="backToTop" class="back-to-top" onclick="scrollToTop()">
+    <i class="fas fa-chevron-up"></i>
+  </div>
+  
+  <!-- Modais (Login/Cadastro e Widget de Chat) -->
+  <div class="modal-overlay" id="modalOverlay"></div>
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="hideModals()">&times;</span>
+      <h2><i class="fas fa-sign-in-alt"></i> Login</h2>
+      <form id="loginForm">
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" placeholder="E-mail" required id="loginEmail">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Senha" required id="loginPassword">
+        </div>
+        <button type="submit" class="btn-gradiente">Entrar</button>
+      </form>
+    </div>
+  </div>
+  <div id="signupModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="hideModals()">&times;</span>
+      <h2><i class="fas fa-user-plus"></i> Cadastro</h2>
+      <form id="signupForm">
+        <div class="input-group">
+          <i class="fas fa-user"></i>
+          <input type="text" placeholder="Nome completo" required id="signupName">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" placeholder="E-mail" required id="signupEmail">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Senha" required id="signupPassword">
+        </div>
+        <button type="submit" class="btn-gradiente">Cadastrar</button>
+      </form>
+    </div>
+  </div>
+  
+  <div id="chatWidget" class="chat-widget" onclick="toggleChatModal()">
+    <i class="fas fa-comments"></i>
+  </div>
+  <div id="chatModal" class="chat-modal">
+    <div class="chat-header">
+      <span>ChatBot</span>
+      <span class="close" onclick="toggleChatModal()">&times;</span>
+    </div>
+    <div class="chat-content" id="chatContent">
+      <p><strong>ChatBot:</strong> Olá! Como posso ajudar?</p>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="chatInput" placeholder="Digite sua mensagem...">
+      <button onclick="sendChatMessage()">Enviar</button>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>

@@ -200,7 +200,7 @@
         video: `
           <p><strong>Módulo 1 - Gramática Básica e Vocabulário Técnico</strong></p>
           <p>Aprenda as regras gramaticais essenciais e o vocabulário usado no ambiente de desenvolvimento.</p>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" allowfullscreen style="width:100%; height:315px;"></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/CIQ2l8t5V8s?si=EWQtq_iJEpGy-5Ro"  allowfullscreen style="width:100%; height:315px;"></iframe>
         `,
         texto: [
           `<div class="text-content-box" style="height:300px; overflow-y:auto;">
@@ -235,7 +235,7 @@
         video: `
           <p><strong>Módulo 2 - Comunicação Técnica</strong></p>
           <p>Desenvolva habilidades para se comunicar efetivamente em ambientes de tecnologia.</p>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/9bZkp7q19f0" allowfullscreen style="width:100%; height:315px;"></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/C-Mc6SlvrfM?si=C8JDTWNz19_cXT4E" allowfullscreen style="width:100%; height:315px;"></iframe>
         `,
         texto: `
           <p><strong>Módulo 2 - Comunicação Técnica</strong></p>
@@ -251,7 +251,7 @@
         video: `
           <p><strong>Módulo 3 - Leitura e Escrita de Documentação Técnica</strong></p>
           <p>Descubra estratégias para compreender e produzir documentos técnicos de forma eficiente.</p>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/V-_O7nl0Ii0" allowfullscreen style="width:100%; height:315px;"></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/YvmH7tTcDY4?si=U09E8P4Ox1CEPMsQ"  allowfullscreen style="width:100%; height:315px;"></iframe>
         `,
         texto: `
           <p><strong>Módulo 3 - Leitura e Escrita de Documentação Técnica</strong></p>
@@ -283,7 +283,7 @@
         video: `
           <p><strong>Módulo 5 - Inglês Avançado: Apresentações e Negociações</strong></p>
           <p>Aprenda técnicas avançadas para apresentações e negociações em inglês.</p>
-          <iframe width="560" height="315" src="https://www.youtube.com/embed/tVj0ZTS4WF4" allowfullscreen style="width:100%; height:315px;"></iframe>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/W97woRZKARs?si=lh39kUY2fMzyYgfv" allowfullscreen style="width:100%; height:315px;"></iframe>
         `,
         texto: `
           <p><strong>Módulo 5 - Inglês Avançado: Apresentações e Negociações</strong></p>
@@ -525,27 +525,27 @@
                   <li>
                     <strong>Módulo 1: Atividade de Gramática e Vocabulário</strong>
                     <p>Pratique a identificação e o uso de termos técnicos.</p>
-                    <button class="btn-gradiente" onclick="location.href='atividade-modulo1.html'">Ir para Atividade</button>
+                    <button class="btn-gradiente" onclick="location.href='atividade-inglesdev-modulo1.html'">Ir para Atividade</button>
                   </li>
                   <li>
                     <strong>Módulo 2: Atividade de Comunicação Técnica</strong>
                     <p>Elabore um e-mail profissional em inglês.</p>
-                    <button class="btn-gradiente" onclick="location.href='atividade-modulo2.html'">Ir para Atividade</button>
+                    <button class="btn-gradiente" onclick="location.href='atividade-inglesdev-modulo2.html'">Ir para Atividade</button>
                   </li>
                   <li>
                     <strong>Módulo 3: Atividade de Documentação</strong>
                     <p>Resuma um documento técnico e destaque os pontos principais.</p>
-                    <button class="btn-gradiente" onclick="location.href='atividade-modulo3.html'">Ir para Atividade</button>
+                    <button class="btn-gradiente" onclick="location.href='atividade-inglesdev-modulo3.html'">Ir para Atividade</button>
                   </li>
                   <li>
                     <strong>Módulo 4: Simulação de Entrevista</strong>
                     <p>Participe de uma entrevista simulada para praticar suas respostas.</p>
-                    <button class="btn-gradiente" onclick="location.href='atividade-modulo4.html'">Ir para Atividade</button>
+                    <button class="btn-gradiente" onclick="location.href='atividade-inglesdev-modulo4.html'">Ir para Atividade</button>
                   </li>
                   <li>
                     <strong>Módulo 5: Atividade de Apresentação</strong>
                     <p>Prepare e grave uma breve apresentação sobre um tema técnico.</p>
-                    <button class="btn-gradiente" onclick="location.href='atividade-modulo5.html'">Ir para Atividade</button>
+                    <button class="btn-gradiente" onclick="location.href='atividade-inglesdev-modulo5.html'">Ir para Atividade</button>
                   </li>
                 </ul>
               </div>
@@ -639,7 +639,7 @@
             const moduleId = dropdown.getAttribute("data-module");
             if (type === "texto") {
               // Ao clicar em "Texto", redireciona para a página específica do módulo de texto
-              window.location.href = "curso_modulo_ingles" + moduleId + ".html?course=" + courseId;
+              window.location.href = "curso_modulo_ingles_dev" + moduleId + ".html?course=" + courseId;
             } else {
               let detailContent = modulosContent[moduleId][type] || "<p>Conteúdo indisponível.</p>";
               dropdown.querySelector(".module-detail").innerHTML = detailContent;

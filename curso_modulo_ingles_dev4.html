@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Módulo 4: Preparação para Entrevistas - ConectaUni</title>
+  <!-- Ícones e CSS Global -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="curso_modulo.css">
+  <link rel="icon" href="favcon.png" type="image/x-icon">
+  <!-- CSS adicional para esta página -->
+  <style>
+    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; margin: 0; }
+    .atividade-content { padding: 40px 20px; max-width: 900px; margin: 0 auto; }
+    .atividade-content h2 { color: #264653; margin-top: 30px; }
+    .atividade-content h3 { color: #2A9D8F; margin-top: 20px; }
+    .atividade-content p { margin: 10px 0; }
+    .atividade-content ul, .atividade-content ol { margin-left: 20px; }
+    .atividade-content pre {
+      background: #f4f4f4; padding: 10px; border-radius: 4px; overflow-x: auto; font-size: 0.95em;
+    }
+    .explicacao { background: #e7f4ea; padding: 10px; border-left: 5px solid #2A9D8F; margin: 20px 0; }
+    .answer { background: #f9f9f9; padding: 10px; border: 1px solid #ddd; margin-top: 10px; display: none; }
+    .toggle-btn { background: #2A9D8F; color: #fff; border: none; padding: 8px 12px; cursor: pointer; border-radius: 4px; }
+    
+    /* Cabeçalho do Curso */
+    .course-header {
+      display: flex; flex-direction: column; align-items: center; text-align: center; margin-top: 100px; padding: 20px;
+    }
+    .course-thumbnail {
+      position: relative; width: 100%; max-width: 800px; overflow: hidden; border-radius: 8px; margin-bottom: 20px;
+    }
+    .course-thumbnail img { width: 100%; height: auto; display: block; }
+    .course-tags {
+      position: absolute; bottom: 10px; left: 10px; background: rgba(0,0,0,0.5); padding: 5px 10px; border-radius: 5px; display: flex; gap: 10px;
+    }
+    .course-tags .tag { color: #fff; font-size: 0.9em; background: rgba(255,255,255,0.3); padding: 2px 5px; border-radius: 3px; }
+    .course-header h1 { font-size: 2.5rem; margin: 10px 0; color: #333; }
+    .course-header p { font-size: 1.2rem; color: #666; max-width: 800px; }
+    
+    /* Back to Top */
+    .back-to-top {
+      position: fixed; bottom: 20px; right: 20px; background: #2A9D8F; color: #fff; width: 40px; height: 40px;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2); transition: opacity 0.3s;
+    }
+    .back-to-top:hover { opacity: 0.8; }
+  </style>
+  <script>
+    // Função para alternar a visibilidade da resposta
+    function toggleAnswer(id) {
+      var answerDiv = document.getElementById(id);
+      if (answerDiv.style.display === "none" || answerDiv.style.display === "") {
+        answerDiv.style.display = "block";
+      } else {
+        answerDiv.style.display = "none";
+      }
+    }
+  </script>
+</head>
+<body>
+  <!-- Navbar Global -->
+  <nav class="navbar">
+    <div class="logo">
+      <a href="index.html"><img src="favcon.png" alt="ConectaUni"></a>
+      <a href="index.html"><h1>ConectaUni</h1></a>
+    </div>
+    <div class="nav-links">
+      <a href="sobre.html"><i class="fas fa-info-circle"></i> Sobre</a>
+      <a href="lista_curso.html"><i class="fas fa-graduation-cap"></i> Cursos</a>
+      <a href="voluntarios.html"><i class="fas fa-hands-helping"></i> Seja Voluntário</a>
+      <a href="#contato"><i class="fas fa-envelope"></i> Contato</a>
+      <button class="btn-gradiente" onclick="showModal('login')"><i class="fas fa-sign-in-alt"></i> Entrar</button>
+      <button class="btn-gradiente" onclick="showModal('signup')"><i class="fas fa-user-plus"></i> Cadastrar</button>
+    </div>
+    <button id="darkModeToggle" onclick="toggleDarkMode()"><i class="fas fa-moon"></i></button>
+    <button class="menu-toggle" onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+  </nav>
+  
+  <!-- Cabeçalho do Módulo -->
+  <header class="course-header">
+    <div class="course-thumbnail">
+      <!-- Imagem ilustrativa para Preparação para Entrevistas -->
+      <img src="https://inglesparadevs.io/wp-content/uploads/2023/07/INGLES-PARA-DEVS_logo.png" alt="Preparação para Entrevistas" style="background:#fff; padding: 1rem;">
+      <div class="course-tags">
+        <span class="tag">Entrevistas</span>
+        <span class="tag">Negociações</span>
+        <span class="tag">Apresentações</span>
+      </div>
+    </div>
+    <h1>Módulo 4: Preparação para Entrevistas</h1>
+    <p>Aprenda técnicas avançadas para se apresentar e negociar com confiança em inglês.</p>
+  </header>
+  
+  <!-- Conteúdo Didático do Módulo -->
+  <section class="atividade-content reveal">
+    <h2>Introdução</h2>
+    <p>
+      Entrevistas em inglês podem ser desafiadoras, mas com a preparação adequada você pode demonstrar seu conhecimento e profissionalismo. Este módulo fornece estratégias para aprimorar sua apresentação, responder perguntas técnicas e negociar condições de forma eficaz.
+    </p>
+    
+    <!-- Seção 1: Técnicas de Apresentação -->
+    <h2>1. Técnicas de Apresentação</h2>
+    <ul>
+      <li><strong>Preparação do Roteiro:</strong> Escreva um roteiro que inclua sua experiência, habilidades e conquistas. Pratique a apresentação para se sentir confortável.</li>
+      <li><strong>Uso de Slides:</strong> Crie slides simples que destaquem pontos-chave e gráficos relevantes. Evite excesso de texto.</li>
+      <li><strong>Prática de Entonação:</strong> Varie o tom de voz para enfatizar informações importantes e mantenha um ritmo adequado para garantir clareza.</li>
+      <li><strong>Simulação:</strong> Treine sua apresentação em frente a um espelho ou grave um vídeo para analisar sua postura e clareza na comunicação.</li>
+    </ul>
+    <div class="explicacao">
+      <p>
+        Essas práticas ajudam a transmitir confiança e profissionalismo durante a entrevista.
+      </p>
+    </div>
+    
+    <!-- Seção 2: Estratégias para Responder Perguntas -->
+    <h2>2. Estratégias para Responder Perguntas</h2>
+    <ul>
+      <li><strong>Estrutura STAR:</strong> Responda perguntas comportamentais usando a técnica STAR (Situação, Tarefa, Ação, Resultado) para organizar suas respostas de forma clara.</li>
+      <li><strong>Seja Conciso:</strong> Responda de forma objetiva, focando nos pontos principais e evitando divagações.</li>
+      <li><strong>Exemplos Concretos:</strong> Use exemplos reais de experiências anteriores para demonstrar seu conhecimento e habilidades.</li>
+      <li><strong>Prepare Respostas para Perguntas Comuns:</strong> Pratique respostas para perguntas frequentes como "Tell me about yourself", "What are your strengths and weaknesses?" e "Why do you want to work with us?"</li>
+    </ul>
+    <div class="explicacao">
+      <p>
+        Organizar suas respostas com antecedência permite que você comunique suas ideias de forma estruturada e confiante.
+      </p>
+    </div>
+    
+    <!-- Seção 3: Negociação de Condições -->
+    <h2>3. Negociação de Condições</h2>
+    <p>
+      Negociar salário e benefícios é uma parte importante do processo seletivo. Algumas dicas:
+    </p>
+    <ul>
+      <li><strong>Pesquisa de Mercado:</strong> Informe-se sobre os salários médios para sua posição na sua região ou internacionalmente.</li>
+      <li><strong>Seja Flexível:</strong> Além do salário, considere benefícios, oportunidades de crescimento e ambiente de trabalho.</li>
+      <li><strong>Utilize Expressões Adequadas:</strong> Frases como "I am looking for a competitive offer" e "I value professional growth opportunities" ajudam a transmitir suas expectativas de forma profissional.</li>
+    </ul>
+    <div class="explicacao">
+      <p>
+        Uma negociação bem-sucedida envolve preparação e comunicação clara sobre suas expectativas e necessidades.
+      </p>
+    </div>
+    
+    <!-- Seção 4: Exercícios Práticos -->
+    <h2>4. Exercícios Práticos</h2>
+    
+    <!-- Exercício 1: Criando um Roteiro de Apresentação -->
+    <div class="atividade">
+      <h3>Exercício 1: Roteiro de Apresentação</h3>
+      <p>
+        Escreva um roteiro de 3-5 minutos em inglês onde você se apresenta, descreve sua experiência e destaca um projeto relevante. Em seguida, pratique apresentá-lo em voz alta.
+      </p>
+      <button class="toggle-btn" onclick="toggleAnswer('interviewEx1')">Mostrar Exemplo</button>
+      <div id="interviewEx1" class="answer">
+        <pre>
+"Hello, my name is John Doe. I have over 5 years of experience in software development, specializing in full-stack development. One of my notable projects was building a scalable web application that increased user engagement by 30%. I am passionate about continuous learning and excited to bring my expertise to your team."
+        </pre>
+        <p><strong>Explicação:</strong> Este roteiro segue uma estrutura clara: apresentação, experiência, destaque de projeto e uma conclusão que demonstra motivação.</p>
+      </div>
+    </div>
+    
+    <!-- Exercício 2: Simulação de Negociação -->
+    <div class="atividade">
+      <h3>Exercício 2: Simulação de Negociação</h3>
+      <p>
+        Imagine que você está em uma entrevista e o assunto do salário é abordado. Crie um diálogo em inglês para negociar condições de trabalho, utilizando frases adequadas.
+      </p>
+      <button class="toggle-btn" onclick="toggleAnswer('interviewEx2')">Mostrar Exemplo</button>
+      <div id="interviewEx2" class="answer">
+        <pre>
+Interviewer: "What are your salary expectations?"
+Candidate: "Based on my experience and market research, I am looking for a competitive offer. I value professional growth opportunities and would appreciate a performance-based bonus structure."
+Interviewer: "That sounds reasonable. We'll consider that in our offer."
+        </pre>
+        <p><strong>Explicação:</strong> Este diálogo mostra uma negociação profissional, onde o candidato expressa suas expectativas de forma clara e usa termos apropriados para a negociação.</p>
+      </div>
+    </div>
+    
+    <h2>Dicas para Preparação para Entrevistas</h2>
+    <ul>
+      <li>Pratique sua apresentação e negociação em voz alta, gravando e analisando seu desempenho.</li>
+      <li>Prepare respostas estruturadas para as perguntas mais comuns utilizando a técnica STAR.</li>
+      <li>Pesquise sobre a empresa e o cargo para alinhar suas respostas com a cultura e os objetivos da organização.</li>
+      <li>Peça feedback a colegas ou mentores e participe de simulações de entrevistas sempre que possível.</li>
+    </ul>
+    
+    <h2>Conclusão</h2>
+    <p>
+      Preparar-se para entrevistas em inglês envolve prática e estratégia. Ao dominar técnicas de apresentação, negociação e respostas estruturadas, você aumenta suas chances de sucesso e se destaca como um candidato confiante e preparado para atuar em ambientes internacionais.
+    </p>
+  </section>
+  
+  <!-- Footer Global -->
+  <footer class="footer" id="contato">
+    <div class="footer-grid">
+      <div class="footer-section">
+        <div class="logo">
+          <img src="favcon.png" alt="ConectaUni">
+          <h3>ConectaUni</h3>
+        </div>
+        <p>Plataforma educacional colaborativa</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-linkedin"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-section">
+        <h4>Links Úteis</h4>
+        <ul>
+          <li><a href="index.html#sobre"><i class="fas fa-chevron-right"></i> Sobre Nós</a></li>
+          <li><a href="lista_curso.html"><i class="fas fa-chevron-right"></i> Cursos</a></li>
+          <li><a href="index.html#voluntarios"><i class="fas fa-chevron-right"></i> Voluntários</a></li>
+          <li><a href="index.html#contato"><i class="fas fa-chevron-right"></i> Contato</a></li>
+        </ul>
+      </div>
+      <div class="footer-section">
+        <h4>Contato</h4>
+        <ul class="contact-info">
+          <li><i class="fas fa-map-marker-alt"></i> Feira de Santana - BA</li>
+          <li><i class="fas fa-phone"></i> (75) 98144-0696</li>
+          <li><i class="fas fa-envelope"></i> mateus.queiroz.ti.mq@gmail.com</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 ConectaUni. Todos os direitos reservados.</p>
+      <div class="legal-links">
+        <a href="#">Política de Privacidade</a>
+        <a href="#">Termos de Uso</a>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Botão Back to Top -->
+  <div id="backToTop" class="back-to-top" onclick="scrollToTop()">
+    <i class="fas fa-chevron-up"></i>
+  </div>
+  
+  <!-- Modais (Login/Cadastro e Widget de Chat) -->
+  <div class="modal-overlay" id="modalOverlay"></div>
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="hideModals()">&times;</span>
+      <h2><i class="fas fa-sign-in-alt"></i> Login</h2>
+      <form id="loginForm">
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" placeholder="E-mail" required id="loginEmail">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Senha" required id="loginPassword">
+        </div>
+        <button type="submit" class="btn-gradiente">Entrar</button>
+      </form>
+    </div>
+  </div>
+  <div id="signupModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="hideModals()">&times;</span>
+      <h2><i class="fas fa-user-plus"></i> Cadastro</h2>
+      <form id="signupForm">
+        <div class="input-group">
+          <i class="fas fa-user"></i>
+          <input type="text" placeholder="Nome completo" required id="signupName">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-envelope"></i>
+          <input type="email" placeholder="E-mail" required id="signupEmail">
+        </div>
+        <div class="input-group">
+          <i class="fas fa-lock"></i>
+          <input type="password" placeholder="Senha" required id="signupPassword">
+        </div>
+        <button type="submit" class="btn-gradiente">Cadastrar</button>
+      </form>
+    </div>
+  </div>
+  
+  <div id="chatWidget" class="chat-widget" onclick="toggleChatModal()">
+    <i class="fas fa-comments"></i>
+  </div>
+  <div id="chatModal" class="chat-modal">
+    <div class="chat-header">
+      <span>ChatBot</span>
+      <span class="close" onclick="toggleChatModal()">&times;</span>
+    </div>
+    <div class="chat-content" id="chatContent">
+      <p><strong>ChatBot:</strong> Olá! Como posso ajudar?</p>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="chatInput" placeholder="Digite sua mensagem...">
+      <button onclick="sendChatMessage()">Enviar</button>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
