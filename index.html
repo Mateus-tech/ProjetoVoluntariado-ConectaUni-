@@ -46,17 +46,33 @@
     </button>
   </nav>
   
-  <!-- Hero -->
-  <section class="hero" id="home">
-    <div class="hero-content reveal">
-      <h1>Conectando Saberes, Transformando Vidas</h1>
-      <p>Plataforma colaborativa para voluntariado educacional</p>
-      <div class="search-bar">
-        <input type="text" placeholder="Buscar cursos, matérias ou voluntários...">
-        <button class="btn-gradiente"><i class="fas fa-search"></i> Buscar</button>
-      </div>
+  <!-- ... restante do seu HTML ... -->
+
+<!-- Seção de Pesquisa na Hero -->
+<section class="hero" id="home">
+  <div class="hero-content reveal">
+    <h1>Conectando Saberes, Transformando Vidas</h1>
+    <p>Plataforma colaborativa para voluntariado educacional</p>
+    <div class="search-bar">
+      <input type="text" id="searchInput" placeholder="Buscar cursos, matérias ou voluntários...">
+      <button class="btn-gradiente" id="searchButton">
+        <i class="fas fa-search"></i> Buscar
+      </button>
     </div>
-  </section>
+  </div>
+</section>
+
+<!-- Modal de Resultados da Busca -->
+<div id="searchResults" class="search-results-modal">
+  <div class="search-results-content">
+    <span class="close" onclick="closeSearchResults()">&times;</span>
+    <h2>Resultados da Busca</h2>
+    <div id="resultsContainer"></div>
+  </div>
+</div>
+
+<!-- ... restante do seu HTML ... -->
+
     
   <!-- Seção de Eventos Integra SI com Cards Redondos e Animação de Bordas Gradiente -->
  <!-- Seção de Eventos Integra SI com Cards Redondos e Animação de Bordas Gradiente -->
@@ -285,5 +301,6 @@
   </div>
   
   <script src="script.js"></script>
+  
 </body>
 </html>

@@ -330,3 +330,110 @@ document.querySelector('.chat-input button').addEventListener('click', (e) => {
     sendChatMessage();
 });
 
+// Função de busca fixa com palavras-chave
+function performFixedSearch() {
+  const query = document.getElementById('searchInput').value.trim().toLowerCase();
+  let resultHTML = '';
+
+  if (!query) return; // Se o campo estiver vazio, não faz nada
+
+  // Verifica palavras-chave fixas e define o card a ser exibido
+  if (query.includes('php')) {
+    resultHTML = `
+      <div class="search-result-card">
+        <a href="evento_php.html">
+          <img src="https://th.bing.com/th/id/OIP.4TBOzc_Xomz1nFnGWWVtUAHaDn?w=1000&h=488&rs=1&pid=ImgDetMain" alt="PHP do Zero">
+          <h3>PHP do Zero</h3>
+          <p>Aprenda PHP do zero com nossos módulos práticos.</p>
+        </a>
+      </div>
+    `;
+  }
+   else if (query.includes('ingles') || query.includes('inglês')) {
+    resultHTML = `
+      <div class="search-result-card">
+        <a href="lista_curso.html">
+          <img src="https://i0.wp.com/sheltermar.com.br/wp-content/uploads/2020/08/english-course.png?fit=1000%2C563&ssl=1" alt="Nivelamento - Inglês">
+          <h3>Inglês para Dev</h3>
+          <p>Aprenda ou reforce o inglês para Desenvolvedores.</p>
+        </a>
+      </div>
+    `;
+  }  
+   else {
+    resultHTML = '<p>Nenhum resultado encontrado para a sua busca.</p>';
+  }
+
+  // Exibe os resultados no modal
+  document.getElementById('resultsContainer').innerHTML = resultHTML;
+  document.getElementById('searchResults').style.display = 'flex';
+}
+
+// Função para fechar o modal de resultados
+function closeSearchResults() {
+  document.getElementById('searchResults').style.display = 'none';
+}
+
+// Configuração dos event listeners após o carregamento do DOM
+document.addEventListener('DOMContentLoaded', () => {
+  const searchButton = document.getElementById('searchButton');
+  const searchInput = document.getElementById('searchInput');
+  if (searchButton && searchInput) {
+    searchButton.addEventListener('click', performFixedSearch);
+    searchInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        performFixedSearch();
+      }
+    });
+  }
+});
+ // Controle dos filtros de cursos
+    let currentFilter = 'all';
+
+    function setFilter(filter) {
+      currentFilter = filter;
+      const buttons = document.querySelectorAll('.filter-btn');
+      buttons.forEach(btn => {
+        btn.classList.remove('active');
+        if (btn.getAttribute('data-filter') === filter) {
+          btn.classList.add('active');
+        }
+      });
+      filterCourses();
+    }
+
+    function filterCourses() {
+      const searchValue = document.getElementById('courseSearch').value.toLowerCase();
+      const categoryValue = document.getElementById('categoryFilter').value;
+      const courses = document.querySelectorAll('.course-card');
+
+      courses.forEach(course => {
+        const title = course.querySelector('.course-info h3').textContent.toLowerCase();
+        const description = course.querySelector('.course-info p').textContent.toLowerCase();
+        const authorNode = course.querySelector('.course-info p');
+        let author = "";
+        if(authorNode) {
+          author = authorNode.innerText.replace("Autor:", "").toLowerCase();
+        }
+        const type = course.getAttribute('data-type');
+        const category = course.getAttribute('data-category');
+
+        let matchesFilter = (currentFilter === 'all' || type === currentFilter);
+        let matchesCategory = (categoryValue === 'all' || category === categoryValue);
+        let matchesSearch = (title.includes(searchValue) || description.includes(searchValue) || author.includes(searchValue));
+
+        course.style.display = (matchesFilter && matchesCategory && matchesSearch) ? 'block' : 'none';
+      });
+    }
+
+    // Pesquisa em tempo real
+    document.getElementById('courseSearch').addEventListener('keyup', filterCourses);
+
+    // Modal de Assinatura
+    function showSubscriptionModal() {
+      document.getElementById('subscriptionModal').style.display = 'block';
+    }
+
+    function hideModals() {
+      document.querySelectorAll('.modal').forEach(modal => modal.style.display = 'none');
+    }
