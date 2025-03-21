@@ -187,7 +187,7 @@ body.dark-mode .navbar {
 }
 .carousel-track {
   display: flex;
-  animation: scrollCarousel 20s linear infinite;
+  animation: scrollCarousel 10s linear infinite;
 }
 .card {
   min-width: 300px;
@@ -1681,8 +1681,9 @@ margin-bottom: 0%;
   .carousel-track {
     animation: scrollCarousel 30s linear infinite;
   }
-}
+
 @keyframes scrollCarousel {
   0% { transform: translateX(0); }
   100% { transform: translateX(-600%); } /* Certifique-se de que esse valor corresponde à duplicação dos slides */
+}
 }
