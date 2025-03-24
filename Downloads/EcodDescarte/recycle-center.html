@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pontos de Coleta e Reciclagem - EcoTroca</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="header-top">
+        <!-- Logo -->
+        <a href="index.html" class="logo">
+          <i class="fas fa-recycle logo-icon"></i>
+          <span>EcoTroca</span>
+        </a>
+        
+        <!-- Search Bar -->
+        <div class="search-bar">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" placeholder="Buscar itens, categorias...">
+        </div>
+        
+        <!-- User Navigation -->
+        <div class="user-nav">
+          <a href="#">
+            <i class="far fa-heart user-nav-icon"></i>
+            <span>Favoritos</span>
+          </a>
+          <a href="#">
+            <i class="far fa-comment-dots user-nav-icon"></i>
+            <span>Mensagens</span>
+          </a>
+          <a href="#">
+            <i class="far fa-user user-nav-icon"></i>
+            <span>Entrar</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section style="background-color: #e8f5e9; padding: 50px 0;">
+      <div class="container">
+        <div style="text-align: center; max-width: 800px; margin: 0 auto;">
+          <h1 style="font-size: 2rem; color: #2e7d32; margin-bottom: 20px;">Pontos de Coleta e Reciclagem</h1>
+          <p style="color: #555; margin-bottom: 30px;">
+            Encontre locais próximos para descartar seus itens de forma responsável, contribuindo para um mundo mais sustentável.
+          </p>
+          
+          <form id="recycling-search-form" style="max-width: 600px; margin: 0 auto; position: relative;">
+            <input 
+              type="text" 
+              id="recycling-search"
+              placeholder="Buscar por nome, local ou tipo de item aceito..." 
+              style="width: 100%; padding: 12px 20px 12px 45px; border: 1px solid #ddd; border-radius: 30px; font-size: 16px; box-shadow: 0 2px 10px rgba(0,0,0,0.1);">
+            <button type="submit" style="position: absolute; left: 15px; top: 50%; transform: translateY(-50%); background: none; border: none; color: #666; font-size: 18px;">
+              <i class="fas fa-search"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Centers List Section -->
+    <section style="padding: 40px 0;">
+      <div class="container">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+          <h2 class="centers-count">Pontos encontrados</h2>
+          <div>
+            <select class="sort-select">
+              <option value="nearest">Mais próximos</option>
+              <option value="name">Nome (A-Z)</option>
+              <option value="items">Mais itens aceitos</option>
+            </select>
+          </div>
+        </div>
+        
+        <!-- Centers Container -->
+        <div class="recycling-centers-container">
+          <!-- Conteúdo será carregado pelo JavaScript -->
+        </div>
+      </div>
+    </section>
+    
+    <!-- Information Section -->
+    <section style="background-color: #f9f9f9; padding: 60px 0;">
+      <div class="container">
+        <div style="max-width: 800px; margin: 0 auto;">
+          <h2 style="font-size: 1.8rem; margin-bottom: 20px; color: #333;">Por que descartar corretamente?</h2>
+          <div style="line-height: 1.7; color: #555;">
+            <p style="margin-bottom: 15px;">
+              O descarte incorreto de resíduos causa graves problemas ambientais como poluição do solo, da água e do ar. Ao descartar seus itens corretamente em pontos de coleta adequados, você:
+            </p>
+            <ul style="margin-left: 20px; margin-bottom: 20px;">
+              <li style="margin-bottom: 10px;">Reduz a poluição e seus impactos sobre ecossistemas e saúde humana</li>
+              <li style="margin-bottom: 10px;">Contribui para a reciclagem e reaproveitamento de materiais</li>
+              <li style="margin-bottom: 10px;">Diminui a extração de matérias-primas da natureza</li>
+              <li style="margin-bottom: 10px;">Economiza energia e reduz emissões de gases de efeito estufa</li>
+              <li style="margin-bottom: 10px;">Promove a economia circular e a geração de empregos verdes</li>
+            </ul>
+            <p>
+              Cada pequena ação pode fazer uma grande diferença. Se cada pessoa der o destino correto aos seus resíduos, juntos construiremos um mundo mais sustentável.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <a href="index.html" class="logo">
+            <i class="fas fa-recycle logo-icon"></i>
+            <span>EcoTroca</span>
+          </a>
+          <p>Uma plataforma para conectar pessoas interessadas em vender, trocar, descartar de maneira correta ou doar materiais que não utilizam mais.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Navegação</h3>
+          <div class="footer-links">
+            <a href="index.html">Início</a>
+            <a href="index.html?transactionType=sale">Comprar</a>
+            <a href="create-listing.html">Vender</a>
+            <a href="index.html?transactionType=trade">Trocar</a>
+            <a href="index.html?transactionType=donation">Doar</a>
+            <a href="recycling-centers.html">Pontos de Descarte</a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Ajuda</h3>
+          <div class="footer-links">
+            <a href="#">Como funciona</a>
+            <a href="#">Perguntas frequentes</a>
+            <a href="#">Regras da comunidade</a>
+            <a href="#">Segurança</a>
+            <a href="#">Contato</a>
+          </div>
+        </div>
+        
+        <div class="footer-section footer-newsletter">
+          <h3>Newsletter</h3>
+          <p>Receba novidades sobre sustentabilidade e novos itens disponíveis.</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Seu e-mail" class="newsletter-input">
+            <button type="submit" class="newsletter-button">
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="footer-bottom-links">
+          <a href="#">Termos de uso</a>
+          <a href="#">Política de privacidade</a>
+          <a href="#">Cookies</a>
+        </div>
+        <p class="copyright">&copy; 2025 EcoTroca. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Mobile Navigation -->
+  <nav class="mobile-nav">
+    <div class="mobile-nav-list">
+      <a href="index.html" class="mobile-nav-item">
+        <i class="fas fa-home mobile-nav-icon"></i>
+        <span>Início</span>
+      </a>
+      <a href="#" class="mobile-nav-item">
+        <i class="fas fa-search mobile-nav-icon"></i>
+        <span>Buscar</span>
+      </a>
+      <a href="#" class="mobile-nav-item">
+        <i class="fas fa-comment-dots mobile-nav-icon"></i>
+        <span>Mensagens</span>
+      </a>
+      <a href="#" class="mobile-nav-item">
+        <i class="fas fa-user mobile-nav-icon"></i>
+        <span>Perfil</span>
+      </a>
+    </div>
+  </nav>
+  
+  <!-- Floating Action Button for Mobile -->
+  <a href="create-listing.html" class="create-button">
+    <i class="fas fa-plus"></i>
+  </a>
+  
+  <!-- Scripts -->
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

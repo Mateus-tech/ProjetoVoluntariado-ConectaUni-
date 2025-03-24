@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EcoTroca - Venda, troque, doe ou descarte</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="header-top">
+        <!-- Logo -->
+        <a href="index.html" class="logo">
+          <i class="fas fa-recycle logo-icon"></i>
+          <span>EcoTroca</span>
+        </a>
+        
+        <!-- Search Bar -->
+        <div class="search-bar">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" placeholder="Buscar itens, categorias...">
+        </div>
+        
+        <!-- User Navigation -->
+        <div class="user-nav">
+          <a href="#">
+            <i class="far fa-heart user-nav-icon"></i>
+            <span>Favoritos</span>
+          </a>
+          <a href="#">
+            <i class="far fa-comment-dots user-nav-icon"></i>
+            <span>Mensagens</span>
+          </a>
+           <a href="#login" class="nav-link" onclick="showAuthModal()">
+        <i class="far fa-user user-nav-icon"></i>
+        <span>Entrar</span>
+    </a>
+</div>
+      </div>
+      
+      <!-- Category Navigation -->
+      <div class="category-nav">
+        <ul class="category-list">
+          <li>
+            <a href="index.html" data-category="all" class="active">
+              <i class="fas fa-home category-icon"></i>
+              <span>Todos</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" data-category="furniture">
+              <i class="fas fa-couch category-icon"></i>
+              <span>Móveis</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" data-category="clothing">
+              <i class="fas fa-tshirt category-icon"></i>
+              <span>Roupas</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" data-category="electronics">
+              <i class="fas fa-mobile-alt category-icon"></i>
+              <span>Eletrônicos</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" data-category="appliances">
+              <i class="fas fa-tv category-icon"></i>
+              <span>Eletrodomésticos</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" data-category="decoration">
+              <i class="fas fa-paint-brush category-icon"></i>
+              <span>Decoração</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" data-category="sports">
+              <i class="fas fa-dumbbell category-icon"></i>
+              <span>Esportes</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" data-category="collectibles">
+              <i class="fas fa-box category-icon"></i>
+              <span>Colecionáveis</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" data-category="other">
+              <i class="fas fa-ellipsis-h category-icon"></i>
+              <span>Outros</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Main Content -->
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-text">
+            <h1>Dê uma nova vida aos seus itens</h1>
+            <p>Venda, troque, doe ou descarte materiais que não usa mais de maneira responsável e ajude a construir um mundo mais sustentável.</p>
+            <div class="hero-buttons">
+              <a href="create-listing.html" class="btn btn-primary">Anunciar item</a>
+              <a href="#" class="btn btn-secondary">Saiba mais</a>
+            </div>
+          </div>
+          <div class="hero-image">
+            <img src="https://images.unsplash.com/photo-1593776806924-999a39516e79?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&h=350&q=80" alt="Reuse, recycle, repurpose">
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Transaction Type Tabs -->
+    <section class="transaction-tabs">
+      <div class="container">
+        <div class="tabs-list">
+          <button data-type="sale" class="active">Venda</button>
+          <button data-type="trade">Troca</button>
+          <button data-type="donation">Doação</button>
+          <button data-type="disposal">Descarte responsável</button>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Filter Bar -->
+    <section class="filter-bar">
+      <div class="container">
+        <div class="filter-container">
+          <div class="filter-options">
+            <button class="filter-button">
+              <i class="fas fa-filter filter-icon"></i>
+              Filtros
+            </button>
+            <button class="filter-button">
+              <i class="fas fa-map-marker-alt filter-icon"></i>
+              Localização
+            </button>
+            <button class="filter-button">
+              <i class="fas fa-sort-amount-down filter-icon"></i>
+              Preço
+            </button>
+            <button class="filter-button">
+              <i class="fas fa-sliders-h filter-icon"></i>
+              Estado
+            </button>
+          </div>
+          <div class="sort-option">
+            <span class="item-count">0 itens</span>
+            <select class="sort-select">
+              <option value="newest">Mais recentes</option>
+              <option value="priceAsc">Menor preço</option>
+              <option value="priceDesc">Maior preço</option>
+              <option value="nearest">Mais próximos</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Items Container -->
+    <section class="container items-container">
+      <!-- Conteúdo será carregado pelo JavaScript -->
+    </section>
+  </main>
+  
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <a href="index.html" class="logo">
+            <i class="fas fa-recycle logo-icon"></i>
+            <span>EcoTroca</span>
+          </a>
+          <p>Uma plataforma para conectar pessoas interessadas em vender, trocar, descartar de maneira correta ou doar materiais que não utilizam mais.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Navegação</h3>
+          <div class="footer-links">
+            <a href="index.html">Início</a>
+            <a href="index.html?transactionType=sale">Comprar</a>
+            <a href="create-listing.html">Vender</a>
+            <a href="index.html?transactionType=trade">Trocar</a>
+            <a href="index.html?transactionType=donation">Doar</a>
+            <a href="recycling-centers.html">Pontos de Descarte</a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Ajuda</h3>
+          <div class="footer-links">
+            <a href="#">Como funciona</a>
+            <a href="#">Perguntas frequentes</a>
+            <a href="#">Regras da comunidade</a>
+            <a href="#">Segurança</a>
+            <a href="#">Contato</a>
+          </div>
+        </div>
+        
+        <div class="footer-section footer-newsletter">
+          <h3>Newsletter</h3>
+          <p>Receba novidades sobre sustentabilidade e novos itens disponíveis.</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Seu e-mail" class="newsletter-input">
+            <button type="submit" class="newsletter-button">
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="footer-bottom-links">
+          <a href="#">Termos de uso</a>
+          <a href="#">Política de privacidade</a>
+          <a href="#">Cookies</a>
+        </div>
+        <p class="copyright">&copy; 2025 EcoTroca. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Mobile Navigation -->
+  <nav class="mobile-nav">
+    <div class="mobile-nav-list">
+      <a href="index.html" class="mobile-nav-item">
+        <i class="fas fa-home mobile-nav-icon"></i>
+        <span>Início</span>
+      </a>
+      <a href="#" class="mobile-nav-item">
+        <i class="fas fa-search mobile-nav-icon"></i>
+        <span>Buscar</span>
+      </a>
+      <a href="#" class="mobile-nav-item">
+        <i class="fas fa-comment-dots mobile-nav-icon"></i>
+        <span>Mensagens</span>
+      </a>
+      <a href="#" class="mobile-nav-item">
+        <i class="fas fa-user mobile-nav-icon"></i>
+        <span>Perfil</span>
+      </a>
+    </div>
+  </nav>
+  
+  <!-- Floating Action Button for Mobile -->
+  <a href="create-listing.html" class="create-button">
+    <i class="fas fa-plus"></i>
+  </a>
+
+<body>
+  <!-- Adicione este modal de login/cadastro -->
+  <div id="authModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeModal('authModal')">&times;</span>
+      <div class="auth-tabs">
+        <button class="tablink active" onclick="openAuthTab('login')">Login</button>
+        <button class="tablink" onclick="openAuthTab('signup')">Cadastro</button>
+      </div>
+
+      <div id="login" class="auth-tabcontent active">
+        <input type="email" id="loginEmail" placeholder="Email">
+        <input type="password" id="loginPassword" placeholder="Senha">
+        <button onclick="login()">Entrar</button>
+      </div>
+
+      <div id="signup" class="auth-tabcontent">
+        <input type="text" id="signupName" placeholder="Nome completo">
+        <input type="email" id="signupEmail" placeholder="Email">
+        <input type="password" id="signupPassword" placeholder="Senha">
+        <input type="tel" id="signupPhone" placeholder="Telefone">
+        <button onclick="signup()">Criar conta</button>
+      </div>
+      
+      <div id="authMessage"></div>
+    </div>
+  </div>
+
+  <!-- Header (atualizado com estado de login) -->
+  <header>
+    <div class="container">
+      <div class="header-top">
+        <!-- ... (logo mantido) ... -->
+        
+        <!-- User Navigation atualizada -->
+        <div class="user-nav" id="userNav">
+          <a href="#" id="authLink" onclick="showAuthModal()">
+            <i class="far fa-user user-nav-icon"></i>
+            <span>Entrar</span>
+          </a>
+          <div id="loggedInUser" style="display: none;">
+            <img id="userAvatar" class="user-avatar">
+            <span id="userName"></span>
+            <button onclick="logout()">Sair</button>
+          </div>
+        </div>
+      </div>
+      <!-- ... (restante mantido igual) ... -->
+    </div>
+  </header>
+
+  <!-- ... (main content mantido igual) ... -->
+
+  <script type="module">
+    // Configuração do Firebase
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+    import { 
+      getAuth, 
+      createUserWithEmailAndPassword, 
+      signInWithEmailAndPassword, 
+      signOut,
+      onAuthStateChanged
+    } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+    import { 
+      getFirestore, 
+      collection, 
+      addDoc, 
+      getDocs,
+      doc,
+      setDoc
+    } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
+
+    const firebaseConfig = {
+        apiKey: "AIzaSyDjFvnUJMtOSll7r0gREYsa6XaQRjtheWY",
+        authDomain: "voluntariado-e3dde.firebaseapp.com",
+        projectId: "voluntariado-e3dde", // Alterado para projectId
+        storageBucket: "voluntariado-e3dde.appspot.com", // Corrigido
+        messagingSenderId: "1013080901588",
+        appId: "1:1013080901588:web:268838a8c5c50ecf04b841"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    // Função de login corrigida
+    async function login() {
+        const email = document.getElementById('loginEmail').value;
+        const password = document.getElementById('loginPassword').value;
+
+        try {
+            await signInWithEmailAndPassword(auth, email, password);
+            closeModal('authModal');
+            alert('Login realizado com sucesso!');
+        } catch (error) {
+            document.getElementById('authMessage').textContent = this.handleAuthError(error);
+        }
+    }
+
+    // Função para tratar erros
+    handleAuthError(error) {
+        switch(error.code) {
+            case 'auth/invalid-email':
+                return 'E-mail inválido';
+            case 'auth/user-disabled':
+                return 'Usuário desativado';
+            case 'auth/user-not-found':
+                return 'Usuário não encontrado';
+            case 'auth/wrong-password':
+                return 'Senha incorreta';
+            default:
+                return 'Erro ao fazer login';
+        }
+    }
+
+    // Atualize o evento de clique do botão Entrar
+    document.querySelectorAll('.user-nav a')[2].addEventListener('click', function(e) {
+        e.preventDefault();
+        showAuthModal();
+    });
+
+    // Corrija a exibição do modal
+    function showAuthModal() {
+        const modal = document.getElementById('authModal');
+        modal.style.display = 'flex'; // Alterado para flex
+        document.getElementById('login').style.display = 'block';
+        document.getElementById('signup').style.display = 'none';
+    }
+
+    // Adicione esta função para fechar o modal
+    function closeModal() {
+        document.getElementById('authModal').style.display = 'none';
+    };
+
+
+    // Controle de autenticação
+    onAuthStateChanged(auth, async (user) => {
+      const userNav = document.getElementById('userNav');
+      if (user) {
+        // Usuário logado
+        document.getElementById('authLink').style.display = 'none';
+        document.getElementById('loggedInUser').style.display = 'flex';
+        document.getElementById('userName').textContent = user.displayName || user.email;
+        
+        // Carrega produtos
+        loadProducts();
+      } else {
+        // Usuário não logado
+        document.getElementById('authLink').style.display = 'block';
+        document.getElementById('loggedInUser').style.display = 'none';
+      }
+    });
+
+    // Funções de autenticação
+    async function signup() {
+      const email = document.getElementById('signupEmail').value;
+      const password = document.getElementById('signupPassword').value;
+      const name = document.getElementById('signupName').value;
+      const phone = document.getElementById('signupPhone').value;
+
+      try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        
+        // Salva dados adicionais no Firestore
+        await setDoc(doc(db, "users", userCredential.user.uid), {
+          name: name,
+          email: email,
+          phone: phone,
+          createdAt: new Date()
+        });
+
+        closeModal('authModal');
+      } catch (error) {
+        document.getElementById('authMessage').textContent = error.message;
+      }
+    }
+
+    async function login() {
+      const email = document.getElementById('loginEmail').value;
+      const password = document.getElementById('loginPassword').value;
+
+      try {
+        await signInWithEmailAndPassword(auth, email, password);
+        closeModal('authModal');
+      } catch (error) {
+        document.getElementById('authMessage').textContent = error.message;
+      }
+    }
+
+    async function logout() {
+      try {
+        await signOut(auth);
+      } catch (error) {
+        console.error("Erro ao fazer logout:", error);
+      }
+    }
+
+    // Carregar produtos do Firestore
+    async function loadProducts() {
+      const itemsContainer = document.querySelector('.items-container');
+      itemsContainer.innerHTML = '';
+
+      const querySnapshot = await getDocs(collection(db, "products"));
+      querySnapshot.forEach((doc) => {
+        const product = doc.data();
+        itemsContainer.innerHTML += `
+          <div class="item-card">
+            <img src="${product.images[0]}" alt="${product.title}">
+            <div class="item-info">
+              <h3>${product.title}</h3>
+              <div class="item-meta">
+                <span class="price">${product.price ? 'R$ ' + product.price : 'Doação'}</span>
+                <span class="location">${product.location}</span>
+              </div>
+              <div class="seller-info">
+                <img src="${product.userAvatar || 'https://via.placeholder.com/40'}" 
+                     class="seller-avatar" 
+                     alt="${product.userName}">
+                <span>${product.userName}</span>
+              </div>
+            </div>
+          </div>
+        `;
+      });
+    }
+
+    // Controle do modal
+    function showAuthModal() {
+      document.getElementById('authModal').style.display = 'block';
+    }
+
+    function closeModal(modalId) {
+      document.getElementById(modalId).style.display = 'none';
+    }
+
+    // Inicialização
+    window.onclick = function(event) {
+      if (event.target.className === 'modal') {
+        event.target.style.display = 'none';
+      }
+    }
+    // Adicione esta função para alternar entre abas
+function openAuthTab(tabName) {
+  document.querySelectorAll('.auth-tabcontent').forEach(tab => {
+    tab.style.display = 'none';
+  });
+  document.querySelectorAll('.tablink').forEach(btn => {
+    btn.classList.remove('active');
+  });
+  document.getElementById(tabName).style.display = 'block';
+  event.currentTarget.classList.add('active');
+}
+
+// Atualize a função de fechar modal
+function closeModal(modalId) {
+  document.getElementById(modalId).style.display = 'none';
+  document.getElementById('authMessage').textContent = '';
+}
+
+// Atualize o evento de clique fora do modal
+window.onclick = function(event) {
+  if (event.target.classList.contains('modal')) {
+    closeModal('authModal');
+  }
+}
+  </script>
+
+  <style>
+    /* Estilos adicionais para o sistema de autenticação */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.4);
+    }
+
+    .modal-content {
+      background-color: #fff;
+      margin: 15% auto;
+      padding: 20px;
+      width: 80%;
+      max-width: 400px;
+      border-radius: 8px;
+    }
+
+    .auth-tabs {
+      display: flex;
+      margin-bottom: 20px;
+    }
+
+    .tablink {
+      flex: 1;
+      padding: 10px;
+      border: none;
+      background: #ddd;
+      cursor: pointer;
+    }
+
+    .tablink.active {
+      background: #4CAF50;
+      color: white;
+    }
+
+    .auth-tabcontent {
+      display: none;
+    }
+
+    .auth-tabcontent.active {
+      display: block;
+    }
+
+    #authMessage {
+      color: red;
+      margin-top: 10px;
+    }
+
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+  </style>
+
+</body>
+</html>

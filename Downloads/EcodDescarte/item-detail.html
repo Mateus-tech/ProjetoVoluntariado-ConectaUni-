@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detalhes do Item - EcoTroca</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="header-top">
+        <!-- Logo -->
+        <a href="index.html" class="logo">
+          <i class="fas fa-recycle logo-icon"></i>
+          <span>EcoTroca</span>
+        </a>
+        
+        <!-- Search Bar -->
+        <div class="search-bar">
+          <i class="fas fa-search search-icon"></i>
+          <input type="text" placeholder="Buscar itens, categorias...">
+        </div>
+        
+        <!-- User Navigation -->
+        <div class="user-nav">
+          <a href="#">
+            <i class="far fa-heart user-nav-icon"></i>
+            <span>Favoritos</span>
+          </a>
+          <a href="#">
+            <i class="far fa-comment-dots user-nav-icon"></i>
+            <span>Mensagens</span>
+          </a>
+          <a href="#">
+            <i class="far fa-user user-nav-icon"></i>
+            <span>Entrar</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </header>
+  
+  <!-- Main Content -->
+  <main>
+    <div class="container" style="margin-top: 20px;">
+      <!-- Back Button -->
+      <a href="index.html" class="btn btn-outline" style="margin-bottom: 20px;">
+        <i class="fas fa-chevron-left" style="margin-right: 8px;"></i>
+        Voltar para a lista
+      </a>
+      
+      <!-- Item Detail Container -->
+      <div class="item-detail-container">
+        <!-- Conteúdo será carregado pelo JavaScript -->
+      </div>
+    </div>
+    
+    <!-- Related Items Section -->
+    <section class="related-items" style="background-color: #f9f9f9; padding: 40px 0; margin-top: 40px;">
+      <div class="container">
+        <h2>Itens relacionados</h2>
+        <div class="items-grid">
+          <!-- Esse é apenas um exemplo e seria preenchido dinamicamente -->
+          <div class="item-card">
+            <div class="item-image">
+              <img src="https://via.placeholder.com/300x220" alt="Item relacionado">
+              <span class="item-status status-available">Disponível</span>
+            </div>
+            <div class="item-details">
+              <h3 class="item-title">Mesa de madeira</h3>
+              <p class="item-price">R$ 150,00</p>
+              <div class="item-meta">
+                <span class="item-location">
+                  <i class="fas fa-map-marker-alt location-icon"></i> 
+                  São Paulo, SP
+                </span>
+                <span>2 dias atrás</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="item-card">
+            <div class="item-image">
+              <img src="https://via.placeholder.com/300x220" alt="Item relacionado">
+              <span class="item-status status-available">Disponível</span>
+            </div>
+            <div class="item-details">
+              <h3 class="item-title">Cadeira de escritório</h3>
+              <p class="item-price">R$ 200,00</p>
+              <div class="item-meta">
+                <span class="item-location">
+                  <i class="fas fa-map-marker-alt location-icon"></i> 
+                  São Paulo, SP
+                </span>
+                <span>3 dias atrás</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <a href="index.html" class="logo">
+            <i class="fas fa-recycle logo-icon"></i>
+            <span>EcoTroca</span>
+          </a>
+          <p>Uma plataforma para conectar pessoas interessadas em vender, trocar, descartar de maneira correta ou doar materiais que não utilizam mais.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Navegação</h3>
+          <div class="footer-links">
+            <a href="index.html">Início</a>
+            <a href="index.html?transactionType=sale">Comprar</a>
+            <a href="create-listing.html">Vender</a>
+            <a href="index.html?transactionType=trade">Trocar</a>
+            <a href="index.html?transactionType=donation">Doar</a>
+            <a href="recycling-centers.html">Pontos de Descarte</a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h3>Ajuda</h3>
+          <div class="footer-links">
+            <a href="#">Como funciona</a>
+            <a href="#">Perguntas frequentes</a>
+            <a href="#">Regras da comunidade</a>
+            <a href="#">Segurança</a>
+            <a href="#">Contato</a>
+          </div>
+        </div>
+        
+        <div class="footer-section footer-newsletter">
+          <h3>Newsletter</h3>
+          <p>Receba novidades sobre sustentabilidade e novos itens disponíveis.</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Seu e-mail" class="newsletter-input">
+            <button type="submit" class="newsletter-button">
+              <i class="fas fa-paper-plane"></i>
+            </button>
+          </form>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="footer-bottom-links">
+          <a href="#">Termos de uso</a>
+          <a href="#">Política de privacidade</a>
+          <a href="#">Cookies</a>
+        </div>
+        <p class="copyright">&copy; 2025 EcoTroca. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- Mobile Navigation -->
+  <nav class="mobile-nav">
+    <div class="mobile-nav-list">
+      <a href="index.html" class="mobile-nav-item">
+        <i class="fas fa-home mobile-nav-icon"></i>
+        <span>Início</span>
+      </a>
+      <a href="#" class="mobile-nav-item">
+        <i class="fas fa-search mobile-nav-icon"></i>
+        <span>Buscar</span>
+      </a>
+      <a href="#" class="mobile-nav-item">
+        <i class="fas fa-comment-dots mobile-nav-icon"></i>
+        <span>Mensagens</span>
+      </a>
+      <a href="#" class="mobile-nav-item">
+        <i class="fas fa-user mobile-nav-icon"></i>
+        <span>Perfil</span>
+      </a>
+    </div>
+  </nav>
+  
+  <!-- Floating Action Button for Mobile -->
+  <a href="create-listing.html" class="create-button">
+    <i class="fas fa-plus"></i>
+  </a>
+  
+  <!-- Scripts -->
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

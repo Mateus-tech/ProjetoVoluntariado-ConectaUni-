@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cadastro - EcoTroca</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body { font-family: Arial, sans-serif; background: #f1f1f1; display: flex; justify-content: center; align-items: center; height: 100vh; }
+    .container { background: #fff; padding: 20px; border-radius: 8px; max-width: 400px; width: 100%; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    h1 { text-align: center; }
+    input { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 4px; }
+    button { width: 100%; padding: 10px; border: none; border-radius: 4px; background: #4CAF50; color: #fff; font-size: 16px; cursor: pointer; }
+    button:hover { background: #45a049; }
+    .message { color: red; text-align: center; margin-top: 10px; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Cadastro</h1>
+    <input type="text" id="signupName" placeholder="Nome completo">
+    <input type="email" id="signupEmail" placeholder="Digite seu e-mail">
+    <input type="password" id="signupPassword" placeholder="Digite sua senha">
+    <input type="tel" id="signupPhone" placeholder="Telefone (opcional)">
+    <button id="signupBtn">Criar Conta</button>
+    <div class="message" id="signupMessage"></div>
+    <p style="text-align:center; margin-top:15px;">
+      Já tem conta? <a href="login.html">Entrar</a>
+    </p>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-auth.js";
+    import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.6.10/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyDjFvnUJMtOSll7r0gREYsa6XaQRjtheWY",
+      authDomain: "voluntariado-e3dde.firebaseapp.com",
+      projectId: "voluntariado-e3dde",
+      storageBucket: "voluntariado-e3dde.appspot.com",
+      messagingSenderId: "1013080901588",
+      appId: "1:1013080901588:web:268838a8c5c50ecf04b841"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    document.getElementById('signupBtn').addEventListener('click', async () => {
+      const name = document.getElementById('signupName').value;
+      const email = document.getElementById('signupEmail').value;
+      const password = document.getElementById('signupPassword').value;
+      const phone = document.getElementById('signupPhone').value;
+      const messageEl = document.getElementById('signupMessage');
+      messageEl.textContent = "";
+
+      try {
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        // Armazena dados adicionais no Firestore
+        await setDoc(doc(db, "users", userCredential.user.uid), {
+          nome: name,
+          email: email,
+          telefone: phone,
+          criadoEm: new Date()
+        });
+        // Após cadastro bem-sucedido, redireciona para a página de login ou para a área restrita
+        window.location.href = "login.html";
+      } catch (error) {
+        let errorMessage = "";
+        switch(error.code) {
+          case 'auth/email-already-in-use':
+            errorMessage = 'E-mail já cadastrado';
+            break;
+          case 'auth/invalid-email':
+            errorMessage = 'E-mail inválido';
+            break;
+          case 'auth/weak-password':
+            errorMessage = 'Senha fraca (mínimo 6 caracteres)';
+            break;
+          default:
+            errorMessage = 'Erro no cadastro';
+        }
+        messageEl.textContent = errorMessage;
+      }
+    });
+
+    // Se já estiver logado, redireciona para a página principal
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        window.location.href = "index.html?success=1";
+    }
+    });
+  </script>
+</body>
+</html>
